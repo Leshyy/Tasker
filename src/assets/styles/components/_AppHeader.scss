@@ -1,9 +1,32 @@
 .main-header {
     width: 150px;
+    padding: 10px 5px;
     background-color: #292f4c;
     height: 100vh;
-    > * {
-        display: flex;
+    flex-direction: column;
+    .top-header {
         flex-direction: column;
+        height: 200px;
+        justify-content: space-between;
+        img {
+            margin: 10px auto;
+            height: 90px;
+            width: 90px;
+            cursor: pointer;
+        }
+        span {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .nav-header {
+        flex-direction: column;
+        height: 250px;
+        margin-bottom: 40px;
+        a {
+            color: white;
+            text-decoration: none;
+        }
     }
 }
