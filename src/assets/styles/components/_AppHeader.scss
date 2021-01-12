@@ -1,0 +1,9 @@
+.main-header {
+    width: 150px;
+    background-color: #292f4c;
+    height: 100vh;
+    > * {
+        display: flex;
+        flex-direction: column;
+    }
+}
