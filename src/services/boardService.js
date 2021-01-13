@@ -1,11 +1,15 @@
+import { boards } from '../data/boardDB.json'
+
 export const boardService = {
     query,
     save,
-    remove
+    remove,
+    getById
 }
 
 
 function query() {
+    return boards
 }
 
 function save() {
@@ -17,3 +21,6 @@ function remove() {
 
 }
 
+function getById(boardId) {
+    return boards.find(board => board._id === boardId)
+}

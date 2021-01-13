@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { BoardDetails } from '../cmps/BoardDetails'
 import { BoardSideNav } from '../cmps/BoardSideNav'
 
@@ -11,9 +12,12 @@ export class BoardApp extends Component {
 
     render() {
         return (
-            <section className="board-app">
+            <section className="board-app flex">
                 <BoardSideNav />
-                <BoardDetails />
+                <Switch>
+                    <Route path="/board/:boardId" component={BoardDetails} />
+                    {/* <BoardDetails /> */}
+                </Switch>
 
             </section>
         )

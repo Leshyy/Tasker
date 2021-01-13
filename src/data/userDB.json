@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "_id": "",
+            "isAdmin": true,
+            "notifications": [
+                {
+                    "byUser": {
+                        "_id": "",
+                        "fullname": "",
+                        "imgUrl": ""
+                    },
+                    "content": "",
+                    "createdAt": 1606733792261
+                }
+            ],
+            "fullname": "",
+            "username": "",
+            "email": "",
+            "password": "",
+            "phoneNumber": "",
+            "birthday": "",
+            "company": "",
+            "score": "",
+            "createdAt": 1601297334426
+        }
+    ]
+}
