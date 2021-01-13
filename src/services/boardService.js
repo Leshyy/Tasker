@@ -1,6 +1,6 @@
-import { boards } from '../data/boardDB.json'
+import { httpService } from './httpService'
 
-var gBoards = boards
+const BASE_URL = 'board'
 
 export const boardService = {
     query,
@@ -10,8 +10,9 @@ export const boardService = {
 }
 
 
-function query() {
-    return gBoards
+async function query() {
+    const boards = await httpService.get(BASE_URL)
+    return boards
 }
 
 function save() {
@@ -19,11 +20,11 @@ function save() {
 
 }
 
-function remove(boardId) {
-    gBoards = gBoards.filter(board => board._id !== boardId)
+async function remove(boardId) {
+    await httpService.delete(BASE_URL + '/' + boardId)
 }
 
-function getById(boardId) {
-    return gBoards.find(board => board._id === boardId)
+async function getById(boardId) {
+    return await httpService.get(BASE_URL + '/' + boardId)
 }
 

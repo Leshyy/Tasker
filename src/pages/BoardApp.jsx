@@ -1,31 +1,26 @@
 import { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { BoardDetails } from '../cmps/BoardDetails'
 import { BoardSideNav } from '../cmps/BoardSideNav'
-import { boardService } from '../services/boardService'
+import { loadBoards, removeBoard } from '../store/actions/boardAction'
 
-export class BoardApp extends Component {
-    state = {
-        boards: null
-    }
-
+class _BoardApp extends Component {
     componentDidMount() {
         this.loadBoards()
     }
     loadBoards = () => {
-        const boards = boardService.query()
-
-        this.setState({ boards })
+        this.props.loadBoards()
     }
 
-    onRemove = (boardId) => {
-        boardService.remove(boardId)
+    onRemove = async (boardId) => {
+        await this.props.removeBoard(boardId)
         this.loadBoards()
     }
 
 
     render() {
-        const { boards } = this.state
+        const { boards } = this.props
         if (!boards) return <div>Loading...</div>
         return (
             <section className="board-app flex">
@@ -38,3 +33,17 @@ export class BoardApp extends Component {
         )
     }
 }
+const mapGlobalStateToProps = (state) => {
+    return {
+        boards: state.boardReducer.boards
+    };
+};
+const mapDispatchToProps = {
+    loadBoards,
+    removeBoard
+}
+
+export const BoardApp = connect(
+    mapGlobalStateToProps,
+    mapDispatchToProps
+)(_BoardApp);
