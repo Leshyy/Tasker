@@ -1,9 +1,4 @@
-// Guidelines
-// *. Save the entire board, dont handle mini-updates
-// *. No need for saving an activities array per task, those activities are easily filtered from the board activities
-
-
-var dbJSON = {
+{
     "boards": [
         {
             "_id": "j23h5",
@@ -43,7 +38,11 @@ var dbJSON = {
                         {
                             "id": "6785gjd",
                             "name": "Add, delete, customize and move groups easily on your board",
-                            "tags": ["demo", "instructions", "tutorial"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -91,13 +90,18 @@ var dbJSON = {
                                         "imgUrl": ""
                                     },
                                     "text": "Or simply chat with the task members"
-                                },
+                                }
                             ]
                         },
                         {
                             "id": "4h45k7",
                             "name": "Invite team members",
-                            "tags": ["demo", "instructions", "tutorial", "members"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "members"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -121,7 +125,12 @@ var dbJSON = {
                         {
                             "id": "3kgr4f",
                             "name": "View Your Team Progress",
-                            "tags": ["demo", "instructions", "tutorial", "progress"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "progress"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -145,7 +154,12 @@ var dbJSON = {
                         {
                             "id": "65kfk8",
                             "name": "Use Your Dashboard",
-                            "tags": ["demo", "instructions", "tutorial", "dashboard"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "dashboard"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -178,7 +192,12 @@ var dbJSON = {
                         {
                             "id": "OS45N5",
                             "name": "Quick search everyting",
-                            "tags": ["demo", "instructions", "tutorial", "search"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "search"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -202,7 +221,12 @@ var dbJSON = {
                         {
                             "id": "Fdg667",
                             "name": "Check notifications",
-                            "tags": ["demo", "instructions", "tutorial", "notifications"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "notifications"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -226,7 +250,12 @@ var dbJSON = {
                         {
                             "id": "KF45G97",
                             "name": "Set Deadlines",
-                            "tags": ["demo", "instructions", "tutorial", "deadlines"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "deadlines"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -259,7 +288,12 @@ var dbJSON = {
                         {
                             "id": "OS45N5",
                             "name": "Quick search everyting",
-                            "tags": ["demo", "instructions", "tutorial", "search"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "search"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -283,7 +317,12 @@ var dbJSON = {
                         {
                             "id": "Fdg667",
                             "name": "Check notifications",
-                            "tags": ["demo", "instructions", "tutorial", "notifications"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "notifications"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -307,7 +346,12 @@ var dbJSON = {
                         {
                             "id": "KF45G97",
                             "name": "Set Deadlines",
-                            "tags": ["demo", "instructions", "tutorial", "deadlines"],
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "deadlines"
+                            ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
@@ -329,7 +373,7 @@ var dbJSON = {
                             "comments": []
                         }
                     ]
-                },
+                }
             ],
             "activities": [
                 {
@@ -373,7 +417,7 @@ var dbJSON = {
                         "id": "4h45k7",
                         "name": "Invite team members"
                     }
-                },
+                }
             ]
         }
     ],
@@ -398,7 +442,7 @@ var dbJSON = {
         "phoneNumber": "",
         "birthday": "",
         "company": "",
-        "score": "", //when user completes a task
+        "score": "",
         "createdAt": 1601297334426
     }
 }
