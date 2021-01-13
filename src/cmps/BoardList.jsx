@@ -5,7 +5,7 @@ export function BoardList({ boards }) {
         <section className="board-list">
             {boards.map(board => {
                 return <BoardPreview
-                    key={board.id}
+                    key={board._id}
                     board={board}
                 />
             })}

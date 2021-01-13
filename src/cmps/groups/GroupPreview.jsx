@@ -2,12 +2,13 @@ import { Component } from 'react'
 import { TaskList } from '../tasks/TaskList'
 export class GroupPreview extends Component {
     render() {
+        const { group } = this.props
         return (
             <section className="group-preview">
                 <div className="header-group flex">
                     <div className="header-left flex">
                         <button>Edit</button>
-                        <h2>name group</h2>
+                        <h2>{group.name}</h2>
                     </div>
                     <div className="header-right flex">
                         <h3>Members</h3>
@@ -17,7 +18,7 @@ export class GroupPreview extends Component {
                     </div>
                 </div>
                 <div>
-                    <TaskList />
+                    {/* <TaskList /> */}
                 </div>
             </section>
         )
