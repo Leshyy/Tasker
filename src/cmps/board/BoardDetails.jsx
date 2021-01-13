@@ -1,10 +1,10 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { GroupList } from './groups/GroupList'
-import { loadBoard } from '../store/actions/boardAction'
+import { GroupList } from '../groups/GroupList'
+import { loadBoard } from '../../store/actions/boardAction'
+import { boardService } from '../../services/boardService'
 
 export class _BoardDetails extends Component {
-
 
     componentDidMount() {
         // get board id from url and set it to state
@@ -20,14 +20,24 @@ export class _BoardDetails extends Component {
         this.props.loadBoard(boardId)
     }
 
+    onAddTask = async (txt, groupId) => {
+        const { activeBoard } = this.props
+        const savedTask = taskService.add(txt)
+        activeBoard.groups[groupId].push(savedTask)
+        await boardService.update(activeBoard)
+        this.loadActiveBoard()
+
+
+    }
+
     render() {
         const { activeBoard } = this.props
-        if (!activeBoard) return <div>Loading...</div>
+        if (!activeBoard) return <div>Loading no active user...</div>
         return (
             <section>
                 <h1>{activeBoard.name}</h1>
                 <h1>{activeBoard.desc}</h1>
-                <GroupList groups={activeBoard.groups} />
+                <GroupList groups={activeBoard.groups} onAddTask={this.onAddTask} />
 
             </section>
         )
@@ -36,7 +46,6 @@ export class _BoardDetails extends Component {
 
 const mapGlobalStateToProps = (state) => {
     return {
-        boards: state.boardReducer.boards,
         activeBoard: state.boardReducer.activeBoard
     };
 };
