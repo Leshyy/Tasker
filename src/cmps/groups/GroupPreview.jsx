@@ -4,7 +4,7 @@ import { TaskList } from '../tasks/TaskList'
 
 export class GroupPreview extends Component {
     render() {
-        const { group } = this.props
+        const { group, onAddTask } = this.props
         const { tasks } = group
         return (
             <section className="group-preview">
@@ -24,7 +24,7 @@ export class GroupPreview extends Component {
                 <div>
                     <TaskList tasks={tasks} />
                 </div>
-                <TaskAdd />
+                <TaskAdd onAddTask={onAddTask} groupId={group.id} />
 
             </section>
         )

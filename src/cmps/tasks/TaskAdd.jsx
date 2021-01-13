@@ -16,12 +16,15 @@ export class TaskAdd extends Component {
 
     onAddTask = (ev) => {
         ev.preventDefault()
-        console.log('state on input', this.state.task);
+        const taskName = this.state.task.txt
+        const { groupId } = this.props
+        this.props.onAddTask(taskName, groupId)
         this.setState({
             task: {
                 txt: '',
             }
         })
+
     }
 
     render() {
