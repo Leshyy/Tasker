@@ -18,7 +18,10 @@ export class GroupPreview extends Component {
                     </div>
                 </div>
                 <div>
-                    {/* <TaskList /> */}
+                    {group.tasks.map(task => {
+                        return <TaskList key={task.id} task={task} />
+                    })}
+
                 </div>
             </section>
         )

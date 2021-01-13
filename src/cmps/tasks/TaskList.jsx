@@ -1,10 +1,9 @@
 import { TaskPreview } from "./TaskPreview";
 
-export function TaskList() {
+export function TaskList({ task }) {
+    console.log('group is:', task);
     return (
         <div>
-            <TaskPreview />
-            <TaskPreview />
             <TaskPreview />
         </div>
     )
