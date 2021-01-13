@@ -7,7 +7,6 @@ export const taskService = {
 }
 
 async function add(txt) {
-    console.log('end is:', txt, board, groupId);
     return _createTask(txt)
 }
 
