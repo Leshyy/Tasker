@@ -3,6 +3,7 @@ import { TaskList } from '../tasks/TaskList'
 export class GroupPreview extends Component {
     render() {
         const { group } = this.props
+        const { tasks } = group
         return (
             <section className="group-preview">
                 <div className="header-group flex">
@@ -15,13 +16,11 @@ export class GroupPreview extends Component {
                         <h3>Status</h3>
                         <h3>Due-date</h3>
                         <h3>Priority</h3>
+                        {/* <h3>Notes</h3> */}
                     </div>
                 </div>
                 <div>
-                    {group.tasks.map(task => {
-                        return <TaskList key={task.id} task={task} />
-                    })}
-
+                    <TaskList tasks={tasks} />
                 </div>
             </section>
         )
