@@ -1,5 +1,7 @@
 import { boards } from '../data/boardDB.json'
 
+var gBoards = boards
+
 export const boardService = {
     query,
     save,
@@ -9,7 +11,7 @@ export const boardService = {
 
 
 function query() {
-    return boards
+    return gBoards
 }
 
 function save() {
@@ -17,10 +19,11 @@ function save() {
 
 }
 
-function remove() {
-
+function remove(boardId) {
+    gBoards = gBoards.filter(board => board._id !== boardId)
 }
 
 function getById(boardId) {
-    return boards.find(board => board._id === boardId)
+    return gBoards.find(board => board._id === boardId)
 }
+
