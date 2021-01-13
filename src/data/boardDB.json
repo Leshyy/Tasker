@@ -183,102 +183,6 @@
                     ]
                 },
                 {
-                    "id": "0tt6nj",
-                    "name": "Become A Tasker Master",
-                    "createdAt": 23757231,
-                    "updatedAt": 234623543,
-                    "color": "green",
-                    "tasks": [
-                        {
-                            "id": "OS45N5",
-                            "name": "Quick search everyting",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "search"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Working on it",
-                            "priority": "High",
-                            "note": "Use the search feature",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        },
-                        {
-                            "id": "Fdg6ERT67",
-                            "name": "Check notifications",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "notifications"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2uk35b",
-                                    "fullname": "Tair Bitan",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Stuck",
-                            "priority": "Low",
-                            "note": "",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        },
-                        {
-                            "id": "KF45G78997",
-                            "name": "Set Deadlines",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "deadlines"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Completed",
-                            "priority": "High",
-                            "note": "",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        }
-                    ]
-                },
-                {
                     "id": "KJdr45",
                     "name": "Know Your Dashboard",
                     "createdAt": 23757231,
@@ -346,6 +250,102 @@
                         {
                             "id": "KF45G34597",
                             "name": "Filter boards, groups and tasks in one click",
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "deadlines"
+                            ],
+                            "createdAt": 1606733763732,
+                            "updatedAt": 1606733763732,
+                            "members": [
+                                {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "status": "Completed",
+                            "priority": "High",
+                            "note": "",
+                            "dueDate": 1606820163000,
+                            "comments": []
+                        }
+                    ]
+                },
+                {
+                    "id": "0tt6nj",
+                    "name": "Become A Tasker Master",
+                    "createdAt": 23757231,
+                    "updatedAt": 234623543,
+                    "color": "green",
+                    "tasks": [
+                        {
+                            "id": "OS45N5",
+                            "name": "Quick search everyting",
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "search"
+                            ],
+                            "createdAt": 1606733763732,
+                            "updatedAt": 1606733763732,
+                            "members": [
+                                {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "status": "Working on it",
+                            "priority": "High",
+                            "note": "Use the search feature",
+                            "dueDate": 1606820163000,
+                            "comments": []
+                        },
+                        {
+                            "id": "Fdg6ERT67",
+                            "name": "Check notifications",
+                            "tags": [
+                                "demo",
+                                "instructions",
+                                "tutorial",
+                                "notifications"
+                            ],
+                            "createdAt": 1606733763732,
+                            "updatedAt": 1606733763732,
+                            "members": [
+                                {
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
+                                    "imgUrl": ""
+                                },
+                                {
+                                    "_id": "kj346",
+                                    "fullname": "Tamir Leshetz",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "status": "Stuck",
+                            "priority": "Low",
+                            "note": "",
+                            "dueDate": 1606820163000,
+                            "comments": []
+                        },
+                        {
+                            "id": "KF45G78997",
+                            "name": "Set Deadlines",
                             "tags": [
                                 "demo",
                                 "instructions",

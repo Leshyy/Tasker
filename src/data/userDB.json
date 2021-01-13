@@ -1,27 +1,75 @@
 {
-    "users": [
+    "user": [
         {
-            "_id": "",
+            "_id": "2uk35b",
             "isAdmin": true,
             "notifications": [
                 {
                     "byUser": {
-                        "_id": "",
-                        "fullname": "",
+                        "_id": "2h3j5b",
+                        "fullname": "Amit Weiss",
                         "imgUrl": ""
                     },
-                    "content": "",
+                    "content": "Take a look at the new group I have invited you to",
                     "createdAt": 1606733792261
                 }
             ],
-            "fullname": "",
-            "username": "",
-            "email": "",
-            "password": "",
-            "phoneNumber": "",
-            "birthday": "",
-            "company": "",
-            "score": "",
+            "fullname": "Tair Bitan",
+            "username": "Tair",
+            "email": "tairbitan19@gmail.com",
+            "password": "tair1234",
+            "phoneNumber": "0526200893",
+            "birthday": "19/09/1996",
+            "company": "Mister Bit.",
+            "score": 0,
+            "createdAt": 1601297334426
+        },
+        {
+            "_id": "2h3j5b",
+            "isAdmin": true,
+            "notifications": [
+                {
+                    "byUser": {
+                        "_id": "kj346",
+                        "fullname": "Tamir Leshetz",
+                        "imgUrl": ""
+                    },
+                    "content": "I need you to please change the structure in TaskPreview",
+                    "createdAt": 1606733792261
+                }
+            ],
+            "fullname": "Amit Weiss",
+            "username": "Amit",
+            "email": "amitwe26@gmail.com",
+            "password": "amit1234",
+            "phoneNumber": "0526260896",
+            "birthday": "26/08/1996",
+            "company": "Mister Bit.",
+            "score": 0,
+            "createdAt": 1601297334426
+        },
+        {
+            "_id": "kj346",
+            "isAdmin": true,
+            "notifications": [
+                {
+                    "byUser": {
+                        "_id": "2uk35b",
+                        "fullname": "Tair Bitan",
+                        "imgUrl": ""
+                    },
+                    "content": "Note that the data structure is dnoe. now you can import it and use real data",
+                    "createdAt": 1606733792261
+                }
+            ],
+            "fullname": "Tamir Leshetz",
+            "username": "Tamir",
+            "email": "tamir.leshetz@gmail.com",
+            "password": "tamir1234",
+            "phoneNumber": "0546543145",
+            "birthday": "04/03/2000",
+            "company": "Mister Bit.",
+            "score": 0,
             "createdAt": 1601297334426
         }
     ]
