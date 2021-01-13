@@ -1,11 +1,12 @@
 import { Component } from 'react'
-import { GroupList } from './groups/GroupList'
+import { Link } from 'react-router-dom'
 
 export class BoardPreview extends Component {
     render() {
+        const { board } = this.props
         return (
             <section className="board-preview">
-                <GroupList />
+                <Link to={`/${board._id}`}>{board.name}</Link>
             </section>
         )
     }

@@ -4,12 +4,12 @@ export const boardService = {
     remove
 }
 
-function query() {
 
+function query() {
 }
 
 function save() {
-    socketService.emit('borardUpdate')
+    // socketService.emit('borardUpdate')
 
 }
 
