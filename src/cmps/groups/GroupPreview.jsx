@@ -1,5 +1,7 @@
 import { Component } from 'react'
+import { TaskAdd } from '../tasks/TaskAdd'
 import { TaskList } from '../tasks/TaskList'
+
 export class GroupPreview extends Component {
     render() {
         const { group } = this.props
@@ -22,6 +24,8 @@ export class GroupPreview extends Component {
                 <div>
                     <TaskList tasks={tasks} />
                 </div>
+                <TaskAdd />
+
             </section>
         )
     }

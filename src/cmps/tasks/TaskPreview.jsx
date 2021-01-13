@@ -12,13 +12,11 @@ export class TaskPreview extends Component {
                 </div>
                 <div className="task-right flex">
                     <p>chat</p>
-                    {/* <p>{task.members}</p> */}
                     <p>picture</p>
                     <p>{task.status}</p>
                     <p>date</p>
                     <p>{task.priority}</p>
-                    {/* <p>{task.note}</p> */}
-                    {/* <p>{task.tags}</p> */}
+
                 </div>
 
             </div>
