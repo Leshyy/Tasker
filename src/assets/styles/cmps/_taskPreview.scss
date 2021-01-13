@@ -1,0 +1,15 @@
+.task-preview {
+    .task-left {
+        button {
+            height: 1.25rem;
+            align-self: center;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+    }
+    .task-right {
+        p {
+            width: 100px;
+        }
+    }
+}

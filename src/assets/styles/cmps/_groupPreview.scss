@@ -1,0 +1,24 @@
+.group-preview {
+    margin: 10px;
+    border: 1px solid black;
+    .header-group {
+        justify-content: space-between;
+        width: 900px;
+        .header-left {
+            button {
+                align-self: center;
+                background-color: rgb(175, 175, 175);
+                border-radius: 50px;
+                border: none;
+                height: 1.25rem;
+                margin-right: 5px;
+                cursor: pointer;
+            }
+        }
+        .header-right {
+            h3 {
+                width: 100px;
+            }
+        }
+    }
+}
