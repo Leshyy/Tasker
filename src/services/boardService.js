@@ -23,8 +23,8 @@ function save() {
 
 }
 
-function update(board) {
-    httpService.put(BASE_URL + '' + board._id, board)
+async function update(board) {
+    await httpService.put(BASE_URL + '/' + board._id, board)
 }
 
 async function remove(boardId) {

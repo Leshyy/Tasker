@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { GroupList } from '../groups/GroupList'
 import { loadBoard } from '../../store/actions/boardAction'
 import { boardService } from '../../services/boardService'
+import { taskService } from '../../services/taskService'
 
 export class _BoardDetails extends Component {
 
@@ -23,11 +24,10 @@ export class _BoardDetails extends Component {
     onAddTask = async (txt, groupId) => {
         const { activeBoard } = this.props
         const savedTask = taskService.add(txt)
-        activeBoard.groups[groupId].push(savedTask)
+        const groupIdx = activeBoard.groups.findIndex(group=>group.id===groupId)
+        activeBoard.groups[groupIdx].tasks.push(savedTask)
         await boardService.update(activeBoard)
         this.loadActiveBoard()
-
-
     }
 
     render() {
