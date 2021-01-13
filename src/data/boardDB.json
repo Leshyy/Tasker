@@ -124,7 +124,7 @@
                         },
                         {
                             "id": "3kgr4f",
-                            "name": "View Your Team Progress",
+                            "name": "View your team progress",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -153,7 +153,7 @@
                         },
                         {
                             "id": "65kfk8",
-                            "name": "Use Your Dashboard",
+                            "name": "Use your dashboard",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -615,7 +615,7 @@
                 },
                 {
                     "id": "zxcAS345",
-                    "name": "Basic CSS",
+                    "name": "Add Basic CSS",
                     "createdAt": 23757231,
                     "updatedAt": 234623543,
                     "color": "purple",

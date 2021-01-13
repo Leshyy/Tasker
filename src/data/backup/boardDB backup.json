@@ -36,7 +36,7 @@
                     "color": "red",
                     "tasks": [
                         {
-                            "id": "6785gjd",
+                            "id": "6785gjKKd",
                             "name": "Add, delete, customize and move groups easily on your board",
                             "tags": [
                                 "demo",
@@ -94,7 +94,7 @@
                             ]
                         },
                         {
-                            "id": "4h45k7",
+                            "id": "4h45LMNk7",
                             "name": "Invite team members",
                             "tags": [
                                 "demo",
@@ -124,7 +124,7 @@
                         },
                         {
                             "id": "3kgr4f",
-                            "name": "View Your Team Progress",
+                            "name": "View your team progress",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -153,7 +153,7 @@
                         },
                         {
                             "id": "65kfk8",
-                            "name": "Use Your Dashboard",
+                            "name": "Use your dashboard",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -219,7 +219,7 @@
                             "comments": []
                         },
                         {
-                            "id": "Fdg667",
+                            "id": "Fdg6ERT67",
                             "name": "Check notifications",
                             "tags": [
                                 "demo",
@@ -248,7 +248,7 @@
                             "comments": []
                         },
                         {
-                            "id": "KF45G97",
+                            "id": "KF45G78997",
                             "name": "Set Deadlines",
                             "tags": [
                                 "demo",
@@ -286,8 +286,8 @@
                     "color": "green",
                     "tasks": [
                         {
-                            "id": "OS45N5",
-                            "name": "Quick search everyting",
+                            "id": "sdh4nJJ",
+                            "name": "Get analytics",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -298,8 +298,8 @@
                             "updatedAt": 1606733763732,
                             "members": [
                                 {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
                                     "imgUrl": ""
                                 },
                                 {
@@ -310,13 +310,13 @@
                             ],
                             "status": "Working on it",
                             "priority": "High",
-                            "note": "Use the search feature",
+                            "note": "Use The Pie Chart",
                             "dueDate": 1606820163000,
                             "comments": []
                         },
                         {
                             "id": "Fdg667",
-                            "name": "Check notifications",
+                            "name": "See which employee works the hardest",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -344,8 +344,8 @@
                             "comments": []
                         },
                         {
-                            "id": "KF45G97",
-                            "name": "Set Deadlines",
+                            "id": "KF45G34597",
+                            "name": "Filter boards, groups and tasks in one click",
                             "tags": [
                                 "demo",
                                 "instructions",
@@ -386,7 +386,7 @@
                         "imgUrl": ""
                     },
                     "task": {
-                        "id": "6785gjd",
+                        "id": "6785gjdKSD",
                         "name": "Add, delete, customize and move groups easily on your board"
                     }
                 },
@@ -422,14 +422,14 @@
         },
         {
             "_id": "asd456",
-            "name": "Second Board",
+            "name": "Basic Structure",
             "creator": {
-                "_id": "2uk35b",
-                "fullname": "Tair Bitan",
+                "_id": "kj346",
+                "fullname": "Tamir Leshetz",
                 "imgUrl": ""
             },
             "createdAt": 124254735,
-            "desc": "second board for our app",
+            "desc": "wednesday goals - setup the basics of the app ",
             "members": [
                 {
                     "_id": "2uk35b",
@@ -449,19 +449,20 @@
             ],
             "groups": [
                 {
-                    "id": "ljkh325",
-                    "name": "Hello Tasker",
+                    "id": "KD235g",
+                    "name": "Create Initial Data",
                     "createdAt": 23757231,
                     "updatedAt": 234623543,
-                    "color": "red",
+                    "color": "yellow",
                     "tasks": [
                         {
                             "id": "6785gjd",
-                            "name": "Add, delete, customize and move groups easily on your board",
+                            "name": "Create Json file and write boards data ",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial"
+                                "structure",
+                                "data",
+                                "basics",
+                                "boards"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
@@ -469,11 +470,6 @@
                                 {
                                     "_id": "2uk35b",
                                     "fullname": "Tair Bitan",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
                                     "imgUrl": ""
                                 },
                                 {
@@ -484,7 +480,7 @@
                             ],
                             "status": "Complete",
                             "priority": "High",
-                            "note": "Add notes to your task",
+                            "note": "start with 2 boards",
                             "dueDate": 1606820163000,
                             "comments": [
                                 {
@@ -493,15 +489,7 @@
                                         "fullname": "Tair Bitan",
                                         "imgUrl": ""
                                     },
-                                    "text": "This is the task's chat"
-                                },
-                                {
-                                    "by": {
-                                        "_id": "2h3j5b",
-                                        "fullname": "Amit Weiss",
-                                        "imgUrl": ""
-                                    },
-                                    "text": "Here you can send comments, thoughts and updates about the task"
+                                    "text": "finished first board, what do yu think? "
                                 },
                                 {
                                     "by": {
@@ -509,25 +497,25 @@
                                         "fullname": "Tamir Leshetz",
                                         "imgUrl": ""
                                     },
-                                    "text": "Or simply chat with the task members"
+                                    "text": "Looks greate!"
                                 }
                             ]
                         },
                         {
-                            "id": "4h45k7",
-                            "name": "Invite team members",
+                            "id": "kh6KK43",
+                            "name": "Create Json file and write users data ",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "members"
+                                "structure",
+                                "data",
+                                "basics",
+                                "users"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
                             "members": [
                                 {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
+                                    "_id": "2uk35b",
+                                    "fullname": "Tair Bitan",
                                     "imgUrl": ""
                                 },
                                 {
@@ -537,48 +525,28 @@
                                 }
                             ],
                             "status": "Working on it",
-                            "priority": "Medium",
-                            "note": "",
+                            "priority": "High",
+                            "note": "start with 1 user and make him admin",
                             "dueDate": 1606820163000,
                             "comments": []
-                        },
+                        }
+                    ]
+                },
+                {
+                    "id": "kj35IVD",
+                    "name": "Implement Full CRUD",
+                    "createdAt": 23757231,
+                    "updatedAt": 234623543,
+                    "color": "blue",
+                    "tasks": [
                         {
-                            "id": "3kgr4f",
-                            "name": "View Your Team Progress",
+                            "id": "kkHH466",
+                            "name": "Board CRUD",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "progress"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "2uk35b",
-                                    "fullname": "Tair Bitan",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "stuck",
-                            "priority": "low",
-                            "note": "Simply watch the progress bar beneath every group",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        },
-                        {
-                            "id": "65kfk8",
-                            "name": "Use Your Dashboard",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "dashboard"
+                                "structure",
+                                "CRUD",
+                                "basics",
+                                "boards"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
@@ -587,15 +555,58 @@
                                     "_id": "kj346",
                                     "fullname": "Tamir Leshetz",
                                     "imgUrl": ""
-                                },
+                                }
+                            ],
+                            "status": "Working on it",
+                            "priority": "High",
+                            "note": "",
+                            "dueDate": 1606820163000,
+                            "comments": []
+                        },
+                        {
+                            "id": "FK346dsgk",
+                            "name": "Group CRUD",
+                            "tags": [
+                                "structure",
+                                "CRUD",
+                                "basics",
+                                "groups"
+                            ],
+                            "createdAt": 1606733763732,
+                            "updatedAt": 1606733763732,
+                            "members": [
+                                {
+                                    "_id": "2h3j5b",
+                                    "fullname": "Amit Weiss",
+                                    "imgUrl": ""
+                                }
+                            ],
+                            "status": "Complete",
+                            "priority": "High",
+                            "note": "",
+                            "dueDate": 1606820163000,
+                            "comments": []
+                        },
+                        {
+                            "id": "KF45G97",
+                            "name": "Task CRUD",
+                            "tags": [
+                                "structure",
+                                "CRUD",
+                                "basics",
+                                "tasks"
+                            ],
+                            "createdAt": 1606733763732,
+                            "updatedAt": 1606733763732,
+                            "members": [
                                 {
                                     "_id": "2uk35b",
                                     "fullname": "Tair Bitan",
                                     "imgUrl": ""
                                 }
                             ],
-                            "status": "Need to review",
-                            "priority": "low",
+                            "status": "Stuck",
+                            "priority": "High",
                             "note": "",
                             "dueDate": 1606820163000,
                             "comments": []
@@ -603,20 +614,20 @@
                     ]
                 },
                 {
-                    "id": "0tt6nj",
-                    "name": "UI/UX",
+                    "id": "zxcAS345",
+                    "name": "Add Basic CSS",
                     "createdAt": 23757231,
                     "updatedAt": 234623543,
-                    "color": "green",
+                    "color": "purple",
                     "tasks": [
                         {
-                            "id": "OS45N5",
-                            "name": "Quick search everyting",
+                            "id": "MMskj34",
+                            "name": "Header",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "search"
+                                "structure",
+                                "css",
+                                "basics",
+                                "header"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
@@ -634,18 +645,18 @@
                             ],
                             "status": "Working on it",
                             "priority": "High",
-                            "note": "Use the search feature",
+                            "note": "just like in the real app",
                             "dueDate": 1606820163000,
                             "comments": []
                         },
                         {
-                            "id": "Fdg667",
-                            "name": "Check notifications",
+                            "id": "jjkERT355",
+                            "name": "Add Logo",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "notifications"
+                                "structure",
+                                "css",
+                                "basics",
+                                "logo"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
@@ -661,20 +672,20 @@
                                     "imgUrl": ""
                                 }
                             ],
-                            "status": "Stuck",
+                            "status": "Completed",
                             "priority": "Low",
                             "note": "",
                             "dueDate": 1606820163000,
                             "comments": []
                         },
                         {
-                            "id": "KF45G97",
-                            "name": "Set Deadlines",
+                            "id": "poiIPJ43",
+                            "name": "Side Bar",
                             "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "deadlines"
+                                "structure",
+                                "css",
+                                "basics",
+                                "side"
                             ],
                             "createdAt": 1606733763732,
                             "updatedAt": 1606733763732,
@@ -692,103 +703,7 @@
                             ],
                             "status": "Completed",
                             "priority": "High",
-                            "note": "",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        }
-                    ]
-                },
-                {
-                    "id": "KJdr45",
-                    "name": "Sockets",
-                    "createdAt": 23757231,
-                    "updatedAt": 234623543,
-                    "color": "green",
-                    "tasks": [
-                        {
-                            "id": "OS45N5",
-                            "name": "Quick search everyting",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "search"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Working on it",
-                            "priority": "High",
-                            "note": "Use the search feature",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        },
-                        {
-                            "id": "Fdg667",
-                            "name": "Check notifications",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "notifications"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2uk35b",
-                                    "fullname": "Tair Bitan",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Stuck",
-                            "priority": "Low",
-                            "note": "",
-                            "dueDate": 1606820163000,
-                            "comments": []
-                        },
-                        {
-                            "id": "KF45G97",
-                            "name": "Set Deadlines",
-                            "tags": [
-                                "demo",
-                                "instructions",
-                                "tutorial",
-                                "deadlines"
-                            ],
-                            "createdAt": 1606733763732,
-                            "updatedAt": 1606733763732,
-                            "members": [
-                                {
-                                    "_id": "2h3j5b",
-                                    "fullname": "Amit Weiss",
-                                    "imgUrl": ""
-                                },
-                                {
-                                    "_id": "kj346",
-                                    "fullname": "Tamir Leshetz",
-                                    "imgUrl": ""
-                                }
-                            ],
-                            "status": "Completed",
-                            "priority": "High",
-                            "note": "",
+                            "note": "should we call it side-bar or side-nav? ",
                             "dueDate": 1606820163000,
                             "comments": []
                         }
@@ -797,7 +712,7 @@
             ],
             "activities": [
                 {
-                    "id": "65k8bu",
+                    "id": "65k8KKbu",
                     "createdAt": 12243243,
                     "txt": "Tair created a new task",
                     "byUser": {
