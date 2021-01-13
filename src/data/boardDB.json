@@ -184,7 +184,7 @@
                 },
                 {
                     "id": "0tt6nj",
-                    "name": "Team2 ",
+                    "name": "Become A Tasker Master",
                     "createdAt": 23757231,
                     "updatedAt": 234623543,
                     "color": "green",
@@ -280,7 +280,7 @@
                 },
                 {
                     "id": "KJdr45",
-                    "name": "Become A Tasker Master",
+                    "name": "Know Your Dashboard",
                     "createdAt": 23757231,
                     "updatedAt": 234623543,
                     "color": "green",
@@ -840,29 +840,5 @@
                 }
             ]
         }
-    ],
-    "user": {
-        "_id": "",
-        "isAdmin": true,
-        "notifications": [
-            {
-                "byUser": {
-                    "_id": "",
-                    "fullname": "",
-                    "imgUrl": ""
-                },
-                "content": "",
-                "createdAt": 1606733792261
-            }
-        ],
-        "fullname": "",
-        "username": "",
-        "email": "",
-        "password": "",
-        "phoneNumber": "",
-        "birthday": "",
-        "company": "",
-        "score": "",
-        "createdAt": 1601297334426
-    }
+    ]
 }

@@ -1,4 +1,4 @@
-import { boards } from '../data/mondayDB.json'
+import { boards } from '../data/boardDB.json'
 
 export const boardService = {
     query,
