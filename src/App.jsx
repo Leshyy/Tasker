@@ -3,7 +3,8 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { AppHeader } from './components/AppHeader';
+import { AppHeader } from './cmps/AppHeader';
+import { BoardApp } from './pages/BoardApp';
 
 
 export function App() {
@@ -14,7 +15,7 @@ export function App() {
 
         <main>
           <Switch>
-
+            <Route path="" component={BoardApp} />
           </Switch>
         </main>
 
