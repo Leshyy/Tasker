@@ -14,6 +14,7 @@ export class BoardApp extends Component {
     }
     loadBoards = () => {
         const boards = boardService.query()
+
         this.setState({ boards })
     }
 
