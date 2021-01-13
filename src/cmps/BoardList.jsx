@@ -1,9 +1,14 @@
 import { BoardPreview } from "./BoardPreview";
 
-export function BoardList() {
+export function BoardList({ boards }) {
     return (
         <section className="board-list">
-            <BoardPreview />
+            {boards.map(board => {
+                return <BoardPreview
+                    key={board.id}
+                    board={board}
+                />
+            })}
         </section>
     )
 }

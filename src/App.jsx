@@ -15,7 +15,7 @@ export function App() {
 
         <main>
           <Switch>
-            <Route path="" component={BoardApp} />
+            <Route path="/board" component={BoardApp} />
           </Switch>
         </main>
 
