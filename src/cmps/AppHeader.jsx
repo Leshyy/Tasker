@@ -10,7 +10,7 @@ export function AppHeader() {
 
             <nav className="nav-header flex space-around">
                 <Link to="" title="My week">My week</Link>
-                <Link to="" title="My profile">P</Link>
+                <Link to="/profile" title="My profile">P</Link>
                 <Link to="" title="Logout">Logout</Link>
             </nav>
         </div>
