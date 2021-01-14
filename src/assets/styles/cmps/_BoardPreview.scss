@@ -1,0 +1,15 @@
+.board-preview {
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 5px 7px;
+    transition: 0.4s;
+    a {
+        color: #313131;
+        text-decoration: none;
+        flex-grow: 1;
+        text-align: left;
+    }
+    &:hover {
+        background-color: rgb(219, 219, 219);
+    }
+}

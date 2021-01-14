@@ -25,7 +25,6 @@ export class _BoardDetails extends Component {
         const tasksToSave = taskService.remove(taskId, group)
         const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
         activeBoard.groups[groupIdx].tasks = [...tasksToSave]
-        console.log('activeBoard after enter is:', activeBoard);
         await boardService.update(activeBoard)
         this.loadActiveBoard()
 
