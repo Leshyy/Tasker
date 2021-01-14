@@ -1,7 +1,11 @@
 import { Component } from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import ChatIcon from '@material-ui/icons/Chat';
-
+import Avatar from '@material-ui/core/Avatar';
+import { AvatarGroup } from '@material-ui/lab';
+import Amit from '../../assets/styles/img/Amit.jpeg';
+import Tamir from '../../assets/styles/img/Tamir.jpeg';
+import Tair from '../../assets/styles/img/Tair.jpeg';
 export class TaskPreview extends Component {
 
     render() {
@@ -16,7 +20,13 @@ export class TaskPreview extends Component {
                 </div>
                 <div className="task-right flex">
                     <div><ChatIcon className="chat" /></div>
-                    <div>Pictures</div>
+                    <div>
+                        <AvatarGroup max={3}>
+                            <Avatar className="avatar" alt="Amit" src={Amit} />
+                            <Avatar className="avatar" alt="Amit" src={Tamir} />
+                            <Avatar className="avatar" alt="Amit" src={Tair} />
+                        </AvatarGroup>
+                    </div>
                     <div className="status">{task.status}</div>
                     <div>
                         <input
