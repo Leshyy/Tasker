@@ -40,6 +40,13 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
+    onUpdateTask = async (task, groupId) => {
+        const { activeBoard } = this.props
+        const updatedBoard = taskService.update(task, activeBoard, groupId)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
     onAddGroup = async (groupName) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.add(groupName, activeBoard)
@@ -69,6 +76,7 @@ export class _BoardDetails extends Component {
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
+                    onUpdateTask={this.onUpdateTask}
                     onRemoveGroup={this.onRemoveGroup}
                 />
 
