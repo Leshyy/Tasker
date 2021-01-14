@@ -93,6 +93,7 @@ export class _BoardDetails extends Component {
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
+                    onUpdateTask={this.onUpdateTask}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.onDragEnd}
                 />

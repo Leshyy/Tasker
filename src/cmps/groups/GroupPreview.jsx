@@ -1,7 +1,7 @@
 import { TaskAdd } from '../tasks/TaskAdd'
 import { TaskList } from '../tasks/TaskList'
 
-export function GroupPreview({ group, onAddTask, onRemoveTask, onRemoveGroup }) {
+export function GroupPreview({ group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup }) {
     const { tasks } = group
     return (
         <section className="group-preview">
@@ -24,6 +24,7 @@ export function GroupPreview({ group, onAddTask, onRemoveTask, onRemoveGroup }) 
             <TaskList
                 tasks={tasks}
                 group={group}
+                onUpdateTask={onUpdateTask}
                 onRemoveTask={onRemoveTask}
             />
             <TaskAdd

@@ -1,47 +1,101 @@
 import { Delete } from '@material-ui/icons';
 import { Chat } from '@material-ui/icons';
-import Avatar from '@material-ui/core/Avatar';
+import { Component } from 'react';
+import EditIcon from '@material-ui/icons/Edit';
+
+import { Avatar } from '@material-ui/core';
 import { AvatarGroup } from '@material-ui/lab';
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
-// import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 
+export class TaskPreview extends Component {
+    state = {
+        editMode: false,
+        task: {
+            name: ''
+        }
 
-export function TaskPreview({ task, group, onRemoveTask }) {
-    return (
-        <div className="task-preview flex space-between">
-            <div className="task-left flex">
-                <Delete
-                    className="trash"
-                    onClick={() => {
-                        onRemoveTask(task.id, group)
-                    }}
-                />
-                <p>{task.name}</p>
-            </div>
-            <div className="task-right flex">
-                <div><Chat className="chat" /></div>
-                <AvatarGroup max={3}>
-                    <Avatar className="avatar" alt="Amit" src={Amit} />
-                    <Avatar className="avatar" alt="Tamir" src={Tamir} />
-                    <Avatar className="avatar" alt="Tair" src={Tair} />
-                </AvatarGroup>
-                <div className="status">{task.status}</div>
-                {/* <MuiPickersUtilsProvider utils={ }>
-                    <KeyboardDatePicker
-                        disableToolbar
-                        variant="inline"
-                        format="MM/dd/yyyy"
-                        margin="normal"
-                        id="date-picker-inline"
-                        label="Date picker inline" />
-                </MuiPickersUtilsProvider> */}
-                <div>
-                    <input type="date" className="input-date" />
+    }
+
+    componentDidMount() {
+        const taskToSave = this.props.task
+        this.setState({ task: taskToSave })
+    }
+
+    toggleEditMode = () => {
+        this.setState({ editMode: !this.state.editMode })
+    }
+
+    handleChange = (ev) => {
+        const { value } = ev.target
+        const field = ev.target.name
+        const copy = { ...this.state.task }
+        copy[field] = value
+        this.setState({ task: copy })
+
+    }
+
+    render() {
+        const { onRemoveTask, task, group, onUpdateTask } = this.props
+        const { editMode } = this.state
+        const { name } = this.state.task
+        return (
+            <div className="task-preview flex space-between">
+                <div className="task-left flex align-center">
+                    <Delete
+                        className="trash"
+                        onClick={() => {
+                            onRemoveTask(task.id, group)
+                        }}
+                    />
+                    {editMode &&
+                        <form onSubmit={(ev) => {
+                            ev.preventDefault()
+                            this.toggleEditMode()
+                            onUpdateTask(this.state.task, group.id)
+                        }}>
+                            <input
+                                name="name"
+                                value={name}
+                                onBlur={() => {
+                                    this.toggleEditMode()
+                                    onUpdateTask(this.state.task, group.id)
+                                }}
+                                autoFocus={true}
+                                onChange={(ev) => {
+                                    this.handleChange(ev)
+                                }}
+                            />
+                            <button type="submit" hidden></button>
+                        </form>
+                    }
+
+                    {!editMode &&
+                        <p>{task.name}</p>}
+                    {!editMode &&
+                        <EditIcon
+                            className="edit-icon"
+                            onClick={this.toggleEditMode}
+                        >edit
+                        </EditIcon>}
                 </div>
-                <div className="priority">{task.priority}</div>
+                <div className="task-right flex">
+                    <div><Chat className="chat" /></div>
+                    <AvatarGroup max={3} >
+                        <Avatar className="avatar" alt="Amit" src={Amit} />
+                        <Avatar className="avatar" alt="Amit" src={Tamir} />
+                        <Avatar className="avatar" alt="Amit" src={Tair} />
+                    </AvatarGroup>
+                    <div className="status">{task.status}</div>
+                    <div>
+                        <input type="date" className="input-date" />
+                    </div>
+                    <div className="priority">{task.priority}</div>
+
+                </div>
+
             </div>
-        </div>
-    )
+        )
+    }
 }
