@@ -33,6 +33,7 @@ export class TaskAdd extends Component {
             <div>
                 <form onSubmit={this.onAddTask}>
                     <input
+                        className="input-task"
                         type="text"
                         name="txt"
                         placeholder="Add task"
