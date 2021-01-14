@@ -1767,6 +1767,37 @@
       ],
       "createdAt": 1610634714328,
       "desc": "edit your new board..."
+    },
+    {
+      "_id": "UysRM",
+      "name": "new board",
+      "groups": [
+        {
+          "id": "gGMBL",
+          "name": "Group Title",
+          "createdAt": 1610636067769,
+          "tasks": [
+            {
+              "id": "05A0F",
+              "name": "item 1",
+              "status": "Complete",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000
+            },
+            {
+              "id": "iP2Bt",
+              "name": "item 2",
+              "status": "Complete",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000
+            }
+          ]
+        }
+      ],
+      "createdAt": 1610636067769,
+      "desc": "edit your new board..."
     }
   ]
 }
