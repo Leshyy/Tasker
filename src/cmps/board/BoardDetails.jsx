@@ -5,6 +5,8 @@ import { loadBoard } from '../../store/actions/boardAction'
 import { boardService } from '../../services/boardService'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
+import Button from '@material-ui/core/Button'
+
 
 export class _BoardDetails extends Component {
     componentDidMount() {
@@ -61,9 +63,12 @@ export class _BoardDetails extends Component {
             <section>
                 <h1>{activeBoard.name}</h1>
                 <h1>{activeBoard.desc}</h1>
-                <button onClick={() => {
-                    this.onAddGroup('new group')
-                }}>Add Group</button>
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => {
+                        this.onAddGroup('new group')
+                    }}>New Group</Button>
 
                 <GroupList
                     groups={activeBoard.groups}
