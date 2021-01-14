@@ -507,90 +507,6 @@
       ],
       "groups": [
         {
-          "id": "KD235g",
-          "name": "Create Initial Data",
-          "createdAt": 23757231,
-          "updatedAt": 234623543,
-          "color": "yellow",
-          "tasks": [
-            {
-              "id": "6785gjd",
-              "name": "Create Json file and write boards data ",
-              "tags": [
-                "structure",
-                "data",
-                "basics",
-                "boards"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Complete",
-              "priority": "High",
-              "note": "start with 2 boards",
-              "dueDate": 1606820163000,
-              "comments": [
-                {
-                  "by": {
-                    "_id": "2uk35b",
-                    "fullname": "Tair Bitan",
-                    "imgUrl": ""
-                  },
-                  "text": "finished first board, what do yu think? "
-                },
-                {
-                  "by": {
-                    "_id": "kj346",
-                    "fullname": "Tamir Leshetz",
-                    "imgUrl": ""
-                  },
-                  "text": "Looks greate!"
-                }
-              ]
-            },
-            {
-              "id": "kh6KK43",
-              "name": "Create Json file and write users data ",
-              "tags": [
-                "structure",
-                "data",
-                "basics",
-                "users"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Working on it",
-              "priority": "High",
-              "note": "start with 1 user and make him admin",
-              "dueDate": 1606820163000,
-              "comments": []
-            }
-          ]
-        },
-        {
           "id": "kj35IVD",
           "name": "Implement Full CRUD",
           "createdAt": 23757231,
@@ -762,6 +678,90 @@
               "status": "Completed",
               "priority": "High",
               "note": "should we call it side-bar or side-nav? ",
+              "dueDate": 1606820163000,
+              "comments": []
+            }
+          ]
+        },
+        {
+          "id": "KD235g",
+          "name": "Create Initial Data",
+          "createdAt": 23757231,
+          "updatedAt": 234623543,
+          "color": "yellow",
+          "tasks": [
+            {
+              "id": "6785gjd",
+              "name": "Create Json file and write boards data ",
+              "tags": [
+                "structure",
+                "data",
+                "basics",
+                "boards"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Complete",
+              "priority": "High",
+              "note": "start with 2 boards",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "finished first board, what do yu think? "
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Looks greate!"
+                }
+              ]
+            },
+            {
+              "id": "kh6KK43",
+              "name": "Create Json file and write users data ",
+              "tags": [
+                "structure",
+                "data",
+                "basics",
+                "users"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "High",
+              "note": "start with 1 user and make him admin",
               "dueDate": 1606820163000,
               "comments": []
             }
