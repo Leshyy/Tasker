@@ -1,5 +1,15 @@
 .task-preview {
+    display: flex;
+    background-color: #f1f1f1;
+    margin-bottom: 2px;
+    height: 40px;
+    border-radius: 1px;
+    box-shadow: 0 3px 4px -5px #484444;
+    transition: background-color 0.3s;
+    color: #3f4045;
+    font-size: 14px;
     .task-left {
+        min-width: 400px;
         button {
             height: 1.25rem;
             align-self: center;
@@ -8,8 +18,35 @@
         }
     }
     .task-right {
-        p {
+        div {
+            line-height: 40px;
             width: 100px;
+            height: 40px;
         }
+        .status {
+            border: 0.5px solid black;
+            border-radius: 5px;
+        }
+        .priority {
+            border: 0.5px solid black;
+            border-radius: 5px;
+        }
+    }
+    &:hover {
+        background-color: rgb(219, 219, 219);
+    }
+}
+.input-task {
+    display: flex;
+    justify-self: start;
+    border: none;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid transparent;
+    transition: 0.4s;
+    &:hover {
+        border: 1px solid rgb(73, 73, 73);
+        border-radius: 5px;
     }
 }
