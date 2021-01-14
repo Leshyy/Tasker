@@ -4,11 +4,14 @@ export function AppHeader() {
     return (
         <div className="main-header flex space-between">
             <div className="top-header flex ">
-                <img src={logo} alt="Logo" />
+                <Link to="/">
+                    <img src={logo} alt="Logo" />
+                </Link>
                 <span title="Noti">Noti</span>
             </div>
 
             <nav className="nav-header flex space-around">
+                <Link to="/board" title="My Boards">My Boards</Link>
                 <Link to="" title="My week">My week</Link>
                 <Link to="/profile" title="My profile">P</Link>
                 <Link to="" title="Logout">Logout</Link>

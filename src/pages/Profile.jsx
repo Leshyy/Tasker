@@ -1,9 +1,5 @@
 import Amit from '../assets/styles/img/Amit.jpeg'
-<<<<<<< HEAD
-import {Person , Mail} from '@material-ui/icons';
-=======
 import { Person, Mail } from '@material-ui/icons';
->>>>>>> bf9778bfa13bac105591e14acecaddd7cdfeca3d
 export function Profile() {
     return (
         <section className="profile flex col space-between">
@@ -34,13 +30,8 @@ export function Profile() {
                 <div className="third-panel">
                     <img src={Amit} alt="avatar" />
                     <ul className="clean-list">
-<<<<<<< HEAD
-                        <li><Person/><span>username:</span> Israel</li>
-                        <li><Mail/><span>email:</span> Israel@gmail.com</li>
-=======
                         <li><Person /><span>username:</span> Israel</li>
                         <li><Mail /><span>email:</span> Israel@gmail.com</li>
->>>>>>> bf9778bfa13bac105591e14acecaddd7cdfeca3d
                         <li><span>Phone:</span> 052-1102345</li>
                         <li><span>Birthday:</span> 01/01/79</li>
                         <li><span>Company:</span> Mister Bit.</li>
