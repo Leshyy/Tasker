@@ -37,9 +37,9 @@ export function TaskPreview({ task, group, onRemoveTask }) {
                         id="date-picker-inline"
                         label="Date picker inline" />
                 </MuiPickersUtilsProvider> */}
-                {/* <div>
+                <div>
                     <input type="date" className="input-date" />
-                </div> */}
+                </div>
                 <div className="priority">{task.priority}</div>
             </div>
         </div>

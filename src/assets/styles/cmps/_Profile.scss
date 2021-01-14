@@ -1,11 +1,15 @@
 .profile {
     height: 100vh;
+    background-color: #292f4c;
 }
 
 .profile-header {
     padding: 2rem 0;
     box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.2);
     background-color: #0085ff;
+    z-index: 2;
+    border-left: 1px solid #0085ff;
+    border-radius: 15px 0 0 0;
     div {
         width: 150px;
         height: 150px;
@@ -25,7 +29,10 @@
 
 .profile-main {
     flex-grow: 1;
-    margin-top: 3rem;
+    padding-top: 3rem;
+    background-color: white;
+    border-left: 1px solid white;
+    z-index: 2;
     & > * {
         margin: 1rem;
         padding: 1rem 5rem;
