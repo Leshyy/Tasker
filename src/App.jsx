@@ -1,3 +1,4 @@
+import { Profile } from './pages/Profile';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +17,7 @@ export function App() {
         <main>
           <Switch>
             <Route path="/board" component={BoardApp} />
+            <Route path="/profile/:userId?" component={Profile} />
           </Switch>
         </main>
 
