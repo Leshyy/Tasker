@@ -1,5 +1,5 @@
 .group-preview {
-    margin: 10px;
+    margin: rem(10px);
     width: 70vw;
     .header-group {
         justify-content: space-between;
@@ -7,16 +7,16 @@
             button {
                 align-self: center;
                 background-color: rgb(175, 175, 175);
-                border-radius: 50px;
+                border-radius: rem(50px);
                 border: none;
-                height: 1.25rem;
-                margin-right: 5px;
+                height: rem(20px);
+                margin-right: rem(5px);
                 cursor: pointer;
             }
         }
         .header-right {
             h3 {
-                width: 100px;
+                width: rem(100px);
             }
         }
     }

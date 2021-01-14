@@ -2,18 +2,18 @@
     position: fixed;
     left: 0;
     height: 100vh;
-    width: 150px;
-    padding: 10px 5px;
+    width: rem(150px);
+    padding: rem(10px) rem(5px);
     background-color: #292f4c;
     flex-direction: column;
     .top-header {
         flex-direction: column;
-        height: 200px;
+        height: rem(200px);
         justify-content: space-between;
         img {
-            margin: 10px auto;
-            height: 90px;
-            width: 90px;
+            margin: rem(10px) auto;
+            height: rem(90px);
+            width: rem(90px);
             cursor: pointer;
         }
         span {
@@ -24,8 +24,8 @@
 
     .nav-header {
         flex-direction: column;
-        height: 250px;
-        margin-bottom: 40px;
+        height: rem(250px);
+        margin-bottom: rem(40px);
         a {
             color: white;
             text-decoration: none;

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
-import Button from '@material-ui/core/Button';
+
 
 export class BoardSideNav extends Component {
 
@@ -9,14 +9,16 @@ export class BoardSideNav extends Component {
         const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props
         return (
             <section className="board-side-nav flex">
-
-                <h2>My Boards:</h2>
-                <Button
-                    variant="contained"
-                    color="default"
-                    onClick={() => {
-                        onAdd('new board')
-                    }}>add board</Button>
+                <div className="flex align-center space-between">
+                    <h2>My Boards:</h2>
+                    <button
+                        className="btn-add"
+                        variant="contained"
+                        color="default"
+                        onClick={() => {
+                            onAdd('new board')
+                        }}>+</button>
+                </div>
                 <BoardFilter getBoradsForDisplay={getBoradsForDisplay} />
                 <BoardList boards={boards}
                     onRemove={onRemove}

@@ -4,24 +4,24 @@
 }
 
 .profile-header {
-    padding: 2rem 0;
+    padding: rem(32px) 0;
     box-shadow: 0 4px 8px -1px rgba(0, 0, 0, 0.2);
     background-color: #0085ff;
     z-index: 2;
     border-left: 1px solid #0085ff;
     border-radius: 15px 0 0 0;
     div {
-        width: 150px;
-        height: 150px;
-        line-height: 150px;
+        width: rem(150px);
+        height: rem(150px);
+        line-height: rem(150px);
         background-color: #a35ddd;
         border-radius: 50%;
-        font-size: 4rem;
+        font-size: rem(64px);
         font-weight: bold;
         color: white;
     }
     h1 {
-        font-size: 2rem;
+        font-size: rem(32px);
         font-weight: 300;
         color: white;
     }
@@ -29,30 +29,30 @@
 
 .profile-main {
     flex-grow: 1;
-    padding-top: 3rem;
+    padding-top: rem(48px);
     background-color: white;
     border-left: 1px solid white;
     z-index: 2;
     & > * {
-        margin: 1rem;
-        padding: 1rem 5rem;
+        margin: rem(16px);
+        padding: rem(16px) rem(80px);
     }
     .first-panel {
         flex-grow: 1;
         border-inline-end: 5px solid rgba(170, 168, 168, 0.116);
         border-radius: 1px;
         h2 {
-            line-height: 150px;
+            line-height: rem(150px);
             margin-top: 0px;
         }
     }
 
     .second-panel {
         flex-grow: 1;
-        border-inline-end: 5px solid rgba(170, 168, 168, 0.116);
+        border-inline-end: rem(5px) solid rgba(170, 168, 168, 0.116);
         border-radius: 1px;
         h2 {
-            line-height: 150px;
+            line-height: rem(150px);
             margin-top: 0px;
         }
     }
@@ -61,12 +61,12 @@
         flex-grow: 1;
         text-align: start;
         img {
-            width: 150px;
+            width: rem(150px);
             border-radius: 50%;
-            margin-bottom: 1rem;
+            margin-bottom: rem(16px);
         }
         li {
-            margin-bottom: 1rem;
+            margin-bottom: rem(16px);
             span {
                 font-weight: bold;
             }
