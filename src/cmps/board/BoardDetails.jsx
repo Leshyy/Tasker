@@ -42,6 +42,13 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
+    onUpdateTask = async (task, groupId) => {
+        const { activeBoard } = this.props
+        const updatedBoard = taskService.update(task, activeBoard, groupId)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
     onAddGroup = async (groupName) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.add(groupName, activeBoard)
@@ -52,6 +59,18 @@ export class _BoardDetails extends Component {
     onRemoveGroup = async (groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
+    onDragEnd = async (res) => {
+        const { activeBoard } = this.props
+        const items = Array.from(activeBoard.groups)
+        const [reorderedItem] = items.splice(res.source.index, 1)
+        items.splice(res.destination.index, 0, reorderedItem)
+        const newGroups = items;
+        const updatedBoard = { ...activeBoard }
+        updatedBoard.groups = newGroups
         await boardService.update(updatedBoard)
         this.loadActiveBoard()
     }
@@ -75,6 +94,7 @@ export class _BoardDetails extends Component {
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onRemoveGroup={this.onRemoveGroup}
+                    handleDragEnd={this.onDragEnd}
                 />
 
             </section>

@@ -67,8 +67,15 @@
         }
         li {
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
             span {
                 font-weight: bold;
+                margin-inline-start: 0.5rem;
+                margin-inline-end: 0.5rem;
+            }
+            svg{
+                opacity: .8;
             }
         }
     }
