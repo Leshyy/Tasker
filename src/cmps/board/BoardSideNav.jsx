@@ -2,18 +2,21 @@ import { render } from "@testing-library/react";
 import { Component } from "react";
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
+import Button from '@material-ui/core/Button';
 
 export class BoardSideNav extends Component {
 
     render() {
-        const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props;
+        const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props
         return (
             <section className="board-side-nav flex">
-                <div className="side-nav-toggle">&gt;</div>
                 <h2>My Boards:</h2>
-                <button onClick={() => {
-                    onAdd('new board')
-                }}>add board</button>
+                <Button
+                    variant="contained"
+                    color="default"
+                    onClick={() => {
+                        onAdd('new board')
+                    }}>add board</Button>
                 <BoardFilter getBoradsForDisplay={getBoradsForDisplay} />
                 <BoardList boards={boards}
                     onRemove={onRemove}

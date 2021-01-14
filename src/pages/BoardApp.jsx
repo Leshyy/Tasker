@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { AppHeader } from '../cmps/AppHeader';
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { BoardDetails } from '../cmps/board/BoardDetails'
@@ -41,6 +42,7 @@ class _BoardApp extends Component {
         if (!boards) return <div>Loading no boards...</div>
         return (
             <section className="board-app flex">
+                <AppHeader />
                 <BoardSideNav
                     boards={boardsForDisplay || boards}
                     getBoradsForDisplay={this.getBoradsForDisplay}
