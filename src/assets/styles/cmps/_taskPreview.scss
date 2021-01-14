@@ -10,11 +10,11 @@
     font-size: 14px;
     .task-left {
         min-width: 400px;
-        button {
-            height: 1.25rem;
+        .trash {
+            font-size: larger;
             align-self: center;
             cursor: pointer;
-            margin-right: 5px;
+            margin-right: 15px;
         }
     }
     .task-right {
@@ -22,6 +22,9 @@
             line-height: 40px;
             width: 100px;
             height: 40px;
+        }
+        .chat {
+            font-size: large;
         }
         .status {
             border: 0.5px solid black;
@@ -49,4 +52,9 @@
         border: 1px solid rgb(73, 73, 73);
         border-radius: 5px;
     }
+}
+.input-date {
+    width: 90px;
+    border: none;
+    background-color: #f1f1f1;
 }
