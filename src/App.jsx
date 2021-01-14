@@ -6,12 +6,16 @@ import {
 } from 'react-router-dom';
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
+import { AppHeader } from './cmps/AppHeader';
+
 
 
 export function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App flex">
+        <AppHeader />
+
         <main>
           <Switch>
             {/* <Route path="/board" component={AppHeader} /> */}
