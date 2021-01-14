@@ -1,6 +1,6 @@
 import { TaskPreview } from "./TaskPreview";
 
-export function TaskList({ tasks, group, onRemoveTask }) {
+export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
     return (
         <div>
             {tasks.map(task => {
@@ -8,7 +8,9 @@ export function TaskList({ tasks, group, onRemoveTask }) {
                     key={task.id}
                     task={task}
                     group={group}
-                    onRemoveTask={onRemoveTask} />
+                    onRemoveTask={onRemoveTask}
+                    onUpdateTask={onUpdateTask}
+                />
             })}
         </div>
     )
