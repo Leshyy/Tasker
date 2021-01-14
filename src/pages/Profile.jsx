@@ -1,5 +1,5 @@
 import Amit from '../assets/styles/img/Amit.jpeg'
-import {PersonIcon , MailIcon} from '@material-ui/icons';
+import { Person, Mail } from '@material-ui/icons';
 export function Profile() {
     return (
         <section className="profile flex col space-between">
@@ -30,8 +30,8 @@ export function Profile() {
                 <div className="third-panel">
                     <img src={Amit} alt="avatar" />
                     <ul className="clean-list">
-                        <li><PersonIcon/><span>username:</span> Israel</li>
-                        <li><MailIcon/><span>email:</span> Israel@gmail.com</li>
+                        <li><Person /><span>username:</span> Israel</li>
+                        <li><Mail /><span>email:</span> Israel@gmail.com</li>
                         <li><span>Phone:</span> 052-1102345</li>
                         <li><span>Birthday:</span> 01/01/79</li>
                         <li><span>Company:</span> Mister Bit.</li>
