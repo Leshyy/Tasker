@@ -3,6 +3,12 @@ import { Chat } from '@material-ui/icons';
 import { Component } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 
+import { Avatar } from '@material-ui/core';
+import { AvatarGroup } from '@material-ui/lab';
+import Amit from '../../assets/styles/img/Amit.jpeg';
+import Tamir from '../../assets/styles/img/Tamir.jpeg';
+import Tair from '../../assets/styles/img/Tair.jpeg';
+
 export class TaskPreview extends Component {
     state = {
         editMode: false,
@@ -76,7 +82,11 @@ export class TaskPreview extends Component {
                 </div>
                 <div className="task-right flex">
                     <div><Chat className="chat" /></div>
-                    <div>Pictures</div>
+                    <AvatarGroup max={3} >
+                        <Avatar className="avatar" alt="Amit" src={Amit} />
+                        <Avatar className="avatar" alt="Amit" src={Tamir} />
+                        <Avatar className="avatar" alt="Amit" src={Tair} />
+                    </AvatarGroup>
                     <div className="status">{task.status}</div>
                     <div>
                         <input type="date" className="input-date" />

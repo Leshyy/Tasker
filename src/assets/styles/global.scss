@@ -3,6 +3,7 @@
 @import "basics/typography";
 @import "basics/helpers";
 @import "basics/base";
+@import "basics/layout";
 
 // COMPONENTS
 @import "cmps/AppHeader";
@@ -10,4 +11,9 @@
 @import "cmps/TaskPreview";
 @import "cmps/BoardPreview";
 @import "cmps/BoardSideNav";
+@import "cmps/BoardFilter";
 @import "cmps/Profile";
+
+// VIEWS
+@import "views/HomePage";
+@import "views/BoardApp";

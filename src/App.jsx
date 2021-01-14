@@ -4,8 +4,10 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import { AppHeader } from './cmps/AppHeader';
 import { BoardApp } from './pages/BoardApp';
+import { Home } from './pages/Home';
+import { AppHeader } from './cmps/AppHeader';
+
 
 
 export function App() {
@@ -16,8 +18,10 @@ export function App() {
 
         <main>
           <Switch>
+            {/* <Route path="/board" component={AppHeader} /> */}
             <Route path="/board" component={BoardApp} />
             <Route path="/profile/:userId?" component={Profile} />
+            <Route path="/" component={Home} />
           </Switch>
         </main>
 
