@@ -12,10 +12,13 @@ export class TaskPreview extends Component {
         const { task, group, onRemoveTask } = this.props
         const date = new Date().toLocaleDateString()
         return (
+
             <div className="task-preview flex space-between">
                 <div className="task-left flex">
-                    {/* <button onClick={() => onRemoveTask(task.id, group)}><DeleteIcon /></button> */}
-                    <DeleteIcon className="trash" onClick={() => onRemoveTask(task.id, group)} />
+                    <DeleteIcon className="trash"
+                        onClick={() => {
+                            onRemoveTask(task.id, group)
+                        }} />
                     <p>{task.name}</p>
                 </div>
                 <div className="task-right flex">
@@ -25,6 +28,7 @@ export class TaskPreview extends Component {
                             <Avatar className="avatar" alt="Amit" src={Amit} />
                             <Avatar className="avatar" alt="Amit" src={Tamir} />
                             <Avatar className="avatar" alt="Amit" src={Tair} />
+                            {/* <Avatar className="avatar" alt="Amit" src={Tair} /> */}
                         </AvatarGroup>
                     </div>
                     <div className="status">{task.status}</div>
@@ -32,11 +36,10 @@ export class TaskPreview extends Component {
                         <input
                             type="date"
                             className="input-date"
-                        /></div>
+                        />
+                    </div>
                     <div className="priority">{task.priority}</div>
-
                 </div>
-
             </div>
         )
     }

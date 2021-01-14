@@ -1,4 +1,12 @@
 .board-side-nav {
     padding: 10px 12px;
     flex-direction: column;
+    position: fixed;
+    left: 140px;
+    height: 100vh;
+    border-right: 1px solid hsla(0, 0%, 42.7%, 0.35);
+    border-left: 1px solid hsla(0, 0%, 42.7%, 0.35);
+    border-radius: 15px 0 0 0;
+    z-index: 2;
+    background-color: white;
 }

@@ -3,17 +3,28 @@ import { utilService } from './utilService';
 
 export const taskService = {
     add,
-    remove
+    remove,
+    createTask
 }
 
-function add(txt) {
-    return _createTask(txt)
+function add(txt, board, groupId) {
+    const newTask = createTask(txt)
+    const updatedBoard = { ...board }
+    updatedBoard.groups.find(currGroup => currGroup.id === groupId)
+        .tasks.push(newTask)
+    return updatedBoard
+
+
 }
-function remove(id, group) {
-    return group.tasks.filter(task => task.id !== id)
+function remove(id, board, group) {
+    const filteredTasks = group.tasks.filter(task => task.id !== id)
+    const updatedBoard = { ...board }
+    updatedBoard.groups.find(currGroup => currGroup.id === group.id)
+        .tasks = [...filteredTasks]
+    return updatedBoard
 }
 
-function _createTask(txt) {
+function createTask(txt) {
     return {
         id: utilService.makeId(),
         name: txt,

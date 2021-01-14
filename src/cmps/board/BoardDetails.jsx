@@ -4,9 +4,9 @@ import { GroupList } from '../groups/GroupList'
 import { loadBoard } from '../../store/actions/boardAction'
 import { boardService } from '../../services/boardService'
 import { taskService } from '../../services/taskService'
+import { groupService } from '../../services/groupService'
 
 export class _BoardDetails extends Component {
-
     componentDidMount() {
         // get board id from url and set it to state
         this.loadActiveBoard()
@@ -20,34 +20,37 @@ export class _BoardDetails extends Component {
 
     loadActiveBoard = async () => {
         const boardId = this.props.match.params.boardId
-        const res = await this.props.loadBoard(boardId)
-        // console.log('active board', res);
+        await this.props.loadBoard(boardId)
     }
 
     onRemoveTask = async (taskId, group) => {
         const { activeBoard } = this.props
-        const tasksToSave = taskService.remove(taskId, group)
-        const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
-        activeBoard.groups[groupIdx].tasks = [...tasksToSave]
-        await boardService.update(activeBoard)
+        const updatedBoard = taskService.remove(taskId, activeBoard, group)
+        console.log('updated', updatedBoard);
+        await boardService.update(updatedBoard)
         this.loadActiveBoard()
 
     }
 
     onAddTask = async (txt, groupId) => {
         const { activeBoard } = this.props
-        const savedTask = taskService.add(txt)
-        const groupIdx = activeBoard.groups.findIndex(group => group.id === groupId)
-        activeBoard.groups[groupIdx].tasks.push(savedTask)
-        await boardService.update(activeBoard)
+        const updatedBoard = taskService.add(txt, activeBoard, groupId)
+        console.log('updated', updatedBoard);
+        await boardService.update(updatedBoard)
         this.loadActiveBoard()
     }
 
-    onGroupDrag = async (newGroups) => {
+    onAddGroup = async (groupName) => {
         const { activeBoard } = this.props
-        activeBoard.groups = [...newGroups]
-        // console.log('board yafe', activeBoard)
-        await boardService.update(activeBoard)
+        const updatedBoard = groupService.add(groupName, activeBoard)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
+    onRemoveGroup = async (groupId) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.remove(groupId, activeBoard)
+        await boardService.update(updatedBoard)
         this.loadActiveBoard()
     }
 
@@ -58,7 +61,17 @@ export class _BoardDetails extends Component {
             <section>
                 <h1>{activeBoard.name}</h1>
                 <h1>{activeBoard.desc}</h1>
-                <GroupList groups={activeBoard.groups} onRemoveTask={this.onRemoveTask} onAddTask={this.onAddTask} onGroupDrag={this.onGroupDrag} />
+                <button onClick={() => {
+                    this.onAddGroup('new group')
+                }}>Add Group</button>
+
+                <GroupList
+                    groups={activeBoard.groups}
+                    onRemoveTask={this.onRemoveTask}
+                    onAddTask={this.onAddTask}
+                    onRemoveGroup={this.onRemoveGroup}
+                />
+
             </section>
         )
     }
