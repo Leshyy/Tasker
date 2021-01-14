@@ -4,8 +4,10 @@ import { TaskList } from '../tasks/TaskList'
 
 export class GroupPreview extends Component {
     render() {
-        const { group, onAddTask } = this.props
+        const { group, onAddTask, onRemoveTask } = this.props
         const { tasks } = group
+        if (!tasks) return <div>No TASKSSS</div>
+        console.log('tasks tamir hreeerere is:', tasks);
         return (
             <section className="group-preview">
                 <div className="header-group flex">
@@ -22,7 +24,7 @@ export class GroupPreview extends Component {
                     </div>
                 </div>
                 <div>
-                    <TaskList tasks={tasks} />
+                    <TaskList tasks={tasks} group={group} onRemoveTask={onRemoveTask} />
                 </div>
                 <TaskAdd onAddTask={onAddTask} groupId={group.id} />
 

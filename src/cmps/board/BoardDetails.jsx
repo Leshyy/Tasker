@@ -20,7 +20,16 @@ export class _BoardDetails extends Component {
         const boardId = this.props.match.params.boardId
         this.props.loadBoard(boardId)
     }
+    onRemoveTask = async (taskId, group) => {
+        const { activeBoard } = this.props
+        const tasksToSave = taskService.remove(taskId, group)
+        const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+        activeBoard.groups[groupIdx].tasks = [...tasksToSave]
+        console.log('activeBoard after enter is:', activeBoard);
+        await boardService.update(activeBoard)
+        this.loadActiveBoard()
 
+    }
     onAddTask = async (txt, groupId) => {
         const { activeBoard } = this.props
         const savedTask = taskService.add(txt)
@@ -37,7 +46,7 @@ export class _BoardDetails extends Component {
             <section>
                 <h1>{activeBoard.name}</h1>
                 <h1>{activeBoard.desc}</h1>
-                <GroupList groups={activeBoard.groups} onAddTask={this.onAddTask} />
+                <GroupList groups={activeBoard.groups} onRemoveTask={this.onRemoveTask} onAddTask={this.onAddTask} />
 
             </section>
         )
