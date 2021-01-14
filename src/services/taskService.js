@@ -3,17 +3,18 @@ import { utilService } from './utilService';
 
 export const taskService = {
     add,
-    remove
+    remove,
+    createTask
 }
 
 function add(txt) {
-    return _createTask(txt)
+    return createTask(txt)
 }
 function remove(id, group) {
     return group.tasks.filter(task => task.id !== id)
 }
 
-function _createTask(txt) {
+function createTask(txt) {
     return {
         id: utilService.makeId(),
         name: txt,
