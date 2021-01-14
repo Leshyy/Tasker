@@ -10,7 +10,7 @@ export const taskService = {
 function add(txt, board, groupId) {
     const newTask = createTask(txt)
     const updatedBoard = { ...board }
-    updatedBoard.groups.find(group => group.id === groupId)
+    updatedBoard.groups.find(currGroup => currGroup.id === groupId)
         .tasks.push(newTask)
     return updatedBoard
 
@@ -19,7 +19,7 @@ function add(txt, board, groupId) {
 function remove(id, board, group) {
     const filteredTasks = group.tasks.filter(task => task.id !== id)
     const updatedBoard = { ...board }
-    updatedBoard.groups.find(group => group.id === group.id)
+    updatedBoard.groups.find(currGroup => currGroup.id === group.id)
         .tasks = [...filteredTasks]
     return updatedBoard
 }

@@ -26,16 +26,16 @@ export class _BoardDetails extends Component {
     onRemoveTask = async (taskId, group) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.remove(taskId, activeBoard, group)
+        console.log('updated', updatedBoard);
         await boardService.update(updatedBoard)
         this.loadActiveBoard()
-        // const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
-        // activeBoard.groups[groupIdx].tasks = [...tasksToSave]
 
     }
 
     onAddTask = async (txt, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.add(txt, activeBoard, groupId)
+        console.log('updated', updatedBoard);
         await boardService.update(updatedBoard)
         this.loadActiveBoard()
     }
