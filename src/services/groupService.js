@@ -8,9 +8,10 @@ export const groupService = {
 }
 
 function add(name, board) {
+    const updatedBoard = { ...board }
     const group = _createGroup(name)
-    board.groups.push(group)
-    return board
+    updatedBoard.groups.push(group)
+    return updatedBoard
 }
 function remove(groupId, board) {
     const updatedGroups = board.groups.filter(group => group.id !== groupId)

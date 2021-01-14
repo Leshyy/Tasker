@@ -33,6 +33,7 @@ export class TaskAdd extends Component {
             <div>
                 <form onSubmit={this.onAddTask}>
                     <input
+                        autoComplete="off"
                         className="input-task"
                         type="text"
                         name="txt"

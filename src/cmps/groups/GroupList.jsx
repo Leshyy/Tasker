@@ -1,4 +1,6 @@
 import { GroupPreview } from './GroupPreview'
+// import { useState } from 'react'
+// import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup }) {
     return (
@@ -15,3 +17,4 @@ export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup }) {
         </section>
     )
 }
+
