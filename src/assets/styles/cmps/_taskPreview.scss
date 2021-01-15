@@ -12,6 +12,12 @@
     font-size: rem(14px);
     .task-left {
         flex-grow: 1;
+        form {
+            flex-grow: 1;
+            input {
+                width: 100%;
+            }
+        }
         .edit-icon {
             opacity: 0;
             margin-left: rem(7px);

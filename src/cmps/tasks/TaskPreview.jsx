@@ -8,13 +8,20 @@ import { AvatarGroup } from '@material-ui/lab';
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
+import { Status } from './Status';
+import { Priority } from './Priority';
 
 export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {
-            name: ''
-        }
+            name: '',
+            status: '',
+            priority: ''
+        },
+        modalPosition: {},
+        isStatusShown: false,
+        isPriorityShown: false
 
     }
 
@@ -35,10 +42,26 @@ export class TaskPreview extends Component {
         this.setState({ task: copy })
 
     }
+    handleChangeModal = (txt, type) => {
+        const copy = { ...this.state.task }
+        copy[type] = txt
+        this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
+
+    }
+    openModal = (ev) => {
+        console.log('ev.target is:', ev.target);
+        const clientX = ev.clientX
+        const clientY = ev.clientY
+        this.setState({ isStatusShown: true })
+        // this.setState({modalPosition:{clientX,clientY}})
+    }
+    closeModal = () => {
+        this.setState({ isStatusShown: false })
+    }
 
     render() {
         const { onRemoveTask, task, group, onUpdateTask } = this.props
-        const { editMode } = this.state
+        const { editMode, isStatusShown, isPriorityShown } = this.state
         const { name } = this.state.task
         return (
             <div className="task-preview flex space-between">
@@ -87,7 +110,13 @@ export class TaskPreview extends Component {
                         <Avatar className="avatar" alt="Amit" src={Tamir} />
                         <Avatar className="avatar" alt="Amit" src={Tair} />
                     </AvatarGroup>
-                    <div className="status">{task.status}</div>
+                    {/* <div className="status" onClick="">{task.status}</div> */}
+                    <Status
+                        status={task.status}
+                        openModal={this.openModal}
+                        closeModal={this.closeModal}
+                        isStatusShown={isStatusShown}
+                        handleChangeModal={this.handleChangeModal} />
                     <div>
                         <input type="date" className="input-date" />
                     </div>
