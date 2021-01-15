@@ -5,7 +5,8 @@ export const taskService = {
     add,
     remove,
     createTask,
-    update
+    update,
+    getTypesToRender
 }
 
 function add(txt, board, groupId) {
@@ -34,7 +35,9 @@ function remove(id, board, group) {
         .tasks = [...filteredTasks]
     return updatedBoard
 }
-
+function getTypesToRender(type) {
+    return (type === 'status') ? ['Completed', 'Working on it', 'Stuck'] : ['Low', 'Medium', 'High']
+}
 function createTask(txt) {
     return {
         id: utilService.makeId(),

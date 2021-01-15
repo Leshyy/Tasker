@@ -8,14 +8,22 @@ import { AvatarGroup } from '@material-ui/lab';
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
+import { TaskPropertyModal } from './columns/TaskPropertyModal';
+import { taskService } from '../../services/taskService';
+import { DueDate } from './columns/DueDate';
 
 export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {
-            name: ''
-        }
-
+            name: '',
+            status: '',
+            priority: ''
+        },
+        modalPosition: {},
+        isModalShown: false,
+        isStatusClicked: false,
+        isPriorityClicked: false
     }
 
     componentDidMount() {
@@ -27,6 +35,13 @@ export class TaskPreview extends Component {
         this.setState({ editMode: !this.state.editMode })
     }
 
+    toggleShowModal = (option) => {
+        (option === 'status') ?
+            this.setState({ isStatusClicked: !this.state.isStatusClicked }) :
+            this.setState({ isPriorityClicked: !this.state.isPriorityClicked })
+
+    }
+
     handleChange = (ev) => {
         const { value } = ev.target
         const field = ev.target.name
@@ -36,9 +51,33 @@ export class TaskPreview extends Component {
 
     }
 
+    handleChangeModal = (txt, type) => {
+        console.log('tair is:', txt, type);
+        const copy = { ...this.state.task }
+        copy[type] = txt
+        this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
+
+    }
+
+    openModal = (ev) => {
+        console.log('ev.target is:', ev.target);
+        const clientX = ev.clientX
+        const clientY = ev.clientY
+        this.setState({ isStatusShown: true })
+        // this.setState({modalPosition:{clientX,clientY}})
+    }
+
+    closeModal = () => {
+        this.setState({ isStatusClicked: false, isPriorityClicked: false })
+    }
+
+    getTypes = (type) => {
+        return taskService.getTypesToRender(type)
+    }
+
     render() {
         const { onRemoveTask, task, group, onUpdateTask } = this.props
-        const { editMode } = this.state
+        const { editMode, isStatusClicked, isPriorityClicked } = this.state
         const { name } = this.state.task
         return (
             <div className="task-preview flex space-between">
@@ -87,15 +126,28 @@ export class TaskPreview extends Component {
                         <Avatar className="avatar" alt="Amit" src={Tamir} />
                         <Avatar className="avatar" alt="Amit" src={Tair} />
                     </AvatarGroup>
-                    <div className="status">{task.status}</div>
-                    <div>
-                        <input type="date" className="input-date" />
+                    <div
+                        className={`status ${task.status} relative`}
+                        onClick={() => { this.toggleShowModal('status') }}>
+                        {task.status}
+                        {isStatusClicked && <TaskPropertyModal
+                            type="status"
+                            handleChangeModal={this.handleChangeModal}
+                            options={this.getTypes('status')} />}
                     </div>
-                    <div className="priority">{task.priority}</div>
-
+                    <DueDate className="date-input" task={task} />
+                    <div
+                        className={`priority ${task.priority} relative`}
+                        onClick={(ev) => { this.toggleShowModal('priority') }}>
+                        {task.priority}
+                        {isPriorityClicked &&
+                            <TaskPropertyModal
+                                type="priority"
+                                handleChangeModal={this.handleChangeModal}
+                                options={this.getTypes('priority')} />}
+                    </div>
                 </div>
-
-            </div>
+            </div >
         )
     }
 }

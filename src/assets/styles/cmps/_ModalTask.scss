@@ -1,0 +1,28 @@
+.task-property-modal {
+    position: absolute;
+    width: 120px;
+    top: 40px;
+    left: -10px;
+    z-index: 1;
+    background-color: rgb(251, 251, 251);
+    border-radius: 4px;
+    box-shadow: 0px 3px 6px 0px #484444;
+    div {
+        margin: 7px;
+        border-radius: 4px;
+        color: white;
+        background-color: rgb(78, 80, 77);
+        &.High,
+        &.Stuck {
+            background-color: #e44258;
+        }
+        &.Medium,
+        &.Working {
+            background-color: #fdab3d;
+        }
+        &.Low,
+        &.Completed {
+            background-color: #00ca71;
+        }
+    }
+}
