@@ -49,7 +49,7 @@
             width: rem(33px);
             height: rem(33px);
         }
-        div {
+        & > div {
             line-height: rem(40px);
             width: rem(100px);
             height: rem(40px);
@@ -58,12 +58,31 @@
             font-size: large;
         }
         .status {
-            border: 0.5px solid black;
-            border-radius: 5px;
+            &.Stuck {
+                background-color: #e44258;
+            }
+
+            &.Working {
+                background-color: #fdab3d;
+            }
+
+            &.Completed {
+                background-color: #00ca71;
+            }
+            &.New {
+                background-color: gray;
+            }
         }
         .priority {
-            border: 0.5px solid black;
-            border-radius: 5px;
+            &.High {
+                background-color: #e44258;
+            }
+            &.Medium {
+                background-color: #fdab3d;
+            }
+            &.Low {
+                background-color: #00ca71;
+            }
         }
     }
     &:hover {
