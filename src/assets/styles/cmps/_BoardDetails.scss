@@ -1,0 +1,18 @@
+.board-details {
+    flex-grow: 1;
+    .board-header-container {
+        padding: 20px 10px;
+        border-bottom: 1px solid rgba(151, 151, 151, 0.493);
+        .board-name-container {
+            text-align: left;
+            margin-bottom: 20px;
+            .board-name {
+                font-size: 30px;
+                font-weight: bold;
+            }
+        }
+        .board-desc-container {
+            text-align: left;
+        }
+    }
+}

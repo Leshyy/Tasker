@@ -4,14 +4,9 @@
     .header-group {
         justify-content: space-between;
         .header-left {
-            button {
-                align-self: center;
-                background-color: rgb(175, 175, 175);
-                border-radius: rem(50px);
-                border: none;
-                height: rem(20px);
-                margin-right: rem(5px);
-                cursor: pointer;
+            align-items: center;
+            .delete-icon {
+                margin-right: 5px;
             }
         }
         .header-right {

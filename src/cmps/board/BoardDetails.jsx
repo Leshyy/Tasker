@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { GroupList } from '../groups/GroupList'
-import { loadBoard } from '../../store/actions/boardAction'
+import { loadBoard, loadBoards } from '../../store/actions/boardAction'
 import { boardService } from '../../services/boardService'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
@@ -63,6 +63,32 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
+    onUpdateBoardName = async (boardName) => {
+        const { activeBoard } = this.props
+        const updatedBoard = { ...activeBoard }
+        updatedBoard.name = boardName
+        await boardService.update(updatedBoard)
+        this.props.loadBoards()
+        this.loadActiveBoard()
+    }
+
+    onUpdateBoardDesc = async (description) => {
+        const { activeBoard } = this.props
+        const updatedBoard = { ...activeBoard }
+        updatedBoard.desc = description
+        await boardService.update(updatedBoard)
+        this.props.loadBoards()
+        this.loadActiveBoard()
+    }
+
+    onUpdateGroup = async (group) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.update(group, activeBoard)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
+
     onDragEnd = async (res) => {
         const { activeBoard } = this.props
         const items = Array.from(activeBoard.groups)
@@ -79,21 +105,47 @@ export class _BoardDetails extends Component {
         const { activeBoard } = this.props
         if (!activeBoard) return <div>Loading no active user...</div>
         return (
-            <section>
-                <h1>{activeBoard.name}</h1>
-                <h1>{activeBoard.desc}</h1>
-                <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => {
-                        this.onAddGroup('new group')
-                    }}>New Group</Button>
+            <section className="board-details">
+                <div className="board-header-container">
+                    <div className="board-name-container">
+                        <span
+                            className="board-name editable"
+                            contentEditable="true"
+                            onBlur={(ev) => {
+                                this.onUpdateBoardName(ev.target.innerText)
+                            }}
+                            suppressContentEditableWarning={true}
+                        >
+                            {activeBoard.name}
+                        </span>
+                    </div>
+
+                    <div className="board-desc-container">
+                        <span
+                            className="board-desc editable"
+                            contentEditable="true"
+                            onBlur={(ev) => {
+                                this.onUpdateBoardDesc(ev.target.innerText)
+                            }}
+                            suppressContentEditableWarning={true}
+                        >
+                            {activeBoard.desc}
+                        </span>
+                    </div>
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => {
+                            this.onAddGroup('new group')
+                        }}>New Group</Button>
+                </div>
 
                 <GroupList
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
+                    onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.onDragEnd}
                 />
@@ -110,6 +162,7 @@ const mapGlobalStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     loadBoard,
+    loadBoards
 }
 
 export const BoardDetails = connect(

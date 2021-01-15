@@ -56,3 +56,16 @@
     padding: 0;
     list-style-type: none;
 }
+
+// editable content
+.editable {
+    border: 1px dashed transparent;
+    padding: 3px 7px 3px 0;
+    &:focus {
+        outline: none;
+        border-color: rgb(121, 121, 121);
+    }
+    &:hover {
+        border-color: rgb(121, 121, 121);
+    }
+}
