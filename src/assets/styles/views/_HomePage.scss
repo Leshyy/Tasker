@@ -1,6 +1,61 @@
 .home {
     flex-grow: 1;
-    width: 100vw;
-    height: 100vh;  
-    background-color: turquoise;
+    height: 100vh;
+    background: linear-gradient(220deg, #c7e5f1, hsla(0, 0%, 100%, 0) 68%);
+    .home-header {
+        flex-grow: 1;
+        padding-inline-start: rem(215px);
+        & > * {
+            margin: 0 rem(20px);
+            color: #323338;
+            font-size: rem(20px);
+            font-weight: 500;
+            letter-spacing: rem(0.5px);
+            text-decoration: none;
+        }
+    }
+    .home-main {
+        flex-direction: row-reverse;
+        flex-grow: 4;
+        & > * {
+            flex-basis: 50%;
+        }
+        .first-panel {
+            padding: 50px 150px 50px 50px;
+            text-align: start;
+            h1 {
+                font-size: rem(40px);
+            }
+            p {
+                font-size: rem(20px);
+                line-height: 2;
+                margin-bottom: rem(30px);
+                span {
+                    font-weight: bold;
+                }
+            }
+            button {
+                width: fit-content;
+                color: white;
+                background-color: rgba(220, 0, 77, 0.897);
+                padding: rem(6px) rem(16px);
+                font-size: rem(20px);
+                font-weight: 500;
+                line-height: 1.75;
+                border: none;
+                border-radius: rem(5px);
+                letter-spacing: rem(0.5px);
+                transition: 0.2s;
+                &:hover {
+                    background-color: rgb(220, 0, 77);
+                }
+            }
+        }
+        .second-panel {
+            align-self: center;
+        }
+    }
+    img {
+        width: 400px;
+    }
 }
