@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { BoardDetails } from '../cmps/board/BoardDetails'
 import { BoardSideNav } from '../cmps/board/BoardSideNav'
 import { loadBoards, removeBoard, addBoard } from '../store/actions/boardAction'
+import { AppHeader } from '../cmps/AppHeader'
 
 class _BoardApp extends Component {
     state = {
@@ -41,6 +42,7 @@ class _BoardApp extends Component {
         if (!boards) return <div>Loading no boards...</div>
         return (
             <section className="board-app flex">
+                <AppHeader />
                 <BoardSideNav
                     boards={boardsForDisplay || boards}
                     getBoradsForDisplay={this.getBoradsForDisplay}

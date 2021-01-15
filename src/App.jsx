@@ -14,7 +14,7 @@ export function App() {
   return (
     <Router>
       <div className="App flex">
-        <AppHeader />
+        {/* <AppHeader /> */}
 
         <main>
           <Switch>
