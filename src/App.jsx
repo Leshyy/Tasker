@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
-import { AppHeader } from './cmps/AppHeader';
 
 
 
@@ -14,11 +13,8 @@ export function App() {
   return (
     <Router>
       <div className="App flex">
-        {/* <AppHeader /> */}
-
         <main>
           <Switch>
-            {/* <Route path="/board" component={AppHeader} /> */}
             <Route path="/board" component={BoardApp} />
             <Route path="/profile/:userId?" component={Profile} />
             <Route path="/" component={Home} />
