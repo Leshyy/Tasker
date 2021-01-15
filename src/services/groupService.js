@@ -4,7 +4,8 @@ import { utilService } from './utilService';
 
 export const groupService = {
     add,
-    remove
+    remove,
+    update
 }
 
 function add(name, board) {
@@ -14,10 +15,19 @@ function add(name, board) {
     return updatedBoard
 }
 function remove(groupId, board) {
-    const updatedGroups = board.groups.filter(group => group.id !== groupId)
-    board.groups = [...updatedGroups]
-    return board
+    const updatedBoard = { ...board }
+    const updatedGroups = updatedBoard.groups.filter(group => group.id !== groupId)
+    updatedBoard.groups = [...updatedGroups]
+    return updatedBoard
 }
+
+function update(group, board) {
+    const updatedBoard = { ...board }
+    let groupIdx = updatedBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+    updatedBoard.groups[groupIdx] = { ...group }
+    return updatedBoard
+}
+
 
 function _createGroup(name) {
     return {

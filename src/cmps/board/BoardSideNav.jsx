@@ -20,7 +20,8 @@ export class BoardSideNav extends Component {
                         }}>+</button>
                 </div>
                 <BoardFilter getBoradsForDisplay={getBoradsForDisplay} />
-                <BoardList boards={boards}
+                <BoardList
+                    boards={boards}
                     onRemove={onRemove}
                 />
             </section>

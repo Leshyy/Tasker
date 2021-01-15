@@ -2,10 +2,13 @@
     position: fixed;
     left: 0;
     height: 100vh;
-    width: rem(150px);
+    width: rem(130px);
     padding: rem(10px) rem(5px);
     background-color: #292f4c;
     flex-direction: column;
+    .MuiSvgIcon-root {
+        font-size: 2rem;
+    }
     .top-header {
         flex-direction: column;
         height: rem(200px);
