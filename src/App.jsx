@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
-import { AppHeader } from './cmps/AppHeader';
 
 
 

@@ -5,7 +5,6 @@ const BASE_URL = 'board'
 
 export const boardService = {
     query,
-    save,
     remove,
     getById,
     add,
@@ -16,11 +15,6 @@ export const boardService = {
 async function query() {
     const boards = await httpService.get(BASE_URL)
     return boards
-}
-
-function save() {
-    // socketService.emit('borardUpdate')
-
 }
 
 async function update(board) {
