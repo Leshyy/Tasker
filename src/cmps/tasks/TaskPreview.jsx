@@ -87,9 +87,12 @@ export class TaskPreview extends Component {
         const { onRemoveTask, task, group, onUpdateTask } = this.props
         const { editMode, isStatusClicked, isPriorityClicked } = this.state
         const { name } = this.state.task
+        console.log('group.color is:', group);
         return (
             <div className="task-preview flex space-between">
                 <div className="task-left flex align-center">
+                    <div style={{ backgroundColor: group.color }} className="div-color" >
+                    </div>
                     <Delete
                         className="trash"
                         onClick={() => {

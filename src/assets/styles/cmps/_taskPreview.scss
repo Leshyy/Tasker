@@ -12,6 +12,9 @@
     font-size: rem(14px);
     .task-left {
         flex-grow: 1;
+        .div-color {
+            width: 15px;
+        }
         form {
             flex-grow: 1;
             input {
