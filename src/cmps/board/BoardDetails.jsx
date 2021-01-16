@@ -124,6 +124,11 @@ export class _BoardDetails extends Component {
                                 this.onUpdateBoardName(ev.target.innerText)
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
                         >
                             {activeBoard.name}
                         </span>
@@ -137,6 +142,11 @@ export class _BoardDetails extends Component {
                                 this.onUpdateBoardDesc(ev.target.innerText)
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
                         >
                             {activeBoard.desc}
                         </span>

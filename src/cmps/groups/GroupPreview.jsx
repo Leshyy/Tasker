@@ -5,6 +5,7 @@ import { GroupEdit } from './GroupEdit';
 import { Component } from 'react';
 import { render } from '@testing-library/react';
 import { ExpandMore } from '@material-ui/icons';
+import { GroupProgressBar } from './GroupProgressBar';
 
 
 export class GroupPreview extends Component {
@@ -46,6 +47,12 @@ export class GroupPreview extends Component {
 
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
+
                         >
                             {group.name}
                         </span>
@@ -68,6 +75,7 @@ export class GroupPreview extends Component {
                     onAddTask={onAddTask}
                     groupId={group.id}
                 />
+                <GroupProgressBar tasks={group.tasks} />
 
             </section>
         )

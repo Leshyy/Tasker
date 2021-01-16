@@ -1,6 +1,8 @@
 .group-preview {
     margin: rem(10px);
     min-width: 1200px;
+    position: relative;
+    padding-bottom: 45px;
     .header-group {
         justify-content: space-between;
         .header-left {
