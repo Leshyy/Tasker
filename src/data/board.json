@@ -1158,7 +1158,7 @@
             {
               "id": "8e3vQ",
               "name": "item 1",
-              "status": "Complete",
+              "status": "Stuck",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1606820163000
