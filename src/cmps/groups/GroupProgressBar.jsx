@@ -1,6 +1,5 @@
 
 export function GroupProgressBar({ tasks }) {
-    const taskProgressWidth = 150 / tasks.length
     const priorityCounter = {
         High: 0,
         Medium: 0,
