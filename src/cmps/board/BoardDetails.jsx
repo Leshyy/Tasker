@@ -57,10 +57,26 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
-    onRemoveGroup = async (groupId) => {
+    onRemoveGroup = async (ev, groupId) => {
+        ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
         await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
+    onUpdateGroup = async (group) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.update(group, activeBoard)
+        await boardService.update(updatedBoard)
+        this.loadActiveBoard()
+    }
+
+    onChangeGroupColor = async (ev, groupId) => {
+        ev.stopPropagation();
+        const { activeBoard } = this.props
+        // const updatedBoard = groupService.update(group, activeBoard)
+
         this.loadActiveBoard()
     }
 
@@ -81,14 +97,6 @@ export class _BoardDetails extends Component {
         this.props.loadBoards()
         this.loadActiveBoard()
     }
-
-    onUpdateGroup = async (group) => {
-        const { activeBoard } = this.props
-        const updatedBoard = groupService.update(group, activeBoard)
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
-    }
-
 
     onDragEnd = async (res) => {
         const { activeBoard } = this.props
@@ -149,6 +157,7 @@ export class _BoardDetails extends Component {
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.onDragEnd}
+                    onChangeGroupColor={this.onChangeGroupColor}
                 />
 
             </section>
