@@ -8,6 +8,13 @@
             .delete-icon {
                 margin-right: 5px;
             }
+            .btn-expand {
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(197, 196, 196, 0.808);
+                    border-radius: 50%;
+                }
+            }
         }
         .header-right {
             padding: 0 10px;
