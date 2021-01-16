@@ -1,6 +1,6 @@
 .group-preview {
     margin: rem(10px);
-    width: 70vw;
+    min-width: 1200px;
     .header-group {
         justify-content: space-between;
         .header-left {
@@ -12,7 +12,7 @@
         .header-right {
             padding: 0 10px;
             h3 {
-                width: rem(130px);
+                width: rem(150px);
             }
         }
     }

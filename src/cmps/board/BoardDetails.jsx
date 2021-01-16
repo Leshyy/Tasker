@@ -107,7 +107,7 @@ export class _BoardDetails extends Component {
         if (!activeBoard) return <div>Loading no active user...</div>
         return (
             <section className="board-details">
-                <div className="board-header-container">
+                <div className="board-header-container flex col">
                     <div className="board-name-container">
                         <span
                             className="board-name editable"

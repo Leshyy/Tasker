@@ -131,7 +131,7 @@ export class TaskPreview extends Component {
                     <div >
                         <Chat className="chat" />
                     </div>
-                    <AvatarGroup max={3} >
+                    <AvatarGroup max={3} className="avatar-container flex center" >
                         <Avatar className="avatar" alt="Amit" src={Amit} />
                         <Avatar className="avatar" alt="Amit" src={Tamir} />
                         <Avatar className="avatar" alt="Amit" src={Tair} />

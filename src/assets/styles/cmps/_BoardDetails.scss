@@ -1,8 +1,17 @@
 .board-details {
     flex-grow: 1;
     .board-header-container {
+        position: fixed;
+        background-color: white;
+        z-index: 3;
+        transform: translate(-10px);
+        width: 100%;
         padding: 20px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
+        button {
+            margin-top: 50px;
+            align-self: flex-start;
+        }
         .board-name-container {
             text-align: left;
             margin-bottom: 20px;
