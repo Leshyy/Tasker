@@ -1,102 +1,6 @@
 {
   "board": [
     {
-      "id": "KJdr45",
-      "name": "Know Your Dashboard",
-      "createdAt": 23757231,
-      "updatedAt": 234623543,
-      "color": "green",
-      "tasks": [
-        {
-          "id": "sdh4nJJ",
-          "name": "Get analytics",
-          "tags": [
-            "demo",
-            "instructions",
-            "tutorial",
-            "search"
-          ],
-          "createdAt": 1606733763732,
-          "updatedAt": 1606733763732,
-          "members": [
-            {
-              "_id": "2uk35b",
-              "fullname": "Tair Bitan",
-              "imgUrl": ""
-            },
-            {
-              "_id": "kj346",
-              "fullname": "Tamir Leshetz",
-              "imgUrl": ""
-            }
-          ],
-          "status": "Working on it",
-          "priority": "High",
-          "note": "Use The Pie Chart",
-          "dueDate": 1610731369555,
-          "comments": []
-        },
-        {
-          "id": "Fdg667",
-          "name": "See which employee works the hardest",
-          "tags": [
-            "demo",
-            "instructions",
-            "tutorial",
-            "notifications"
-          ],
-          "createdAt": 1606733763732,
-          "updatedAt": 1606733763732,
-          "members": [
-            {
-              "_id": "2uk35b",
-              "fullname": "Tair Bitan",
-              "imgUrl": ""
-            },
-            {
-              "_id": "kj346",
-              "fullname": "Tamir Leshetz",
-              "imgUrl": ""
-            }
-          ],
-          "status": "Stuck",
-          "priority": "Low",
-          "note": "",
-          "dueDate": 1610731369555,
-          "comments": []
-        },
-        {
-          "id": "KF45G34597",
-          "name": "Filter boards, groups and tasks in one click",
-          "tags": [
-            "demo",
-            "instructions",
-            "tutorial",
-            "deadlines"
-          ],
-          "createdAt": 1606733763732,
-          "updatedAt": 1606733763732,
-          "members": [
-            {
-              "_id": "2h3j5b",
-              "fullname": "Amit Weiss",
-              "imgUrl": ""
-            },
-            {
-              "_id": "kj346",
-              "fullname": "Tamir Leshetz",
-              "imgUrl": ""
-            }
-          ],
-          "status": "Completed",
-          "priority": "High",
-          "note": "",
-          "dueDate": 1610731369555,
-          "comments": []
-        }
-      ]
-    },
-    {
       "_id": "j23h5",
       "name": "Tasker Tutorial",
       "creator": {
@@ -124,6 +28,102 @@
         }
       ],
       "groups": [
+        {
+          "id": "KJdr45",
+          "name": "Know Your Dashboard",
+          "createdAt": 23757231,
+          "updatedAt": 234623543,
+          "color": "green",
+          "tasks": [
+            {
+              "id": "sdh4nJJ",
+              "name": "Get analytics",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "search"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "High",
+              "note": "Use The Pie Chart",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "Fdg667",
+              "name": "See which employee works the hardest",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "notifications"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Stuck",
+              "priority": "Low",
+              "note": "",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "KF45G34597",
+              "name": "Filter boards, groups and tasks in one click",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "deadlines"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Completed",
+              "priority": "High",
+              "note": "",
+              "dueDate": 1610731369555,
+              "comments": []
+            }
+          ]
+        },
         {
           "id": "ljkh325",
           "name": "Hello Tasker",
@@ -1575,6 +1575,64 @@
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1606820163000
+            },
+            {
+              "id": "tHxKm",
+              "name": "add one",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
             }
           ]
         },
