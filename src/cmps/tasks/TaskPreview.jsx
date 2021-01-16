@@ -127,7 +127,7 @@ export class TaskPreview extends Component {
                         >edit
                         </EditIcon>}
                 </div>
-                <div className="task-right flex">
+                <div className="task-right flex align-center">
                     <div><Chat className="chat" /></div>
                     <AvatarGroup max={3} >
                         <Avatar className="avatar" alt="Amit" src={Amit} />
@@ -135,7 +135,7 @@ export class TaskPreview extends Component {
                         <Avatar className="avatar" alt="Amit" src={Tair} />
                     </AvatarGroup>
                     <div
-                        className={`status ${task.status} relative`}
+                        className={`status ${task.status} relative  flex center align-center`}
                         onClick={() => { this.toggleShowModal('status') }}>
                         {task.status}
                         {isStatusClicked && <TaskPropertyModal
@@ -145,7 +145,7 @@ export class TaskPreview extends Component {
                     </div>
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
-                        className={`priority ${task.priority} relative`}
+                        className={`priority ${task.priority} relative  flex align-center center`}
                         onClick={(ev) => { this.toggleShowModal('priority') }}>
                         {task.priority}
                         {isPriorityClicked &&
