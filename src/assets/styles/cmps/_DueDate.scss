@@ -1,6 +1,7 @@
 .date {
     border: none;
     height: 100%;
+    width: 100%;
     background-color: transparent;
     color: rgb(63, 64, 69);
     font-size: 14px;
@@ -10,7 +11,6 @@
         outline: none;
     }
     &::-webkit-calendar-picker-indicator {
-        transform: translateX(-150%);
         cursor: pointer;
         &:focus {
             outline: none;

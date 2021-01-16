@@ -131,7 +131,9 @@ export class TaskPreview extends Component {
                         </EditIcon>}
                 </div>
                 <div className="task-right flex align-center">
-                    <div><Chat className="chat" /></div>
+                    <div >
+                        <Chat className="chat" />
+                    </div>
                     <AvatarGroup max={3} >
                         <Avatar className="avatar" alt="Amit" src={Amit} />
                         <Avatar className="avatar" alt="Amit" src={Tamir} />
