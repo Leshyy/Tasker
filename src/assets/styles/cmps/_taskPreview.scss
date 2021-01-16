@@ -58,6 +58,7 @@
             padding: 0 10px;
         }
         .avatar-container {
+            position: relative;
             z-index: 0;
             .avatar {
                 width: rem(33px);

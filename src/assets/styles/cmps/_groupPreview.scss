@@ -23,4 +23,15 @@
             }
         }
     }
+    .icon-drag {
+        opacity: 0;
+        transform: translate(-15px, 3px);
+        transition: 0.2s;
+    }
+    &:hover .icon-drag {
+        opacity: 0.6;
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
