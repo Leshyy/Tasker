@@ -1,0 +1,20 @@
+.date {
+    border: none;
+    height: 100%;
+    background-color: transparent;
+    color: rgb(63, 64, 69);
+    font-size: 14px;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    align-self: flex-end;
+    transform: translateX(13%);
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-calendar-picker-indicator {
+        transform: translateX(-150%);
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+}

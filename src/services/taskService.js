@@ -6,6 +6,7 @@ export const taskService = {
     remove,
     createTask,
     update,
+    getById,
     getTypesToRender
 }
 
@@ -35,9 +36,16 @@ function remove(id, board, group) {
         .tasks = [...filteredTasks]
     return updatedBoard
 }
+
+function getById(task, group) {
+    const foundTask = group.tasks.find(currTask => currTask.id === task.id);
+    return foundTask;
+}
+
 function getTypesToRender(type) {
     return (type === 'status') ? ['Completed', 'Working on it', 'Stuck'] : ['Low', 'Medium', 'High']
 }
+
 function createTask(txt) {
     return {
         id: utilService.makeId(),

@@ -11,12 +11,13 @@ import Tair from '../../assets/styles/img/Tair.jpeg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { taskService } from '../../services/taskService';
 import { DueDate } from './columns/DueDate';
+import { Notes } from './columns/Notes';
 
 export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {
-            name: '',
+            name: '', //no need for those keys. NEED TO DELETE
             status: '',
             priority: ''
         },
@@ -27,8 +28,8 @@ export class TaskPreview extends Component {
     }
 
     componentDidMount() {
-        const taskToSave = this.props.task
-        this.setState({ task: taskToSave })
+        const currTask = this.props.task
+        this.setState({ task: currTask })
     }
 
     toggleEditMode = () => {
@@ -51,7 +52,14 @@ export class TaskPreview extends Component {
 
     }
 
-    handleChangeModal = (txt, type) => {
+    onChangeDate = (date) => {
+        const { task } = this.state;
+        const { group } = this.props;
+        task.dueDate = date;
+        this.props.onUpdateTask(task, group.id);
+    }
+
+    handleModalChange = (txt, type) => {
         console.log('tair is:', txt, type);
         const copy = { ...this.state.task }
         copy[type] = txt
@@ -132,10 +140,10 @@ export class TaskPreview extends Component {
                         {task.status}
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
-                            handleChangeModal={this.handleChangeModal}
+                            handleModalChange={this.handleModalChange}
                             options={this.getTypes('status')} />}
                     </div>
-                    <DueDate className="date-input" task={task} />
+                    <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
                         className={`priority ${task.priority} relative`}
                         onClick={(ev) => { this.toggleShowModal('priority') }}>
@@ -143,9 +151,10 @@ export class TaskPreview extends Component {
                         {isPriorityClicked &&
                             <TaskPropertyModal
                                 type="priority"
-                                handleChangeModal={this.handleChangeModal}
+                                handleModalChange={this.handleModalChange}
                                 options={this.getTypes('priority')} />}
                     </div>
+                    <Notes className="column-notes" task={task} />
                 </div>
             </div >
         )
