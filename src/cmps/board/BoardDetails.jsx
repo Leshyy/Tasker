@@ -43,6 +43,7 @@ export class _BoardDetails extends Component {
     }
 
     onUpdateTask = async (task, groupId) => {
+        // console.log('task to update', task);
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         await boardService.update(updatedBoard)

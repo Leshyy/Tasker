@@ -33,6 +33,7 @@ export function GroupPreview({ group, onAddTask, onRemoveTask, onUpdateTask, onR
                     <h3>Status</h3>
                     <h3>Due-date</h3>
                     <h3>Priority</h3>
+                    <h3>Notes</h3>
                 </div>
             </div>
             <TaskList
