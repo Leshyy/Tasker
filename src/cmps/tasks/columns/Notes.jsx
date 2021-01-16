@@ -22,7 +22,7 @@ export class Notes extends Component {
         const { note } = this.state;
         return (
             <section>
-                <p>{note}</p>
+                <span>{note}</span>
             </section>
         )
     }
