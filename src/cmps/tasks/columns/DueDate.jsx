@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 
 export class DueDate extends Component {
     state = {
@@ -35,7 +35,7 @@ export class DueDate extends Component {
     }
 }
 // import { Component } from 'react';
-// var dateFormat = require("dateformat");
+var dateFormat = require("dateformat");
 
 // export class DueDate extends Component {
 //     state = {

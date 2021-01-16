@@ -6,7 +6,7 @@ export class BoardPreview extends Component {
     render() {
         const { board, onRemove } = this.props
         return (
-            <section className="board-preview flex">
+            <section className="board-preview flex" >
                 <DeleteIcon
                     className="delete-board-btn"
                     onClick={() => {

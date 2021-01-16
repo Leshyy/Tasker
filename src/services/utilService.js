@@ -1,6 +1,7 @@
 export const utilService = {
     getRandomInt,
     makeId,
+    getRandomColor
 }
 
 
@@ -19,5 +20,13 @@ function makeId(length = 5) {
     }
 
     return text;
+}
+
+function getRandomColor() {
+    var colors = ['green', 'chocolate', 'blue', 'purple', 'red']
+    var num = getRandomInt(0, 5)
+    console.log('colors[num] is:', colors[num]);
+    return colors[num]
+
 }
 
