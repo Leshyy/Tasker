@@ -815,37 +815,13 @@
       "name": "new board",
       "groups": [
         {
-          "id": "l6Vhc",
-          "name": "Group Title",
-          "createdAt": 1610801567602,
-          "color": "green",
-          "tasks": [
-            {
-              "id": "ZCqC5",
-              "name": "item 1",
-              "status": "Completed",
-              "priority": "High",
-              "note": "Add notes to your task",
-              "dueDate": 1606820163000
-            },
-            {
-              "id": "sg8uX",
-              "name": "item 2",
-              "status": "Completed",
-              "priority": "High",
-              "note": "Add notes to your task",
-              "dueDate": 1606820163000
-            }
-          ]
-        },
-        {
-          "id": "eNqv2",
+          "id": "8Nkvu",
           "name": "new group",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "M5KGG",
+              "id": "KYl8r",
               "name": "task1",
               "tags": [
                 "demo",
@@ -903,7 +879,7 @@
               ]
             },
             {
-              "id": "YfJn5",
+              "id": "0R8we",
               "name": "task2",
               "tags": [
                 "demo",
@@ -961,7 +937,7 @@
               ]
             },
             {
-              "id": "BW7T7",
+              "id": "qI3hr",
               "name": "task3",
               "tags": [
                 "demo",
@@ -1019,16 +995,16 @@
               ]
             }
           ],
-          "color": "purple"
+          "color": "#0085ff"
         },
         {
-          "id": "MJ6SI",
+          "id": "JtAZa",
           "name": "new group",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "Y866B",
+              "id": "iQ1qh",
               "name": "task1",
               "tags": [
                 "demo",
@@ -1086,7 +1062,7 @@
               ]
             },
             {
-              "id": "of4Wr",
+              "id": "vXvxN",
               "name": "task2",
               "tags": [
                 "demo",
@@ -1144,7 +1120,7 @@
               ]
             },
             {
-              "id": "OAhlA",
+              "id": "oGpD3",
               "name": "task3",
               "tags": [
                 "demo",
@@ -1202,16 +1178,16 @@
               ]
             }
           ],
-          "color": "red"
+          "color": "#e44258"
         },
         {
-          "id": "y4qVS",
+          "id": "noqWw",
           "name": "new group",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "DJAO3",
+              "id": "CIs11",
               "name": "task1",
               "tags": [
                 "demo",
@@ -1269,7 +1245,7 @@
               ]
             },
             {
-              "id": "uIcub",
+              "id": "gjqeN",
               "name": "task2",
               "tags": [
                 "demo",
@@ -1327,7 +1303,7 @@
               ]
             },
             {
-              "id": "ZwmgV",
+              "id": "Jv33D",
               "name": "task3",
               "tags": [
                 "demo",
@@ -1385,7 +1361,7 @@
               ]
             }
           ],
-          "color": "green"
+          "color": "#e44258"
         }
       ],
       "createdAt": 1610801567603,
