@@ -21,7 +21,8 @@ export function Home() {
                         <br/>
                         Half the hassle, twice the fun.
                     </p>
-                    <button>Try as guest</button>
+                    <Link to="/board" title="My Boards"><button>Run Demo</button></Link>
+                    
                 </div>
                 <div className="second-panel">
                     <img src={logo} alt="Logo" />

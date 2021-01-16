@@ -1,5 +1,87 @@
 .group-edit {
     position: absolute;
-    background-color: darkkhaki;
-    top: 100px;
+    z-index: 2;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+
+    transform: translate(10px, 55px);
+    & > * {
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+            background-color: rgba(197, 196, 196, 0.808);
+            border-radius: 5px;
+        }
+    }
+    .delete {
+        margin-bottom: 10px;
+    }
+}
+
+/* COLORS PALETTE */
+.colors-container {
+    position: absolute;
+    transform: translate(115%, 60%);
+    width: 100px;
+    padding: 0.2em;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    cursor: default;
+    transition: 0.5s;
+}
+
+.btn-color {
+    width: 20px;
+    height: 20px;
+    margin: 0.2em;
+    border: 1px solid rgb(209, 208, 208);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn-color:hover {
+    border: 1px solid black;
+}
+
+.btn-color:focus {
+    outline: none;
+}
+
+.btn-color.gray {
+    background-color: gray;
+}
+
+.btn-color.light-yellow {
+    background-color: rgb(246, 221, 152);
+}
+
+.btn-color.pink {
+    background-color: pink;
+}
+
+.btn-color.light-green {
+    background-color: rgb(164, 255, 164);
+}
+
+.btn-color.blue {
+    background-color: rgb(174, 203, 250);
+}
+
+.btn-color.cyan {
+    background-color: rgb(167, 255, 235);
+}
+
+.btn-color.red {
+    background-color: rgb(228, 66, 88);
+}
+
+.btn-color.green {
+    background-color: rgb(0, 202, 113);
+}
+
+.btn-color.yellow {
+    background-color: rgb(253, 171, 61);
 }

@@ -1,7 +1,7 @@
 import { TaskAdd } from '../tasks/TaskAdd'
 import { TaskList } from '../tasks/TaskList'
 import DeleteIcon from '@material-ui/icons/Delete';
-import { GroupEdit } from '../tasks/GroupEdit';
+import { GroupEdit } from './GroupEdit';
 import { Component } from 'react';
 import { render } from '@testing-library/react';
 import { ExpandMore } from '@material-ui/icons';
@@ -16,7 +16,7 @@ export class GroupPreview extends Component {
     toggleModal = () => {
         var { showModal } = this.state;
         showModal = !showModal;
-        this.setState({ showModal }, () => console.log('modal', showModal));
+        this.setState({ showModal });
     }
 
     render() {
@@ -27,7 +27,13 @@ export class GroupPreview extends Component {
                 <div className="header-group flex">
                     <div className="header-left flex" >
                         <ExpandMore onClick={this.toggleModal} className="btn-expand" />
-                        {showModal && <GroupEdit onRemoveGroup={onRemoveGroup} group={group} />}
+                        {showModal &&
+                            <GroupEdit
+                                onRemoveGroup={onRemoveGroup}
+                                onUpdateGroup={onUpdateGroup}
+                                group={group}
+                                toggleModal={this.toggleModal}
+                            />}
                         <span
                             className="group-name editable"
                             style={{ color: `${group.color}`, fontWeight: 'bold' }}
