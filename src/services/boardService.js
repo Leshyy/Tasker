@@ -49,7 +49,7 @@ function _createBoard(boardName) {
                     {
                         id: utilService.makeId(),
                         name: 'item 1',
-                        status: "Complete",
+                        status: "Completed",
                         priority: "High",
                         note: "Add notes to your task",
                         dueDate: 1606820163000,
@@ -57,7 +57,7 @@ function _createBoard(boardName) {
                     {
                         id: utilService.makeId(),
                         name: 'item 2',
-                        status: "Complete",
+                        status: "Completed",
                         priority: "High",
                         note: "Add notes to your task",
                         dueDate: 1606820163000,
