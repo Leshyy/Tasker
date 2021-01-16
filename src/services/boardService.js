@@ -1,3 +1,4 @@
+import { groupService } from './groupService'
 import { httpService } from './httpService'
 import { utilService } from './utilService'
 
@@ -41,29 +42,9 @@ function _createBoard(boardName) {
         _id: utilService.makeId(),
         name: boardName,
         groups: [
-            {
-                id: utilService.makeId(),
-                name: "Group Title",
-                createdAt: Date.now(),
-                tasks: [
-                    {
-                        id: utilService.makeId(),
-                        name: 'item 1',
-                        status: "Completed",
-                        priority: "High",
-                        note: "Add notes to your task",
-                        dueDate: 1606820163000,
-                    },
-                    {
-                        id: utilService.makeId(),
-                        name: 'item 2',
-                        status: "Completed",
-                        priority: "High",
-                        note: "Add notes to your task",
-                        dueDate: 1606820163000,
-                    },
-                ]
-            },
+            groupService.createGroup('group1'),
+            groupService.createGroup('group2'),
+            groupService.createGroup('group3')
         ],
         createdAt: Date.now(),
         desc: 'edit your new board...'

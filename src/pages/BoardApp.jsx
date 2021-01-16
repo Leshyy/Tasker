@@ -13,6 +13,12 @@ class _BoardApp extends Component {
 
     componentDidMount() {
         this.loadBoards()
+        const { boards } = this.props
+        if (!boards || !boards.length) {
+            return
+        }
+        this.props.history.push(`/board/${boards[0]._id}`);
+
     }
     loadBoards = () => {
         this.props.loadBoards()

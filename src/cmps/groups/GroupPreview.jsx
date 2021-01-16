@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 export function GroupPreview({ group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup }) {
     return (
-        <section className="group-preview">
+        <section className="group-preview" style={{ color: group.color }}>
             <div className="header-group flex">
                 <div className="header-left flex">
                     <DeleteIcon

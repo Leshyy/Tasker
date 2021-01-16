@@ -60,7 +60,6 @@ export class TaskPreview extends Component {
     }
 
     handleModalChange = (txt, type) => {
-        console.log('tair is:', txt, type);
         const copy = { ...this.state.task }
         copy[type] = txt
         this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
@@ -69,10 +68,7 @@ export class TaskPreview extends Component {
 
     openModal = (ev) => {
         console.log('ev.target is:', ev.target);
-        const clientX = ev.clientX
-        const clientY = ev.clientY
         this.setState({ isStatusShown: true })
-        // this.setState({modalPosition:{clientX,clientY}})
     }
 
     closeModal = () => {
@@ -88,7 +84,7 @@ export class TaskPreview extends Component {
         const { editMode, isStatusClicked, isPriorityClicked } = this.state
         const { name } = this.state.task
         return (
-            <div className="task-preview flex space-between">
+            <div style={{ borderLeft: `10px solid ${group.color} ` }} className="task-preview flex space-between">
                 <div className="task-left flex align-center">
                     <Delete
                         className="trash"
@@ -131,7 +127,7 @@ export class TaskPreview extends Component {
                     <div >
                         <Chat className="chat" />
                     </div>
-                    <AvatarGroup max={3} >
+                    <AvatarGroup max={3} className="avatar-container flex center" >
                         <Avatar className="avatar" alt="Amit" src={Amit} />
                         <Avatar className="avatar" alt="Amit" src={Tamir} />
                         <Avatar className="avatar" alt="Amit" src={Tair} />

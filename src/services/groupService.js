@@ -5,12 +5,13 @@ import { utilService } from './utilService';
 export const groupService = {
     add,
     remove,
-    update
+    update,
+    createGroup
 }
 
 function add(name, board) {
     const updatedBoard = { ...board }
-    const group = _createGroup(name)
+    const group = createGroup(name)
     updatedBoard.groups.push(group)
     return updatedBoard
 }
@@ -29,7 +30,7 @@ function update(group, board) {
 }
 
 
-function _createGroup(name) {
+function createGroup(name) {
     return {
         id: utilService.makeId(),
         name,
@@ -39,6 +40,7 @@ function _createGroup(name) {
             taskService.createTask('task1'),
             taskService.createTask('task2'),
             taskService.createTask('task3')
-        ]
+        ],
+        color: utilService.getRandomColor()
     }
 }
