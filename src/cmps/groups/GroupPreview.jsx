@@ -6,7 +6,7 @@ import { Component } from 'react';
 import { ExpandMore } from '@material-ui/icons';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
-
+import { GroupProgressBar } from './GroupProgressBar';
 
 
 export class GroupPreview extends Component {
@@ -49,6 +49,12 @@ export class GroupPreview extends Component {
 
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
+
                         >
                             {group.name}
                         </span>
@@ -72,7 +78,8 @@ export class GroupPreview extends Component {
                     onAddTask={onAddTask}
                     groupId={group.id}
                 />
-            </section>
+                <GroupProgressBar tasks={group.tasks} />
+            </section >
         )
     }
 }
