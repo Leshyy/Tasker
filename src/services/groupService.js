@@ -39,6 +39,7 @@ function _createGroup(name) {
             taskService.createTask('task1'),
             taskService.createTask('task2'),
             taskService.createTask('task3')
-        ]
+        ],
+        color: utilService.getRandomColor()
     }
 }

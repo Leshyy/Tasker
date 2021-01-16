@@ -45,6 +45,7 @@ function _createBoard(boardName) {
                 id: utilService.makeId(),
                 name: "Group Title",
                 createdAt: Date.now(),
+                color: utilService.getRandomColor(),
                 tasks: [
                     {
                         id: utilService.makeId(),
