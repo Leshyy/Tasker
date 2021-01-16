@@ -2,11 +2,11 @@
     display: flex;
     background-color: #f1f1f1;
     margin-bottom: rem(2px);
-    height: rem(40px);
+    // height: rem(40px);
     border-radius: 5px;
     box-shadow: 0 3px 4px -5px #484444;
     transition: background-color 0.3s;
-    padding: rem(5px) rem(10px);
+    padding: 0 rem(10px);
     align-items: center;
     color: #3f4045;
     font-size: rem(14px);
@@ -45,18 +45,21 @@
         }
     }
     .task-right {
+        & > * {
+            width: rem(130px);
+            align-self: stretch;
+            padding: 0 10px;
+        }
         .avatar {
             width: rem(33px);
             height: rem(33px);
         }
-        & > div {
-            line-height: rem(40px);
-            width: rem(100px);
-            height: rem(40px);
-        }
         .chat {
             font-size: large;
         }
+        // .column-notes {
+        //     align-content: center;
+        // }
         .status {
             &.Stuck {
                 background-color: #e44258;
