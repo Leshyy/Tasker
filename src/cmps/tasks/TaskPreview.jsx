@@ -3,15 +3,11 @@ import { Chat } from '@material-ui/icons';
 import { Component } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 
-import { Avatar } from '@material-ui/core';
-import { AvatarGroup } from '@material-ui/lab';
-import Amit from '../../assets/styles/img/Amit.jpeg';
-import Tamir from '../../assets/styles/img/Tamir.jpeg';
-import Tair from '../../assets/styles/img/Tair.jpeg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { taskService } from '../../services/taskService';
 import { DueDate } from './columns/DueDate';
 import { Notes } from './columns/Notes';
+import { Members } from './columns/Members';
 
 export class TaskPreview extends Component {
     state = {
@@ -131,11 +127,7 @@ export class TaskPreview extends Component {
                     <div >
                         <Chat className="chat" />
                     </div>
-                    <AvatarGroup max={3} className="avatar-container flex center" >
-                        <Avatar className="avatar" alt="Amit" src={Amit} />
-                        <Avatar className="avatar" alt="Amit" src={Tamir} />
-                        <Avatar className="avatar" alt="Amit" src={Tair} />
-                    </AvatarGroup>
+                    <Members task={task} />
                     <div
                         className={`status ${task.status} relative  flex center align-center`}
                         onClick={() => { this.toggleShowModal('status') }}>
