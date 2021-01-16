@@ -1479,7 +1479,7 @@
             {
               "id": "rqjku",
               "name": "item 1fff",
-              "status": "Completed",
+              "status": "Working on it",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1610731369555
@@ -1828,7 +1828,7 @@
                 }
               ],
               "status": "New",
-              "priority": "High",
+              "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
               "comments": [
