@@ -1,10 +1,10 @@
 
-export function TaskPropertyModal({ options, type, handleChangeModal }) {
+export function TaskPropertyModal({ options, type, handleModalChange }) {
     console.log('hen is:', type);
     return (
         <div className=" task-property-modal ">
             {options.map((option, idx) => {
-                return <div key={idx} className={option} onClick={() => handleChangeModal(option, type)}> {option}</div>
+                return <div key={idx} className={option} onClick={() => handleModalChange(option, type)}> {option}</div>
             })}
         </div >
     )
