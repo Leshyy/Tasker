@@ -11,6 +11,7 @@
     font-size: rem(14px);
     .task-left {
         flex-grow: 1;
+        text-align: start;
         .div-color {
             width: 15px;
             height: 100%;
@@ -44,6 +45,11 @@
             font-size: larger;
             cursor: pointer;
             margin-right: rem(15px);
+            opacity: 0.6;
+            transition: 0.2s;
+            &:hover {
+                opacity: 1;
+            }
         }
     }
     .task-right {
