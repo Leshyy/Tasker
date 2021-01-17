@@ -93,6 +93,7 @@ export class TaskPreview extends Component {
 
     getTypes = (type) => {
         return taskService.getTypesToRender(type)
+
     }
 
     render() {
