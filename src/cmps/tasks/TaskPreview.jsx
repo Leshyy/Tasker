@@ -40,7 +40,6 @@ export class TaskPreview extends Component {
     }
 
     toggleShowModal = (option) => {
-        // console.log('option', option);
 
         (option === 'status') ?
             this.setState({
@@ -89,7 +88,7 @@ export class TaskPreview extends Component {
     }
 
     closeModal = () => {
-        this.setState({ isStatusClicked: false, isPriorityClicked: false })
+        this.setState({ isStatusClicked: false, isPriorityClicked: false, isModalShown: false })
     }
 
     getTypes = (type) => {
@@ -98,10 +97,12 @@ export class TaskPreview extends Component {
 
     render() {
         const { onRemoveTask, task, group, onUpdateTask } = this.props
-        const { editMode, isStatusClicked, isPriorityClicked, isShownChat } = this.state
+        const { editMode, isStatusClicked, isPriorityClicked, isShownChat, isModalShown } = this.state
         const { name } = this.state.task
         return (
-            <div style={{ borderLeft: `8px solid ${group.color} ` }} className="task-preview flex space-between">
+            <div
+                style={{ borderLeft: `8px solid ${group.color} ` }}
+                className="task-preview flex space-between">
                 <div className="task-left flex align-center">
                     <Delete
                         className="trash"
@@ -175,6 +176,7 @@ export class TaskPreview extends Component {
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
                     {isShownChat && <TaskChat task={task} />}
                 </div>
+                {isModalShown && <div className="screen" onClick={this.closeModal}></div>}
             </div >
         )
     }
