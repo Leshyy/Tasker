@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
+import { MyWeek } from './pages/MyWeek';
 
 
 
@@ -16,6 +17,7 @@ export function App() {
         <main>
           <Switch>
             <Route path="/board" component={BoardApp} />
+            <Route path="/myweek" component={MyWeek} />
             <Route path="/profile/:userId?" component={Profile} />
             <Route path="/" component={Home} />
           </Switch>

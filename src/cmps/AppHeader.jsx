@@ -13,7 +13,7 @@ export function AppHeader() {
 
             <nav className="nav-header flex space-around">
                 <Link to="/board" title="My Boards"><FormatListBulletedOutlined /></Link>
-                <Link to="" title="My week"><CalendarTodayOutlined /></Link>
+                <Link to="/myweek" title="My week"><CalendarTodayOutlined /></Link>
                 <Link to="/profile" title="My profile"><PersonOutline /></Link>
                 <Link to="" title="Logout"><ExitToAppOutlined /></Link>
             </nav>
