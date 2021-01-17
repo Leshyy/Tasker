@@ -1,15 +1,17 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
+const dateFormat = require('dateformat')
 
 export class TaskToWeek extends Component {
     state = {
         board: {},
+        userActive: '',
         userTasks: []
     }
+
     componentDidMount() {
         const { board } = this.props
         this.setState({ board }, () => {
-
             this.findTasksPerUser('2h3j5b')
         })
     }
@@ -29,15 +31,12 @@ export class TaskToWeek extends Component {
                 userTasks.push(...tasks)
             }
         })
-        // userTasks.forEach(task => {
-        //     console.log('task.name is:', task.name);
-        //     return task.name
-        // })
-        this.setState({ userTasks: userTasks }, () => {
+        this.setState({ userTasks: userTasks })
+    }
 
-            console.log('userTasks is:', this.state.userTasks);
-        })
-        // return userTasks
+    changeDate = (date) => {
+        const localDate = dateFormat(date, "dd-mm-yyyy");
+        return localDate
     }
     render() {
         const { userTasks } = this.state
@@ -49,8 +48,9 @@ export class TaskToWeek extends Component {
                             <h3>{task.name}</h3>
                             <Link to="">{`At: ${task.boardName} < ${task.groupName}`}</Link>
                         </div>
-                        <div className="right">
-                            {task.dueDate}
+                        <div className="right flex">
+                            {/* {task.dueDate} */}
+                            {this.changeDate(task.dueDate)}
                         </div>
                     </div>
                 })}

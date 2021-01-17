@@ -1,25 +1,24 @@
 import { Delete } from '@material-ui/icons';
-import { Chat } from '@material-ui/icons';
 import { Component } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 
+
+import chat from '../../assets/icons/chat.svg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { taskService } from '../../services/taskService';
 import { DueDate } from './columns/DueDate';
 import { Notes } from './columns/Notes';
 import { Members } from './columns/Members';
+import { TaskChat } from './TaskChat';
 
 export class TaskPreview extends Component {
     state = {
         editMode: false,
-        task: {
-            // name: '', //no need for those keys. NEED TO DELETE
-            // status: '',
-            // priority: ''
-        },
+        task: {},
         isModalShown: false,
         isStatusClicked: false,
-        isPriorityClicked: false
+        isPriorityClicked: false,
+        isShownChat: false
     }
 
     componentDidMount() {
@@ -34,6 +33,10 @@ export class TaskPreview extends Component {
 
     toggleEditMode = () => {
         this.setState({ editMode: !this.state.editMode })
+    }
+
+    toggleShowChat = () => {
+        this.setState({ isShownChat: !this.state.isShownChat })
     }
 
     toggleShowModal = (option) => {
@@ -99,8 +102,8 @@ export class TaskPreview extends Component {
     }
 
     render() {
-        const { onRemoveTask, task, group, onUpdateTask, isDragging } = this.props
-        const { editMode, isStatusClicked, isPriorityClicked, isModalShown } = this.state
+        const { onRemoveTask, task, group, onUpdateTask } = this.props
+        const { editMode, isStatusClicked, isPriorityClicked, isShownChat } = this.state
         const { name } = this.state.task
         return (
             <div
@@ -146,8 +149,8 @@ export class TaskPreview extends Component {
                         </EditIcon>}
                 </div>
                 <div className="task-right flex align-center">
-                    <div className="column-chat flex end align-center">
-                        <Chat className="chat" />
+                    <div onClick={this.toggleShowChat} className="column-chat flex end align-center">
+                        <img src={chat} width="20px" alt="chaticon" className="chat" />
                     </div>
                     <Members task={task} />
                     <div
@@ -166,7 +169,7 @@ export class TaskPreview extends Component {
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
                         className={`priority ${task.priority} relative  flex align-center center`}
-                        onClick={(ev) => {
+                        onClick={() => {
                             this.toggleShowModal('priority')
                         }}>
                         {task.priority}
@@ -177,7 +180,8 @@ export class TaskPreview extends Component {
                                 options={this.getTypes('priority')} />}
                     </div>
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
-                </div>
+                    {isShownChat && <TaskChat task={task} />}
+s                </div>
             </div >
         )
     }
