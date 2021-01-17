@@ -6,6 +6,7 @@ import { boardService } from '../../services/boardService'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import Button from '@material-ui/core/Button'
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 
 export class _BoardDetails extends Component {
@@ -147,48 +148,64 @@ export class _BoardDetails extends Component {
         if (!activeBoard) return <div>Loading no active user...</div>
         return (
             <section className="board-details">
-                <div className="board-header-container flex col">
-                    <div className="board-name-container">
-                        <span
-                            className="board-name editable"
-                            contentEditable="true"
-                            onBlur={(ev) => {
-                                this.onUpdateBoardName(ev.target.innerText)
-                            }}
-                            suppressContentEditableWarning={true}
-                            onKeyDown={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    ev.target.blur()
-                                }
-                            }}
-                        >
-                            {activeBoard.name}
-                        </span>
-                    </div>
+                <div className="board-header-container">
+                    <div className="board-header-content flex col">
+                        <div className="board-name-container">
+                            <span
+                                className="board-name editable"
+                                contentEditable="true"
+                                onBlur={(ev) => {
+                                    this.onUpdateBoardName(ev.target.innerText)
+                                }}
+                                suppressContentEditableWarning={true}
+                                onKeyDown={(ev) => {
+                                    if (ev.key === 'Enter') {
+                                        ev.target.blur()
+                                    }
+                                }}
+                            >
+                                {activeBoard.name}
+                            </span>
+                        </div>
 
-                    <div className="board-desc-container">
-                        <span
-                            className="board-desc editable"
-                            contentEditable="true"
-                            onBlur={(ev) => {
-                                this.onUpdateBoardDesc(ev.target.innerText)
-                            }}
-                            suppressContentEditableWarning={true}
-                            onKeyDown={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    ev.target.blur()
-                                }
-                            }}
-                        >
-                            {activeBoard.desc}
-                        </span>
+                        <div className="board-desc-container">
+                            <span
+                                className="board-desc editable"
+                                contentEditable="true"
+                                onBlur={(ev) => {
+                                    this.onUpdateBoardDesc(ev.target.innerText)
+                                }}
+                                suppressContentEditableWarning={true}
+                                onKeyDown={(ev) => {
+                                    if (ev.key === 'Enter') {
+                                        ev.target.blur()
+                                    }
+                                }}
+                            >
+                                {activeBoard.desc}
+                            </span>
+                        </div>
+                        <div className="board-header-bottom flex">
+                            <div className="board-creator">
+                                Created By:<span>{activeBoard.creator.fullname}</span>
+                            </div>
+                            <div className="bottom-right-container flex">
+                                <Button
+                                    variant="outlined"
+                                    color="primary"
+                                    onClick={() => {
+                                        this.onAddGroup('new group')
+                                    }}>
+                                    New Group
+                            </Button>
+                                <input type="text" placeholder="Search" />
+                                <div className="filter flex align-center">
+                                    <span>Filter</span>
+                                    <FilterListIcon />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <Button
-                        variant="outlined"
-                        color="primary"
-                        onClick={() => {
-                            this.onAddGroup('new group')
-                        }}>New Group</Button>
                 </div>
 
                 <GroupList

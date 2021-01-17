@@ -41,6 +41,11 @@ function _createBoard(boardName) {
     return {
         _id: utilService.makeId(),
         name: boardName,
+        creator: {
+            _id: "2uk35b",
+            fullname: "Tair Bitan",
+            imgUrl: ""
+        },
         groups: [
             groupService.createGroup('group1'),
             groupService.createGroup('group2'),

@@ -2,26 +2,68 @@
     flex-grow: 1;
     .board-header-container {
         position: fixed;
-        background-color: white;
         z-index: 3;
         transform: translate(-10px);
+        background-color: white;
         width: 100%;
         padding: 20px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
-        button {
-            margin-top: 50px;
-            align-self: flex-start;
-        }
-        .board-name-container {
-            text-align: left;
-            margin-bottom: 20px;
-            .board-name {
-                font-size: 30px;
-                font-weight: bold;
+        .board-header-content {
+            max-width: 1400px;
+            .board-name-container {
+                text-align: left;
+                margin-bottom: 20px;
+                .board-name {
+                    font-family: font1;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
             }
-        }
-        .board-desc-container {
-            text-align: left;
+            .board-desc-container {
+                text-align: left;
+            }
+            .board-header-bottom {
+                margin-top: 20px;
+                justify-content: space-between;
+                align-items: center;
+                .board-creator {
+                    text-align: left;
+                    flex-grow: 2;
+                    span {
+                        margin-left: 5px;
+                        transition: 0.2s;
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: underline;
+                            color: #0085ff;
+                        }
+                    }
+                }
+                .bottom-right-container {
+                    flex-grow: 1;
+                    & > *:not(:last-child) {
+                        margin-right: 10px;
+                    }
+                    input {
+                        border: none;
+                        outline: none;
+                        border-bottom: 1px solid rgba(105, 105, 105, 0.664);
+                        &:hover {
+                            border-bottom: 1px solid rgb(105, 105, 105);
+                        }
+                        &:focus {
+                            border-bottom: 1px solid rgb(105, 105, 105);
+                        }
+                    }
+
+                    .filter {
+                        cursor: pointer;
+                        span {
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
