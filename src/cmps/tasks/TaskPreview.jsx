@@ -102,12 +102,15 @@ export class TaskPreview extends Component {
     }
 
     render() {
-        const { onRemoveTask, task, group, onUpdateTask } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, isDragging } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownChat } = this.state
         const { name } = this.state.task
         return (
             <div
-                style={{ borderLeft: `10px solid ${group.color} `, transform: `rotate(${this.onDrag(isDragging)})` }}
+                style={{
+                    borderLeft: `10px solid ${group.color} `,
+                    //  transform: `rotate(${this.onDrag(isDragging)})`
+                }}
                 className="task-preview flex space-between"
             >
                 <div className="task-left flex align-center">
@@ -130,6 +133,7 @@ export class TaskPreview extends Component {
                                     this.toggleEditMode()
                                     onUpdateTask(this.state.task, group.id)
                                 }}
+                                autoComplete="off"
                                 autoFocus={true}
                                 onChange={(ev) => {
                                     this.handleChange(ev)
@@ -150,7 +154,7 @@ export class TaskPreview extends Component {
                 </div>
                 <div className="task-right flex align-center">
                     <div onClick={this.toggleShowChat} className="column-chat flex end align-center">
-                        <img src={chat} width="20px" alt="chaticon" className="chat" />
+                        <img src={chat} width="25px" alt="chaticon" className="chat" />
                     </div>
                     <Members task={task} />
                     <div
@@ -181,7 +185,7 @@ export class TaskPreview extends Component {
                     </div>
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
                     {isShownChat && <TaskChat task={task} />}
-s                </div>
+                </div>
             </div >
         )
     }

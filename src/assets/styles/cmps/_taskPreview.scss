@@ -73,7 +73,12 @@
             }
         }
         .chat {
-            font-size: large;
+            width: 25px;
+            opacity: 0.7;
+            transition: 0.2s;
+            &:hover {
+                opacity: 1;
+            }
         }
         .column-notes {
             p {
