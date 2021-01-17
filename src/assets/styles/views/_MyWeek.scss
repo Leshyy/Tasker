@@ -1,0 +1,38 @@
+.my-week {
+    margin-inline-start: 10.125rem;
+    .top {
+        margin-block-end: 40px;
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        h2 {
+            width: rem(250px);
+        }
+    }
+    .bottom {
+        Input {
+            width: rem(300px);
+        }
+    }
+    .tasks-user {
+        text-align: start;
+        border: 1px solid black;
+        margin: 6px;
+        border-radius: 10px;
+    }
+    .left {
+        padding: 6px;
+        a {
+            color: rgb(117, 117, 117);
+            padding: 5px;
+            &:hover {
+                color: #ee2c2e;
+                cursor: pointer;
+            }
+        }
+    }
+    .right {
+        border-left: 2px solid black;
+    }
+}
