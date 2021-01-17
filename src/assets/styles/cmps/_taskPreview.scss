@@ -1,14 +1,15 @@
 .task-preview {
     display: flex;
-    max-height: 50px;
-    background-color: #f1f1f1;
-    margin-bottom: rem(2px);
-    border-radius: 5px;
-    box-shadow: 0 3px 4px -5px #484444;
+    max-height: 34px;
+    background-color: #f5f6f8;
+    margin-bottom: rem(1px);
+    border-radius: 1px;
+    border-right: 8px solid #e6e9ef;
     transition: background-color 0.3s;
     padding: 0 rem(10px);
     color: #3f4045;
-    font-size: rem(14px);
+    font-size: rem(12px);
+    font-family: "Roboto", helvetica, arial, sans-serif;
     .task-left {
         flex-grow: 1;
         text-align: start;
@@ -24,6 +25,7 @@
         }
         .edit-icon {
             opacity: 0;
+            font-size: 15px;
             margin-left: rem(7px);
             cursor: pointer;
             transition: opacity 0.5s;
@@ -64,13 +66,40 @@
             position: relative;
             z-index: 0;
             .avatar {
-                width: rem(33px);
-                height: rem(33px);
+                width: rem(30px);
+                height: rem(30px);
                 z-index: 1;
             }
         }
         .chat {
-            font-size: large;
+            width: 25px;
+            opacity: 0.7;
+            transition: 0.2s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .status {
+            align-self: stretch;
+            color: #ffffff;
+            cursor: pointer;
+            &.Stuck {
+                background-color: #e44258;
+            }
+
+            &.Working {
+                background-color: #fdab3d;
+            }
+
+            &.Completed {
+                background-color: #00ca71;
+            }
+            &.New {
+                background-color: gray;
+            }
+        }
+        .date {
+            font-size: rem(12px);
         }
         .column-notes {
             p {
@@ -93,27 +122,10 @@
                 }
             }
         }
-        .status {
-            align-self: stretch;
-            cursor: pointer;
-            &.Stuck {
-                background-color: #e44258;
-            }
-
-            &.Working {
-                background-color: #fdab3d;
-            }
-
-            &.Completed {
-                background-color: #00ca71;
-            }
-            &.New {
-                background-color: gray;
-            }
-        }
         .priority {
             align-self: stretch;
             cursor: pointer;
+            color: #ffffff;
             &.High {
                 background-color: #e44258;
             }
@@ -126,18 +138,23 @@
         }
     }
     &:hover {
-        background-color: rgb(219, 219, 219);
+        background-color: #e6e9ef;
+        p {
+            color: #1e76c2;
+        }
     }
 }
 .input-task {
     display: flex;
     justify-self: start;
     border: none;
+    padding: rem(2px) rem(22px);
     width: 100%;
-    height: rem(40px);
+    height: rem(34px);
     line-height: rem(40px);
     border: 1px solid transparent;
     transition: 0.4s;
+    box-shadow: 0 3px 4px -5px #484444;
     &:hover {
         border: 1px solid rgb(73, 73, 73);
         border-radius: 5px;

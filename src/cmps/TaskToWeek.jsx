@@ -46,7 +46,7 @@ export class TaskToWeek extends Component {
                     return <div className="tasks-user flex space-between">
                         <div className="left flex col">
                             <h3>{task.name}</h3>
-                            <Link to="">{`At: ${task.boardName} < ${task.groupName}`}</Link>
+                            <Link to="/board">{`At: ${task.boardName} < ${task.groupName}`}</Link>
                         </div>
                         <div className="right flex">
                             {/* {task.dueDate} */}
