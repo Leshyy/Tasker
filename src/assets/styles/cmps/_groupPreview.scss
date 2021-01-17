@@ -5,6 +5,7 @@
     padding-bottom: 45px;
     .header-group {
         justify-content: space-between;
+        margin-right: 9px;
         .header-left {
             align-items: center;
             .delete-icon {
@@ -20,8 +21,9 @@
         }
         .header-right {
             padding: 0 10px;
-            h3 {
+            h5 {
                 width: rem(150px);
+                // margin: 25px auto;
             }
         }
     }

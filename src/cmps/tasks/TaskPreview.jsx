@@ -106,13 +106,7 @@ export class TaskPreview extends Component {
         const { editMode, isStatusClicked, isPriorityClicked, isShownChat } = this.state
         const { name } = this.state.task
         return (
-            <div
-                style={{
-                    borderLeft: `10px solid ${group.color} `,
-                    //  transform: `rotate(${this.onDrag(isDragging)})`
-                }}
-                className="task-preview flex space-between"
-            >
+            <div style={{ borderLeft: `8px solid ${group.color} ` }} className="task-preview flex space-between">
                 <div className="task-left flex align-center">
                     <Delete
                         className="trash"
