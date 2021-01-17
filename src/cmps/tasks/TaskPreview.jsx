@@ -13,11 +13,10 @@ export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {
-            name: '', //no need for those keys. NEED TO DELETE
-            status: '',
-            priority: ''
+            // name: '', //no need for those keys. NEED TO DELETE
+            // status: '',
+            // priority: ''
         },
-        modalPosition: {},
         isModalShown: false,
         isStatusClicked: false,
         isPriorityClicked: false
@@ -96,7 +95,7 @@ export class TaskPreview extends Component {
 
     render() {
         const { onRemoveTask, task, group, onUpdateTask } = this.props
-        const { editMode, isStatusClicked, isPriorityClicked } = this.state
+        const { editMode, isStatusClicked, isPriorityClicked, isModalShown } = this.state
         const { name } = this.state.task
         return (
             <div style={{ borderLeft: `10px solid ${group.color} ` }} className="task-preview flex space-between">
@@ -145,7 +144,9 @@ export class TaskPreview extends Component {
                     <Members task={task} />
                     <div
                         className={`status ${task.status} relative  flex center align-center`}
-                        onClick={() => { this.toggleShowModal('status') }}>
+                        onClick={() => {
+                            this.toggleShowModal('status')
+                        }}>
                         {task.status}
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
@@ -157,7 +158,9 @@ export class TaskPreview extends Component {
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
                         className={`priority ${task.priority} relative  flex align-center center`}
-                        onClick={(ev) => { this.toggleShowModal('priority') }}>
+                        onClick={(ev) => {
+                            this.toggleShowModal('priority')
+                        }}>
                         {task.priority}
                         {isPriorityClicked &&
                             <TaskPropertyModal

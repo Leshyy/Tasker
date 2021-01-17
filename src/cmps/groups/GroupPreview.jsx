@@ -81,7 +81,9 @@ export class GroupPreview extends Component {
                     groupId={group.id}
                 />
                 <GroupProgressBar tasks={group.tasks} />
-            </section >
+                {/* TODO add title on new tasks */}
+
+            </section>
         )
     }
 }

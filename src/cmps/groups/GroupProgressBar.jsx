@@ -1,6 +1,5 @@
 
 export function GroupProgressBar({ tasks }) {
-    const taskProgressWidth = 150 / tasks.length
     const priorityCounter = {
         High: 0,
         Medium: 0,
@@ -9,7 +8,8 @@ export function GroupProgressBar({ tasks }) {
     const statusCounter = {
         Completed: 0,
         WorkingOnIt: 0,
-        Stuck: 0
+        Stuck: 0,
+        New: 0
     }
     tasks.forEach(task => {
         priorityCounter[task.priority]++
@@ -44,6 +44,10 @@ export function GroupProgressBar({ tasks }) {
                 <div style={{ width: `${(statusCounter.Completed / tasks.length * 100).toFixed()}%` }}
                     className="green"
                     data-title={`High ${statusCounter.Completed} / ${tasks.length} ${(statusCounter.Completed / tasks.length * 100).toFixed()}%`}
+                />
+                <div style={{ width: `${(statusCounter.New / tasks.length * 100).toFixed()}%` }}
+                    className="grey"
+                    data-title={`New ${statusCounter.New} / ${tasks.length} ${(statusCounter.New / tasks.length * 100).toFixed()}%`}
                 />
             </div>
         </section>

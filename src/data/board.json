@@ -116,7 +116,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Stuck",
+              "status": "Completed",
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
               "dueDate": 1610741369555,
@@ -371,7 +371,7 @@
         "imgUrl": ""
       },
       "createdAt": 124254735,
-      "desc": "wednesday goals - setup the basics of the app ",
+      "desc": "wednesday goals - setup thesdasda basics of the app",
       "members": [
         {
           "_id": "2uk35b",
@@ -398,30 +398,6 @@
           "color": "rgb(253, 171, 61)",
           "tasks": [
             {
-              "id": "kkHH466",
-              "name": "Board CRUD",
-              "tags": [
-                "structure",
-                "CRUD",
-                "basics",
-                "boards"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Working on it",
-              "priority": "High",
-              "note": "",
-              "dueDate": 1610731369555,
-              "comments": []
-            },
-            {
               "id": "FK346dsgk",
               "name": "Group CRUD",
               "tags": [
@@ -436,6 +412,30 @@
                 {
                   "_id": "2h3j5b",
                   "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "High",
+              "note": "",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "kkHH466",
+              "name": "Board CRUD",
+              "tags": [
+                "structure",
+                "CRUD",
+                "basics",
+                "boards"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
                   "imgUrl": ""
                 }
               ],
@@ -473,7 +473,7 @@
                 }
               ],
               "status": "Working on it",
-              "priority": "High",
+              "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
               "comments": [
