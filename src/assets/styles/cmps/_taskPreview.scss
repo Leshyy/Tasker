@@ -56,8 +56,12 @@
         & > * {
             width: rem(150px);
             padding: 0 10px;
+            & > * {
+                cursor: pointer;
+            }
         }
         .avatar-container {
+            position: relative;
             z-index: 0;
             .avatar {
                 width: rem(33px);
@@ -69,11 +73,29 @@
             font-size: large;
         }
         .column-notes {
-            text-overflow: clip;
-            overflow: hidden;
+            p {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .modal-edit {
+                position: absolute;
+                transform: translateX(-100%);
+                z-index: 1;
+                font-family: font1;
+                font-size: inherit;
+                cursor: text;
+                border: 2px solid #0085ff;
+                border-radius: 4px;
+                &:focus {
+                    border: 2px solid #0085ff;
+                    outline: #0085ff;
+                }
+            }
         }
         .status {
             align-self: stretch;
+            cursor: pointer;
             &.Stuck {
                 background-color: #e44258;
             }
@@ -91,6 +113,7 @@
         }
         .priority {
             align-self: stretch;
+            cursor: pointer;
             &.High {
                 background-color: #e44258;
             }

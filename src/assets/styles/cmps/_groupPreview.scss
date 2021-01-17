@@ -1,6 +1,8 @@
 .group-preview {
     margin: rem(10px);
     min-width: 1200px;
+    position: relative;
+    padding-bottom: 45px;
     .header-group {
         justify-content: space-between;
         .header-left {
@@ -21,6 +23,17 @@
             h3 {
                 width: rem(150px);
             }
+        }
+    }
+    .icon-drag {
+        opacity: 0;
+        transform: translate(-15px, 3px);
+        transition: 0.2s;
+    }
+    &:hover .icon-drag {
+        opacity: 0.6;
+        &:hover {
+            opacity: 1;
         }
     }
 }

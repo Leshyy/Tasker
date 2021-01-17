@@ -98,17 +98,49 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
-    onDragEnd = async (res) => {
-        const { activeBoard } = this.props
-        const items = Array.from(activeBoard.groups)
-        const [reorderedItem] = items.splice(res.source.index, 1)
-        items.splice(res.destination.index, 0, reorderedItem)
-        const newGroups = items;
-        const updatedBoard = { ...activeBoard }
-        updatedBoard.groups = newGroups
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+    handleDragEnd = async (res) => {
+        const { source, destination, type } = res;
+        const { activeBoard } = this.props;
+        const updatedBoard = { ...activeBoard };
+        if (!destination) return;
+        if (destination.droppableId === source.droppableId
+            &&
+            destination.index === source.index) return;
+        if (type === 'group') {
+            const newGroups = this._reorder(activeBoard.groups, source.index, destination.index);
+            updatedBoard.groups = newGroups;
+        } else if (type === 'task') {
+            if (destination.droppableId === source.droppableId) {
+                var groupIdx = activeBoard.groups.findIndex(group => group.id === source.droppableId)
+                const newTasks = this._reorder(activeBoard.groups[groupIdx].tasks, source.index, destination.index);
+                updatedBoard.groups[groupIdx].tasks = newTasks;
+            } else if (destination.droppableId !== source.droppableId) {
+                const sourceGroup = source.droppableId;
+                const destinationGroup = destination.droppableId;
+                //remove task from source group
+                const sourceGroupIdx = activeBoard.groups.findIndex(group => group.id === sourceGroup)
+                const sourceGroupItems = Array.from(activeBoard.groups[sourceGroupIdx].tasks)
+                const [transferedItem] = sourceGroupItems.splice(source.index, 1);
+                //add task to destination group
+                const destinationGroupIdx = activeBoard.groups.findIndex(group => group.id === destinationGroup);
+                const destinationGroupItems = Array.from(activeBoard.groups[destinationGroupIdx].tasks);
+                destinationGroupItems.splice(destination.index, 0, transferedItem);
+                //update groups in data
+                updatedBoard.groups[sourceGroupIdx].tasks = sourceGroupItems;
+                updatedBoard.groups[destinationGroupIdx].tasks = destinationGroupItems;
+            }
+        }
+        await boardService.update(updatedBoard);
+        this.loadActiveBoard();
     }
+
+    _reorder = (list, sourceIdx, destIdx) => {
+        const items = Array.from(list);
+        const [removedItem] = items.splice(sourceIdx, 1);
+        items.splice(destIdx, 0, removedItem);
+
+        return items;
+    };
 
     render() {
         const { activeBoard } = this.props
@@ -124,6 +156,11 @@ export class _BoardDetails extends Component {
                                 this.onUpdateBoardName(ev.target.innerText)
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
                         >
                             {activeBoard.name}
                         </span>
@@ -137,6 +174,11 @@ export class _BoardDetails extends Component {
                                 this.onUpdateBoardDesc(ev.target.innerText)
                             }}
                             suppressContentEditableWarning={true}
+                            onKeyDown={(ev) => {
+                                if (ev.key === 'Enter') {
+                                    ev.target.blur()
+                                }
+                            }}
                         >
                             {activeBoard.desc}
                         </span>
@@ -156,7 +198,7 @@ export class _BoardDetails extends Component {
                     onUpdateTask={this.onUpdateTask}
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
-                    handleDragEnd={this.onDragEnd}
+                    handleDragEnd={this.handleDragEnd}
                     onChangeGroupColor={this.onChangeGroupColor}
                 />
 
