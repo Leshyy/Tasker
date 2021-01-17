@@ -11,7 +11,7 @@ export function TaskPropertyModal({ options, type, handleModalChange, isModalSho
                     {option}
                 </div>
             })}
-
+            {/* <input type="text" onClick={(ev) => ev.stopPropagation()} /> */}
         </div >
         // </Fade>
     )
