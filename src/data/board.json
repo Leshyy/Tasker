@@ -744,17 +744,22 @@
       ]
     },
     {
-      "_id": "4GYuS",
+      "_id": "q4NUT",
       "name": "new board",
+      "creator": {
+        "_id": "2uk35b",
+        "fullname": "Tair Bitan",
+        "imgUrl": ""
+      },
       "groups": [
         {
-          "id": "IaD6V",
+          "id": "tFCLM",
           "name": "group1",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "XcNm4",
+              "id": "sWQuS",
               "name": "task1",
               "tags": [
                 "demo",
@@ -812,7 +817,7 @@
               ]
             },
             {
-              "id": "BSnCj",
+              "id": "46HEm",
               "name": "task2",
               "tags": [
                 "demo",
@@ -870,7 +875,7 @@
               ]
             },
             {
-              "id": "8uHtW",
+              "id": "ERC5s",
               "name": "task3",
               "tags": [
                 "demo",
@@ -927,16 +932,17 @@
                 }
               ]
             }
-          ]
+          ],
+          "color": "#00ca71"
         },
         {
-          "id": "ehkyz",
+          "id": "lMQBv",
           "name": "group2",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "8qhRh",
+              "id": "dlxtx",
               "name": "task1",
               "tags": [
                 "demo",
@@ -994,7 +1000,7 @@
               ]
             },
             {
-              "id": "BlHYg",
+              "id": "ptujk",
               "name": "task2",
               "tags": [
                 "demo",
@@ -1052,7 +1058,7 @@
               ]
             },
             {
-              "id": "0LxOn",
+              "id": "PYFDo",
               "name": "task3",
               "tags": [
                 "demo",
@@ -1113,13 +1119,13 @@
           "color": "#0085ff"
         },
         {
-          "id": "rwnrD",
+          "id": "tcPn1",
           "name": "group3",
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
             {
-              "id": "6q8gB",
+              "id": "OZUAD",
               "name": "task1",
               "tags": [
                 "demo",
@@ -1177,7 +1183,7 @@
               ]
             },
             {
-              "id": "HIIda",
+              "id": "IUxJY",
               "name": "task2",
               "tags": [
                 "demo",
@@ -1235,7 +1241,7 @@
               ]
             },
             {
-              "id": "oKxSn",
+              "id": "KrPf6",
               "name": "task3",
               "tags": [
                 "demo",
@@ -1293,10 +1299,10 @@
               ]
             }
           ],
-          "color": "#e44258"
+          "color": "#fdab3d"
         }
       ],
-      "createdAt": 1610881320904,
+      "createdAt": 1610902096669,
       "desc": "edit your new board..."
     }
   ]

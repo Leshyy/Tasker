@@ -173,7 +173,7 @@ export class TaskPreview extends Component {
                     </div>
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
                     {isShownChat && <TaskChat task={task} />}
-s                </div>
+                </div>
             </div >
         )
     }
