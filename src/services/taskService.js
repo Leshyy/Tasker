@@ -75,7 +75,7 @@ function createTask(txt) {
             }
         ],
         status: "New",
-        priority: "High",
+        priority: "Low",
         note: "Add notes to your task",
         dueDate: 1606820163000,
         comments: [

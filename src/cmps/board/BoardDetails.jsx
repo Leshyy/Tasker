@@ -150,44 +150,43 @@ export class _BoardDetails extends Component {
             <section className="board-details">
                 <div className="board-header-container">
                     <div className="board-header-content flex col">
-                        <div className="board-name-container">
-                            <span
-                                className="board-name editable"
-                                contentEditable="true"
-                                onBlur={(ev) => {
-                                    this.onUpdateBoardName(ev.target.innerText)
-                                }}
-                                suppressContentEditableWarning={true}
-                                onKeyDown={(ev) => {
-                                    if (ev.key === 'Enter') {
-                                        ev.target.blur()
-                                    }
-                                }}
-                            >
-                                {activeBoard.name}
-                            </span>
+                        <div className="board-top-container">
+                            <div className="board-desc-container flex col">
+                                <span
+                                    className="board-name editable"
+                                    contentEditable="true"
+                                    onBlur={(ev) => {
+                                        this.onUpdateBoardName(ev.target.innerText)
+                                    }}
+                                    suppressContentEditableWarning={true}
+                                    onKeyDown={(ev) => {
+                                        if (ev.key === 'Enter') {
+                                            ev.target.blur()
+                                        }
+                                    }}
+                                >
+                                    {activeBoard.name}
+                                </span>
+                                <span
+                                    className=" editable"
+                                    contentEditable="true"
+                                    onBlur={(ev) => {
+                                        this.onUpdateBoardDesc(ev.target.innerText)
+                                    }}
+                                    suppressContentEditableWarning={true}
+                                    onKeyDown={(ev) => {
+                                        if (ev.key === 'Enter') {
+                                            ev.target.blur()
+                                        }
+                                    }}
+                                >
+                                    {activeBoard.desc}
+                                </span>
+                            </div>
                         </div>
-
-                        <div className="board-desc-container">
-                            <span
-                                className="board-desc editable"
-                                contentEditable="true"
-                                onBlur={(ev) => {
-                                    this.onUpdateBoardDesc(ev.target.innerText)
-                                }}
-                                suppressContentEditableWarning={true}
-                                onKeyDown={(ev) => {
-                                    if (ev.key === 'Enter') {
-                                        ev.target.blur()
-                                    }
-                                }}
-                            >
-                                {activeBoard.desc}
-                            </span>
-                        </div>
-                        <div className="board-header-bottom flex">
+                        <div className="board-bottom-container flex space-between">
                             <div className="board-creator">
-                                Created By:<span>{activeBoard.creator.fullname}</span>
+                                <span>Created By: {activeBoard.creator.fullname}</span>
                             </div>
                             <div className="bottom-right-container flex">
                                 <Button

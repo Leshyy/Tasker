@@ -11,23 +11,32 @@ class _BoardApp extends Component {
         boardsForDisplay: null
     }
 
-    componentDidMount() {
-        this.loadBoards()
+    async componentDidMount() {
+        await this.loadBoards()
         const { boards } = this.props
+        const { activeBoard } = this.props
+        if (activeBoard) {
+            this.props.history.push(`/board/${activeBoard._id}`);
+            return
+        }
         if (!boards || !boards.length) {
             return
         }
         this.props.history.push(`/board/${boards[0]._id}`);
-
     }
-    loadBoards = () => {
-        this.props.loadBoards()
+
+
+
+
+    loadBoards = async () => {
+        await this.props.loadBoards()
     }
 
     onRemove = async (boardId) => {
+        const { boards } = this.props
         await this.props.removeBoard(boardId)
-        this.props.history.push('/board');
         this.loadBoards()
+        this.props.history.push(`/board/${boards[0]._id}`);
     }
     onAdd = async (board) => {
         await this.props.addBoard(board)
