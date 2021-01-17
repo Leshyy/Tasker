@@ -26,6 +26,11 @@ export class TaskPreview extends Component {
     componentDidMount() {
         const currTask = this.props.task
         this.setState({ task: currTask })
+        // document.addEventListener('click', this.toggleShowModal(''), false)
+    }
+
+    componentWillUnmount() {
+        // document.removeEventListener('click', this.toggleShowModal(''), false)
     }
 
     toggleEditMode = () => {
@@ -33,10 +38,17 @@ export class TaskPreview extends Component {
     }
 
     toggleShowModal = (option) => {
-        (option === 'status') ?
-            this.setState({ isStatusClicked: !this.state.isStatusClicked }) :
-            this.setState({ isPriorityClicked: !this.state.isPriorityClicked })
+        // console.log('option', option);
 
+        (option === 'status') ?
+            this.setState({
+                isStatusClicked: !this.state.isStatusClicked,
+                isModalShown: !this.state.isModalShown
+            }) :
+            this.setState({
+                isPriorityClicked: !this.state.isPriorityClicked,
+                isModalShown: !this.state.isModalShown
+            })
     }
 
     handleChange = (ev) => {
@@ -52,6 +64,13 @@ export class TaskPreview extends Component {
         const { task } = this.state;
         const { group } = this.props;
         task.dueDate = date;
+        this.props.onUpdateTask(task, group.id);
+    }
+
+    handleNoteChange = (note) => {
+        const { task } = this.state;
+        const { group } = this.props;
+        task.note = note;
         this.props.onUpdateTask(task, group.id);
     }
 
@@ -120,7 +139,7 @@ export class TaskPreview extends Component {
                         </EditIcon>}
                 </div>
                 <div className="task-right flex align-center">
-                    <div >
+                    <div className="column-chat flex end align-center">
                         <Chat className="chat" />
                     </div>
                     <Members task={task} />
@@ -131,7 +150,9 @@ export class TaskPreview extends Component {
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
                             handleModalChange={this.handleModalChange}
-                            options={this.getTypes('status')} />}
+                            options={this.getTypes('status')}
+                            isModalShown={this.state.isModalShown}
+                        />}
                     </div>
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
@@ -144,7 +165,7 @@ export class TaskPreview extends Component {
                                 handleModalChange={this.handleModalChange}
                                 options={this.getTypes('priority')} />}
                     </div>
-                    <Notes className="column-notes" task={task} />
+                    <Notes task={task} handleNoteChange={this.handleNoteChange} />
                 </div>
             </div >
         )

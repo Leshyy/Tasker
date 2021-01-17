@@ -1,6 +1,7 @@
 import { TaskAdd } from '../tasks/TaskAdd'
 import { TaskList } from '../tasks/TaskList'
 // import DeleteIcon from '@material-ui/icons/Delete';
+import Icon from '@material-ui/core/Icon';
 import { GroupEdit } from './GroupEdit';
 import { Component } from 'react';
 import { ExpandMore } from '@material-ui/icons';
@@ -30,6 +31,7 @@ export class GroupPreview extends Component {
                     <div className="header-left flex" >
                         <span className="icon-drag" {...provided.dragHandleProps}><DragIndicatorIcon /></span>
                         <ExpandMore onClick={this.toggleModal} className="btn-expand" />
+                        <Icon className="fa fa-plus-circle" color="primary"/>
                         {showModal &&
                             <GroupEdit
                                 onRemoveGroup={onRemoveGroup}
