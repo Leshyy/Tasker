@@ -1,5 +1,6 @@
 .board-details {
-    width: 100%;
+    flex-grow: 1;
+    border-inline-start: 1px solid rgba(151, 151, 151, 0.493);
     .board-header-container {
         background-color: white;
         padding: 20px 10px;
@@ -16,6 +17,7 @@
                 }
             }
             .board-bottom-container {
+                padding-inline-end: 52px;
                 align-items: center;
                 .board-creator {
                     text-align: left;
