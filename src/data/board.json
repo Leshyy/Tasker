@@ -29,102 +29,6 @@
       ],
       "groups": [
         {
-          "id": "KJdr45",
-          "name": "Know Your Dashboard",
-          "createdAt": 23757231,
-          "updatedAt": 234623543,
-          "color": "rgb(0, 202, 113)",
-          "tasks": [
-            {
-              "id": "sdh4nJJ",
-              "name": "Get analytics",
-              "tags": [
-                "demo",
-                "instructions",
-                "tutorial",
-                "search"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Completed",
-              "priority": "Low",
-              "note": "Use The Pie Chart",
-              "dueDate": 1610731369555,
-              "comments": []
-            },
-            {
-              "id": "Fdg667",
-              "name": "See which employee works the hardest",
-              "tags": [
-                "demo",
-                "instructions",
-                "tutorial",
-                "notifications"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Completed",
-              "priority": "Low",
-              "note": "",
-              "dueDate": 1610731369555,
-              "comments": []
-            },
-            {
-              "id": "KF45G34597",
-              "name": "Filter boards, groups and tasks in one click",
-              "tags": [
-                "demo",
-                "instructions",
-                "tutorial",
-                "deadlines"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2h3j5b",
-                  "fullname": "Amit Weiss",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Working on it",
-              "priority": "Low",
-              "note": "",
-              "dueDate": 1610731369555,
-              "comments": []
-            }
-          ]
-        },
-        {
           "id": "ljkh325",
           "name": "Hello Tasker",
           "createdAt": 23757231,
@@ -212,9 +116,105 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Stuck",
+              "status": "Completed",
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
+              "dueDate": 1610731369555,
+              "comments": []
+            }
+          ]
+        },
+        {
+          "id": "KJdr45",
+          "name": "Know Your Dashboard",
+          "createdAt": 23757231,
+          "updatedAt": 234623543,
+          "color": "rgb(0, 202, 113)",
+          "tasks": [
+            {
+              "id": "sdh4nJJ",
+              "name": "Get analytics",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "search"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "High",
+              "note": "Use The Pie Chart",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "Fdg667",
+              "name": "See which employee works the hardest",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "notifications"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Stuck",
+              "priority": "Low",
+              "note": "",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "KF45G34597",
+              "name": "Filter boards, groups and tasks in one click",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial",
+                "deadlines"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Completed",
+              "priority": "High",
+              "note": "",
               "dueDate": 1610731369555,
               "comments": []
             }
@@ -398,30 +398,6 @@
           "color": "rgb(253, 171, 61)",
           "tasks": [
             {
-              "id": "kkHH466",
-              "name": "Board CRUD",
-              "tags": [
-                "structure",
-                "CRUD",
-                "basics",
-                "boards"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Working on it",
-              "priority": "High",
-              "note": "",
-              "dueDate": 1610731369555,
-              "comments": []
-            },
-            {
               "id": "FK346dsgk",
               "name": "Group CRUD",
               "tags": [
@@ -436,6 +412,30 @@
                 {
                   "_id": "2h3j5b",
                   "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "High",
+              "note": "",
+              "dueDate": 1610731369555,
+              "comments": []
+            },
+            {
+              "id": "kkHH466",
+              "name": "Board CRUD",
+              "tags": [
+                "structure",
+                "CRUD",
+                "basics",
+                "boards"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
                   "imgUrl": ""
                 }
               ],
@@ -896,7 +896,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "New",
+              "status": "Working on it",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1489,22 +1489,14 @@
     },
     {
       "_id": "g6lSv",
-      "name": "no enter",
+      "name": "לוטרות בבקשה",
       "groups": [
         {
           "id": "0Gmdu",
           "name": "lalalall",
           "createdAt": 1610802267152,
-          "color": "gray",
+          "color": "rgb(253, 171, 61)",
           "tasks": [
-            {
-              "id": "05w5U",
-              "name": "item 1",
-              "status": "Stuck",
-              "priority": "Low",
-              "note": "Add notes to your task",
-              "dueDate": 1606820163000
-            },
             {
               "id": "MlDzK",
               "name": "item 2",
@@ -1540,7 +1532,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Working on it",
+              "status": "Completed",
               "priority": "Medium",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1598,7 +1590,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Stuck",
+              "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1717,91 +1709,15 @@
               "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
-              "comments": [
-                {
-                  "by": {
-                    "_id": "2uk35b",
-                    "fullname": "Tair Bitan",
-                    "imgUrl": ""
-                  },
-                  "text": "This is the task's chat"
-                },
-                {
-                  "by": {
-                    "_id": "2h3j5b",
-                    "fullname": "Amit Weiss",
-                    "imgUrl": ""
-                  },
-                  "text": "Here you can send comments, thoughts and updates about the task"
-                },
-                {
-                  "by": {
-                    "_id": "kj346",
-                    "fullname": "Tamir Leshetz",
-                    "imgUrl": ""
-                  },
-                  "text": "Or simply chat with the task members"
-                }
-              ]
+              "dueDate": 1606820163000
             },
             {
-              "id": "IWVuM",
-              "name": "asdasd",
-              "tags": [
-                "demo",
-                "instructions",
-                "tutorial"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "2h3j5b",
-                  "fullname": "Amit Weiss",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
+              "id": "05w5U",
+              "name": "item 1",
               "status": "Working on it",
-              "priority": "High",
+              "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
-              "comments": [
-                {
-                  "by": {
-                    "_id": "2uk35b",
-                    "fullname": "Tair Bitan",
-                    "imgUrl": ""
-                  },
-                  "text": "This is the task's chat"
-                },
-                {
-                  "by": {
-                    "_id": "2h3j5b",
-                    "fullname": "Amit Weiss",
-                    "imgUrl": ""
-                  },
-                  "text": "Here you can send comments, thoughts and updates about the task"
-                },
-                {
-                  "by": {
-                    "_id": "kj346",
-                    "fullname": "Tamir Leshetz",
-                    "imgUrl": ""
-                  },
-                  "text": "Or simply chat with the task members"
-                }
-              ]
+              "dueDate": 1606820163000
             }
           ]
         },
@@ -1811,64 +1727,6 @@
           "createdAt": 1606733763732,
           "updatedAt": 1606733763732,
           "tasks": [
-            {
-              "id": "odb9J",
-              "name": "task1",
-              "tags": [
-                "demo",
-                "instructions",
-                "tutorial"
-              ],
-              "createdAt": 1606733763732,
-              "updatedAt": 1606733763732,
-              "members": [
-                {
-                  "_id": "2uk35b",
-                  "fullname": "Tair Bitan",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "2h3j5b",
-                  "fullname": "Amit Weiss",
-                  "imgUrl": ""
-                },
-                {
-                  "_id": "kj346",
-                  "fullname": "Tamir Leshetz",
-                  "imgUrl": ""
-                }
-              ],
-              "status": "Completed",
-              "priority": "High",
-              "note": "Add notes to your task",
-              "dueDate": 1606820163000,
-              "comments": [
-                {
-                  "by": {
-                    "_id": "2uk35b",
-                    "fullname": "Tair Bitan",
-                    "imgUrl": ""
-                  },
-                  "text": "This is the task's chat"
-                },
-                {
-                  "by": {
-                    "_id": "2h3j5b",
-                    "fullname": "Amit Weiss",
-                    "imgUrl": ""
-                  },
-                  "text": "Here you can send comments, thoughts and updates about the task"
-                },
-                {
-                  "by": {
-                    "_id": "kj346",
-                    "fullname": "Tamir Leshetz",
-                    "imgUrl": ""
-                  },
-                  "text": "Or simply chat with the task members"
-                }
-              ]
-            },
             {
               "id": "u3xCH",
               "name": "task2",
@@ -1928,8 +1786,249 @@
               ]
             },
             {
-              "id": "xbWCz",
+              "id": "odb9J",
+              "name": "task1",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Completed",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            }
+          ],
+          "color": "rgb(253, 171, 61)"
+        },
+        {
+          "id": "seK7L",
+          "name": "מוצש המגניבים",
+          "createdAt": 1606733763732,
+          "updatedAt": 1606733763732,
+          "tasks": [
+            {
+              "id": "0WaBL",
+              "name": "כי תמיר לא אוהב אנטרים ולא מבין למה זה לא עובד",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Stuck",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": "2020-12-11",
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "2xjZm",
               "name": "task3",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "eF1HW",
+              "name": "task2",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "High",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "KbNYx",
+              "name": "sdasd",
               "tags": [
                 "demo",
                 "instructions",
@@ -1986,11 +2085,11 @@
               ]
             }
           ],
-          "color": "rgb(253, 171, 61)"
+          "color": "#0085ff"
         }
       ],
       "createdAt": 1610811461003,
-      "desc": "nice nice"
+      "desc": "רק בלי אנטרים\n"
     }
   ]
 }
