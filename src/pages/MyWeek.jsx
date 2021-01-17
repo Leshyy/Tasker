@@ -67,7 +67,7 @@ export class _MyWeek extends Component {
                     />
                     <div className="bottom">
                         <div className="flex space-around">
-                            <p>Tasks fot you:</p>
+                            <p>Tasks For You:</p>
                             <Button onClick={this.toggleTasksMode}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
                         </div>
                         {isTaskShown && <ListMyWeek boards={boards} />}
