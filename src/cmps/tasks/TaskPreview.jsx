@@ -23,8 +23,8 @@ export class TaskPreview extends Component {
     }
 
     componentDidMount() {
-        const currTask = this.props.task
-        this.setState({ task: currTask })
+        const currTask = this.props.task;
+        this.setState({ task: currTask });
         // document.addEventListener('click', this.toggleShowModal(''), false)
     }
 
@@ -93,12 +93,20 @@ export class TaskPreview extends Component {
         return taskService.getTypesToRender(type)
     }
 
+    onDrag = (isDragging) => {
+        let rotate = (isDragging) ? '-1deg' : 0;
+        return rotate;
+    }
+
     render() {
-        const { onRemoveTask, task, group, onUpdateTask } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, isDragging } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isModalShown } = this.state
         const { name } = this.state.task
         return (
-            <div style={{ borderLeft: `10px solid ${group.color} ` }} className="task-preview flex space-between">
+            <div
+                style={{ borderLeft: `10px solid ${group.color} `, transform: `rotate(${this.onDrag(isDragging)})` }}
+                className="task-preview flex space-between"
+            >
                 <div className="task-left flex align-center">
                     <Delete
                         className="trash"
