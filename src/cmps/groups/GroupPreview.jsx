@@ -31,7 +31,7 @@ export class GroupPreview extends Component {
                     <div className="header-left flex" >
                         <span className="icon-drag" {...provided.dragHandleProps}><DragIndicatorIcon /></span>
                         <ExpandMore onClick={this.toggleModal} className="btn-expand" />
-                        <Icon className="fa fa-plus-circle" color="primary"/>
+                        <Icon className="fa fa-plus-circle" color="primary" />
                         {showModal &&
                             <GroupEdit
                                 onRemoveGroup={onRemoveGroup}
@@ -41,7 +41,7 @@ export class GroupPreview extends Component {
                             />}
                         <span
                             className="group-name editable"
-                            style={{ color: `${group.color}`, fontWeight: 'bold' }}
+                            style={{ color: `${group.color}`, fontWeight: 'normal' }}
                             contentEditable="true"
                             onBlur={(ev) => {
                                 console.log(ev.target.innerText);
@@ -62,11 +62,11 @@ export class GroupPreview extends Component {
                         </span>
                     </div>
                     <div className="header-right flex">
-                        <h3>Members</h3>
-                        <h3>Status</h3>
-                        <h3>Due-date</h3>
-                        <h3>Priority</h3>
-                        <h3>Notes</h3>
+                        <h5>Members</h5>
+                        <h5>Status</h5>
+                        <h5>Due-date</h5>
+                        <h5>Priority</h5>
+                        <h5>Notes</h5>
                     </div>
                 </div>
                 <TaskList

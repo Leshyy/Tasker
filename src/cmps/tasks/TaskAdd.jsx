@@ -37,7 +37,7 @@ export class TaskAdd extends Component {
                         className="input-task"
                         type="text"
                         name="txt"
-                        placeholder="Add task"
+                        placeholder="+Add"
                         value={task.txt}
                         onChange={this.handleChange} />
                 </form>

@@ -2,8 +2,9 @@
     position: absolute;
     flex-direction: row-reverse;
     right: 0;
-    transform: translateX(-10px);
-    height: 25px;
+    transform: translateX(-17px);
+    height: 20px;
+    // background-color: #f5f6f8;
     & > * {
         width: 150px;
         margin-right: 150px;
