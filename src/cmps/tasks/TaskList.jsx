@@ -11,15 +11,14 @@ export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
                         {tasks.map((task, index) => {
                             return (
                                 <Draggable key={task.id} draggableId={task.id} index={index}>
-                                    {(provided, snapshot) => (
-                                        <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} isDragging={snapshot.isDragging}>
+                                    {(provided) => (
+                                        <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                                             <TaskPreview
                                                 key={task.id}
                                                 task={task}
                                                 group={group}
                                                 onRemoveTask={onRemoveTask}
                                                 onUpdateTask={onUpdateTask}
-                                                isDragging={snapshot.isDragging}
                                             />
                                         </div>
                                     )}

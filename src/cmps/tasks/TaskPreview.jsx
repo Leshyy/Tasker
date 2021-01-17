@@ -96,13 +96,8 @@ export class TaskPreview extends Component {
         return taskService.getTypesToRender(type)
     }
 
-    onDrag = (isDragging) => {
-        let rotate = (isDragging) ? '-1deg' : 0;
-        return rotate;
-    }
-
     render() {
-        const { onRemoveTask, task, group, onUpdateTask, isDragging } = this.props
+        const { onRemoveTask, task, group, onUpdateTask } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownChat } = this.state
         const { name } = this.state.task
         return (
