@@ -7,6 +7,7 @@ import {
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
 import { MyWeek } from './pages/MyWeek';
+import { Login } from './pages/Login';
 
 
 
@@ -19,6 +20,7 @@ export function App() {
             <Route path="/board" component={BoardApp} />
             <Route path="/myweek" component={MyWeek} />
             <Route path="/profile/:userId?" component={Profile} />
+            <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
           </Switch>
         </main>

@@ -1,35 +1,44 @@
 export const userService = {
-    getUsers,
-    getById,
-    update,
-    remove,
-    increaseScore,
+    // getUsers,
+    // getById,
+    // update,
+    // remove,
+    // increaseScore,
     getLoggedinUser,
-    _saveLocalUser
+    // _saveLocalUser
 }
 
-function getUsers() {
+// function getUsers() {
+//     users = [
+//         {
+//             username: 'Amit weiss',
+//             password: '1234'
+//         }
+//     ]
+// }
 
-}
+// function getById(userId) {
 
-function getById(userId) {
+// }
 
-}
+// async function update(user) {
 
-async function update(user) {
+// }
+// function remove(userId) {
+// }
 
-}
-function remove(userId) {
-}
+// async function increaseScore(by = SCORE_FOR_REVIEW) {
 
-async function increaseScore(by = SCORE_FOR_REVIEW) {
-
-}
+// }
 
 function getLoggedinUser() {
-
+    var loggedinUser = {
+        username: 'Amit weiss',
+        password: '1234'
+    }
+    return loggedinUser
 }
 
-function _saveLocalUser(user) {
+// function _saveLocalUser(user) {
 
-}
+// }

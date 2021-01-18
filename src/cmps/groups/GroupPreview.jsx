@@ -22,6 +22,10 @@ export class GroupPreview extends Component {
         this.setState({ showModal });
     }
 
+    closeModal = () => {
+        this.setState({ showModal: false })
+    }
+
     render() {
         const { group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup, handleDragEnd, provided, activeBoard }
             = this.props;
@@ -82,7 +86,7 @@ export class GroupPreview extends Component {
                     groupId={group.id}
                 />
                 <GroupProgressBar activeBoard={activeBoard} tasks={group.tasks} />
-
+                {showModal && <div className="screen" onClick={this.closeModal}></div>}
             </section>
         )
     }

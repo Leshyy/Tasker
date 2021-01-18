@@ -1,0 +1,49 @@
+.login-page {
+    background-color: #f7f7f7;
+    width: 100vw;
+    height: 100vh;
+    .login-container {
+        box-shadow: 0 3px 10px -5px #484444;
+        background-color: #ffffff;
+        border-radius: 3px;
+        margin: 20vh auto;
+        width: 40vw;
+        padding: 30px;
+        input {
+            width: 300px;
+            margin: 8px;
+        }
+        button {
+            margin: 10px;
+            cursor: pointer;
+        }
+        a {
+            &:hover {
+                cursor: pointer;
+                color: #0085ff;
+                text-decoration: underline;
+            }
+        }
+        .login {
+            margin: 0 auto;
+            width: 50%;
+        }
+        .signup {
+            margin: 0 auto;
+            width: 50%;
+        }
+    }
+    .arrow-left {
+        position: absolute;
+        left: 10px;
+        font-size: 1em !important;
+    }
+    .MuiSvgIcon-root {
+        font-size: 5rem !important;
+        color: #3f51b5;
+    }
+    .face-icon {
+        font-size: 2rem !important;
+        padding-right: 3px;
+    }
+}
