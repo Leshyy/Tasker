@@ -95,3 +95,23 @@
         border-color: rgb(46, 45, 45);
     }
 }
+// pretty input
+.input {
+    border: none;
+    border-bottom: #4c4c4c96 1px solid;
+    transition: 0.3s;
+    &:hover,
+    &:focus {
+        border-bottom: #363636 1px solid;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+// text overflow
+.text-no-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

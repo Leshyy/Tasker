@@ -2,12 +2,12 @@ import { TaskPreview } from "./TaskPreview";
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 
-export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
+export function TaskList({ tasks, group, onRemoveTask, onUpdateTask, activeBoard }) {
     return (
         <section>
             <Droppable droppableId={group.id} type="task">
                 {(provided) => (
-                    <div className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
+                    <div className="task-list flex col" {...provided.droppableProps} ref={provided.innerRef}>
                         {tasks.map((task, index) => {
                             return (
                                 <Draggable key={task.id} draggableId={task.id} index={index}>
@@ -20,6 +20,7 @@ export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
                                                 onRemoveTask={onRemoveTask}
                                                 onUpdateTask={onUpdateTask}
                                                 provided={provided}
+                                                activeBoard={activeBoard}
                                             />
                                         </div>
                                     )}
