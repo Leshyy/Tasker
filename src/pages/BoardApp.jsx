@@ -57,15 +57,17 @@ class _BoardApp extends Component {
         return (
             <section className="board-app flex">
                 <AppHeader />
-                <BoardSideNav
-                    boards={boardsForDisplay || boards}
-                    getBoradsForDisplay={this.getBoradsForDisplay}
-                    onRemove={this.onRemove}
-                    onAdd={this.onAdd}
-                />
-                <Switch>
-                    <Route path="/board/:boardId" component={BoardDetails} />
-                </Switch>
+                <section className="board-main flex">
+                    <BoardSideNav
+                        boards={boardsForDisplay || boards}
+                        getBoradsForDisplay={this.getBoradsForDisplay}
+                        onRemove={this.onRemove}
+                        onAdd={this.onAdd}
+                    />
+                    <Switch>
+                        <Route path="/board/:boardId" component={BoardDetails} />
+                    </Switch>
+                </section>
 
             </section>
         )

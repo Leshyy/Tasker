@@ -1001,6 +1001,10 @@
         {
           "txt": "dsadaddd",
           "color": "rgb(174, 203, 250)"
+        },
+        {
+          "txt": "lalal",
+          "color": "rgb(164, 255, 164)"
         }
       ],
       "priority": [
@@ -1056,7 +1060,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Completed",
+              "status": "dsadaddd",
               "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1172,7 +1176,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Completed",
+              "status": "lalal",
               "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,

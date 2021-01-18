@@ -7,7 +7,7 @@ export function TaskList({ tasks, group, onRemoveTask, onUpdateTask, activeBoard
         <section>
             <Droppable droppableId={group.id} type="task">
                 {(provided) => (
-                    <div className="tasks" {...provided.droppableProps} ref={provided.innerRef}>
+                    <div className="task-list flex col" {...provided.droppableProps} ref={provided.innerRef}>
                         {tasks.map((task, index) => {
                             return (
                                 <Draggable key={task.id} draggableId={task.id} index={index}>

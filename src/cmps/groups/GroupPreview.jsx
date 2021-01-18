@@ -27,12 +27,11 @@ export class GroupPreview extends Component {
             = this.props;
         const { showModal } = this.state;
         return (
-            <section className="group-preview">
-                <div className="header-group flex">
-                    <div className="header-left flex" >
+            <section className="group-preview flex col">
+                <div className="group-header flex space-between">
+                    <div className="group-header-left flex" >
                         <span className="icon-drag" {...provided.dragHandleProps}><DragIndicatorIcon /></span>
                         <ExpandMore onClick={this.toggleModal} className="btn-expand" />
-                        <Icon className="fa fa-plus-circle" color="primary" />
                         {showModal &&
                             <GroupEdit
                                 onRemoveGroup={onRemoveGroup}
@@ -62,7 +61,7 @@ export class GroupPreview extends Component {
                             {group.name}
                         </span>
                     </div>
-                    <div className="header-right flex">
+                    <div className="group-header-right flex">
                         <h5>Members</h5>
                         <h5>Status</h5>
                         <h5>Due-date</h5>
