@@ -24,11 +24,6 @@ export class TaskPreview extends Component {
     componentDidMount() {
         const currTask = this.props.task;
         this.setState({ task: currTask });
-        // document.addEventListener('click', this.toggleShowModal(''), false)
-    }
-
-    componentWillUnmount() {
-        // document.removeEventListener('click', this.toggleShowModal(''), false)
     }
 
     toggleEditMode = () => {
