@@ -8,8 +8,8 @@ export class BoardSideNav extends Component {
     render() {
         const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props
         return (
-            <section className="board-side-nav flex">
-                <div className="flex align-center space-between">
+            <section className="board-side-nav flex col">
+                <div className="board-side-nav-top flex align-center space-between">
                     <h2>My Boards:</h2>
                     <button
                         className="btn-add"
@@ -19,11 +19,13 @@ export class BoardSideNav extends Component {
                             onAdd('new board')
                         }}>+</button>
                 </div>
-                <BoardFilter getBoradsForDisplay={getBoradsForDisplay} />
-                <BoardList
-                    boards={boards}
-                    onRemove={onRemove}
-                />
+                <div className="board-side-nav-bottom flex col">
+                    <BoardFilter getBoradsForDisplay={getBoradsForDisplay} />
+                    <BoardList
+                        boards={boards}
+                        onRemove={onRemove}
+                    />
+                </div>
             </section>
         )
     }

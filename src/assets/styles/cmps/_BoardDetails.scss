@@ -1,9 +1,7 @@
 .board-details {
-    width: 100%;
+    flex-grow: 1;
+    border-inline-start: 1px solid rgba(151, 151, 151, 0.493);
     .board-header-container {
-        right: 0;
-        left: 0;
-        z-index: 3;
         background-color: white;
         padding: 20px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
@@ -19,6 +17,7 @@
                 }
             }
             .board-bottom-container {
+                padding-inline-end: 52px;
                 align-items: center;
                 .board-creator {
                     text-align: left;

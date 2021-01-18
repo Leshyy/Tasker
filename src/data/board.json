@@ -62,7 +62,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Completed",
+              "status": "Working on it",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1610731369555,
@@ -116,7 +116,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Working on it",
+              "status": "Completed",
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
               "dueDate": 1610741369555,
@@ -155,7 +155,7 @@
                 }
               ],
               "status": "Working on it",
-              "priority": "High",
+              "priority": "Low",
               "note": "Use The Pie Chart",
               "dueDate": 1606820163000,
               "comments": []
@@ -927,7 +927,7 @@
       ]
     },
     {
-      "_id": "sDwzW",
+      "_id": "OXcXl",
       "name": "new board",
       "creator": {
         "_id": "2uk35b",
@@ -969,7 +969,7 @@
                 }
               ],
               "status": "New",
-              "priority": "High",
+              "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
               "comments": [
@@ -1026,8 +1026,8 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Completed",
-              "priority": "High",
+              "status": "New",
+              "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
               "comments": [
@@ -1084,8 +1084,8 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Stuck",
-              "priority": "High",
+              "status": "New",
+              "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
               "comments": [
@@ -1450,7 +1450,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "New",
+              "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1909,7 +1909,570 @@
           "color": "#fdab3d"
         }
       ],
-      "createdAt": 1610904992282,
+      "createdAt": 1610909914894,
+      "desc": "edit your new board..."
+    },
+    {
+      "_id": "CxSDB",
+      "name": "new board",
+      "creator": {
+        "_id": "2uk35b",
+        "fullname": "Tair Bitan",
+        "imgUrl": ""
+      },
+      "groups": [
+        {
+          "id": "vxITG",
+          "name": "group1",
+          "createdAt": 1606733763732,
+          "updatedAt": 1606733763732,
+          "tasks": [
+            {
+              "id": "9TV6K",
+              "name": "task1",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "QRpbi",
+              "name": "task2",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "rtT1S",
+              "name": "task3",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            }
+          ],
+          "color": "#00ca71"
+        },
+        {
+          "id": "DHIgF",
+          "name": "group2",
+          "createdAt": 1606733763732,
+          "updatedAt": 1606733763732,
+          "tasks": [
+            {
+              "id": "qD7uo",
+              "name": "task1",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            }
+          ],
+          "color": "#00ca71"
+        },
+        {
+          "id": "3t1ig",
+          "name": "group3",
+          "createdAt": 1606733763732,
+          "updatedAt": 1606733763732,
+          "tasks": [
+            {
+              "id": "6u7QI",
+              "name": "task2",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "4W297",
+              "name": "task3",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "Working on it",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            null,
+            {
+              "id": "OKZnM",
+              "name": "task1",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "idOKN",
+              "name": "task2",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            },
+            {
+              "id": "CUMDK",
+              "name": "task3",
+              "tags": [
+                "demo",
+                "instructions",
+                "tutorial"
+              ],
+              "createdAt": 1606733763732,
+              "updatedAt": 1606733763732,
+              "members": [
+                {
+                  "_id": "2uk35b",
+                  "fullname": "Tair Bitan",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "2h3j5b",
+                  "fullname": "Amit Weiss",
+                  "imgUrl": ""
+                },
+                {
+                  "_id": "kj346",
+                  "fullname": "Tamir Leshetz",
+                  "imgUrl": ""
+                }
+              ],
+              "status": "New",
+              "priority": "Low",
+              "note": "Add notes to your task",
+              "dueDate": 1606820163000,
+              "comments": [
+                {
+                  "by": {
+                    "_id": "2uk35b",
+                    "fullname": "Tair Bitan",
+                    "imgUrl": ""
+                  },
+                  "text": "This is the task's chat"
+                },
+                {
+                  "by": {
+                    "_id": "2h3j5b",
+                    "fullname": "Amit Weiss",
+                    "imgUrl": ""
+                  },
+                  "text": "Here you can send comments, thoughts and updates about the task"
+                },
+                {
+                  "by": {
+                    "_id": "kj346",
+                    "fullname": "Tamir Leshetz",
+                    "imgUrl": ""
+                  },
+                  "text": "Or simply chat with the task members"
+                }
+              ]
+            }
+          ],
+          "color": "#0085ff"
+        }
+      ],
+      "createdAt": 1610911485577,
       "desc": "edit your new board..."
     }
   ]

@@ -1,37 +1,59 @@
-.main-header {
+.header-main {
     left: 0;
     height: 100vh;
-    width: rem(130px);
-    padding: rem(10px) rem(5px);
     background-color: #292f4c;
-    flex-direction: column;
     z-index: 2;
+    span {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 10px;
+        margin: 10px;
+        width: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+        }
+    }
     .MuiSvgIcon-root {
         font-size: 1.5rem;
+        color: white;
     }
-    .top-header {
-        flex-direction: column;
-        height: rem(200px);
-        justify-content: space-between;
-        img {
-            margin: rem(10px) auto;
-            height: rem(90px);
-            width: rem(90px);
-            cursor: pointer;
+    .header-left-panel {
+        height: 100%;
+        width: rem(65px);
+        .header-left-logo {
+            height: 70px;
+            padding: 10px 0;
+            img {
+                width: rem(50px);
+                cursor: pointer;
+            }
         }
-        span {
-            color: white;
-            cursor: pointer;
+        .header-left-top {
+            flex-grow: 9;
+        }
+        .header-left-bottom {
+            flex-grow: 4;
         }
     }
-
-    .nav-header {
-        flex-direction: column;
-        height: rem(250px);
-        margin-bottom: rem(40px);
-        a {
-            color: white;
-            text-decoration: none;
+    .header-right-panel {
+        height: 100%;
+        width: rem(50px);
+        border-inline-start: 1px solid rgba(255, 255, 255, 0.2);
+        .header-right-top {
+            height: 70px;
+        }
+        .header-right-middle {
+            flex-grow: 9;
+            & > * {
+                margin: 10px 0;
+            }
+        }
+        .header-right-bottom {
+            flex-grow: 4;
         }
     }
 }

@@ -1,7 +1,6 @@
 
-export function TaskPropertyModal({ options, type, handleModalChange, isModalShown }) {
+export function TaskPropertyModal({ options, type, handleModalChange }) {
     return (
-        // <Fade in={isModalShown}>
         <div className=" task-property-modal">
             {options.map((option, idx) => {
                 return <div
@@ -13,7 +12,6 @@ export function TaskPropertyModal({ options, type, handleModalChange, isModalSho
             })}
             {/* <input type="text" onClick={(ev) => ev.stopPropagation()} /> */}
         </div >
-        // </Fade>
     )
 
 }
