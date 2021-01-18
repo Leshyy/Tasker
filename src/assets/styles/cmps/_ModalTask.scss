@@ -2,27 +2,36 @@
     position: absolute;
     width: 150px;
     top: 40px;
+    padding: 0 5px 10px;
     z-index: 5;
     background-color: rgb(251, 251, 251);
     border-radius: 4px;
     box-shadow: 0px 3px 6px 0px #484444;
-    div {
+    .option {
         margin: 5px;
         padding: 10px;
         border-radius: 4px;
         color: white;
         background-color: rgb(78, 80, 77);
-        &.High,
-        &.Stuck {
-            background-color: #e44258;
+        .del-btn {
+            opacity: 0.7;
+            transition: 0.3s;
+            font-size: 1rem;
+            &:hover {
+                opacity: 1;
+            }
         }
-        &.Medium,
-        &.Working {
-            background-color: #fdab3d;
+    }
+    form {
+        input {
+            margin: 10px 0;
+            width: 100%;
+            border-left: transparent 7px solid;
         }
-        &.Low,
-        &.Completed {
-            background-color: #00ca71;
+        .colors-container {
+            position: static;
+            transform: none;
+            width: unset;
         }
     }
 }

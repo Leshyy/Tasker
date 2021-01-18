@@ -41,6 +41,38 @@ function _createBoard(boardName) {
     return {
         _id: utilService.makeId(),
         name: boardName,
+        status: [
+            {
+                txt: "Completed",
+                color: "#00ca71"
+            },
+            {
+                txt: "Working on it",
+                color: "#fdab3d"
+            },
+            {
+                txt: "Stuck",
+                color: "#e44258"
+            },
+            {
+                txt: "New",
+                color: "gray"
+            }
+        ],
+        priority: [
+            {
+                txt: "Low",
+                color: "#00ca71"
+            },
+            {
+                txt: "Medium",
+                color: "#fdab3d"
+            },
+            {
+                txt: "High",
+                color: "#e44258"
+            }
+        ],
         creator: {
             _id: "2uk35b",
             fullname: "Tair Bitan",

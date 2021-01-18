@@ -23,7 +23,8 @@ export class GroupPreview extends Component {
     }
 
     render() {
-        const { group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup, handleDragEnd, provided } = this.props;
+        const { group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup, handleDragEnd, provided, activeBoard }
+            = this.props;
         const { showModal } = this.state;
         return (
             <section className="group-preview">
@@ -75,12 +76,13 @@ export class GroupPreview extends Component {
                     onUpdateTask={onUpdateTask}
                     onRemoveTask={onRemoveTask}
                     handleDragEnd={handleDragEnd}
+                    activeBoard={activeBoard}
                 />
                 <TaskAdd
                     onAddTask={onAddTask}
                     groupId={group.id}
                 />
-                <GroupProgressBar tasks={group.tasks} />
+                <GroupProgressBar activeBoard={activeBoard} tasks={group.tasks} />
 
             </section>
         )

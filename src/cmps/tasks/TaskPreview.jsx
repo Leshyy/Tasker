@@ -86,15 +86,50 @@ export class TaskPreview extends Component {
         this.setState({ isStatusClicked: false, isPriorityClicked: false, isModalShown: false })
     }
 
-    getTypes = (type) => {
-        return taskService.getTypesToRender(type)
+    onAddLabel = (ev, label, type) => {
+        ev.preventDefault()
+        this.props.activeBoard[type].push(label)
+        console.log('new one ', this.props.activeBoard);
+        const { task } = this.state;
+        const { group } = this.props;
+        this.props.onUpdateTask(task, group.id);
+    }
+    onRemoveLabel = (ev, txt, type) => {
+        ev.stopPropagation()
+        if (this.findLabel(txt, type)) {
+            console.log('cant del this!');
+            return
+        }
+        // popup cant delete this
+        this.props.activeBoard[type] = this.props.activeBoard[type].filter(option => option.txt !== txt)
+        console.log('removeeeeeee', this.props.activeBoard[type]);
+        const { task } = this.state;
+        const { group } = this.props;
+        this.props.onUpdateTask(task, group.id);
+    }
+
+    findLabel = (txt, type) => {
+        let found = false
+        this.props.activeBoard.groups.forEach(group => {
+            group.tasks.forEach(task => {
+                if (task[type] === txt) {
+                    found = true
+                }
+            })
+        })
+        return found
 
     }
 
+    getPropColor = (txt, type) => {
+        return this.props.activeBoard[type].find(option => option.txt === txt).color;
+    }
+
     render() {
-        const { onRemoveTask, task, group, onUpdateTask, provided } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownChat, isModalShown } = this.state
         const { name } = this.state.task
+        if (!activeBoard) return <div>Loading...</div>
         return (
             <div
                 style={{ borderLeft: `8px solid ${group.color} ` }}
@@ -144,30 +179,38 @@ export class TaskPreview extends Component {
                     </div>
                     <Members task={task} />
                     <div
-                        className={`status ${task.status} relative  flex center align-center`}
+                        className={`status relative flex center align-center `}
+                        style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
                         onClick={() => {
                             this.toggleShowModal('status')
                         }}>
-                        {task.status}
+                        <span className="text-no-overflow">{task.status}</span>
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
                             handleModalChange={this.handleModalChange}
-                            options={this.getTypes('status')}
-                            isModalShown={this.state.isModalShown}
+                            options={activeBoard.status}
+                            onAddLabel={this.onAddLabel}
+                            onRemoveLabel={this.onRemoveLabel}
+                            findLabel={this.findLabel}
                         />}
                     </div>
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
-                        className={`priority ${task.priority} relative  flex align-center center`}
+                        className={`priority relative  flex align-center center`}
+                        style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}
                         onClick={() => {
                             this.toggleShowModal('priority')
                         }}>
-                        {task.priority}
+                        <span className="text-no-overflow">{task.priority}</span>
                         {isPriorityClicked &&
                             <TaskPropertyModal
                                 type="priority"
                                 handleModalChange={this.handleModalChange}
-                                options={this.getTypes('priority')} />}
+                                options={activeBoard.priority}
+                                onAddLabel={this.onAddLabel}
+                                onRemoveLabel={this.onRemoveLabel}
+                                findLabel={this.findLabel}
+                            />}
                     </div>
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
                     {isShownChat && <TaskChat task={task} />}

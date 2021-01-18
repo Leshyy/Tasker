@@ -2,7 +2,7 @@ import { TaskPreview } from "./TaskPreview";
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 
-export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
+export function TaskList({ tasks, group, onRemoveTask, onUpdateTask, activeBoard }) {
     return (
         <section>
             <Droppable droppableId={group.id} type="task">
@@ -20,6 +20,7 @@ export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
                                                 onRemoveTask={onRemoveTask}
                                                 onUpdateTask={onUpdateTask}
                                                 provided={provided}
+                                                activeBoard={activeBoard}
                                             />
                                         </div>
                                     )}

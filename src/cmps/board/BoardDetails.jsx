@@ -215,6 +215,7 @@ export class _BoardDetails extends Component {
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.handleDragEnd}
                     onChangeGroupColor={this.onChangeGroupColor}
+                    activeBoard={activeBoard}
                 />
 
             </section>

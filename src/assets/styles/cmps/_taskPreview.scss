@@ -89,20 +89,6 @@
             align-self: stretch;
             color: #ffffff;
             cursor: pointer;
-            &.Stuck {
-                background-color: #e44258;
-            }
-
-            &.Working {
-                background-color: #fdab3d;
-            }
-
-            &.Completed {
-                background-color: #00ca71;
-            }
-            &.New {
-                background-color: gray;
-            }
         }
         .date {
             font-size: rem(12px);
@@ -111,15 +97,6 @@
             align-self: stretch;
             cursor: pointer;
             color: #ffffff;
-            &.High {
-                background-color: #e44258;
-            }
-            &.Medium {
-                background-color: #fdab3d;
-            }
-            &.Low {
-                background-color: #00ca71;
-            }
         }
         .column-notes {
             p {
