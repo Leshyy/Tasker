@@ -14,7 +14,7 @@ export function App() {
   return (
     <Router>
       <div className="App flex">
-        <main>
+        <main className="flex">
           <Switch>
             <Route path="/board" component={BoardApp} />
             <Route path="/myweek" component={MyWeek} />

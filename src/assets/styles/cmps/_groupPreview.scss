@@ -1,12 +1,23 @@
 .group-preview {
-    margin: rem(10px);
-    min-width: 1200px;
+    // min-width: 1200px;
     position: relative;
     padding-bottom: 45px;
-    .header-group {
-        justify-content: space-between;
-        margin-right: 9px;
-        .header-left {
+    .group-header {
+        padding: 0 8px;
+        .icon-drag {
+            position: absolute;
+            opacity: 0;
+            transform: translate(-23px, 3px);
+            transition: 0.2s;
+        }
+        &:hover .icon-drag {
+            opacity: 0.6;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .group-header-left {
+            padding: 0 5px;
             align-items: center;
             .delete-icon {
                 margin-right: 5px;
@@ -19,23 +30,13 @@
                 }
             }
         }
-        .header-right {
+        .group-header-right {
             padding: 0 10px;
             h5 {
+                // min-width: 80px;
                 width: rem(150px);
-                // margin: 25px auto;
+                padding: 0 10px;
             }
-        }
-    }
-    .icon-drag {
-        opacity: 0;
-        transform: translate(-15px, 3px);
-        transition: 0.2s;
-    }
-    &:hover .icon-drag {
-        opacity: 0.6;
-        &:hover {
-            opacity: 1;
         }
     }
 }

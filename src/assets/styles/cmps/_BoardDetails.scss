@@ -2,56 +2,55 @@
     flex-grow: 1;
     border-inline-start: 1px solid rgba(151, 151, 151, 0.493);
     .board-header-container {
+        flex-grow: 1;
         background-color: white;
         padding: 20px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
-        .board-header-content {
-            .board-top-container {
+        .board-header-top-container {
+            text-align: left;
+            margin-bottom: 20px;
+            .board-name {
+                font-family: font1;
+                font-size: 28px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+        }
+        .board-header-bottom-container {
+            padding-inline-end: 52px;
+            align-items: center;
+            .board-creator {
                 text-align: left;
-                margin-bottom: 20px;
-                .board-name {
-                    font-family: font1;
-                    font-size: 28px;
-                    font-weight: bold;
-                    margin-bottom: 15px;
+                span {
+                    margin-left: 5px;
+                    transition: 0.2s;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                        color: #0085ff;
+                    }
                 }
             }
-            .board-bottom-container {
-                padding-inline-end: 52px;
-                align-items: center;
-                .board-creator {
-                    text-align: left;
-                    span {
-                        margin-left: 5px;
-                        transition: 0.2s;
-                        cursor: pointer;
-                        &:hover {
-                            text-decoration: underline;
-                            color: #0085ff;
-                        }
+            .bottom-right-container {
+                & > *:not(:last-child) {
+                    margin-right: 10px;
+                }
+                input {
+                    border: none;
+                    outline: none;
+                    border-bottom: 1px solid rgba(105, 105, 105, 0.664);
+                    &:hover {
+                        border-bottom: 1px solid rgb(105, 105, 105);
+                    }
+                    &:focus {
+                        border-bottom: 1px solid rgb(105, 105, 105);
                     }
                 }
-                .bottom-right-container {
-                    & > *:not(:last-child) {
-                        margin-right: 10px;
-                    }
-                    input {
-                        border: none;
-                        outline: none;
-                        border-bottom: 1px solid rgba(105, 105, 105, 0.664);
-                        &:hover {
-                            border-bottom: 1px solid rgb(105, 105, 105);
-                        }
-                        &:focus {
-                            border-bottom: 1px solid rgb(105, 105, 105);
-                        }
-                    }
 
-                    .filter {
-                        cursor: pointer;
-                        span {
-                            margin-right: 5px;
-                        }
+                .filter {
+                    cursor: pointer;
+                    span {
+                        margin-right: 5px;
                     }
                 }
             }

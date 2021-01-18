@@ -99,49 +99,51 @@ export class TaskPreview extends Component {
             <div
                 style={{ borderLeft: `8px solid ${group.color} ` }}
                 className="task-preview flex space-between">
-                <div className="task-left flex align-center" {...provided.dragHandleProps}>
-                    <Delete
-                        className="trash"
-                        onClick={() => {
-                            onRemoveTask(task.id, group)
-                        }}
-                    />
-                    {editMode &&
-                        <form onSubmit={(ev) => {
-                            ev.preventDefault()
-                            this.toggleEditMode()
-                            onUpdateTask(this.state.task, group.id)
-                        }}>
-                            <input
-                                name="name"
-                                value={name}
-                                onBlur={() => {
-                                    this.toggleEditMode()
-                                    onUpdateTask(this.state.task, group.id)
-                                }}
-                                autoComplete="off"
-                                autoFocus={true}
-                                onChange={(ev) => {
-                                    this.handleChange(ev)
-                                }}
-                            />
-                            <button type="submit" hidden></button>
-                        </form>
-                    }
+                <div className="task-left flex space-between align-center" {...provided.dragHandleProps}>
+                    <div className="task-left-content flex align-center">
+                        <Delete
+                            className="trash"
+                            onClick={() => {
+                                onRemoveTask(task.id, group)
+                            }}
+                        />
+                        {editMode &&
+                            <form onSubmit={(ev) => {
+                                ev.preventDefault()
+                                this.toggleEditMode()
+                                onUpdateTask(this.state.task, group.id)
+                            }}>
+                                <input
+                                    name="name"
+                                    value={name}
+                                    onBlur={() => {
+                                        this.toggleEditMode()
+                                        onUpdateTask(this.state.task, group.id)
+                                    }}
+                                    autoComplete="off"
+                                    autoFocus={true}
+                                    onChange={(ev) => {
+                                        this.handleChange(ev)
+                                    }}
+                                />
+                                <button type="submit" hidden></button>
+                            </form>
+                        }
 
-                    {!editMode &&
-                        <p className="task-name">{task.name}</p>}
-                    {!editMode &&
-                        <EditIcon
-                            className="edit-icon"
-                            onClick={this.toggleEditMode}
-                        >edit
+                        {!editMode &&
+                            <p className="task-name">{task.name}</p>}
+                        {!editMode &&
+                            <EditIcon
+                                className="edit-icon"
+                                onClick={this.toggleEditMode}
+                            >edit
                         </EditIcon>}
-                </div>
-                <div className="task-right flex align-center">
-                    <div onClick={this.toggleShowChat} className="column-chat flex end align-center">
-                        <img src={chat} width="25px" alt="chaticon" className="chat" />
                     </div>
+                    <div className="task-left-chat flex end align-center" onClick={this.toggleShowChat} >
+                        <img src={chat} width="25px" alt="chaticon" className="icon-chat" />
+                    </div>
+                </div>
+                <div className="task-right flex align-center space-between">
                     <Members task={task} />
                     <div
                         className={`status ${task.status} relative  flex center align-center`}
