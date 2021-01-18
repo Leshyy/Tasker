@@ -1,16 +1,21 @@
 .board-side-nav {
-    padding: rem(10px) rem(12px);
-    flex-direction: column;
-    left: rem(120px);
     height: 100vh;
-    width: rem(220px);
-    border-right: 1px solid hsla(0, 0%, 42.7%, 0.35);
-    border-left: 1px solid hsla(0, 0%, 42.7%, 0.35);
-    border-radius: 15px 0 0 0;
-    z-index: 3;
-    background-color: white;
+    width: 255px;
+    background-color: #292f4c;
     transition: 0.5s;
     overflow: visible;
+    & > * {
+        padding: rem(10px) rem(12px);
+        background-color: white;
+        width: 100%;
+    }
+    .board-side-nav-top {
+        text-align: start;
+        border-radius: 15px 0 0 0;
+    }
+    .board-side-nav-bottom {
+        flex-grow: 1;
+    }
     .btn-add {
         background-color: #0085ff;
         height: rem(30px);

@@ -12,13 +12,14 @@ export function TaskList({ tasks, group, onRemoveTask, onUpdateTask }) {
                             return (
                                 <Draggable key={task.id} draggableId={task.id} index={index}>
                                     {(provided) => (
-                                        <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                        <div {...provided.draggableProps} ref={provided.innerRef}>
                                             <TaskPreview
                                                 key={task.id}
                                                 task={task}
                                                 group={group}
                                                 onRemoveTask={onRemoveTask}
                                                 onUpdateTask={onUpdateTask}
+                                                provided={provided}
                                             />
                                         </div>
                                     )}
