@@ -81,7 +81,7 @@
               "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dueDate": "2021-01-19",
               "comments": [
                 {
                   "by": {
@@ -310,7 +310,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "New",
+              "status": "My new status",
               "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,

@@ -1,5 +1,4 @@
 import { Component } from 'react';
-// import DatePicker from "react-datepicker";
 const dateFormat = require('dateformat')
 
 export class DueDate extends Component {
