@@ -1060,7 +1060,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "dsadaddd",
+              "status": "New",
               "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
@@ -1118,7 +1118,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "Completed",
+              "status": "Stuck",
               "priority": "Low",
               "note": "Add notes to your task",
               "dueDate": 1606820163000,
