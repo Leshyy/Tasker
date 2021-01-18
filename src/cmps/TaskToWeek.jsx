@@ -43,7 +43,7 @@ export class TaskToWeek extends Component {
         return (
             <div>
                 {userTasks.map(task => {
-                    return <div className="tasks-user flex space-between">
+                    return <div key={task.id} className="tasks-user flex space-between">
                         <div className="left flex col">
                             <span>{task.name}</span>
                             <div>
