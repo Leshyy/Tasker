@@ -49,13 +49,14 @@ export class _MyWeek extends Component {
     render() {
         const { boards } = this.props
         const { isTaskShown } = this.state
+        // const {username} = this.props
         return (
             <React.Fragment>
                 <AppHeader />
                 <section className="my-week">
-                    <div className="top flex align-center">
+                    <div className="top flex space-around align-center">
                         <img src={Calendar} alt="" />
-                        <h2>Hey Amit !!,You have 4 assignments this week</h2>
+                        <h2>Hey Amit ,You have 4 assignments this week</h2>
                     </div>
                     <Input type="text"
                         type="text"
@@ -66,11 +67,11 @@ export class _MyWeek extends Component {
                     // value={filterBy.txt} 
                     />
                     <div className="bottom">
-                        <div className="flex space-around">
+                        <div className="flex space-between">
                             <p>Tasks For You:</p>
                             <Button onClick={this.toggleTasksMode}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
                         </div>
-                        {isTaskShown && <ListMyWeek boards={boards} />}
+                        {isTaskShown && <ListMyWeek boards={boards} username={'2h3j5b'} />}
                     </div>
                 </section>
             </React.Fragment >

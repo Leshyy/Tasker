@@ -1,7 +1,9 @@
 .my-week {
-    margin-inline-start: 10.125rem;
-    margin-inline-end: 32px;
+    flex-grow: 1;
+    overflow-y: overlay;
+    height: 100vh;
     .top {
+        margin-block-start: 40px;
         margin-block-end: 40px;
         img {
             width: 110px;
@@ -9,41 +11,50 @@
             object-fit: cover;
         }
         h2 {
-            width: rem(250px);
+            width: rem(350px);
+            line-height: 35px;
         }
     }
     Input {
         width: rem(300px);
     }
     .bottom {
+        padding: 50px;
         .tasks-user {
             text-align: start;
-            border: 1px solid black;
+            border: 1px solid #c5c7d0;
             margin: 6px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         .left {
             padding: 6px;
-            h3 {
+            span {
+                font-weight: initial;
+                font-size: 18px;
                 margin-block-start: 5px;
                 margin-block-end: 5px;
             }
-            a {
+            div {
                 color: rgb(117, 117, 117);
-                padding: 5px;
-                &:hover {
-                    color: #ee2c2e;
-                    cursor: pointer;
+                a {
+                    color: rgb(117, 117, 117);
+                    text-decoration: none;
+                    padding: 5px;
+                    &:hover {
+                        text-decoration: underline;
+                        color: #ee2c2e;
+                        cursor: pointer;
+                    }
                 }
             }
         }
         .right {
             width: rem(185px);
             align-items: center;
-            background-color: #3179a3;
+            background-color: #3179a3bf;
             color: white;
             // border-left: 0.5px solid black;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 8px 8px 0;
             padding: 0 50px;
             // font-size: 20px;
         }

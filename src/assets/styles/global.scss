@@ -10,10 +10,10 @@
 @import "cmps/AppHeader";
 @import "cmps/GroupPreview";
 @import "cmps/TaskPreview";
+@import "cmps/TaskAdd";
 @import "cmps/BoardPreview";
 @import "cmps/BoardSideNav";
 @import "cmps/BoardFilter";
-@import "cmps/Profile";
 @import "cmps/ModalTask";
 @import "cmps/BoardDetails";
 @import "cmps/DueDate";
@@ -26,3 +26,4 @@
 @import "views/HomePage";
 @import "views/BoardApp";
 @import "views/MyWeek";
+@import "views/Profile";

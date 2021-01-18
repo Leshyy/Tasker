@@ -24,11 +24,6 @@ export class TaskPreview extends Component {
     componentDidMount() {
         const currTask = this.props.task;
         this.setState({ task: currTask });
-        // document.addEventListener('click', this.toggleShowModal(''), false)
-    }
-
-    componentWillUnmount() {
-        // document.removeEventListener('click', this.toggleShowModal(''), false)
     }
 
     toggleEditMode = () => {
@@ -97,14 +92,14 @@ export class TaskPreview extends Component {
     }
 
     render() {
-        const { onRemoveTask, task, group, onUpdateTask } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, provided } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownChat, isModalShown } = this.state
         const { name } = this.state.task
         return (
             <div
                 style={{ borderLeft: `8px solid ${group.color} ` }}
                 className="task-preview flex space-between">
-                <div className="task-left flex align-center">
+                <div className="task-left flex align-center" {...provided.dragHandleProps}>
                     <Delete
                         className="trash"
                         onClick={() => {
@@ -135,7 +130,7 @@ export class TaskPreview extends Component {
                     }
 
                     {!editMode &&
-                        <p>{task.name}</p>}
+                        <p className="task-name">{task.name}</p>}
                     {!editMode &&
                         <EditIcon
                             className="edit-icon"
