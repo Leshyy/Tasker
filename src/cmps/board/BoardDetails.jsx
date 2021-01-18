@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { GroupList } from '../groups/GroupList'
-import { loadBoard, loadBoards } from '../../store/actions/boardAction'
+import { loadBoard, loadBoards, updateBoard } from '../../store/actions/boardAction'
 import { boardService } from '../../services/boardService'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
@@ -99,7 +99,7 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
     }
 
-    handleDragEnd = async (res) => {
+    handleDragEnd = (res) => {
         const { source, destination, type } = res;
         const { activeBoard } = this.props;
         const updatedBoard = { ...activeBoard };
@@ -131,8 +131,7 @@ export class _BoardDetails extends Component {
                 updatedBoard.groups[destinationGroupIdx].tasks = destinationGroupItems;
             }
         }
-        await boardService.update(updatedBoard);
-        this.loadActiveBoard();
+        this.props.updateBoard(updatedBoard);
     }
 
     _reorder = (list, sourceIdx, destIdx) => {
@@ -230,7 +229,8 @@ const mapGlobalStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     loadBoard,
-    loadBoards
+    loadBoards,
+    updateBoard
 }
 
 export const BoardDetails = connect(

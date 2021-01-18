@@ -35,7 +35,6 @@ class _BoardApp extends Component {
     onRemove = async (boardId) => {
         const { boards } = this.props
         await this.props.removeBoard(boardId)
-        this.loadBoards()
         this.props.history.push(`/board/${boards[0]._id}`);
     }
     onAdd = async (board) => {
