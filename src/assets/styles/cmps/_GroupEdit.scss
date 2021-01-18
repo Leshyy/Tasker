@@ -1,6 +1,6 @@
 .group-edit {
     position: absolute;
-    z-index: 2;
+    z-index: 5;
     background-color: white;
     padding: 5px;
     border-radius: 5px;
@@ -50,38 +50,48 @@
     outline: none;
 }
 
-.btn-color.gray {
-    background-color: gray;
+.btn-color.dark-green {
+    background-color: rgb(3, 127, 76);
 }
-
-.btn-color.light-yellow {
-    background-color: rgb(246, 221, 152);
-}
-
-.btn-color.pink {
-    background-color: pink;
-}
-
-.btn-color.light-green {
-    background-color: rgb(164, 255, 164);
-}
-
-.btn-color.blue {
-    background-color: rgb(174, 203, 250);
-}
-
-.btn-color.cyan {
-    background-color: rgb(167, 255, 235);
-}
-
-.btn-color.red {
-    background-color: rgb(228, 66, 88);
-}
-
 .btn-color.green {
     background-color: rgb(0, 202, 113);
 }
-
+.btn-color.khaki {
+    background-color: rgb(156, 211, 38);
+}
+.btn-color.orange {
+    background-color: rgb(255, 100, 46);
+}
+.btn-color.light-orange {
+    background-color: rgb(253, 171, 61);
+}
 .btn-color.yellow {
     background-color: rgb(253, 171, 61);
+}
+.btn-color.purple {
+    background-color: rgb(120, 75, 209);
+}
+.btn-color.light-purple {
+    background-color: rgb(162, 93, 220);
+}
+.btn-color.blue {
+    background-color: rgb(0, 134, 192);
+}
+.btn-color.bourdeaux {
+    background-color: rgb(187, 51, 84);
+}
+.btn-color.red {
+    background-color: rgb(228, 66, 88);
+}
+.btn-color.pink {
+    background-color: rgb(255, 21, 138);
+}
+.btn-color.black {
+    background-color: rgb(32, 20, 17);
+}
+.btn-color.brown {
+    background-color: rgb(127, 83, 71);
+}
+.btn-color.gray {
+    background-color: gray;
 }
