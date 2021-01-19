@@ -81,7 +81,10 @@
               "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": "2021-01-19",
+              "dateRange": {
+                "startDate": "2021-09-30T21:00:00.000Z",
+                "endDate": "2021-10-08T21:00:00.000Z"
+              },
               "comments": [
                 {
                   "by": {
@@ -129,7 +132,10 @@
               "status": "Working on it",
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
-              "dueDate": 1610741369555,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": []
             }
           ]
@@ -166,7 +172,10 @@
               "status": "Working on it",
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -224,7 +233,10 @@
               "status": "My new status",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -282,7 +294,10 @@
               "status": "Stuck",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -340,7 +355,10 @@
               "status": "My new status",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -407,7 +425,10 @@
               "status": "Working on it",
               "priority": "Medium",
               "note": "Use the pie chart",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -465,7 +486,10 @@
               "status": "Stuck",
               "priority": "Low",
               "note": "",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -523,7 +547,10 @@
               "status": "Completed",
               "priority": "High",
               "note": "",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -590,7 +617,10 @@
               "status": "Stuck",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -648,7 +678,10 @@
               "status": "Completed",
               "priority": "Medium",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -706,7 +739,10 @@
               "status": "Working on it",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -818,7 +854,10 @@
               "status": "Working on it",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -876,7 +915,10 @@
               "status": "Completed",
               "priority": "Medium",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -934,7 +976,10 @@
               "status": "Stuck",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1001,7 +1046,10 @@
               "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1059,7 +1107,10 @@
               "status": "Working on it",
               "priority": "Medium",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1117,7 +1168,10 @@
               "status": "Stuck",
               "priority": "Medium",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1184,7 +1238,10 @@
               "status": "Completed",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1242,7 +1299,10 @@
               "status": "Stuck",
               "priority": "High",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
@@ -1300,7 +1360,10 @@
               "status": "Completed",
               "priority": "Low",
               "note": "Add notes to your task",
-              "dueDate": 1606820163000,
+              "dateRange": {
+                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
+                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+              },
               "comments": [
                 {
                   "by": {
