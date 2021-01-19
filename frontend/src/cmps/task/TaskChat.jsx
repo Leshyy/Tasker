@@ -20,8 +20,12 @@ export class TaskChat extends Component {
                 </div>
                 {!clickedInput &&
                     <input type="text" onFocus={this.toggleShowTextArea} placeholder="write something..." />}
-                {clickedInput && <textarea onBlur={this.toggleShowTextArea} />}
-
+                {clickedInput &&
+                    <div className="comment-wrapper">
+                        <textarea autoFocus="true" onBlur={this.toggleShowTextArea} />
+                        <button>update</button>
+                    </div>
+                }
             </section>
         )
     }

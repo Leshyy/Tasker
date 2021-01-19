@@ -2,7 +2,7 @@ import { groupService } from './groupService'
 import { httpService } from './httpService'
 import { utilService } from './utilService'
 
-const BASE_URL = 'board'
+const BASE_URL = 'api/board'
 
 export const boardService = {
     query,
@@ -49,8 +49,8 @@ function updateBoards(updatedBoard, boards) {
 
 function _createBoard(boardName) {
     return {
-        _id: utilService.makeId(),
         name: boardName,
+        desc: 'edit your new board...',
         status: [
             {
                 txt: "Completed",
@@ -94,7 +94,23 @@ function _createBoard(boardName) {
             groupService.createGroup('group3')
         ],
         createdAt: Date.now(),
-        desc: 'edit your new board...'
+        members: [
+            {
+                _id: "2uk35b",
+                fullname: "Tair Bitan",
+                imgUrl: ""
+            },
+            {
+                _id: "asd542",
+                fullname: "Amit Weiss",
+                imgUrl: ""
+            },
+            {
+                _id: "adsh21",
+                fullname: "Tamir Leshetz",
+                imgUrl: ""
+            }
+        ]
     }
 }
 

@@ -190,7 +190,12 @@ export class _BoardDetails extends Component {
                         </div>
                     </div>
                 </div>
-                {this.state.isFilterShow && <div className="screen" onClick={this.toggleFilter}></div>}
+                {this.state.isFilterShow &&
+                    <div
+                        className="screen"
+                        onClick={this.toggleFilter}
+                    />}
+
                 <GroupList
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}

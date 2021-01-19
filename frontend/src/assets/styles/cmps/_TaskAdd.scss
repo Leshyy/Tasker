@@ -13,4 +13,8 @@
         border: 1px solid rgb(73, 73, 73);
         border-radius: 2px;
     }
+    &:focus {
+        border: 1px solid #0085ff;
+        outline: none;
+    }
 }

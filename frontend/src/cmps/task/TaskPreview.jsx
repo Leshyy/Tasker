@@ -78,7 +78,6 @@ export class TaskPreview extends Component {
     }
 
     openModal = (ev) => {
-        console.log('ev.target is:', ev.target);
         this.setState({ isStatusShown: true })
     }
 
@@ -89,7 +88,6 @@ export class TaskPreview extends Component {
     onAddLabel = (ev, label, type) => {
         ev.preventDefault()
         this.props.activeBoard[type].push(label)
-        console.log('new one ', this.props.activeBoard);
         const { task } = this.state;
         const { group } = this.props;
         this.props.onUpdateTask(task, group.id);
@@ -97,11 +95,9 @@ export class TaskPreview extends Component {
     onRemoveLabel = (ev, txt, type) => {
         ev.stopPropagation()
         if (this.findLabel(txt, type)) {
-            console.log('cant del this!');
             return
         }
         this.props.activeBoard[type] = this.props.activeBoard[type].filter(option => option.txt !== txt)
-        console.log('removeeeeeee', this.props.activeBoard[type]);
         const { task } = this.state;
         const { group } = this.props;
         this.props.onUpdateTask(task, group.id);

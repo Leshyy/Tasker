@@ -26,7 +26,6 @@ export class TaskPropertyModal extends Component {
     }
 
     onSubmit = (ev) => {
-        console.log('sub');
         const copy = { ...this.state.labelToAdd }
         copy.txt = ''
         this.setState({ labelToAdd: copy })
