@@ -1,6 +1,7 @@
 .board-details {
     flex-grow: 1;
     border-inline-start: 1px solid rgba(151, 151, 151, 0.493);
+    transition: 0.4s;
     .board-header-container {
         flex-grow: 1;
         background-color: white;

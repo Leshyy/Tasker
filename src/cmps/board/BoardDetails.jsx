@@ -10,6 +10,9 @@ import { socketService } from '../../services/socketService'
 
 
 export class _BoardDetails extends Component {
+    state = {
+        isFilterShow: false
+    }
     componentDidMount() {
         this.loadActiveBoard()
 
@@ -120,7 +123,11 @@ export class _BoardDetails extends Component {
         }
         this.props.updateBoard(updatedBoard);
     }
-
+    toggleFilter = () => {
+        var { isFilterShow } = this.state
+        isFilterShow = !isFilterShow
+        this.setState({ isFilterShow })
+    }
     _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
@@ -131,7 +138,7 @@ export class _BoardDetails extends Component {
 
     render() {
         const { activeBoard } = this.props
-        if (!activeBoard) return <div>Loading no active user...</div>
+        if (!activeBoard) return <div>Loading no active board...</div>
         return (
             <section className="board-details flex col">
                 <div className="board-header-container flex col">
@@ -183,7 +190,7 @@ export class _BoardDetails extends Component {
                         </div>
                     </div>
                 </div>
-
+                {this.state.isFilterShow && <div className="screen" onClick={this.toggleFilter}></div>}
                 <GroupList
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}

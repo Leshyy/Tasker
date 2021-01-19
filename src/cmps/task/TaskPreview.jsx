@@ -14,10 +14,11 @@ export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {},
+        isShownChat: false,
+        isShownMembers: false,
         isModalShown: false,
         isStatusClicked: false,
         isPriorityClicked: false,
-        isShownChat: false
     }
 
     componentDidMount() {
@@ -177,7 +178,9 @@ export class TaskPreview extends Component {
                     </div>
                 </div>
                 <div className="task-right flex align-center space-between">
-                    <Members task={task} />
+                    <div>
+                        <Members task={task} />
+                    </div>
                     <div
                         className={`status relative flex center align-center `}
                         style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
@@ -194,7 +197,7 @@ export class TaskPreview extends Component {
                             findLabel={this.findLabel}
                         />}
                     </div>
-                    <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
+                    <DueDate className="column-date" task={task} groupId={group.id} onUpdateTask={onUpdateTask} />
                     <div
                         className={`priority relative flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}

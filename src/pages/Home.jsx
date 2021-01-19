@@ -15,8 +15,9 @@ class _Home extends Component {
         return (
             <section className="home flex col" >
                 <div className="home-header flex start align-center">
-                    <Link to="/board" title="My Boards">Boards</Link>
-                    <Link to="/" title="Login">Login</Link>
+                    {/* <Link to={`/board/${boards[0]._id}`} title="My Boards">Boards</Link> */}
+                    {/* <Link to="/board" title="My Boards">Boards</Link> */}
+                    <Link to="/login" title="Login">Login</Link>
                     <Link to="/" title="Sign-Up">Sign-Up</Link>
                 </div>
                 <div className="home-main flex">
