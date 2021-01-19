@@ -1,10 +1,10 @@
 .board-side-nav {
     height: 100vh;
     background-color: #292f4c;
+    width: 200px;
+    transition: 0.5s;
     & > * {
-        transition: all (0.5s);
         background-color: white;
-        width: 200px;
     }
     .board-side-nav-top {
         padding: rem(20px) rem(12px);
@@ -75,9 +75,10 @@
     }
 }
 .board-side-nav-close {
+    color: white;
     width: 0;
     overflow: hidden;
-    transition: all (3.8s);
+    transition: 0.2s;
     .btn-toggle-sidenav {
         z-index: 5;
         width: 20px;

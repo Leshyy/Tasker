@@ -1,6 +1,22 @@
 import { Component } from 'react'
 
 export class FilterModal extends Component {
+    getDueDate = () => {
+        const { groups } = this.props.activeBoard
+        // console.log('groups is:', groups);
+        const dueDate = []
+        groups.map(group => {
+            const groupsTask = group.tasks.map(task => {
+                let start = task.dateRange.startDate
+                let end = task.dateRange.endDate
+                if (start === end) return start
+                else return end
+            })
+            return dueDate.push(...groupsTask)
+        })
+        // console.log('dueDate is:', dueDate);
+    }
+
     render() {
         const { activeBoard } = this.props
         return (
@@ -21,7 +37,7 @@ export class FilterModal extends Component {
                 <div className="col-modal"><h1>Prioritys</h1>
                     <div className="filter-list">
                         {activeBoard.priority.map((priority, idx) => {
-                            return <div key={idx}> {priority.txt}</div>
+                            return <div key={idx} className="status" style={{ background: priority.color }}> {priority.txt}</div>
                         })}
                     </div>
                 </div>
@@ -38,7 +54,7 @@ export class FilterModal extends Component {
                 </div>
 
                 <div className="col-modal">
-                    <h1>Due-Date</h1>
+                    <h1 onClick={this.getDueDate}>Due-Date</h1>
                 </div>
             </section>
         )

@@ -1,12 +1,18 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
+import FilterListIcon from '@material-ui/icons/FilterList';
+import { AvatarGroup } from '@material-ui/lab';
+import { Avatar } from '@material-ui/core';
+import Amit from '../../assets/styles/img/Amit.jpeg';
+import Tair from '../../assets/styles/img/Tair.jpeg';
 
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
+import { FilterModal } from '../group/FilterModal'
 
 
 export class _BoardDetails extends Component {
@@ -141,8 +147,8 @@ export class _BoardDetails extends Component {
         if (!activeBoard) return <div>Loading no active board...</div>
         return (
             <section className="board-details flex col">
-                <div className="board-header-container flex col">
-                    <div className="board-header-top-container flex col">
+                <div className="board-header-top-container flex col">
+                    <div className="flex">
                         <span
                             className="board-name editable"
                             contentEditable="true"
@@ -158,22 +164,30 @@ export class _BoardDetails extends Component {
                         >
                             {activeBoard.name}
                         </span>
-                        <span
-                            className=" editable"
-                            contentEditable="true"
-                            onBlur={(ev) => {
-                                this.onUpdateBoardDesc(ev.target.innerText)
-                            }}
-                            suppressContentEditableWarning={true}
-                            onKeyDown={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    ev.target.blur()
-                                }
-                            }}
-                        >
-                            {activeBoard.desc}
-                        </span>
+                        <div className="amit flex">
+                            <span><AvatarGroup>
+                                <Avatar className="avatar" alt="Amit" src={Amit} />
+                                <Avatar className="avatar" alt="Amit" src={Tair} />
+                            </AvatarGroup>
+                            </span>
+                            <span className="activities">Activities/ 17</span>
+                        </div>
                     </div>
+                    <span
+                        className="center-left editable"
+                        contentEditable="true"
+                        onBlur={(ev) => {
+                            this.onUpdateBoardDesc(ev.target.innerText)
+                        }}
+                        suppressContentEditableWarning={true}
+                        onKeyDown={(ev) => {
+                            if (ev.key === 'Enter') {
+                                ev.target.blur()
+                            }
+                        }}
+                    >
+                        {activeBoard.desc}
+                    </span>
                     <div className="board-header-bottom-container flex space-between">
                         <div className="board-creator">
                             <span>Created By: {activeBoard.creator.fullname}</span>
@@ -187,6 +201,11 @@ export class _BoardDetails extends Component {
                                 }}>
                                 New Group
                             </Button>
+                            <input type="text" placeholder="Search" />
+                            <button className="btn-filter flex align-center" onClick={this.toggleFilter}>
+                                {<FilterListIcon />} Filter
+                            {this.state.isFilterShow && <FilterModal activeBoard={activeBoard} />}
+                            </button>
                         </div>
                     </div>
                 </div>
