@@ -99,7 +99,6 @@ export class Login extends Component {
                     type="text"
                     name="username"
                     autoComplete="off"
-                    // value={this.state.signupCred.username}
                     onChange={this.signupHandleChange}
                     placeholder="Username*"
                 />
@@ -107,7 +106,6 @@ export class Login extends Component {
                     name="password"
                     type="password"
                     autoComplete="off"
-                    // value={this.state.signupCred.password}
                     onChange={this.signupHandleChange}
                     placeholder="Password*"
                 />
@@ -115,7 +113,6 @@ export class Login extends Component {
                     type="text"
                     name="fullname"
                     autoComplete="off"
-                    // value={this.state.signupCred.fullname}
                     onChange={this.signupHandleChange}
                     placeholder="Full name*"
                 />
@@ -123,7 +120,6 @@ export class Login extends Component {
                     type="text"
                     name="email"
                     autoComplete="off"
-                    // value={this.state.signupCred.username}
                     onChange={this.signupHandleChange}
                     placeholder="Email*"
                 />

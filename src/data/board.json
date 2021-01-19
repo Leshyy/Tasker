@@ -1472,7 +1472,7 @@
                   "imgUrl": ""
                 }
               ],
-              "status": "New",
+              "status": "Stuck",
               "priority": "Low",
               "note": "Add notes to your task",
               "dateRange": {
