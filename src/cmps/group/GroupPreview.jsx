@@ -1,17 +1,13 @@
-import { TaskAdd } from '../tasks/TaskAdd'
-import { TaskList } from '../tasks/TaskList'
-// import DeleteIcon from '@material-ui/icons/Delete';
-import Icon from '@material-ui/core/Icon';
-import { GroupEdit } from './GroupEdit';
 import { Component } from 'react';
-import { ExpandMore } from '@material-ui/icons';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+
+import { TaskAdd } from '../task/TaskAdd'
+import { TaskList } from '../task/TaskList'
+import { GroupEdit } from './GroupEdit';
+import { ExpandMore } from '@material-ui/icons';
 import { GroupProgressBar } from './GroupProgressBar';
 
-
 export class GroupPreview extends Component {
-
     state = {
         showModal: false
     }
@@ -20,6 +16,10 @@ export class GroupPreview extends Component {
         var { showModal } = this.state;
         showModal = !showModal;
         this.setState({ showModal });
+    }
+
+    closeModal = () => {
+        this.setState({ showModal: false })
     }
 
     render() {
@@ -82,7 +82,7 @@ export class GroupPreview extends Component {
                     groupId={group.id}
                 />
                 <GroupProgressBar activeBoard={activeBoard} tasks={group.tasks} />
-
+                {showModal && <div className="screen" onClick={this.closeModal}></div>}
             </section>
         )
     }

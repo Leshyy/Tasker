@@ -1,8 +1,20 @@
 /* HELPERS */
 
+/*layoy helpers*/
 .main-layout {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: tomato;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    opacity: 0;
 }
 
 /* grid-helpers */

@@ -111,7 +111,7 @@
             .modal-edit {
                 position: absolute;
                 transform: translateX(-100%);
-                z-index: 1;
+                z-index: 5;
                 font-family: font1;
                 font-size: inherit;
                 cursor: text;
@@ -124,14 +124,4 @@
             }
         }
     }
-}
-.screen {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: tomato;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    opacity: 0;
 }

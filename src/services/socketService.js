@@ -1,8 +1,8 @@
 import io from 'socket.io-client'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-export const socketService = createSocketService()
-// export const socketService = createDummySocketService()
+// export const socketService = createSocketService()
+export const socketService = createDummySocketService()
 
 window.socketService = socketService
 
@@ -61,8 +61,3 @@ function createDummySocketService() {
 }
 
 
-// Basic Tests
-// function cb(x) {console.log(x)}
-// socketService.on('baba', cb)
-// socketService.emit('baba', 'DATA')
-// socketService.off('baba', cb)

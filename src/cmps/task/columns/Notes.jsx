@@ -20,6 +20,10 @@ export class Notes extends Component {
         handleNoteChange(this.state.note);
     }
 
+    closeModal = () => {
+        this.setState({ isEditable: false })
+    }
+
     render() {
         const { note, isEditable } = this.state;
         return (
@@ -38,6 +42,11 @@ export class Notes extends Component {
                             }
                         }}
                     />}
+                {isEditable &&
+                    <div
+                        onClick={this.closeModal}
+                        className="screen">
+                    </div>}
             </section>
         )
     }

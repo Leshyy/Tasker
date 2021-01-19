@@ -5,7 +5,7 @@ export function addUser() {
 
 }
 
-export function editUser() {
+export function updateUser() {
 
 }
 

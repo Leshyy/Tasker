@@ -1,9 +1,11 @@
 import { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Switch, Route } from 'react-router-dom'
+
+import { socketService } from '../services/socketService'
+import { loadBoards, removeBoard, addBoard } from '../store/actions/boardAction'
 import { BoardDetails } from '../cmps/board/BoardDetails'
 import { BoardSideNav } from '../cmps/board/BoardSideNav'
-import { loadBoards, removeBoard, addBoard } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
 
 class _BoardApp extends Component {
@@ -13,8 +15,8 @@ class _BoardApp extends Component {
 
     async componentDidMount() {
         await this.loadBoards()
-        const { boards } = this.props
-        const { activeBoard } = this.props
+        const { boards, activeBoard } = this.props
+
         if (activeBoard) {
             this.props.history.push(`/board/${activeBoard._id}`);
             return
@@ -23,10 +25,19 @@ class _BoardApp extends Component {
             return
         }
         this.props.history.push(`/board/${boards[0]._id}`);
+
+        this.setUpListeners()
     }
 
+    setUpListeners = () => {
+        socketService.on('task update', (msg) => {
+            console.log('got ', msg);
+        })
 
-
+        socketService.on('msg', (msg) => {
+            console.log('new msg', msg);
+        })
+    }
 
     loadBoards = async () => {
         await this.props.loadBoards()
@@ -36,11 +47,11 @@ class _BoardApp extends Component {
         const { boards } = this.props
         await this.props.removeBoard(boardId)
         this.props.history.push(`/board/${boards[0]._id}`);
+
     }
     onAdd = async (board) => {
         await this.props.addBoard(board)
         this.props.history.push(`/board/${this.props.activeBoard._id}`);
-        this.loadBoards()
     }
 
     getBoradsForDisplay = async (filterBy) => {

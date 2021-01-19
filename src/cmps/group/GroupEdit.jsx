@@ -24,12 +24,12 @@ export class GroupEdit extends Component {
         const { group } = this.state;
         const { toggleModal, onUpdateGroup } = this.props;
         ev.stopPropagation();
-        const copy = { ...group };
-        copy.color = chosenColor;
-        this.setState({ group: copy }, () => {
-            onUpdateGroup(this.state.group);
-            toggleModal();
-        })
+        const copyGroup = { ...group };
+        copyGroup.color = chosenColor;
+        onUpdateGroup(copyGroup);
+        toggleModal();
+        // this.setState({ group: copyGroup }, () => {
+        // })
     }
 
 

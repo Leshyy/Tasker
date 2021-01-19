@@ -5,7 +5,6 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import chat from '../../assets/icons/chat.svg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
-import { taskService } from '../../services/taskService';
 import { DueDate } from './columns/DueDate';
 import { Notes } from './columns/Notes';
 import { Members } from './columns/Members';
@@ -100,7 +99,6 @@ export class TaskPreview extends Component {
             console.log('cant del this!');
             return
         }
-        // popup cant delete this
         this.props.activeBoard[type] = this.props.activeBoard[type].filter(option => option.txt !== txt)
         console.log('removeeeeeee', this.props.activeBoard[type]);
         const { task } = this.state;
@@ -198,7 +196,7 @@ export class TaskPreview extends Component {
                     </div>
                     <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
                     <div
-                        className={`priority relative  flex align-center center`}
+                        className={`priority relative flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}
                         onClick={() => {
                             this.toggleShowModal('priority')

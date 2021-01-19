@@ -11,6 +11,8 @@ export function boardReducer(state = initialState, action) {
             return { ...state, activeBoard: action.board };
         case 'REMOVE_BOARD':
             return { ...state, boards: state.boards.filter(board => action.boardId !== board._id) };
+        case 'ADD_BOARD':
+            return { ...state, boards: [...state.boards, action.board] };
         default:
             return state;
     }

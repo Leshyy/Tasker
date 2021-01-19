@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { ColorCmp } from "../../groups/ColorCmp"
+import { ColorCmp } from "../../group/ColorCmp"
 import { Delete } from '@material-ui/icons';
 
 export class TaskPropertyModal extends Component {

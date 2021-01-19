@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import Input from '@material-ui/core/Input'
+import Button from '@material-ui/core/Button'
+
 import { loadBoards } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
-import Calendar from '../assets/styles/img/calendar.png'
-import Input from '@material-ui/core/Input'
-import { connect } from 'react-redux'
 import { ListMyWeek } from '../cmps/ListMyWeek'
-import Button from '@material-ui/core/Button'
+import Calendar from '../assets/styles/img/calendar.png'
 
 export class _MyWeek extends Component {
     state = {
@@ -31,21 +33,6 @@ export class _MyWeek extends Component {
         this.setState({ isTaskShown: !this.state.isTaskShown })
     }
 
-    handleChange = (ev) => {
-        // console.log('ev.target is:', ev.target.value);
-        // var filterBy = { ...this.state.filterBy }
-        // filterBy.txt = ev.target.value;
-        // this.setState({ filterBy }, () => {
-        //     this.getTasksForDisplay(this.state.filterBy.txt);
-        // })
-    }
-    getTasksForDisplay = async (filterBy) => {
-        // let { boards } = this.props
-        // const regex = new RegExp(filterBy, 'i')
-        // boards = boards.filter(board => regex.test(board.name))
-        // this.setState({ boardsForDisplay: boards })
-    }
-
     render() {
         const { boards } = this.props
         const { isTaskShown } = this.state
@@ -53,9 +40,9 @@ export class _MyWeek extends Component {
             <React.Fragment>
                 <AppHeader />
                 <section className="my-week">
-                    <div className="top flex align-center">
+                    <div className="top flex space-around align-center">
                         <img src={Calendar} alt="" />
-                        <h2>Hey Amit !!,You have 4 assignments this week</h2>
+                        <h2>Hey Amit ,You have 4 assignments this week</h2>
                     </div>
                     <Input type="text"
                         type="text"
@@ -66,11 +53,11 @@ export class _MyWeek extends Component {
                     // value={filterBy.txt} 
                     />
                     <div className="bottom">
-                        <div className="flex space-around">
+                        <div className="flex space-between">
                             <p>Tasks For You:</p>
                             <Button onClick={this.toggleTasksMode}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
                         </div>
-                        {isTaskShown && <ListMyWeek boards={boards} />}
+                        {isTaskShown && <ListMyWeek boards={boards} username={'2h3j5b'} />}
                     </div>
                 </section>
             </React.Fragment >

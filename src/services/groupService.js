@@ -15,6 +15,7 @@ function add(name, board) {
     updatedBoard.groups.push(group)
     return updatedBoard
 }
+
 function remove(groupId, board) {
     const updatedBoard = { ...board }
     const updatedGroups = updatedBoard.groups.filter(group => group.id !== groupId)
@@ -28,7 +29,6 @@ function update(group, board) {
     updatedBoard.groups[groupIdx] = { ...group }
     return updatedBoard
 }
-
 
 function createGroup(name) {
     return {

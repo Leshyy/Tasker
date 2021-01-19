@@ -25,7 +25,6 @@ function makeId(length = 5) {
 function getRandomColor() {
     var colors = ['#00ca71', '#0085ff', '#fdab3d', '#e44258']
     var num = getRandomInt(0, 4)
-    console.log('colors[num] is:', colors[num]);
     return colors[num]
 
 }

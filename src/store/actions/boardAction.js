@@ -8,7 +8,6 @@ export function loadBoards() {
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
-            // dispatch({ type: 'LOADING_DONE' })
         }
     }
 }
@@ -22,7 +21,6 @@ export function loadBoard(boardId) {
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
-            // dispatch({ type: 'LOADING_DONE' })
         }
     }
 }
@@ -30,12 +28,12 @@ export function loadBoard(boardId) {
 export function addBoard(boardName) {
     return async dispatch => {
         try {
-            const savedBoard = await boardService.add(boardName)
-            dispatch({ type: 'SET_BOARD', board: savedBoard })
+            const board = await boardService.add(boardName)
+            dispatch({ type: 'ADD_BOARD', board })
+            dispatch({ type: 'SET_BOARD', board })
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
-            // dispatch({ type: 'LOADING_DONE' })
         }
     }
 }
@@ -48,7 +46,18 @@ export function updateBoard(board) {
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
-            // dispatch({ type: 'LOADING_DONE' })
+        }
+    }
+}
+
+export function updateBoards(board, boards) {
+    return dispatch => {
+        try {
+            const updatedBoards = boardService.updateBoards(board, boards)
+            dispatch({ type: 'SET_BOARDS', boards: updatedBoards })
+        } catch (err) {
+            console.log('Board Actions: err in loadUsers', err)
+        } finally {
         }
     }
 }
@@ -61,7 +70,6 @@ export function removeBoard(boardId) {
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
-            // dispatch({ type: 'LOADING_DONE' })
         }
     }
 }

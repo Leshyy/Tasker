@@ -3,6 +3,9 @@
     height: 100vh;
     background-color: #292f4c;
     z-index: 2;
+    .notifications {
+        position: relative;
+    }
     span {
         display: flex;
         align-content: center;

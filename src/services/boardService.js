@@ -9,7 +9,8 @@ export const boardService = {
     remove,
     getById,
     add,
-    update
+    update,
+    updateBoards
 }
 
 
@@ -31,11 +32,20 @@ async function getById(boardId) {
 }
 
 async function add(boardName) {
-    console.log(boardName, 'board');
     const board = _createBoard(boardName)
     const savedBoard = await httpService.post(BASE_URL, board)
     return savedBoard
 }
+
+function updateBoards(updatedBoard, boards) {
+    return boards.map(board => {
+        if (board._id === updatedBoard._id) {
+            return updatedBoard
+        }
+        return board
+    })
+}
+
 
 function _createBoard(boardName) {
     return {

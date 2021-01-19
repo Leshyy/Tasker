@@ -1,18 +1,26 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { GroupList } from '../groups/GroupList'
-import { loadBoard, loadBoards, updateBoard } from '../../store/actions/boardAction'
-import { boardService } from '../../services/boardService'
+import Button from '@material-ui/core/Button'
+
+import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
+import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
-import Button from '@material-ui/core/Button'
-import FilterListIcon from '@material-ui/icons/FilterList';
+import { socketService } from '../../services/socketService'
 
 
 export class _BoardDetails extends Component {
     componentDidMount() {
-        // get board id from url and set it to state
         this.loadActiveBoard()
+
+        this.setUpListeners()
+    }
+
+    setUpListeners = () => {
+        socketService.on('board remove', (msg) => {
+            this.props.loadBoards()
+
+        })
     }
 
     componentDidUpdate(prevProps) {
@@ -21,82 +29,61 @@ export class _BoardDetails extends Component {
         }
     }
 
-    loadActiveBoard = async () => {
-        const boardId = this.props.match.params.boardId
-        await this.props.loadBoard(boardId)
+    loadActiveBoard = () => {
+        const { boardId } = this.props.match.params
+        this.props.loadBoard(boardId)
     }
 
-    onRemoveTask = async (taskId, group) => {
+    onRemoveTask = (taskId, group) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.remove(taskId, activeBoard, group)
-        console.log('updated', updatedBoard);
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
-
+        this.props.updateBoard(updatedBoard)
     }
 
-    onAddTask = async (txt, groupId) => {
+    onAddTask = (txt, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.add(txt, activeBoard, groupId)
-        console.log('updated', updatedBoard);
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
-    onUpdateTask = async (task, groupId) => {
-        // console.log('task to update', task);
+    onUpdateTask = (task, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
-    onAddGroup = async (groupName) => {
+    onAddGroup = (groupName) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.add(groupName, activeBoard)
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
-    onRemoveGroup = async (ev, groupId) => {
+    onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
-    onUpdateGroup = async (group) => {
+    onUpdateGroup = (group) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.update(group, activeBoard)
-        await boardService.update(updatedBoard)
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
-    onChangeGroupColor = async (ev, groupId) => {
-        ev.stopPropagation();
-        const { activeBoard } = this.props
-        // const updatedBoard = groupService.update(group, activeBoard)
-
-        this.loadActiveBoard()
-    }
-
-    onUpdateBoardName = async (boardName) => {
-        const { activeBoard } = this.props
+    onUpdateBoardName = (boardName) => {
+        const { activeBoard, boards } = this.props
         const updatedBoard = { ...activeBoard }
         updatedBoard.name = boardName
-        await boardService.update(updatedBoard)
-        this.props.loadBoards()
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
+        this.props.updateBoards(updatedBoard, boards)
     }
 
-    onUpdateBoardDesc = async (description) => {
+    onUpdateBoardDesc = (description) => {
         const { activeBoard } = this.props
         const updatedBoard = { ...activeBoard }
         updatedBoard.desc = description
-        await boardService.update(updatedBoard)
-        this.props.loadBoards()
-        this.loadActiveBoard()
+        this.props.updateBoard(updatedBoard)
     }
 
     handleDragEnd = (res) => {
@@ -140,7 +127,7 @@ export class _BoardDetails extends Component {
         items.splice(destIdx, 0, removedItem);
 
         return items;
-    };
+    }
 
     render() {
         const { activeBoard } = this.props
@@ -193,7 +180,6 @@ export class _BoardDetails extends Component {
                                 }}>
                                 New Group
                             </Button>
-                            {/* <input type="text" placeholder="Search" /> */}
                         </div>
                     </div>
                 </div>
@@ -206,7 +192,6 @@ export class _BoardDetails extends Component {
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.handleDragEnd}
-                    onChangeGroupColor={this.onChangeGroupColor}
                     activeBoard={activeBoard}
                 />
 
@@ -217,13 +202,15 @@ export class _BoardDetails extends Component {
 
 const mapGlobalStateToProps = (state) => {
     return {
-        activeBoard: state.boardReducer.activeBoard
+        activeBoard: state.boardReducer.activeBoard,
+        boards: state.boardReducer.boards
     };
 };
 const mapDispatchToProps = {
     loadBoard,
     loadBoards,
-    updateBoard
+    updateBoard,
+    updateBoards
 }
 
 export const BoardDetails = connect(

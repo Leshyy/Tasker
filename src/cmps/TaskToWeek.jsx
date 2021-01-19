@@ -10,9 +10,9 @@ export class TaskToWeek extends Component {
     }
 
     componentDidMount() {
-        const { board } = this.props
+        const { board, username } = this.props
         this.setState({ board }, () => {
-            this.findTasksPerUser('2h3j5b')
+            this.findTasksPerUser(username)
         })
     }
 
@@ -39,14 +39,18 @@ export class TaskToWeek extends Component {
         return localDate
     }
     render() {
-        const { userTasks } = this.state
+        const { board, userTasks } = this.state
         return (
             <div>
                 {userTasks.map(task => {
-                    return <div className="tasks-user flex space-between">
+                    return <div key={task.id} className="tasks-user flex space-between">
                         <div className="left flex col">
-                            <h3>{task.name}</h3>
-                            <Link to="/board">{`At: ${task.boardName} < ${task.groupName}`}</Link>
+                            <span>{task.name}</span>
+                            <div>
+                                <Link to={`/board/${board._id}`}>{`At: ${task.boardName}`}</Link>
+                                {'>'}
+                                <Link to={`/board/${board._id}`}>{`${task.groupName}`}</Link>
+                            </div>
                         </div>
                         <div className="right flex">
                             {/* {task.dueDate} */}

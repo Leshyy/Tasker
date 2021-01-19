@@ -1,12 +1,13 @@
-import { Profile } from './pages/Profile';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
+
 import { BoardApp } from './pages/BoardApp';
 import { Home } from './pages/Home';
 import { MyWeek } from './pages/MyWeek';
+import { Profile } from './pages/Profile';
 
 
 

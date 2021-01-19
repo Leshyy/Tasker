@@ -1,8 +1,9 @@
+import logo from '../assets/styles/logo/logo.png'
+
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadBoards } from '../store/actions/boardAction'
 import { Link } from 'react-router-dom'
-import logo from '../assets/styles/logo/logo.png'
 
 class _Home extends Component {
 
@@ -10,18 +11,10 @@ class _Home extends Component {
         boards: null
     }
 
-    // async componentDidMount() {
-    //     const { loadBoards, boards } = this.props;
-    //     await loadBoards();
-    //     this.setState({ boards });
-    // }
-
     render() {
-        const { boards } = this.state;
         return (
             <section className="home flex col" >
                 <div className="home-header flex start align-center">
-                    {/* <Link to={`/board/${boards[0]._id}`} title="My Boards">Boards</Link> */}
                     <Link to="/board" title="My Boards">Boards</Link>
                     <Link to="/" title="Login">Login</Link>
                     <Link to="/" title="Sign-Up">Sign-Up</Link>
@@ -38,7 +31,6 @@ class _Home extends Component {
                         <br />
                         Half the hassle, twice the fun.
                     </p>
-                        {/* <Link to={`/board/${boards[0]._id}`} title="Demo"><button>Run Demo</button></Link> */}
                         <Link to="/board" title="Demo"><button>Run Demo</button></Link>
 
                     </div>

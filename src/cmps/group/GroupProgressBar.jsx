@@ -2,10 +2,10 @@
 export function GroupProgressBar({ tasks, activeBoard }) {
     const priorityCounter = {}
     const statusCounter = {}
-    activeBoard.status.map(option => {
+    activeBoard.status.forEach(option => {
         statusCounter[option.txt] = 0
     })
-    activeBoard.priority.map(option => {
+    activeBoard.priority.forEach(option => {
         priorityCounter[option.txt] = 0
     })
     tasks.forEach(task => {
@@ -28,18 +28,6 @@ export function GroupProgressBar({ tasks, activeBoard }) {
                         }}
                     />
                 })}
-                {/* <div style={{ width: `${(priorityCounter.High / tasks.length * 100).toFixed()}%` }}
-                    className="red"
-                    data-title={`High ${priorityCounter.High} / ${tasks.length} ${(priorityCounter.High / tasks.length * 100).toFixed()}%`}
-                />
-                <div style={{ width: `${(priorityCounter.Medium / tasks.length * 100).toFixed()}%` }}
-                    className="orange"
-                    data-title={`Medium ${priorityCounter.Medium} / ${tasks.length} ${(priorityCounter.Medium / tasks.length * 100).toFixed()}%`}
-                />
-                <div style={{ width: `${(priorityCounter.Low / tasks.length * 100).toFixed()}%` }}
-                    className="green"
-                    data-title={`Low ${priorityCounter.Low} / ${tasks.length} ${(priorityCounter.Low / tasks.length * 100).toFixed()}%`}
-                /> */}
             </div>
             <div className="status-prog-bar flex">
                 {activeBoard.status.map((option, idx) => {
