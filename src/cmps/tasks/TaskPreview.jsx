@@ -199,7 +199,7 @@ export class TaskPreview extends Component {
                             findLabel={this.findLabel}
                         />}
                     </div>
-                    <DueDate className="column-date" task={task} onChangeDate={this.onChangeDate} group={group} />
+                    <DueDate className="column-date" task={task} groupId={group.id} onUpdateTask={onUpdateTask} />
                     <div
                         className={`priority relative  flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}
