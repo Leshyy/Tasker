@@ -1,19 +1,21 @@
 .date {
+    position: relative;
+    width: 130px;
+    height: 20px;
     border: none;
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    color: rgb(63, 64, 69);
+    border-radius: 15px;
+    background-color: rgb(50, 55, 96);
     font-size: 14px;
     font-family: Tahoma, Geneva, Verdana, sans-serif;
-    align-self: flex-end;
-    &:focus {
-        outline: none;
+    .date-bar {
+        position: relative;
+        border-radius: 15px;
+        height: 100%;
     }
-    &::-webkit-calendar-picker-indicator {
-        cursor: pointer;
-        &:focus {
-            outline: none;
-        }
+    .date-text {
+        position: absolute;
+        color: white;
+        transform: translateX(57%);
+        align-self: center;
     }
 }

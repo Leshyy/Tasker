@@ -6,7 +6,7 @@ export class TaskPropertyModal extends Component {
     state = {
         labelToAdd: {
             txt: '',
-            color: 'rgb(167, 255, 235)'
+            color: 'rgb(120, 75, 209)'
         }
     }
 

@@ -6,11 +6,15 @@ import { DateRangePicker } from 'react-date-range';
 export class DueDate extends Component {
     state = {
         dateRange: {},
-        isOpen: false
+        isOpen: false,
+        barWidth: 0,
+        barColor: null
     }
 
     componentDidMount() {
         const { dateRange } = this.props.task;
+        this.calcBarWidth(dateRange);
+        this.chooseBarColor();
         this.setState({ dateRange });
     }
 
@@ -20,17 +24,36 @@ export class DueDate extends Component {
 
     handleSelect = (ranges) => {
         const { onUpdateTask, groupId, task } = this.props;
-        const rangeCopy = { ...this.state.dateRange }
-        rangeCopy.startDate = ranges.selection.startDate
-        rangeCopy.endDate = ranges.selection.endDate
+        const rangeCopy = { ...this.state.dateRange };
+        rangeCopy.startDate = ranges.selection.startDate;
+        rangeCopy.endDate = ranges.selection.endDate;
+        this.calcBarWidth(rangeCopy);
+        this.chooseBarColor();
         this.setState({ dateRange: rangeCopy }, () => {
             task.dateRange = this.state.dateRange;
             onUpdateTask(task, groupId);
         })
     }
 
+    calcBarWidth = (dateRange) => {
+        const totalTime = new Date(dateRange.endDate).getTime() - new Date(dateRange.startDate).getTime();
+        const elapsedTime = Date.now() - new Date(dateRange.startDate).getTime();
+        const barWidth = (elapsedTime / totalTime) * 100;
+        this.setState({ barWidth });
+    }
+
+    chooseBarColor = () => {
+        const { barWidth } = this.state;
+        let barColor;
+        if (barWidth < 10) barColor = 'transparent';
+        else if (barWidth < 30) barColor = '#037f4c';
+        else if (barWidth < 70) barColor = '#fdab3d';
+        else if (barWidth >= 70) barColor = '#e44258';
+        this.setState({ barColor })
+    }
+
     render() {
-        const { isOpen, dateRange } = this.state;
+        const { isOpen, dateRange, barColor, barWidth } = this.state;
         if (dateRange === {}) return <div>Loading...</div>
         const selectionRange = {
             startDate: new Date(dateRange.startDate),
@@ -39,7 +62,15 @@ export class DueDate extends Component {
         }
         return (
             <section className="column-date">
-                <p onClick={this.toggleDatePicker}>{new Date(dateRange.endDate).toLocaleDateString('en-GB')}</p>
+                <div className="date flex align-center" onClick={this.toggleDatePicker}>
+                    <div className="date-bar"
+                        style={{ backgroundColor: 'green', width: `${barWidth}%` }}
+                    >
+                    </div>
+                    <div className="date-text">
+                        {new Date(dateRange.endDate).toLocaleDateString('en-GB')}
+                    </div>
+                </div>
                 <div>
                     {isOpen && <DateRangePicker
                         ranges={[selectionRange]}
