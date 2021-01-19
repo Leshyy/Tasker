@@ -5,13 +5,24 @@ import { AddCircleOutlineRounded } from "@material-ui/icons";
 
 
 export class BoardSideNav extends Component {
+    state = {
+        isBarShown: true
+    }
 
+    toggleShownBar = () => {
+        var { isBarShown } = this.state
+        isBarShown = !isBarShown
+        this.setState({ isBarShown })
+        console.log('isBarShown is:', isBarShown)
+    }
     render() {
         const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props
+        const left = '&lt;'
+        // const right = 
         return (
-            <section className="board-side-nav flex col">
+            <section className={`${(this.state.isBarShown) ? `board-side-nav flex col` : `board-side-nav-close`}`}>
                 <div className="board-side-nav-top flex col align-start space-between">
-                    {/* <button className="btn-toggle-sidenav">&gt;</button> */}
+                    <button className="btn-toggle-sidenav" onClick={this.toggleShownBar}>{(this.state.isBarShown) ? '<' : '>'}</button>
                     <h2>My Boards:</h2>
                     <button
                         className="btn-add flex align-center"

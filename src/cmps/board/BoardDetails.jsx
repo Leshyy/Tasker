@@ -7,9 +7,13 @@ import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import Button from '@material-ui/core/Button'
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { FilterModal } from '../groups/FilterModal'
 
 
 export class _BoardDetails extends Component {
+    state = {
+        isFilterShow: false
+    }
     componentDidMount() {
         // get board id from url and set it to state
         this.loadActiveBoard()
@@ -133,7 +137,11 @@ export class _BoardDetails extends Component {
         }
         this.props.updateBoard(updatedBoard);
     }
-
+    toggleFilter = () => {
+        var { isFilterShow } = this.state
+        isFilterShow = !isFilterShow
+        this.setState({ isFilterShow })
+    }
     _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
@@ -193,11 +201,15 @@ export class _BoardDetails extends Component {
                                 }}>
                                 New Group
                             </Button>
-                            {/* <input type="text" placeholder="Search" /> */}
+                            <input type="text" placeholder="Search" />
+                            <Button variant="contained" color="primary" onClick={this.toggleFilter}>
+                                Filter
+                            {this.state.isFilterShow && <FilterModal activeBoard={activeBoard} />}
+                            </Button>
                         </div>
                     </div>
                 </div>
-
+                {this.state.isFilterShow && <div className="screen" onClick={this.toggleFilter}></div>}
                 <GroupList
                     groups={activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}

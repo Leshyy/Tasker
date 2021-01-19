@@ -4,7 +4,7 @@
     background: linear-gradient(220deg, #c7e5f1, hsla(0, 0%, 100%, 0) 68%);
     .home-header {
         flex-grow: 1;
-        padding-inline-start: rem(215px);
+        padding-inline-start: rem(90px);
         & > * {
             margin: 0 rem(20px);
             color: #323338;
@@ -48,6 +48,7 @@
                 transition: 0.2s;
                 &:hover {
                     background-color: rgb(220, 0, 77);
+                    cursor: pointer;
                 }
             }
         }

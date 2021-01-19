@@ -135,7 +135,10 @@ export class Login extends Component {
         const { loggedinUser, isNewUser } = this.state
         return (
             <div className="login-page">
-                <Link to="/"><ArrowBackIcon className="arrow-left" /></Link>
+                {/* <div > */}
+                <Link className="arrow-left" data-title={'Back to Home'} to="/"><ArrowBackIcon /></Link>
+
+                {/* </div> */}
                 <section className="login-container">
                     <AccountCircleIcon />
                     <p>{this.state.msg}</p>
@@ -153,7 +156,7 @@ export class Login extends Component {
 
 
                 </section>
-            </div>
+            </div >
         )
     }
 }
