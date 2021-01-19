@@ -1,6 +1,9 @@
+.groups {
+    position: absolute; //drag div
+}
 .group-preview {
-    // min-width: 1200px;
     position: relative;
+    // overflow-x: overlay;
     padding-bottom: 45px;
     .group-header {
         padding: 0 8px;
