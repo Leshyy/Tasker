@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
-import FilterListIcon from '@material-ui/icons/FilterList';
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import Amit from '../../assets/styles/img/Amit.jpeg';
@@ -12,12 +11,13 @@ import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
-import { FilterModal } from '../group/FilterModal'
+import { GroupFilter } from '../group/GroupFilter';
 
 
 export class _BoardDetails extends Component {
     state = {
-        isFilterShow: false
+        isFilterShow: false,
+        groupForDisplay: null
     }
     componentDidMount() {
         this.loadActiveBoard()
@@ -129,17 +129,31 @@ export class _BoardDetails extends Component {
         }
         this.props.updateBoard(updatedBoard);
     }
-    toggleFilter = () => {
-        var { isFilterShow } = this.state
-        isFilterShow = !isFilterShow
-        this.setState({ isFilterShow })
-    }
+
     _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
         items.splice(destIdx, 0, removedItem);
 
         return items;
+    }
+
+    toggleFilter = () => {
+        var { isFilterShow } = this.state
+        isFilterShow = !isFilterShow
+        this.setState({ isFilterShow })
+    }
+    getGroupForDisplay = (filterBy) => {
+        const { activeBoard } = this.props
+        if (!filterBy) return this.setState({ groupForDisplay: null })
+        const regex = new RegExp(filterBy, 'i')
+        const groups = activeBoard.groups.filter(group => (regex.test(group.name)))
+        // .filter(group => {
+        //     group.tasks.filter(task => (regex.test(task.name)))
+        //     return group
+        // })
+        this.setState({ groupForDisplay: groups })
+
     }
 
     render() {
@@ -201,11 +215,11 @@ export class _BoardDetails extends Component {
                                 }}>
                                 New Group
                             </Button>
-                            <input type="text" placeholder="Search" />
-                            <button className="btn-filter flex align-center" onClick={this.toggleFilter}>
-                                {<FilterListIcon />} Filter
-                            {this.state.isFilterShow && <FilterModal activeBoard={activeBoard} />}
-                            </button>
+                            <GroupFilter
+                                getGroupForDisplay={this.getGroupForDisplay}
+                                activeBoard={activeBoard}
+                                toggleFilter={this.toggleFilter}
+                                isFilterShow={this.state.isFilterShow} />
                         </div>
                     </div>
                 </div>
@@ -216,7 +230,7 @@ export class _BoardDetails extends Component {
                     />}
 
                 <GroupList
-                    groups={activeBoard.groups}
+                    groups={this.state.groupForDisplay || activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
