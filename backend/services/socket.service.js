@@ -39,11 +39,9 @@ function connectSockets(http, session) {
             socket.myTopic = topic
         })
         socket.on('board update', msg => {
-            console.log('updated board', msg);
             socket.broadcast.emit('update board', 'update from server')
         })
         socket.on('boards update', msg => {
-            console.log('updated boards', msg);
             socket.broadcast.emit('update boards', 'update from server')
         })
 
