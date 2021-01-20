@@ -1,14 +1,14 @@
 import io from 'socket.io-client'
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 window.socketService = socketService
 
 
 function createSocketService() {
-  var socket
+  var socket;
   const socketService = {
     setup() {
       console.log('heyy');

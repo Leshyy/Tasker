@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
 import { socketService } from '../services/socketService'
-import { loadBoards, removeBoard, addBoard } from '../store/actions/boardAction'
+import { loadBoards, removeBoard, addBoard, updateBoards } from '../store/actions/boardAction'
 import { BoardDetails } from '../cmps/board/BoardDetails'
 import { BoardSideNav } from '../cmps/board/BoardSideNav'
 import { AppHeader } from '../cmps/AppHeader'
@@ -26,17 +26,8 @@ class _BoardApp extends Component {
         }
         this.props.history.push(`/board/${boards[0]._id}`);
 
-        this.setUpListeners()
-    }
+        // this.setUpListeners()
 
-    setUpListeners = () => {
-        socketService.on('task update', (msg) => {
-            console.log('got ', msg);
-        })
-
-        socketService.on('msg', (msg) => {
-            console.log('new msg', msg);
-        })
     }
 
     loadBoards = async () => {
@@ -46,12 +37,16 @@ class _BoardApp extends Component {
     onRemove = async (boardId) => {
         const { boards } = this.props
         await this.props.removeBoard(boardId)
+        socketService.emit('boards update', 'removed board')
         this.props.history.push(`/board/${boards[0]._id}`);
+
 
     }
     onAdd = async (board) => {
         await this.props.addBoard(board)
         this.props.history.push(`/board/${this.props.activeBoard._id}`);
+
+        socketService.emit('boards update', 'added board')
     }
 
     getBoradsForDisplay = async (filterBy) => {
@@ -93,7 +88,8 @@ const mapGlobalStateToProps = (state) => {
 const mapDispatchToProps = {
     loadBoards,
     removeBoard,
-    addBoard
+    addBoard,
+    updateBoards
 }
 
 export const BoardApp = connect(

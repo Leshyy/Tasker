@@ -120,6 +120,9 @@
                 text-overflow: ellipsis;
             }
             .modal-edit {
+                width: 300px;
+                height: 250px;
+                resize: none;
                 position: absolute;
                 transform: translateX(-100%);
                 z-index: 5;

@@ -1,4 +1,5 @@
 import { boardService } from "../../services/boardService"
+import { socketService } from "../../services/socketService"
 
 export function loadBoards() {
     return async dispatch => {
@@ -39,10 +40,11 @@ export function addBoard(boardName) {
 }
 
 export function updateBoard(board) {
-    return dispatch => {
+    return async dispatch => {
         try {
-            boardService.update(board)
             dispatch({ type: 'SET_BOARD', board })
+            await boardService.update(board)
+            socketService.emit('board update')
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
@@ -65,8 +67,9 @@ export function updateBoards(board, boards) {
 export function removeBoard(boardId) {
     return async dispatch => {
         try {
-            await boardService.remove(boardId)
             dispatch({ type: 'REMOVE_BOARD', boardId })
+            await boardService.remove(boardId)
+            console.log('done remove');
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
