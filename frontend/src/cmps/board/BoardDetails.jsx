@@ -23,11 +23,10 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
 
         this.setUpListeners()
-
     }
 
     setUpListeners = () => {
-        socketService.on('update board', msg => {
+        socketService.on('update board', () => {
             this.loadActiveBoard()
         })
         socketService.on('update boards', () => {
@@ -138,7 +137,6 @@ export class _BoardDetails extends Component {
             }
         }
         await this.props.updateBoard(updatedBoard);
-        socketService.emit('board update')
     }
 
     _reorder = (list, sourceIdx, destIdx) => {
@@ -215,7 +213,12 @@ export class _BoardDetails extends Component {
                     </span>
                     <div className="board-header-bottom-container flex space-between">
                         <div className="board-creator">
-                            <span>Created By: {activeBoard.creator.fullname}</span>
+                            <span
+                                onClick={() => {
+                                    this.props.history.push(`/profile/${activeBoard.creator._id}`);
+                                }}>
+                                Created By: {activeBoard.creator.fullname}
+                            </span>
                         </div>
                         <div className="bottom-right-container flex">
                             <Button

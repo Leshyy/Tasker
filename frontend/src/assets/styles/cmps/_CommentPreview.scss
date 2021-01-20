@@ -1,0 +1,16 @@
+.comment-preview {
+    border: 1px solid #e6e9ef;
+    border-radius: 5px;
+    padding: 10px 12px;
+    height: 200px;
+    .comment-author {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .comment-time {
+        &::before {
+            opacity: 0.5;
+            content: "\1F550";
+        }
+    }
+}

@@ -8,13 +8,14 @@ import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { DateRange } from './columns/DateRange';
 import { Notes } from './columns/Notes';
 import { Members } from './columns/Members';
-import { TaskChat } from './TaskChat';
+import { TaskDetails } from './TaskDetails';
+import { taskService } from '../../services/taskService';
 
 export class TaskPreview extends Component {
     state = {
         editMode: false,
         task: {},
-        isShownChat: false,
+        isShownDetails: false,
         isShownMembers: false,
         isModalShown: false,
         isStatusClicked: false,
@@ -30,8 +31,10 @@ export class TaskPreview extends Component {
         this.setState({ editMode: !this.state.editMode })
     }
 
-    toggleShowChat = () => {
-        this.setState({ isShownChat: !this.state.isShownChat })
+    toggleShowDetails = () => {
+        this.setState({
+            isShownDetails: !this.state.isShownDetails,
+        })
     }
 
     toggleShowModal = (option) => {
@@ -78,7 +81,16 @@ export class TaskPreview extends Component {
     }
 
     closeModal = () => {
-        this.setState({ isStatusClicked: false, isPriorityClicked: false, isModalShown: false })
+        this.setState({
+            isStatusClicked: false,
+            isPriorityClicked: false,
+            isModalShown: false,
+            isShownDetails: false
+        })
+    }
+
+    closeDetails = () => {
+        this.setState({ isShownDetails: false })
     }
 
     onAddLabel = (ev, label, type) => {
@@ -111,13 +123,19 @@ export class TaskPreview extends Component {
         return found
     }
 
+    onAddComment = (comment = {}) => {
+        const { group } = this.props;
+        const task = taskService.addComment(comment, this.props.task)
+        this.props.onUpdateTask(task, group.id)
+    }
+
     getPropColor = (txt, type) => {
         return this.props.activeBoard[type].find(option => option.txt === txt).color;
     }
 
     render() {
         const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
-        const { editMode, isStatusClicked, isPriorityClicked, isShownChat, isModalShown } = this.state
+        const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
         const { name } = this.state.task
         if (!activeBoard) return <div>Loading...</div>
         return (
@@ -164,8 +182,15 @@ export class TaskPreview extends Component {
                             >edit
                         </EditIcon>}
                     </div>
-                    <div className="task-left-chat flex end align-center" onClick={this.toggleShowChat} >
-                        <img src={chat} width="25px" alt="chaticon" className="icon-chat" />
+                    <div
+                        className="task-left-chat flex end align-center"
+                        onClick={this.toggleShowDetails} >
+                        <img
+                            src={chat}
+                            width="25px"
+                            alt="chaticon"
+                            className="icon-chat"
+                        />
                     </div>
                 </div>
                 <div className="task-right flex align-center space-between">
@@ -207,9 +232,15 @@ export class TaskPreview extends Component {
                             />}
                     </div>
                     <Notes task={task} handleNoteChange={this.handleNoteChange} />
-                    {isShownChat && <TaskChat task={task} />}
                 </div>
+
                 {isModalShown && <div className="screen" onClick={this.closeModal}></div>}
+                {isShownDetails && <div className="dark-screen" onClick={this.closeModal}></div>}
+                {isShownDetails &&
+                    <TaskDetails
+                        task={task}
+                        onAddComment={this.onAddComment}
+                        closeModal={this.closeModal} />}
             </div >
         )
     }

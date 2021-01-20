@@ -29,7 +29,7 @@ function connectSockets(http, session) {
                 gSocketBySessionIdMap[socket.handshake.sessionID] = null
             }
         })
-        socket.on('board topic', topic => {
+        socket.on('chat topic', topic => {
             if (socket.myTopic) {
                 socket.leave(socket.myTopic)
             }
@@ -43,6 +43,10 @@ function connectSockets(http, session) {
         })
         socket.on('boards update', msg => {
             socket.broadcast.emit('update boards', 'update from server')
+        })
+        socket.on('chat msg', msg => {
+            console.log('got msg ', socket.myTopic, msg);
+            socket.to(socket.myTopic).emit('chat update', msg)
         })
 
 

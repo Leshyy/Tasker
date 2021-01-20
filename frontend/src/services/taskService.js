@@ -7,6 +7,7 @@ export const taskService = {
     createTask,
     update,
     getById,
+    addComment
 }
 
 function add(txt, board, groupId) {
@@ -40,6 +41,16 @@ function getById(task, group) {
     const foundTask = group.tasks.find(currTask => currTask.id === task.id);
     return foundTask;
 }
+
+function addComment(comment, task) {
+    const updatedTask = { ...task }
+    comment.createdAt = Date.now()
+    updatedTask.comments.push(comment)
+    console.log('task with time?', updatedTask);
+    return updatedTask
+
+}
+
 
 function createTask(txt) {
     return {

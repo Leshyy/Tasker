@@ -11,7 +11,6 @@ function createSocketService() {
   var socket;
   const socketService = {
     setup() {
-      console.log('heyy');
       socket = io(baseUrl)
     },
     on(eventName, cb) {

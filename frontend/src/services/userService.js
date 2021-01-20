@@ -1,44 +1,24 @@
+import { httpService } from "./httpService"
+
+const BASE_URL = 'api/user'
+
 export const userService = {
-    // getUsers,
-    // getById,
+    getUsers,
+    getById,
     // update,
     // remove,
     // increaseScore,
-    getLoggedinUser,
+    // getLoggedinUser,
     // _saveLocalUser
 }
 
-// function getUsers() {
-//     users = [
-//         {
-//             username: 'Amit weiss',
-//             password: '1234'
-//         }
-//     ]
-// }
+async function getUsers() {
+    const users = await httpService.get(BASE_URL)
+    console.log('users', users);
+    return users
 
-// function getById(userId) {
-
-// }
-
-// async function update(user) {
-
-// }
-// function remove(userId) {
-// }
-
-// async function increaseScore(by = SCORE_FOR_REVIEW) {
-
-// }
-
-function getLoggedinUser() {
-    var loggedinUser = {
-        username: 'Amit weiss',
-        password: '1234'
-    }
-    return loggedinUser
 }
 
-// function _saveLocalUser(user) {
-
-// }
+async function getById(userId) {
+    return await httpService.get(BASE_URL + '/' + userId)
+}

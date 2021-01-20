@@ -16,9 +16,8 @@ export function loadBoards() {
 export function loadBoard(boardId) {
     return async dispatch => {
         try {
-            const boardToSend = await boardService.getById(boardId)
-            dispatch({ type: 'SET_BOARD', board: boardToSend });
-            return boardToSend;
+            const board = await boardService.getById(boardId)
+            dispatch({ type: 'SET_BOARD', board });
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
@@ -32,6 +31,7 @@ export function addBoard(boardName) {
             const board = await boardService.add(boardName)
             dispatch({ type: 'ADD_BOARD', board })
             dispatch({ type: 'SET_BOARD', board })
+            socketService.emit('boards update', 'added board')
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
@@ -69,7 +69,7 @@ export function removeBoard(boardId) {
         try {
             dispatch({ type: 'REMOVE_BOARD', boardId })
             await boardService.remove(boardId)
-            console.log('done remove');
+            socketService.emit('boards update', 'removed board')
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
