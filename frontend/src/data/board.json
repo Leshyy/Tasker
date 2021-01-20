@@ -82,7 +82,7 @@
               "priority": "High",
               "note": "Add notes to your task",
               "dateRange": {
-                "startDate": "2021-09-30T21:00:00.000Z",
+                "startDate": "2020-09-30T21:00:00.000Z",
                 "endDate": "2021-10-08T21:00:00.000Z"
               },
               "comments": [
@@ -133,7 +133,7 @@
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
               "dateRange": {
-                "startDate": "2021-10-15T21:00:00.000Z",
+                "startDate": "2020-10-15T21:00:00.000Z",
                 "endDate": "2021-10-22T21:00:00.000Z"
               },
               "comments": []
@@ -169,7 +169,7 @@
               "priority": "Low",
               "note": "Add notes to your task",
               "dateRange": {
-                "startDate": "2021-09-30T21:00:00.000Z",
+                "startDate": "2021-01-01T21:00:00.000Z",
                 "endDate": "2021-10-08T21:00:00.000Z"
               },
               "comments": [
@@ -230,8 +230,8 @@
               "priority": "Low",
               "note": "Add notes to your task",
               "dateRange": {
-                "startDate": "2021-09-30T21:00:00.000Z",
-                "endDate": "2021-10-08T21:00:00.000Z"
+                "startDate": "2020-12-30T21:00:00.000Z",
+                "endDate": "2021-02-08T21:00:00.000Z"
               },
               "comments": [
                 {
@@ -296,8 +296,8 @@
               "priority": "Low",
               "note": "Simply watch the progress bar beneath every group",
               "dateRange": {
-                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
-                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+                "startDate": "2020-12-20T21:00:00.000Z",
+                "endDate": "2021-02-08T21:00:00.000Z"
               },
               "comments": [
                 {
@@ -357,8 +357,8 @@
               "priority": "Low",
               "note": "Add notes to your task",
               "dateRange": {
-                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
-                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+                "startDate": "2020-12-10T21:00:00.000Z",
+                "endDate": "2021-02-08T21:00:00.000Z"
               },
               "comments": [
                 {
@@ -418,8 +418,8 @@
               "priority": "Low",
               "note": "Add notes to your task",
               "dateRange": {
-                "startDate": "Fri Oct 01 2021 00:00:00 GMT+0300 (Israel Daylight Time)",
-                "endDate": "Mon Jan 18 2021 00:00:00 GMT+0200 (Israel Standard Time)"
+                "startDate": "2020-12-30T21:00:00.000Z",
+                "endDate": "2021-02-08T21:00:00.000Z"
               },
               "comments": [
                 {

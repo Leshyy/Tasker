@@ -1,7 +1,18 @@
+.btn-filter {
+    background-color: #ffffff;
+    border: 1px solid #c5c7d0;
+    border-radius: 2px;
+    padding: 3px 10px;
+    outline: none;
+    &:hover {
+        background-color: #e6e9ef;
+        cursor: pointer;
+    }
+}
 .filter-modal {
     position: absolute;
-    top: 40px;
-    right: 70px;
+    top: 170px;
+    right: 100px;
     z-index: 5;
     background-color: #ffffff;
     border-radius: 2px;

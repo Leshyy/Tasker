@@ -64,7 +64,7 @@ export class GroupPreview extends Component {
                     <div className="group-header-right flex">
                         <h5>Members</h5>
                         <h5>Status</h5>
-                        <h5>Due-date</h5>
+                        <h5>TimeLine</h5>
                         <h5>Priority</h5>
                         <h5>Notes</h5>
                     </div>

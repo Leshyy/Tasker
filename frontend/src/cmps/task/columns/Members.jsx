@@ -1,8 +1,8 @@
 import { Avatar } from '@material-ui/core';
 import { AvatarGroup } from '@material-ui/lab';
 import Amit from '../../../assets/styles/img/Amit.jpeg';
-import Tamir from '../../../assets/styles/img/Tamir.jpeg';
 import Tair from '../../../assets/styles/img/Tair.jpeg';
+import Tamir from '../../../assets/styles/img/Tamir.jpeg';
 
 export function Members({ task }) {
     // function getFirstName(fullName) {

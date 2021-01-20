@@ -15,6 +15,7 @@ export class BoardSideNav extends Component {
         isBarShown = !isBarShown
         this.setState({ isBarShown })
     }
+
     render() {
         const { boards, onRemove, onAdd, getBoradsForDisplay } = this.props
         return (

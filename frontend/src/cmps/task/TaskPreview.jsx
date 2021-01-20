@@ -5,7 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import chat from '../../assets/icons/chat.svg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
-import { DueDate } from './columns/DueDate';
+import { DateRange } from './columns/DateRange';
 import { Notes } from './columns/Notes';
 import { Members } from './columns/Members';
 import { TaskChat } from './TaskChat';
@@ -59,7 +59,7 @@ export class TaskPreview extends Component {
     onChangeDate = (date) => {
         const { task } = this.state;
         const { group } = this.props;
-        task.dueDate = date;
+        task.dateRange = date;
         this.props.onUpdateTask(task, group.id);
     }
 
@@ -188,7 +188,7 @@ export class TaskPreview extends Component {
                             findLabel={this.findLabel}
                         />}
                     </div>
-                    <DueDate className="column-date" task={task} groupId={group.id} onUpdateTask={onUpdateTask} />
+                    <DateRange className="column-date" task={task} groupId={group.id} onUpdateTask={onUpdateTask} />
                     <div
                         className={`priority relative flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}

@@ -1,17 +1,23 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button'
+import { AvatarGroup } from '@material-ui/lab';
+import { Avatar } from '@material-ui/core';
+import Amit from '../../assets/styles/img/Amit.jpeg';
+import Tair from '../../assets/styles/img/Tair.jpeg';
 
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
+import { GroupFilter } from '../group/GroupFilter';
 
 
 export class _BoardDetails extends Component {
     state = {
-        isFilterShow: false
+        isFilterShow: false,
+        groupForDisplay: null
     }
     componentDidMount() {
         this.loadActiveBoard()
@@ -134,11 +140,7 @@ export class _BoardDetails extends Component {
         await this.props.updateBoard(updatedBoard);
         socketService.emit('board update')
     }
-    toggleFilter = () => {
-        var { isFilterShow } = this.state
-        isFilterShow = !isFilterShow
-        this.setState({ isFilterShow })
-    }
+
     _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
@@ -147,13 +149,31 @@ export class _BoardDetails extends Component {
         return items;
     }
 
+    toggleFilter = () => {
+        var { isFilterShow } = this.state
+        isFilterShow = !isFilterShow
+        this.setState({ isFilterShow })
+    }
+    getGroupForDisplay = (filterBy) => {
+        const { activeBoard } = this.props
+        if (!filterBy) return this.setState({ groupForDisplay: null })
+        const regex = new RegExp(filterBy, 'i')
+        const groups = activeBoard.groups.filter(group => (regex.test(group.name)))
+        // .filter(group => {
+        //     group.tasks.filter(task => (regex.test(task.name)))
+        //     return group
+        // })
+        this.setState({ groupForDisplay: groups })
+
+    }
+
     render() {
         const { activeBoard } = this.props
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
             <section className="board-details flex col">
-                <div className="board-header-container flex col">
-                    <div className="board-header-top-container flex col">
+                <div className="board-header-top-container flex col">
+                    <div className="flex">
                         <span
                             className="board-name editable"
                             contentEditable="true"
@@ -169,22 +189,30 @@ export class _BoardDetails extends Component {
                         >
                             {activeBoard.name}
                         </span>
-                        <span
-                            className=" editable"
-                            contentEditable="true"
-                            onBlur={(ev) => {
-                                this.onUpdateBoardDesc(ev.target.innerText)
-                            }}
-                            suppressContentEditableWarning={true}
-                            onKeyDown={(ev) => {
-                                if (ev.key === 'Enter') {
-                                    ev.target.blur()
-                                }
-                            }}
-                        >
-                            {activeBoard.desc}
-                        </span>
+                        <div className="amit flex">
+                            <span><AvatarGroup>
+                                <Avatar className="avatar" alt="Amit" src={Amit} />
+                                <Avatar className="avatar" alt="Amit" src={Tair} />
+                            </AvatarGroup>
+                            </span>
+                            <span className="activities">Activities/ 17</span>
+                        </div>
                     </div>
+                    <span
+                        className="center-left editable"
+                        contentEditable="true"
+                        onBlur={(ev) => {
+                            this.onUpdateBoardDesc(ev.target.innerText)
+                        }}
+                        suppressContentEditableWarning={true}
+                        onKeyDown={(ev) => {
+                            if (ev.key === 'Enter') {
+                                ev.target.blur()
+                            }
+                        }}
+                    >
+                        {activeBoard.desc}
+                    </span>
                     <div className="board-header-bottom-container flex space-between">
                         <div className="board-creator">
                             <span>Created By: {activeBoard.creator.fullname}</span>
@@ -198,6 +226,11 @@ export class _BoardDetails extends Component {
                                 }}>
                                 New Group
                             </Button>
+                            <GroupFilter
+                                getGroupForDisplay={this.getGroupForDisplay}
+                                activeBoard={activeBoard}
+                                toggleFilter={this.toggleFilter}
+                                isFilterShow={this.state.isFilterShow} />
                         </div>
                     </div>
                 </div>
@@ -208,7 +241,7 @@ export class _BoardDetails extends Component {
                     />}
 
                 <GroupList
-                    groups={activeBoard.groups}
+                    groups={this.state.groupForDisplay || activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
