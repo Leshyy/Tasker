@@ -94,20 +94,6 @@
             color: #ffffff;
             cursor: pointer;
         }
-        .column-date {
-            .rdrDateRangePickerWrapper {
-                position: absolute;
-                z-index: 1;
-                transform: translateX(-50%);
-                border: 1px solid;
-                .rdrDefinedRangesWrapper {
-                    display: none;
-                }
-            }
-            .date {
-                font-size: rem(12px);
-            }
-        }
         .priority {
             align-self: stretch;
             cursor: pointer;

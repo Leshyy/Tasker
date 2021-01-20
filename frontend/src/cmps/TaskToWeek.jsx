@@ -53,8 +53,7 @@ export class TaskToWeek extends Component {
                             </div>
                         </div>
                         <div className="right flex">
-                            {/* {task.dueDate} */}
-                            {this.changeDate(task.dueDate)}
+                            {this.changeDate(task.dateRange)}
                         </div>
                     </div>
                 })}

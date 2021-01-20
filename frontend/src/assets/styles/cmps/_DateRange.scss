@@ -1,0 +1,47 @@
+.column-date {
+    .rdrDateRangePickerWrapper {
+        position: absolute;
+        z-index: 5;
+        transform: translateX(-50%);
+        border: 1px solid;
+        .rdrDefinedRangesWrapper {
+            display: none;
+        }
+    }
+    .date {
+        position: relative;
+        width: 130px;
+        height: 20px;
+        border: none;
+        border-radius: 15px;
+        background-color: rgb(50, 55, 96);
+        font-size: 14px;
+        font-family: Tahoma, Geneva, Verdana, sans-serif;
+        .date-bar {
+            position: relative;
+            border-radius: 15px;
+            height: 100%;
+        }
+        .date-content {
+            position: absolute;
+            color: white;
+            transform: translateX(15%);
+            align-self: center;
+        }
+        .date-hover-content {
+            display: none;
+            position: absolute;
+            color: white;
+            padding: 0 55px;
+            align-self: center;
+        }
+        &:hover {
+            .date-content {
+                display: none;
+            }
+            .date-hover-content {
+                display: inline;
+            }
+        }
+    }
+}
