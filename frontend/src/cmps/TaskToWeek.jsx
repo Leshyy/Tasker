@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
-const dateFormat = require('dateformat')
+var dateFormat = require('dateformat')
 
 export class TaskToWeek extends Component {
     state = {
@@ -35,7 +35,9 @@ export class TaskToWeek extends Component {
     }
 
     changeDate = (date) => {
-        const localDate = dateFormat(date, "dd-mm-yyyy");
+        const startDate = dateFormat(date.startDate, "dd-mm-yyyy")
+        const endDate = dateFormat(date.endDate, "dd-mm-yyyy")
+        const localDate = `${startDate} / ${endDate}`
         return localDate
     }
     render() {
