@@ -188,7 +188,7 @@ export class TaskPreview extends Component {
                             findLabel={this.findLabel}
                         />}
                     </div>
-                    <DateRange className="column-date" task={task} groupId={group.id} onUpdateTask={onUpdateTask} />
+                    <DateRange className="column-date" task={task} group={group} onUpdateTask={onUpdateTask} />
                     <div
                         className={`priority relative flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}
