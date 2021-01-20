@@ -32,6 +32,24 @@ export class _MyWeek extends Component {
     toggleTasksMode = () => {
         this.setState({ isTaskShown: !this.state.isTaskShown })
     }
+    handleChange = (ev) => {
+        console.log('aa is:');
+        var filterBy = { ...this.state.filterBy }
+        filterBy.txt = ev.target.value
+        this.setState({ filterBy })
+        this.getBoardsForDisplay()
+    }
+    getBoardsForDisplay = () => {
+        const { boards } = this.props
+        const { filterBy } = this.state
+        if (!filterBy) return this.setState({ boardForDisplay: null })
+        // const regex = new RegExp(filterBy.txt, 'i')
+        // boards = boards.groups.filter(group => {
+        //     group.tasks.filter(task => (regex.test(task.name)))
+        //     return group
+        // })
+        // return boards
+    }
 
     render() {
         const { boards } = this.props
