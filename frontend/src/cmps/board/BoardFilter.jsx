@@ -26,8 +26,8 @@ export class BoardFilter extends Component {
                     autoComplete="off"
                     placeholder="search"
                     onChange={this.handleChange}
-                    value={filterBy.txt}
-                ></Input>
+                    value={filterBy.txt}>
+                </Input>
             </section>
         )
     }
