@@ -40,7 +40,7 @@ export class _MyWeek extends Component {
         this.getBoardsForDisplay()
     }
     getBoardsForDisplay = () => {
-        const { boards } = this.props
+        // const { boards } = this.props
         const { filterBy } = this.state
         if (!filterBy) return this.setState({ boardForDisplay: null })
         // const regex = new RegExp(filterBy.txt, 'i')
@@ -62,7 +62,7 @@ export class _MyWeek extends Component {
                         <img src={Calendar} alt="" />
                         <h2>Hey Amit ,You have 4 assignments this week</h2>
                     </div>
-                    <Input type="text"
+                    <Input
                         type="text"
                         name="name"
                         autoComplete="off"

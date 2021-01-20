@@ -64,7 +64,7 @@ export class Login extends Component {
         this.setState({ isNewUser: !lastAns })
     }
     render() {
-        const loggedInUser = userService.getLoggedinUser()
+        // const loggedInUser = userService.getLoggedinUser()
 
         let loginSection = (
             <form className="login flex col" onSubmit={this.doLogin}>
@@ -87,7 +87,7 @@ export class Login extends Component {
                     placeholder="Password"
                 />
                 <Button variant="contained" color="primary">Login</Button>
-                <a href="" onClick={this.newUser}>Dont have a user? signup</a>
+                <a href="\login" onClick={this.newUser}>Dont have a user? signup</a>
                 <Button color="primary"><FacebookIcon className="face-icon" />Login with Facebook</Button>
 
             </form>

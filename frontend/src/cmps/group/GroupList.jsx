@@ -4,11 +4,11 @@ export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup, hand
 
 
     return (
-        <section className="group-list">
+        <section className="group-list" >
             <DragDropContext onDragEnd={handleDragEnd}>
-                <Droppable droppableId="groups" type="group">
+                <Droppable droppableId="groups" type="group" >
                     {(provided) => (
-                        <div className="groups" {...provided.droppableProps} ref={provided.innerRef}>
+                        <div className="groups" {...provided.droppableProps} ref={provided.innerRef} >
                             {groups.map((group, index) => {
                                 return (
                                     <Draggable key={group.id} draggableId={group.id} index={index}>

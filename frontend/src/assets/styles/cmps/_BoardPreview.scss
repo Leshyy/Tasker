@@ -1,4 +1,5 @@
 .board-preview {
+    position: relative;
     justify-content: space-between;
     border-radius: 5px;
     padding: rem(5px) rem(7px);
@@ -13,9 +14,38 @@
     &:hover {
         background-color: rgb(219, 219, 219);
     }
-
-    .delete-board-btn {
-        margin-right: rem(5px);
-        font-size: large;
+    .modal-side-nave {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        left: 170px;
+        top: 20px;
+        z-index: 5;
+        width: 170px;
+        padding: 5px;
+        background-color: #ffff;
+        border-radius: 3px;
+        box-shadow: 0px 3px 6px 0px #484444;
+        .btn-in-modal {
+            width: 100%;
+            text-align: left;
+            padding: 3px 1px;
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(235, 235, 235);
+            }
+        }
+        .MuiSvgIcon-root {
+            margin-right: rem(4px);
+            font-size: smaller;
+        }
+    }
+    .modal-delete {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        z-index: 8;
+        left: 50vw;
+        background-color: rgb(202, 202, 202);
     }
 }

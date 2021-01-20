@@ -53,15 +53,34 @@
                 & > *:not(:last-child) {
                     margin-right: 10px;
                 }
+                .btn-add-group {
+                    background-color: #0085ff;
+                    border: none;
+                    border-radius: 3px;
+                    line-height: 24px;
+                    padding: 4px 8px;
+                    color: #ffff;
+                    &:hover {
+                        background-color: #0071d9;
+                        cursor: pointer;
+                    }
+                }
                 input {
                     border: none;
                     outline: none;
+                    width: 110px;
+                    transition: 0.4s;
+                    margin-right: 7px;
                     border-bottom: 1px solid rgba(105, 105, 105, 0.664);
                     &:hover {
                         border-bottom: 1px solid rgb(105, 105, 105);
                     }
                     &:focus {
-                        border-bottom: 1px solid rgb(105, 105, 105);
+                        padding-right: 55px;
+                        transition: 0.4s;
+                        width: 160px;
+                        border: 1px solid rgba(105, 105, 105, 0.664);
+                        border-radius: 2px;
                     }
                 }
 

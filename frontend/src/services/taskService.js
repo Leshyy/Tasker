@@ -94,7 +94,8 @@ function createTask(txt) {
                     fullname: "Tair Bitan",
                     imgUrl: ""
                 },
-                text: "This is the task's chat"
+                text: "This is the task's chat",
+                createdAt: Date.now()
             },
             {
                 by: {
@@ -102,7 +103,8 @@ function createTask(txt) {
                     fullname: "Amit Weiss",
                     imgUrl: ""
                 },
-                text: "Here you can send comments, thoughts and updates about the task"
+                text: "Here you can send comments, thoughts and updates about the task",
+                createdAt: Date.now()
             },
             {
                 by: {
@@ -110,7 +112,8 @@ function createTask(txt) {
                     fullname: "Tamir Leshetz",
                     imgUrl: ""
                 },
-                text: "Or simply chat with the task members"
+                text: "Or simply chat with the task members",
+                createdAt: Date.now()
             }
         ]
     }

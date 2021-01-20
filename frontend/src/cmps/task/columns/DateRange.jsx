@@ -15,8 +15,9 @@ export class DateRange extends Component {
     }
 
     componentDidMount() {
-        const { dateRange } = this.props.task;
-        this.setState({ dateRange }, () => {
+        const { dateRange  } = this.props.task;
+        const { group } = this.props;
+        this.setState({ dateRange , barColor:group.color }, () => {
             this.showTimeline();
             this.calcBarWidth(dateRange);
         })
@@ -27,7 +28,7 @@ export class DateRange extends Component {
     }
 
     handleSelect = (ranges) => {
-        const { onUpdateTask, groupId, task } = this.props;
+        const { onUpdateTask, group, task } = this.props;
         const rangeCopy = { ...this.state.dateRange };
         rangeCopy.startDate = ranges.selection.startDate;
         rangeCopy.endDate = ranges.selection.endDate;
@@ -35,7 +36,7 @@ export class DateRange extends Component {
         this.setState({ dateRange: rangeCopy }, () => {
             this.showTimeline();
             task.dateRange = this.state.dateRange;
-            onUpdateTask(task, groupId);
+            onUpdateTask(task, group.id);
         })
     }
 
@@ -51,16 +52,7 @@ export class DateRange extends Component {
         const elapsedTime = Date.now() - new Date(dateRange.startDate).getTime();
         const barWidth = (elapsedTime / totalTime) * 100;
         const workingDays = totalTime / 1000 / 60 / 60 / 24;
-        this.setState({ barWidth, workingDays }, () => this.chooseBarColor());
-    }
-
-    chooseBarColor = () => {
-        const { barWidth } = this.state;
-        let barColor;
-        if (barWidth < 35) barColor = '#037f4c';
-        else if (barWidth < 75) barColor = '#fdab3d';
-        else if (barWidth >= 75) barColor = '#e44258';
-        this.setState({ barColor })
+        this.setState({ barWidth, workingDays });
     }
 
     render() {

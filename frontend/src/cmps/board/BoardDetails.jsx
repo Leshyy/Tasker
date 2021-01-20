@@ -5,6 +5,8 @@ import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+
 
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
 import { GroupList } from '../group/GroupList'
@@ -156,12 +158,19 @@ export class _BoardDetails extends Component {
         const { activeBoard } = this.props
         if (!filterBy) return this.setState({ groupForDisplay: null })
         const regex = new RegExp(filterBy, 'i')
-        const groups = activeBoard.groups.filter(group => (regex.test(group.name)))
-        // .filter(group => {
-        //     group.tasks.filter(task => (regex.test(task.name)))
-        //     return group
-        // })
-        this.setState({ groupForDisplay: groups })
+        const newGroups = []
+        activeBoard.groups.forEach(group => {
+            if ((regex.test(group.name))) newGroups.push(group)
+            else {
+                const tasks = group.tasks.filter(task => (regex.test(task.name)))
+                if (tasks.length) {
+                    var newGroup = { ...group }
+                    newGroup.tasks = tasks
+                    newGroups.push(newGroup)
+                }
+            }
+        })
+        this.setState({ groupForDisplay: newGroups })
 
     }
 
@@ -221,19 +230,19 @@ export class _BoardDetails extends Component {
                             </span>
                         </div>
                         <div className="bottom-right-container flex">
-                            <Button
-                                variant="outlined"
-                                color="primary"
+                            <button
+                                className="btn-add-group"
                                 onClick={() => {
                                     this.onAddGroup('new group')
                                 }}>
                                 New Group
-                            </Button>
+                            </button>
                             <GroupFilter
                                 getGroupForDisplay={this.getGroupForDisplay}
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}
                                 isFilterShow={this.state.isFilterShow} />
+                            {/* <MoreHorizIcon /> */}
                         </div>
                     </div>
                 </div>

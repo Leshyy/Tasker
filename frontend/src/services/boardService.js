@@ -83,7 +83,7 @@ function _createBoard(boardName) {
             }
         ],
         creator: {
-            _id: "2uk35b",
+            _id: "600877404b50bc8b342c1732",
             fullname: "Tair Bitan",
             imgUrl: ""
         },
