@@ -23,16 +23,18 @@
             height: 100%;
         }
         .date-content {
+            font-size: 13px;
+            padding: 0 18px;
             position: absolute;
             color: white;
-            transform: translateX(15%);
             align-self: center;
         }
         .date-hover-content {
+            font-size: 13px;
+            padding: 0 55px;
             display: none;
             position: absolute;
             color: white;
-            padding: 0 55px;
             align-self: center;
         }
         &:hover {
