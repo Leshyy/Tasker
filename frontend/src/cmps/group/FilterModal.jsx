@@ -1,10 +1,10 @@
 import { Component } from 'react'
 
 export class FilterModal extends Component {
-    getDueDate = () => {
+    getDateRange = () => {
         const { groups } = this.props.activeBoard
         // console.log('groups is:', groups);
-        const dueDate = []
+        const dateRange = []
         groups.map(group => {
             const groupsTask = group.tasks.map(task => {
                 let start = task.dateRange.startDate
@@ -12,9 +12,8 @@ export class FilterModal extends Component {
                 if (start === end) return start
                 else return end
             })
-            return dueDate.push(...groupsTask)
+            return dateRange.push(...groupsTask)
         })
-        // console.log('dueDate is:', dueDate);
     }
 
     render() {
@@ -54,7 +53,7 @@ export class FilterModal extends Component {
                 </div>
 
                 <div className="col-modal">
-                    <h1 onClick={this.getDueDate}>Due-Date</h1>
+                    <h1 onClick={this.getDateRange}>TimeLine</h1>
                 </div>
             </section>
         )
