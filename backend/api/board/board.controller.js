@@ -21,7 +21,6 @@ async function getBoards(req, res) {
 }
 
 async function getBoard(req, res) {
-    console.log('req.session', req.session)
     try {
         const board = await boardService.getById(req.params.boardId)
         res.send(board)

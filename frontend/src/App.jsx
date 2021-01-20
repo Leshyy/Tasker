@@ -9,8 +9,9 @@ import { Home } from './pages/Home';
 import { MyWeek } from './pages/MyWeek';
 import { Profile } from './pages/Profile';
 import { Login } from './pages/Login';
+import { socketService } from './services/socketService';
 
-
+socketService.setup()
 
 export function App() {
   return (

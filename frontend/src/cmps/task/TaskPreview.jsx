@@ -77,10 +77,6 @@ export class TaskPreview extends Component {
 
     }
 
-    openModal = (ev) => {
-        this.setState({ isStatusShown: true })
-    }
-
     closeModal = () => {
         this.setState({ isStatusClicked: false, isPriorityClicked: false, isModalShown: false })
     }
@@ -113,7 +109,6 @@ export class TaskPreview extends Component {
             })
         })
         return found
-
     }
 
     getPropColor = (txt, type) => {

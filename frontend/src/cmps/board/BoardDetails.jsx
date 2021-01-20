@@ -23,12 +23,16 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
 
         this.setUpListeners()
+
     }
 
     setUpListeners = () => {
-        socketService.on('board remove', (msg) => {
+        socketService.on('update board', msg => {
+            this.loadActiveBoard()
+        })
+        socketService.on('update boards', () => {
             this.props.loadBoards()
-
+            this.loadActiveBoard()
         })
     }
 
@@ -47,24 +51,29 @@ export class _BoardDetails extends Component {
         const { activeBoard } = this.props
         const updatedBoard = taskService.remove(taskId, activeBoard, group)
         this.props.updateBoard(updatedBoard)
+
     }
 
     onAddTask = (txt, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.add(txt, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
+
     }
 
     onUpdateTask = (task, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
+
+
     }
 
     onAddGroup = (groupName) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.add(groupName, activeBoard)
         this.props.updateBoard(updatedBoard)
+
     }
 
     onRemoveGroup = (ev, groupId) => {
@@ -93,9 +102,10 @@ export class _BoardDetails extends Component {
         const updatedBoard = { ...activeBoard }
         updatedBoard.desc = description
         this.props.updateBoard(updatedBoard)
+
     }
 
-    handleDragEnd = (res) => {
+    handleDragEnd = async (res) => {
         const { source, destination, type } = res;
         const { activeBoard } = this.props;
         const updatedBoard = { ...activeBoard };
@@ -127,7 +137,8 @@ export class _BoardDetails extends Component {
                 updatedBoard.groups[destinationGroupIdx].tasks = destinationGroupItems;
             }
         }
-        this.props.updateBoard(updatedBoard);
+        await this.props.updateBoard(updatedBoard);
+        socketService.emit('board update')
     }
 
     _reorder = (list, sourceIdx, destIdx) => {
@@ -158,7 +169,7 @@ export class _BoardDetails extends Component {
 
     render() {
         const { activeBoard } = this.props
-        if (!activeBoard) return <div>Loading no active board...</div>
+        if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
             <section className="board-details flex col">
                 <div className="board-header-top-container flex col">
