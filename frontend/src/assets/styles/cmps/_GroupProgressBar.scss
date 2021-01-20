@@ -3,24 +3,25 @@
     flex-direction: row-reverse;
     right: 0;
     transform: translateX(-17px);
+    margin: 6px 0 0px;
     height: 20px;
     // background-color: #f5f6f8;
     & > * {
         width: 150px;
         margin-right: 150px;
         background-color: gray;
-        .red {
-            background-color: #e44258;
-        }
-        .orange {
-            background-color: orange;
-        }
-        .green {
-            background-color: #00ca71;
-        }
-        .grey {
-            background-color: grey;
-        }
+        // .red {
+        //     background-color: #e44258;
+        // }
+        // .orange {
+        //     background-color: orange;
+        // }
+        // .green {
+        //     background-color: #00c875;
+        // }
+        // .grey {
+        //     background-color: grey;
+        // }
         & > * {
             transition: 0.3s;
 

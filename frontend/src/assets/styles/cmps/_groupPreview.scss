@@ -6,7 +6,12 @@
     // overflow-x: overlay;
     padding-bottom: 45px;
     .group-header {
+        height: 48px;
         padding: 0 8px;
+        .group-name {
+            display: contents;
+            flex-wrap: nowrap;
+        }
         .icon-drag {
             position: absolute;
             opacity: 0;
@@ -36,7 +41,7 @@
         .group-header-right {
             padding: 0 10px;
             h5 {
-                // min-width: 80px;
+                font-weight: inherit;
                 width: rem(150px);
                 padding: 0 10px;
             }
