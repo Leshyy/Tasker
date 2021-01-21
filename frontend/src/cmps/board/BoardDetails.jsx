@@ -1,18 +1,20 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button'
+import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
+
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
 import Tamir from '../../assets/styles/img/Tamir.jpeg';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
 import { GroupFilter } from '../group/GroupFilter';
+
 export class _BoardDetails extends Component {
     state = {
         isFilterShow: false,
@@ -133,7 +135,7 @@ export class _BoardDetails extends Component {
         const { activeBoard } = this.props
         var { groupsForDisplay } = this.state
         groupsForDisplay = []
-        if (!filterBy.txt) return this.setState({ groupsForDisplay: null })
+        if (!filterBy) return this.setState({ groupsForDisplay: null })
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
             activeBoard.groups.forEach(group => {
@@ -148,12 +150,9 @@ export class _BoardDetails extends Component {
                 }
             })
         }
-        // if (filterBy.group) {
-        //     console.log('groups before modal filter', this.state);
-        //     // groupsForDisplay.filter(newGroup => newGroup.name === filterBy.group)
-        // }
-        this.setState({ groupsForDisplay }, () => console.log('state', this.state))
+        this.setState({ groupsForDisplay })
     }
+
     render() {
         const { activeBoard } = this.props
         const { groupsForDisplay } = this.state
@@ -178,11 +177,19 @@ export class _BoardDetails extends Component {
                             {activeBoard.name}
                         </div>
                         <div className="board-header-top-right flex">
-                            <span><AvatarGroup>
-                                <Avatar className="avatar" alt="Amit" src={Amit} />
-                                <Avatar className="avatar" alt="Tair" src={Tair} />
-                                <Avatar className="avatar" alt="Tamir" src={Tamir} />
-                            </AvatarGroup>
+                            <span>
+                                <AvatarGroup>
+                                    {activeBoard.members.map((member) => {
+                                        return (
+                                            <Avatar
+                                                key={member._id}
+                                                className="avatar"
+                                                alt={`${member.fullname}`}
+                                                src={member.imgUrl}
+                                            />
+                                        )
+                                    })}
+                                </AvatarGroup>
                             </span>
                             <span className="activities">Activities/ 17</span>
                             <MoreHorizIcon />
@@ -235,7 +242,7 @@ export class _BoardDetails extends Component {
                         onClick={this.toggleFilter}
                     />}
                 <GroupList
-                    groups={groupsForDisplay || activeBoard.groups}
+                    groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}

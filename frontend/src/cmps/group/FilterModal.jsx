@@ -19,6 +19,27 @@ export class FilterModal extends Component {
             console.log('filtering from modal', filterBy)
             this.props.getGroupsForDisplay(filterBy)
         })
+        // if (filterBy.group) {
+        //     if (!groupsForDisplay.length) {
+        //         groupsForDisplay = [...activeBoard.groups]
+        //         this.setState({ groupsForDisplay })
+        //     }
+        //     groupsForDisplay = groupsForDisplay.filter(newGroup => newGroup.status === filterBy.status)
+        // }
+        // if (filterBy.status) {
+        //     if (!groupsForDisplay.length) {
+        //         groupsForDisplay = [...activeBoard.groups]
+        //         this.setState({ groupsForDisplay })
+        //     }
+        //     console.log('groups', groupsForDisplay);
+        //     groupsForDisplay = groupsForDisplay.forEach(newGroup => {
+        //         const tasks = newGroup.tasks.filter(task => task.status === filterBy.status)
+        //         if (tasks.length) {
+        //             newGroup.tasks = tasks
+        //             groupsForDisplay.push(newGroup)
+        //         }
+        //     })
+        // }
     }
 
     // getDateRange = () => {
@@ -62,7 +83,12 @@ export class FilterModal extends Component {
                     <ul className="list priorities clean-list">
                         {activeBoard.priority.map((priority, idx) => {
                             return (
-                                <li key={idx} className="priority" style={{ background: priority.color }}>
+                                <li
+                                    key={idx}
+                                    className="priority"
+                                    style={{ background: priority.color }}
+                                    onClick={(ev) => this.filterGroup(ev, 'priority', priority.txt)}
+                                >
                                     {priority.txt}
                                 </li>
                             )
@@ -75,7 +101,12 @@ export class FilterModal extends Component {
                     <ul className="list statuses clean-list">
                         {activeBoard.status.map((status, idx) => {
                             return (
-                                <li key={idx} className="status" style={{ background: status.color }}>
+                                <li
+                                    key={idx}
+                                    className="status"
+                                    style={{ background: status.color }}
+                                    onClick={(ev) => this.filterGroup(ev, 'status', status.txt)}
+                                >
                                     {status.txt}
                                 </li>
                             )
