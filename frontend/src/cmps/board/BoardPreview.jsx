@@ -21,7 +21,7 @@ export class BoardPreview extends Component {
     render() {
         const { board, onRemove } = this.props
         return (
-            <section className="board-preview flex" >
+            <section className="board-preview flex align-center" >
                 <Link to={`/board/${board._id}`}>
                     {board.name}
                 </Link>
