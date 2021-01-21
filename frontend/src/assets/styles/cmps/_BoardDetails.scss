@@ -2,6 +2,15 @@
     flex-grow: 1;
     border-inline-start: 1px solid rgba(151, 151, 151, 0.493);
     transition: 0.4s;
+    .MuiSvgIcon-root {
+        align-self: center;
+        color: rgb(92, 92, 92);
+        border-radius: 4px;
+        &:hover {
+            background-color: #e6e9ef;
+            cursor: pointer;
+        }
+    }
     .board-header-top-container {
         position: relative;
         width: 100%;
@@ -10,6 +19,7 @@
         padding: 20px 10px;
         border-bottom: 1px solid rgba(151, 151, 151, 0.493);
         .board-name {
+            max-width: 50%;
             font-family: font1;
             font-size: 28px;
             font-weight: bold;
@@ -17,20 +27,26 @@
             margin-bottom: 15px;
             flex-grow: 2;
         }
-        .amit {
+        .board-header-top-right {
             align-items: center;
             flex-grow: 1;
             justify-content: flex-end;
             padding-inline-end: 52px;
+            & > *:not(:last-child) {
+                padding: 10px;
+                margin-inline-end: 10px;
+            }
+            .avatar {
+                width: 35px;
+                height: 35px;
+            }
+            .activities {
+                color: rgb(50, 51, 56);
+                border: 1px solid #c5c7d0;
+                border-radius: 4px;
+            }
         }
-        .activities {
-            color: #323338;
-            border: 1px solid #c5c7d0;
-            margin-inline-start: 13px;
-            padding: 7px;
-            border-radius: 3px;
-        }
-        .center-left {
+        .board-desc {
             text-align: left;
             max-width: 60%;
             margin-bottom: 10px;
@@ -56,7 +72,7 @@
                 .btn-add-group {
                     background-color: #0085ff;
                     border: none;
-                    border-radius: 3px;
+                    border-radius: 4px;
                     line-height: 24px;
                     padding: 4px 8px;
                     color: #ffff;
@@ -65,36 +81,59 @@
                         cursor: pointer;
                     }
                 }
-                input {
-                    border: none;
-                    outline: none;
-                    width: 110px;
-                    transition: 0.4s;
-                    margin-right: 7px;
-                    border-bottom: 1px solid rgba(105, 105, 105, 0.664);
-                    &:hover {
-                        border-bottom: 1px solid rgb(105, 105, 105);
-                    }
-                    &:focus {
-                        padding-right: 55px;
-                        transition: 0.4s;
-                        width: 160px;
-                        border: 1px solid rgba(105, 105, 105, 0.664);
-                        border-radius: 2px;
-                    }
-                }
-
                 .filter {
-                    cursor: pointer;
-                    span {
-                        margin-right: 5px;
+                    .btn-search {
+                        width: 95px;
+                        padding: 3px 10px;
+                        border-radius: 4px;
+                        transition: width 0.4s;
+                        .input-search {
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            &::placeholder {
+                                color: rgb(50, 51, 56);
+                            }
+                        }
+                        &:hover {
+                            .input-search {
+                                background-color: rgb(230, 233, 239);
+                            }
+                            background-color: rgb(230, 233, 239);
+                        }
+                        &.searching {
+                            width: 170px;
+                            background-color: white;
+                            border: 1px solid rgb(0, 133, 255);
+                            &:hover {
+                                .input-search {
+                                    background-color: white;
+                                }
+                            }
+                            .input-search:hover {
+                                background-color: white;
+                            }
+                        }
+                    }
+                    .btn-filter {
+                        width: 95px;
+                        padding: 3px 10px;
+                        background-color: #ffffff;
+                        border: none;
+                        border-radius: 4px;
+                        color: rgb(51, 50, 56);
+                        outline: none;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #e6e9ef;
+                            cursor: pointer;
+                        }
+                        svg {
+                            color: rgb(92, 92, 92);
+                        }
                     }
                 }
             }
         }
-    }
-    .avatar {
-        width: 35px;
-        height: 35px;
     }
 }

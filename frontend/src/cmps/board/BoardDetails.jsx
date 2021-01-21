@@ -5,6 +5,7 @@ import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
+import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 
@@ -180,8 +181,8 @@ export class _BoardDetails extends Component {
         return (
             <section className="board-details flex col">
                 <div className="board-header-top-container flex col">
-                    <div className="flex">
-                        <span
+                    <div className="board-header-top-left flex">
+                        <div
                             className="board-name editable"
                             contentEditable="true"
                             onBlur={(ev) => {
@@ -195,18 +196,20 @@ export class _BoardDetails extends Component {
                             }}
                         >
                             {activeBoard.name}
-                        </span>
-                        <div className="amit flex">
+                        </div>
+                        <div className="board-header-top-right flex">
                             <span><AvatarGroup>
                                 <Avatar className="avatar" alt="Amit" src={Amit} />
-                                <Avatar className="avatar" alt="Amit" src={Tair} />
+                                <Avatar className="avatar" alt="Tair" src={Tair} />
+                                <Avatar className="avatar" alt="Tamir" src={Tamir} />
                             </AvatarGroup>
                             </span>
                             <span className="activities">Activities/ 17</span>
+                            <MoreHorizIcon />
                         </div>
                     </div>
                     <span
-                        className="center-left editable"
+                        className="board-desc editable"
                         contentEditable="true"
                         onBlur={(ev) => {
                             this.onUpdateBoardDesc(ev.target.innerText)
@@ -242,7 +245,7 @@ export class _BoardDetails extends Component {
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}
                                 isFilterShow={this.state.isFilterShow} />
-                            {/* <MoreHorizIcon /> */}
+                            <MoreHorizIcon />
                         </div>
                     </div>
                 </div>

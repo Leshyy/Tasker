@@ -1,5 +1,12 @@
 .column-members {
     position: relative;
+    .MuiAvatarGroup-root {
+        & > * {
+            font-size: 1rem;
+            height: 30px;
+            width: 30px;
+        }
+    }
     .members-list {
         position: absolute;
         z-index: 5;
@@ -42,6 +49,9 @@
             }
             &:hover {
                 background-color: #dbdbdb;
+                .member-btn {
+                    color: #0085ff;
+                }
             }
             .avatar {
                 width: 35px;
@@ -56,9 +66,6 @@
                 font-size: 1.2rem;
                 padding-right: 13px;
                 transition: 0.2s;
-                &:hover {
-                    color: #0085ff;
-                }
             }
         }
     }

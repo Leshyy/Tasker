@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { AddCircleOutlineRounded } from "@material-ui/icons";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
