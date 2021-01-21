@@ -40,12 +40,43 @@
             font-size: smaller;
         }
     }
-    .modal-delete {
-        position: absolute;
-        height: 200px;
-        width: 200px;
-        z-index: 8;
-        left: 50vw;
-        background-color: rgb(202, 202, 202);
+}
+.modal-delete {
+    position: fixed;
+    transition: width 1s;
+    height: 150px;
+    width: 400px;
+    padding: 20px;
+    z-index: 8;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fffdfd;
+    box-shadow: 0px 3px 6px 0px #484444;
+    .top {
+        margin-bottom: 10px;
+        p {
+            font-size: 18px;
+            text-align: left;
+        }
+    }
+    .bottom {
+        margin: 10px auto;
+        button {
+            border-radius: 4px;
+            margin-right: 10px;
+            border: none;
+            padding: 8px;
+            width: 90px;
+            &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
+        }
+    }
+    .btn-delete {
+        background-color: #e6223c;
+    }
+    .btn-go-back {
+        background-color: #00ca71;
     }
 }

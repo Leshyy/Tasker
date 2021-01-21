@@ -10,6 +10,7 @@ import { Notes } from './columns/Notes';
 import { Members } from './columns/Members';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
+import { DeleteModalTask } from '../DeleteModalTask';
 
 export class TaskPreview extends Component {
     state = {
@@ -20,6 +21,7 @@ export class TaskPreview extends Component {
         isModalShown: false,
         isStatusClicked: false,
         isPriorityClicked: false,
+        isModalDeleteShown: false
     }
 
     componentDidMount() {
@@ -89,6 +91,11 @@ export class TaskPreview extends Component {
         })
     }
 
+    onToggleDelete = () => {
+        var { isModalDeleteShown } = this.state
+        this.setState({ isModalDeleteShown: !isModalDeleteShown })
+    }
+
     closeDetails = () => {
         this.setState({ isShownDetails: false })
     }
@@ -146,10 +153,22 @@ export class TaskPreview extends Component {
                     <div className="task-left-content flex align-center">
                         <Delete
                             className="trash"
-                            onClick={() => {
-                                onRemoveTask(task.id, group)
-                            }}
+                            onClick={this.onToggleDelete}
+                        // onClick={() => {
+                        //     onRemoveTask(task.id, group)
+                        //}}
                         />
+                        {this.state.isModalDeleteShown &&
+                            <DeleteModalTask
+                                onRemove={onRemoveTask}
+                                task={task}
+                                group={group}
+                                onCloseModalDelete={this.onToggleDelete}
+                            />}
+                        {this.state.isModalDeleteShown &&
+                            <div
+                                className="dark-screen-nover "
+                            />}
                         {editMode &&
                             <form onSubmit={(ev) => {
                                 ev.preventDefault()

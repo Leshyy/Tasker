@@ -24,14 +24,24 @@
     background-color: rgba(56, 56, 56, 0.685);
     top: 0;
     left: 0;
-    z-index: 4;
+    z-index: 5;
     transition: 0.3s;
     cursor: default;
     &:hover {
         background-color: transparent;
     }
 }
-
+.dark-screen-nover {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(56, 56, 56, 0.685);
+    top: 0;
+    left: 0;
+    z-index: 7;
+    transition: 0.3s;
+    cursor: default;
+}
 /* grid-helpers */
 
 .grid {
