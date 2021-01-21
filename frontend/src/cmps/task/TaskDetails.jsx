@@ -11,9 +11,9 @@ export class TaskDetails extends Component {
         comment: {
             text: '',
             by: {
-                _id: 'as2d12',
+                _id: 'a600877404b50bc8b342c1732',
                 fullname: 'Tair Bitan',
-                imgUrl: ''
+                imgUrl: 'https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg'
             }
         }
     }

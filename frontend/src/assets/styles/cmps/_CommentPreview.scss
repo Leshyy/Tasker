@@ -6,11 +6,19 @@
     .comment-author {
         font-size: 22px;
         font-weight: bold;
+        padding-bottom: 5px;
+        .author-img {
+            margin-right: 7px;
+        }
     }
     .comment-time {
+        flex: 1;
         &::before {
             opacity: 0.5;
             content: "\1F550";
         }
+    }
+    .comment-text {
+        padding-bottom: 20px;
     }
 }

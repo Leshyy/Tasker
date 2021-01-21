@@ -4,12 +4,12 @@
 .group-preview {
     position: relative;
     // overflow-x: overlay;
+    min-width: 1550px;
     padding-bottom: 45px;
     .group-header {
         height: 48px;
         padding: 0 8px;
         .group-name {
-            display: contents;
             flex-wrap: nowrap;
         }
         .icon-drag {

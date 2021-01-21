@@ -97,17 +97,17 @@ function _createBoard(boardName) {
             {
                 _id: "2uk35b",
                 fullname: "Tair Bitan",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
             },
             {
                 _id: "asd542",
                 fullname: "Amit Weiss",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
             },
             {
                 _id: "adsh21",
                 fullname: "Tamir Leshetz",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
             }
         ]
     }

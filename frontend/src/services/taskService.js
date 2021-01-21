@@ -7,7 +7,9 @@ export const taskService = {
     createTask,
     update,
     getById,
-    addComment
+    addComment,
+    removeMember,
+    addMember
 }
 
 function add(txt, board, groupId) {
@@ -46,11 +48,21 @@ function addComment(comment, task) {
     const updatedTask = { ...task }
     comment.createdAt = Date.now()
     updatedTask.comments.push(comment)
-    console.log('task with time?', updatedTask);
     return updatedTask
 
 }
 
+function removeMember(task, memberId) {
+    const updatedTask = { ...task }
+    updatedTask.members = updatedTask.members.filter(member => member._id !== memberId)
+    return updatedTask
+}
+
+function addMember(task, member) {
+    const updatedTask = { ...task }
+    updatedTask.members.push(member)
+    return updatedTask
+}
 
 function createTask(txt) {
     return {
@@ -67,17 +79,17 @@ function createTask(txt) {
             {
                 _id: "2uk35b",
                 fullname: "Tair Bitan",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
             },
             {
                 _id: "2h3j5b",
                 fullname: "Amit Weiss",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
             },
             {
                 _id: "kj346",
                 fullname: "Tamir Leshetz",
-                imgUrl: ""
+                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
             }
         ],
         status: "New",
@@ -92,7 +104,7 @@ function createTask(txt) {
                 by: {
                     _id: "2uk35b",
                     fullname: "Tair Bitan",
-                    imgUrl: ""
+                    imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
                 },
                 text: "This is the task's chat",
                 createdAt: Date.now()
@@ -101,7 +113,7 @@ function createTask(txt) {
                 by: {
                     _id: "2h3j5b",
                     fullname: "Amit Weiss",
-                    imgUrl: ""
+                    imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
                 },
                 text: "Here you can send comments, thoughts and updates about the task",
                 createdAt: Date.now()
@@ -110,7 +122,7 @@ function createTask(txt) {
                 by: {
                     _id: "kj346",
                     fullname: "Tamir Leshetz",
-                    imgUrl: ""
+                    imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
                 },
                 text: "Or simply chat with the task members",
                 createdAt: Date.now()

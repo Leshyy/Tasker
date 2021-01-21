@@ -7,9 +7,10 @@ import chat from '../../assets/icons/chat.svg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { DateRange } from './columns/DateRange';
 import { Notes } from './columns/Notes';
-import { Members } from './columns/Members';
+import { TaskMembers } from './columns/TaskMembers';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
+import { DeleteModalTask } from '../DeleteModalTask';
 
 export class TaskPreview extends Component {
     state = {
@@ -20,6 +21,7 @@ export class TaskPreview extends Component {
         isModalShown: false,
         isStatusClicked: false,
         isPriorityClicked: false,
+        isModalDeleteShown: false
     }
 
     componentDidMount() {
@@ -89,6 +91,11 @@ export class TaskPreview extends Component {
         })
     }
 
+    onToggleDelete = () => {
+        var { isModalDeleteShown } = this.state
+        this.setState({ isModalDeleteShown: !isModalDeleteShown })
+    }
+
     closeDetails = () => {
         this.setState({ isShownDetails: false })
     }
@@ -133,6 +140,18 @@ export class TaskPreview extends Component {
         return this.props.activeBoard[type].find(option => option.txt === txt).color;
     }
 
+    onRemoveMember = (memberId) => {
+        const { group, task, onUpdateTask } = this.props;
+        const updatedTask = taskService.removeMember(task, memberId)
+        onUpdateTask(updatedTask, group.id)
+    }
+
+    onAddMember = (member) => {
+        const { group, task, onUpdateTask } = this.props;
+        const updatedTask = taskService.addMember(task, member)
+        onUpdateTask(updatedTask, group.id)
+    }
+
     render() {
         const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
@@ -146,10 +165,22 @@ export class TaskPreview extends Component {
                     <div className="task-left-content flex align-center">
                         <Delete
                             className="trash"
-                            onClick={() => {
-                                onRemoveTask(task.id, group)
-                            }}
+                            onClick={this.onToggleDelete}
+                        // onClick={() => {
+                        //     onRemoveTask(task.id, group)
+                        //}}
                         />
+                        {this.state.isModalDeleteShown &&
+                            <DeleteModalTask
+                                onRemove={onRemoveTask}
+                                task={task}
+                                group={group}
+                                onCloseModalDelete={this.onToggleDelete}
+                            />}
+                        {this.state.isModalDeleteShown &&
+                            <div
+                                className="dark-screen-nover "
+                            />}
                         {editMode &&
                             <form onSubmit={(ev) => {
                                 ev.preventDefault()
@@ -194,9 +225,12 @@ export class TaskPreview extends Component {
                     </div>
                 </div>
                 <div className="task-right flex align-center space-between">
-                    <div>
-                        <Members task={task} />
-                    </div>
+                    <TaskMembers
+                        task={task}
+                        boardMembers={activeBoard.members}
+                        onRemoveMember={this.onRemoveMember}
+                        onAddMember={this.onAddMember}
+                    />
                     <div
                         className={`status relative flex center align-center `}
                         style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
