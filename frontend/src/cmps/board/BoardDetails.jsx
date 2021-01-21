@@ -7,27 +7,21 @@ import Amit from '../../assets/styles/img/Amit.jpeg';
 import Tair from '../../assets/styles/img/Tair.jpeg';
 import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-
-
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
 import { socketService } from '../../services/socketService'
 import { GroupFilter } from '../group/GroupFilter';
-
-
 export class _BoardDetails extends Component {
     state = {
         isFilterShow: false,
-        groupForDisplay: null
+        groupsForDisplay: null
     }
     componentDidMount() {
         this.loadActiveBoard()
-
         this.setUpListeners()
     }
-
     setUpListeners = () => {
         socketService.on('update board', () => {
             this.loadActiveBoard()
@@ -37,60 +31,46 @@ export class _BoardDetails extends Component {
             this.loadActiveBoard()
         })
     }
-
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
             this.loadActiveBoard()
         }
     }
-
     loadActiveBoard = () => {
         const { boardId } = this.props.match.params
         this.props.loadBoard(boardId)
     }
-
     onRemoveTask = (taskId, group) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.remove(taskId, activeBoard, group)
         this.props.updateBoard(updatedBoard)
-
     }
-
     onAddTask = (txt, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.add(txt, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
-
     }
-
     onUpdateTask = (task, groupId) => {
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
-
-
     }
-
     onAddGroup = (groupName) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.add(groupName, activeBoard)
         this.props.updateBoard(updatedBoard)
-
     }
-
     onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
-
     onUpdateGroup = (group) => {
         const { activeBoard } = this.props
         const updatedBoard = groupService.update(group, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
-
     onUpdateBoardName = (boardName) => {
         const { activeBoard, boards } = this.props
         const updatedBoard = { ...activeBoard }
@@ -98,15 +78,12 @@ export class _BoardDetails extends Component {
         this.props.updateBoard(updatedBoard)
         this.props.updateBoards(updatedBoard, boards)
     }
-
     onUpdateBoardDesc = (description) => {
         const { activeBoard } = this.props
         const updatedBoard = { ...activeBoard }
         updatedBoard.desc = description
         this.props.updateBoard(updatedBoard)
-
     }
-
     handleDragEnd = async (res) => {
         const { source, destination, type } = res;
         const { activeBoard } = this.props;
@@ -141,42 +118,45 @@ export class _BoardDetails extends Component {
         }
         await this.props.updateBoard(updatedBoard);
     }
-
     _reorder = (list, sourceIdx, destIdx) => {
         const items = Array.from(list);
         const [removedItem] = items.splice(sourceIdx, 1);
         items.splice(destIdx, 0, removedItem);
-
         return items;
     }
-
     toggleFilter = () => {
         var { isFilterShow } = this.state
         isFilterShow = !isFilterShow
         this.setState({ isFilterShow })
     }
-    getGroupForDisplay = (filterBy) => {
+    getGroupsForDisplay = (filterBy) => {
         const { activeBoard } = this.props
-        if (!filterBy) return this.setState({ groupForDisplay: null })
-        const regex = new RegExp(filterBy, 'i')
-        const newGroups = []
-        activeBoard.groups.forEach(group => {
-            if ((regex.test(group.name))) newGroups.push(group)
-            else {
-                const tasks = group.tasks.filter(task => (regex.test(task.name)))
-                if (tasks.length) {
-                    var newGroup = { ...group }
-                    newGroup.tasks = tasks
-                    newGroups.push(newGroup)
+        var { groupsForDisplay } = this.state
+        groupsForDisplay = []
+        if (!filterBy.txt) return this.setState({ groupsForDisplay: null })
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            activeBoard.groups.forEach(group => {
+                if ((regex.test(group.name))) groupsForDisplay.push(group)
+                else {
+                    const tasks = group.tasks.filter(task => (regex.test(task.name)))
+                    if (tasks.length) {
+                        var newGroup = { ...group }
+                        newGroup.tasks = tasks
+                        groupsForDisplay.push(newGroup)
+                    }
                 }
-            }
-        })
-        this.setState({ groupForDisplay: newGroups })
-
+            })
+        }
+        // if (filterBy.group) {
+        //     console.log('groups before modal filter', this.state);
+        //     // groupsForDisplay.filter(newGroup => newGroup.name === filterBy.group)
+        // }
+        this.setState({ groupsForDisplay }, () => console.log('state', this.state))
     }
-
     render() {
         const { activeBoard } = this.props
+        const { groupsForDisplay } = this.state
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
             <section className="board-details flex col">
@@ -241,7 +221,7 @@ export class _BoardDetails extends Component {
                                 New Group
                             </button>
                             <GroupFilter
-                                getGroupForDisplay={this.getGroupForDisplay}
+                                getGroupsForDisplay={this.getGroupsForDisplay}
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}
                                 isFilterShow={this.state.isFilterShow} />
@@ -254,9 +234,8 @@ export class _BoardDetails extends Component {
                         className="screen"
                         onClick={this.toggleFilter}
                     />}
-
                 <GroupList
-                    groups={this.state.groupForDisplay || activeBoard.groups}
+                    groups={groupsForDisplay || activeBoard.groups}
                     onRemoveTask={this.onRemoveTask}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
@@ -265,12 +244,10 @@ export class _BoardDetails extends Component {
                     handleDragEnd={this.handleDragEnd}
                     activeBoard={activeBoard}
                 />
-
             </section>
         )
     }
 }
-
 const mapGlobalStateToProps = (state) => {
     return {
         activeBoard: state.boardReducer.activeBoard,
@@ -283,7 +260,6 @@ const mapDispatchToProps = {
     updateBoard,
     updateBoards
 }
-
 export const BoardDetails = connect(
     mapGlobalStateToProps,
     mapDispatchToProps

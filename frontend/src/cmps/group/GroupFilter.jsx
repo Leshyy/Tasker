@@ -16,7 +16,7 @@ export class GroupFilter extends Component {
     handleChange = (ev) => {
         var filterBy = { ...this.state.filterBy }
         filterBy.txt = ev.target.value;
-        this.setState({ filterBy }, () => this.props.getGroupForDisplay(filterBy.txt))
+        this.setState({ filterBy }, () => this.props.getGroupsForDisplay(filterBy))
     }
 
     toggleSearch = () => {
@@ -48,7 +48,7 @@ export class GroupFilter extends Component {
                 </div>
                 <button className="btn-filter flex center align-center" onClick={toggleFilter}>
                     {<FilterListIcon />} Filter
-                            {isFilterShow && <FilterModal activeBoard={activeBoard} />}
+                            {isFilterShow && <FilterModal activeBoard={activeBoard} getGroupsForDisplay={this.props.getGroupsForDisplay} />}
                 </button>
             </div>
         )
