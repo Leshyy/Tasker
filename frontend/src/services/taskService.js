@@ -75,23 +75,7 @@ function createTask(txt) {
         ],
         createdAt: 1606733763732,
         updatedAt: 1606733763732,
-        members: [
-            {
-                _id: "2uk35b",
-                fullname: "Tair Bitan",
-                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
-            },
-            {
-                _id: "2h3j5b",
-                fullname: "Amit Weiss",
-                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
-            },
-            {
-                _id: "kj346",
-                fullname: "Tamir Leshetz",
-                imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
-            }
-        ],
+        members: [],
         status: "New",
         priority: "Low",
         note: "Add notes to your task",
@@ -102,7 +86,7 @@ function createTask(txt) {
         comments: [
             {
                 by: {
-                    _id: "2uk35b",
+                    _id: "600877404b50bc8b342c1732",
                     fullname: "Tair Bitan",
                     imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
                 },
@@ -111,7 +95,7 @@ function createTask(txt) {
             },
             {
                 by: {
-                    _id: "2h3j5b",
+                    _id: "600877404b50bc8b342c1733",
                     fullname: "Amit Weiss",
                     imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
                 },
@@ -120,7 +104,7 @@ function createTask(txt) {
             },
             {
                 by: {
-                    _id: "kj346",
+                    _id: "600877404b50bc8b342c1734",
                     fullname: "Tamir Leshetz",
                     imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
                 },

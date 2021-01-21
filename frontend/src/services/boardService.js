@@ -95,17 +95,17 @@ function _createBoard(boardName) {
         createdAt: Date.now(),
         members: [
             {
-                _id: "2uk35b",
+                _id: "600877404b50bc8b342c1732",
                 fullname: "Tair Bitan",
                 imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
             },
             {
-                _id: "asd542",
+                _id: "600877404b50bc8b342c1733",
                 fullname: "Amit Weiss",
                 imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Amit_cgtbfo.jpg"
             },
             {
-                _id: "adsh21",
+                _id: "600877404b50bc8b342c1734",
                 fullname: "Tamir Leshetz",
                 imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
             }

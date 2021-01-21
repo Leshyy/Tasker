@@ -1,22 +1,28 @@
 .group-edit {
     position: absolute;
+    // justify-content: left;
+    width: 150px;
     z-index: 5;
     background-color: white;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
-
-    transform: translate(10px, 55px);
+    font-size: 14px;
+    transform: translate(12px, 40px);
     & > * {
         cursor: pointer;
-        padding: 5px;
+        padding: 3px 1px;
         &:hover {
             background-color: rgba(197, 196, 196, 0.808);
-            border-radius: 5px;
+            border-radius: 1px;
         }
     }
     .delete {
-        margin-bottom: 10px;
+        text-align: left;
+    }
+    svg {
+        margin-right: rem(4px);
+        font-size: smaller;
     }
 }
 

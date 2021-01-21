@@ -166,9 +166,6 @@ export class TaskPreview extends Component {
                         <Delete
                             className="trash"
                             onClick={this.onToggleDelete}
-                        // onClick={() => {
-                        //     onRemoveTask(task.id, group)
-                        //}}
                         />
                         {this.state.isModalDeleteShown &&
                             <DeleteModalTask

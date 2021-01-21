@@ -18,16 +18,18 @@
         position: absolute;
         display: flex;
         align-items: center;
-        left: 170px;
+        left: 145px;
         top: 20px;
         z-index: 5;
-        width: 170px;
+        width: 150px;
+        // font-size: 15px;
         padding: 5px;
         background-color: #ffff;
         border-radius: 3px;
         box-shadow: 0px 3px 6px 0px #484444;
         .btn-in-modal {
             width: 100%;
+            font-size: 14px;
             text-align: left;
             padding: 3px 1px;
             &:hover {
@@ -38,6 +40,7 @@
         .MuiSvgIcon-root {
             margin-right: rem(4px);
             font-size: smaller;
+            align-self: center;
         }
     }
 }

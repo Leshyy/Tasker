@@ -37,14 +37,14 @@ export class GroupEdit extends Component {
         const { onRemoveGroup, group } = this.props;
         const { showPallete } = this.state;
         return (
-            <section className="group-edit flex col center align-center">
-                <span className="delete flex center align-center" onClick={(ev) => onRemoveGroup(ev, group.id)}>
+            <section className="group-edit flex col ">
+                <span className="delete flex align-center" onClick={(ev) => onRemoveGroup(ev, group.id)}>
                     <DeleteIcon
                         className="icon-delete"
                     />
                     Delete Group
                 </span>
-                <span className="color flex center align-center" onClick={this.togglePallete}>
+                <span className="color flex align-center" onClick={this.togglePallete}>
                     <ColorLens />
                     Change Color
                     {showPallete && <ColorCmp togglePallete={this.togglePallete} changeColor={this.changeColor} />}
