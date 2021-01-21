@@ -57,7 +57,7 @@
     right: 0;
     transform: translate(50%);
     cursor: pointer;
-    background-color: #f7f7f7;
+    background-color: white;
     border-radius: 50%;
     border: 1px solid rgba(120, 120, 100, 0.945098);
     display: flex;
@@ -72,6 +72,16 @@
     &:hover {
         color: white;
         background-color: #0085ff;
+        svg{
+            color: white;
+        }
+    }
+    svg {
+        color: rgb(50, 51, 56);
+        font-size: 14px;
+    }
+    .arrow-back {
+        transform: translateX(2px);
     }
 }
 .board-side-nav-close {

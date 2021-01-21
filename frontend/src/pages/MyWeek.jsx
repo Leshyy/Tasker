@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button'
 import { loadBoards } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
 import { ListMyWeek } from '../cmps/ListMyWeek'
-import Calendar from '../assets/styles/img/calendar.png'
+import Calendar from '../assets/icons/calendar.png'
 
 export class _MyWeek extends Component {
     state = {

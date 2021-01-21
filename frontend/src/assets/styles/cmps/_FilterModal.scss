@@ -1,4 +1,3 @@
-
 .filter-modal {
     position: absolute;
     top: 155px;
@@ -14,7 +13,7 @@
         // border: 1px solid black;
         width: 130px;
         padding: 5px;
-        & .filter-list {
+        .filter-list {
             max-height: 80%;
             overflow-y: scroll;
             padding-right: 7px;
@@ -38,6 +37,9 @@
             &:hover {
                 opacity: 1;
             }
+        }
+        ::-webkit-scrollbar {
+           display: none;
         }
     }
     h1 {

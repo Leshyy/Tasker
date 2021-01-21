@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { AddCircleOutlineRounded } from "@material-ui/icons";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
 
@@ -23,9 +23,9 @@ export class BoardSideNav extends Component {
             <section className={`${(this.state.isBarShown) ? `board-side-nav flex col` : `board-side-nav-close`}`}>
                 <div className="board-side-nav-top flex col align-start space-between">
                     <button
-                        className="btn-toggle-sidenav"
+                        className="btn-toggle-sidenav flex center align-center"
                         onClick={this.toggleShownBar}>
-                        {(this.state.isBarShown) ? '<' : '>'}
+                        {(this.state.isBarShown) ? <ArrowBackIosIcon className="arrow-back" /> : <ArrowForwardIosIcon />}
                     </button>
                     <h2>My Boards:</h2>
                     <button
