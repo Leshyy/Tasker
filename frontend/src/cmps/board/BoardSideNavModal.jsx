@@ -10,15 +10,15 @@ export function BoardSideNavModal({ board, onOpenModalDelete }) {
 
     return (
         <div className="modal-side-nave flex col">
-            <span className="btn-in-modal">
+            <span className="btn-in-modal flex align-center">
                 <EditOutlinedIcon />
             Rename Board
             </span>
-            <span className="btn-in-modal">
+            <span className="btn-in-modal flex align-center">
                 <StarBorderTwoToneIcon />
                 Add to Favorites
             </span>
-            <span onClick={onOpenModalDelete} className="btn-in-modal">
+            <span onClick={onOpenModalDelete} className="btn-in-modal flex align-center">
                 <DeleteIcon />
                     Delete Board</span>
         </div>
