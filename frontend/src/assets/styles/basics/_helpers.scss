@@ -21,12 +21,12 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(56, 56, 56, 0.685);
     top: 0;
     left: 0;
     z-index: 4;
     transition: 0.3s;
     cursor: default;
+    background-color: rgba(56, 56, 56, 0.685);
     &:hover {
         background-color: transparent;
     }

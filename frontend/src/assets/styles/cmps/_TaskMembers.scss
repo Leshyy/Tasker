@@ -4,7 +4,7 @@
         position: absolute;
         z-index: 5;
         width: 250px;
-        padding: 5px;
+        padding: 5px 10px;
         background-color: white;
         box-shadow: 0px 3px 6px 0px #484444;
         border-radius: 4px;
@@ -37,17 +37,28 @@
             height: 40px;
             margin: auto;
             border-radius: 4px;
+            .member-right {
+                flex: 1;
+            }
             &:hover {
                 background-color: #dbdbdb;
             }
             .avatar {
-                width: 25px;
-                height: 25px;
+                width: 35px;
+                height: 35px;
                 font-size: 14px;
                 margin: 5px;
             }
             .member-name {
                 font-size: 14px;
+            }
+            .member-btn {
+                font-size: 1.2rem;
+                padding-right: 13px;
+                transition: 0.2s;
+                &:hover {
+                    color: #0085ff;
+                }
             }
         }
     }

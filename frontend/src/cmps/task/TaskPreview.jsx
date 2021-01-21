@@ -7,7 +7,7 @@ import chat from '../../assets/icons/chat.svg';
 import { TaskPropertyModal } from './columns/TaskPropertyModal';
 import { DateRange } from './columns/DateRange';
 import { Notes } from './columns/Notes';
-import { Members } from './columns/Members';
+import { TaskMembers } from './columns/TaskMembers';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
 
@@ -133,6 +133,18 @@ export class TaskPreview extends Component {
         return this.props.activeBoard[type].find(option => option.txt === txt).color;
     }
 
+    onRemoveMember = (memberId) => {
+        const { group, task, onUpdateTask } = this.props;
+        const updatedTask = taskService.removeMember(task, memberId)
+        onUpdateTask(updatedTask, group.id)
+    }
+
+    onAddMember = (member) => {
+        const { group, task, onUpdateTask } = this.props;
+        const updatedTask = taskService.addMember(task, member)
+        onUpdateTask(updatedTask, group.id)
+    }
+
     render() {
         const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
@@ -194,9 +206,12 @@ export class TaskPreview extends Component {
                     </div>
                 </div>
                 <div className="task-right flex align-center space-between">
-                    <div>
-                        <Members task={task} />
-                    </div>
+                    <TaskMembers
+                        task={task}
+                        boardMembers={activeBoard.members}
+                        onRemoveMember={this.onRemoveMember}
+                        onAddMember={this.onAddMember}
+                    />
                     <div
                         className={`status relative flex center align-center `}
                         style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
