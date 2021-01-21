@@ -20,6 +20,17 @@
     .board-side-nav-bottom {
         padding: rem(12px);
         flex-grow: 1;
+        .input-new-board {
+            width: 166px;
+            height: 27px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #0085ff;
+            &:focus {
+                outline: none;
+                // border-bottom: 1px solid #0085ff;
+            }
+        }
     }
     .btn-add {
         width: 100%;
@@ -72,7 +83,7 @@
     &:hover {
         color: white;
         background-color: #0085ff;
-        svg{
+        svg {
             color: white;
         }
     }
