@@ -41,7 +41,7 @@ export class AppHeader extends Component {
                                 <NotificationModal />}
                         </span>
                     </div>
-                    <div className="header-left-bottom flex col space-around">
+                    <div className="header-left-bottom flex col end">
                         <span><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
                         <span><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
                         <span><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>

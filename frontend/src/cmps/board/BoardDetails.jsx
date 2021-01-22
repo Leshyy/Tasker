@@ -225,6 +225,7 @@ export class _BoardDetails extends Component {
                                 New Group
                             </button>
                             <GroupFilter
+                                getGroupsForDisplay={this.getGroupsForDisplay}
                                 groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}

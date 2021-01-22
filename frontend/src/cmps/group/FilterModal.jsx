@@ -16,13 +16,26 @@ export class FilterModal extends Component {
     filterGroup = (ev, field, value) => {
         var { groups } = this.props;
         var newGroups = [...groups];
+        console.log('before filter', newGroups);
         ev.stopPropagation();
         var filterBy = { ...this.state.filterBy };
         filterBy[field] = value;
         this.setState({ filterBy }, () => {
-            if (filterBy.groupName) newGroups = newGroups.filter(newGroup => newGroup.name === filterBy.groupName);
+            if (filterBy.groupName) {
+                newGroups = newGroups.filter(newGroup => newGroup.name === filterBy.groupName);
+            }
             if (filterBy.member) {
-                newGroups = newGroups.filter(newGroup => newGroup.members.some(member => member.fullname === filterBy.member));
+                newGroups = newGroups.forEach(newGroup => {
+                    let tasks = []
+                    tasks = newGroup.tasks.forEach(task => {
+                        task.members.some(member => {
+                            if (member.fullname === filterBy.member) tasks.push(task)
+                        })
+                        if (tasks.length) {
+                            newGroup.tasks = tasks
+                        }
+                    })
+                })
             }
             if (filterBy.status) {
                 newGroups = newGroups.forEach(newGroup => {
@@ -43,8 +56,9 @@ export class FilterModal extends Component {
                 })
             }
 
+            console.log('filtering by', filterBy);
+            console.log('filtered groups', newGroups);
         })
-        console.log('filtered groups', newGroups);
     }
 
     // getDateRange = () => {
