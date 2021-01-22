@@ -8,7 +8,7 @@ import { BoardList } from "./BoardList";
 
 export class BoardSideNav extends Component {
     state = {
-        isBarShown: true,
+        isBarShown: false,
         isInputShown: false,
         nameNewBoard: ''
     }
