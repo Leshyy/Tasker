@@ -59,4 +59,12 @@
             flex-grow: 4;
         }
     }
+    .hamburger {
+        display: none;
+        background-color: #292f4c;
+        align-items: center;
+        border: none;
+        margin-right: 10px;
+        outline: none;
+    }
 }
