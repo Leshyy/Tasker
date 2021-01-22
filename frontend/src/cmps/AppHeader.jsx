@@ -1,5 +1,6 @@
+import { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import logo from '../assets/styles/logo/logo.png'
 import {
     NotificationsNone,
     AppsOutlined,
@@ -9,11 +10,12 @@ import {
     GitHub,
     LinkedIn
 } from '@material-ui/icons';
-import { Component } from 'react';
-import { NotificationModal } from './NotificationModal';
+
+import logo from '../assets/styles/logo/logo.png'
+import { NotificationModal } from './notification/NotificationModal';
 
 
-export class AppHeader extends Component {
+export class _AppHeader extends Component {
     state = {
         isNotificationModalShown: false
     }
@@ -25,6 +27,8 @@ export class AppHeader extends Component {
 
     render() {
         const { isNotificationModalShown } = this.state
+        const { loggedInUser } = this.props
+        console.log('user', loggedInUser);
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -34,24 +38,25 @@ export class AppHeader extends Component {
                         </Link>
                     </div>
                     <div className="header-left-top flex col">
-                        <span><Link to="/board" title="My Boards"><AppsOutlined /></Link></span>
-                        <span title="Notifications" className="notifications" onClick={this.toggleShowModal}>
+                        <Link className="header-item" to="/board" title="My Boards"><AppsOutlined /></Link>
+                        <span title="Notifications" className="notifications header-item" onClick={this.toggleShowModal}>
                             <NotificationsNone />
+
                             {isNotificationModalShown &&
-                                <NotificationModal />}
+                                <NotificationModal notifications={loggedInUser.notifications} />}
                         </span>
                     </div>
                     <div className="header-left-bottom flex col space-around">
-                        <span><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
-                        <span><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
-                        <span><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
+                        <Link className="header-item" to="/myweek" title="My week"><EventNoteOutlined /></Link>
+                        <Link className="header-item" to="/profile" title="My profile"><PersonOutline /></Link>
+                        <Link className="header-item" to="" title="Logout"><ExitToAppOutlined /></Link>
                     </div>
                 </div>
                 <div className="header-right-panel flex col">
                     <div className="header-right-top"></div>
                     <div className="header-right-middle flex col">
-                        <span><GitHub /></span>
-                        <span><LinkedIn /></span>
+                        <GitHub className="header-item" />
+                        <LinkedIn className="header-item" />
                     </div>
                     <div className="header-right-bottom"></div>
                 </div>
@@ -59,22 +64,16 @@ export class AppHeader extends Component {
         )
     }
 }
-// export function AppHeader() {
-//     return (
-//         <div className="main-header flex space-between">
-//             <div className="top-header flex ">
-//                 <Link to="/">
-//                     <img src={logo} alt="Logo" />
-//                 </Link>
-//                 <span title="Notifications"><NotificationsNone /></span>
-//             </div>
 
-//             <nav className="nav-header flex space-around">
-//                 <Link to="/board" title="My Boards"><AppsOutlined /></Link>
-//                 <Link to="/myweek" title="My week"><EventNoteOutlined /></Link>
-//                 <Link to="/profile" title="My profile"><PersonOutline /></Link>
-//                 <Link to="" title="Logout"><ExitToAppOutlined /></Link>
-//             </nav>
-//         </div>
-//     )
-// }
+const mapGlobalStateToProps = (state) => {
+    return {
+        loggedInUser: state.userReducer.loggedInUser,
+    };
+};
+const mapDispatchToProps = {
+}
+
+export const AppHeader = connect(
+    mapGlobalStateToProps,
+    mapDispatchToProps
+)(_AppHeader);
