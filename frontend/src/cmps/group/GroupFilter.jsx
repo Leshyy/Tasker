@@ -2,7 +2,6 @@ import { Component } from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { FilterModal } from './FilterModal'
-import { FormatListBulleted } from '@material-ui/icons';
 
 
 export class GroupFilter extends Component {
@@ -23,7 +22,7 @@ export class GroupFilter extends Component {
         this.setState({ isSearching: !this.state.isSearching })
     }
     render() {
-        const { activeBoard, toggleFilter, isFilterShow } = this.props;
+        const { activeBoard, toggleFilter, isFilterShow, groups } = this.props;
         const { isSearching } = this.state;
         return (
             <div className="filter flex align-center">
@@ -48,7 +47,7 @@ export class GroupFilter extends Component {
                 </div>
                 <button className="btn-filter flex center align-center" onClick={toggleFilter}>
                     {<FilterListIcon />} Filter
-                            {isFilterShow && <FilterModal activeBoard={activeBoard} getGroupsForDisplay={this.props.getGroupsForDisplay} />}
+                            {isFilterShow && <FilterModal activeBoard={activeBoard} groups={groups} />}
                 </button>
             </div>
         )

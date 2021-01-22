@@ -6,9 +6,6 @@ import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
-import Amit from '../../assets/styles/img/Amit.jpeg';
-import Tair from '../../assets/styles/img/Tair.jpeg';
-import Tamir from '../../assets/styles/img/Tamir.jpeg';
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
 import { groupService } from '../../services/groupService'
@@ -228,7 +225,7 @@ export class _BoardDetails extends Component {
                                 New Group
                             </button>
                             <GroupFilter
-                                getGroupsForDisplay={this.getGroupsForDisplay}
+                                groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}
                                 isFilterShow={this.state.isFilterShow} />

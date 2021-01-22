@@ -11,8 +11,8 @@
     max-height: 300px;
     overflow: hidden;
     .column {
-        width: 130px;
-        padding: 5px;
+        width: 140px;
+        padding: 5px 10px;
         ul {
             height: 150px;
             overflow-y: scroll;
@@ -31,6 +31,18 @@
             .status,
             .priority {
                 color: white;
+            }
+            .member-tab {
+                padding: 0 2px;
+                height: 35px;
+                .MuiAvatar-img {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 14px;
+                    margin: 5px;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                }
             }
         }
         ::-webkit-scrollbar {
