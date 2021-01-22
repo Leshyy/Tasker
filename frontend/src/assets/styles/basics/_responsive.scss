@@ -1,0 +1,57 @@
+@media screen and (max-width: 750px) {
+    .board-app {
+        height: 100vh;
+        flex-direction: column;
+        .header-main {
+            height: 70px;
+            width: 100vw;
+            position: fixed;
+            z-index: 10;
+            flex-direction: row;
+            .col {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .header-left-panel {
+                height: 70px;
+                .header-left-top {
+                    display: none;
+                }
+                .header-left-bottom {
+                    display: none;
+                }
+            }
+            .header-right-panel {
+                display: none;
+            }
+        }
+        .board-side-nav {
+            position: absolute;
+            z-index: 10;
+        }
+        .btn-toggle-sidenav {
+            top: -10px;
+            left: 140px;
+            z-index: 12;
+        }
+        .board-side-nav-close {
+            .btn-toggle-sidenav {
+                // position: relative;
+                top: 60px;
+                left: -7px;
+                z-index: 12;
+            }
+        }
+        .board-header-top {
+            .board-name {
+                font-size: 18px;
+                background-color: green;
+            }
+        }
+        .board-main {
+            margin-top: 70px;
+            overflow-x: hidden;
+            width: 100vw;
+        }
+    }
+}

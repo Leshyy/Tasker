@@ -5,31 +5,34 @@
 @import "basics/base";
 @import "basics/layout";
 @import "basics/functions";
+@import "basics/responsive";
 
 // COMPONENTS
 @import "cmps/AppHeader";
-@import "cmps/GroupPreview";
-@import "cmps/TaskPreview";
-@import "cmps/TaskAdd";
-@import "cmps/BoardPreview";
 @import "cmps/BoardSideNav";
-@import "cmps/BoardFilter";
-@import "cmps/ModalTask";
 @import "cmps/BoardDetails";
-@import "cmps/DateRange";
-@import "cmps/TaskMembers";
+@import "cmps/BoardFilter";
+@import "cmps/FilterModal";
+@import "cmps/BoardPreview";
+
 @import "cmps/GroupList";
+@import "cmps/GroupPreview";
 @import "cmps/GroupEdit";
 @import "cmps/GroupProgressBar";
+
+@import "cmps/TaskPreview";
+@import "cmps/TaskAdd";
+@import "cmps/ModalTask";
+@import "cmps/DateRange";
+@import "cmps/TaskMembers";
 @import "cmps/TaskDetails";
 @import "cmps/NotificationModal";
-@import "cmps/FilterModal";
 @import "cmps/CommentList";
 @import "cmps/CommentPreview";
 
 // VIEWS
 @import "views/HomePage";
+@import "views/login";
 @import "views/BoardApp";
 @import "views/MyWeek";
 @import "views/Profile";
-@import "views/login";
