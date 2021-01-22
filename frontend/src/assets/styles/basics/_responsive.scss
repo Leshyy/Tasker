@@ -8,17 +8,44 @@
             z-index: 10;
             flex-direction: row;
             justify-content: space-between;
-            .col {
-                flex-direction: row;
-                justify-content: space-between;
-            }
             .header-left-panel {
                 height: 70px;
                 .header-left-top {
+                    .col {
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
                     display: none;
                 }
                 .header-left-bottom {
-                    display: none;
+                    background-color: #e2e2e2;
+                    width: 100vw;
+                    a {
+                        text-decoration: none;
+                        text-align: left;
+                        color: #717277;
+                    }
+                    & span {
+                        width: 100vw;
+                        border-bottom: 1px solid white;
+                        margin: 0;
+                        .MuiSvgIcon-root {
+                            font-size: x-larger;
+                            align-self: center;
+                            color: #717277;
+                            // padding-top: 7px;
+                        }
+                    }
+                    .event-note ::after {
+                        content: "All my event";
+                    }
+                    .person ::after {
+                        content: "To my profile";
+                    }
+                    .exit-to-app ::after {
+                        content: "Exit";
+                        text-decoration: none;
+                    }
                 }
             }
             .header-right-panel {
@@ -26,6 +53,9 @@
             }
             .hamburger {
                 display: flex;
+            }
+            .open {
+                transform: translate(0px, -218px);
             }
         }
         .board-side-nav {
