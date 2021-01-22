@@ -45,6 +45,9 @@
                 border: 1px solid #c5c7d0;
                 border-radius: 4px;
             }
+            .libary-icon {
+                display: none;
+            }
         }
         .board-desc {
             text-align: left;
@@ -102,6 +105,7 @@
                             background-color: rgb(230, 233, 239);
                         }
                         &.searching {
+                            position: relative;
                             width: 170px;
                             background-color: white;
                             border: 1px solid rgb(0, 133, 255);
@@ -116,7 +120,7 @@
                         }
                     }
                     .btn-filter {
-                        width: 95px;
+                        width: rem(95px);
                         padding: 3px 10px;
                         background-color: #ffffff;
                         border: none;

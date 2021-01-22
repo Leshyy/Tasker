@@ -5,6 +5,7 @@ import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/ac
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined';
 
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
@@ -189,6 +190,7 @@ export class _BoardDetails extends Component {
                                 </AvatarGroup>
                             </span>
                             <span className="activities">Activities/ 17</span>
+                            <LibraryBooksOutlinedIcon className="libary-icon" />
                             <MoreHorizIcon />
                         </div>
                     </div>
