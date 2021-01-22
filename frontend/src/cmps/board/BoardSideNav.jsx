@@ -40,6 +40,14 @@ export class BoardSideNav extends Component {
         this.toggleInput()
     }
 
+    // onUpdateBoardName = (boardName) => {
+    //     const { activeBoard, boards } = this.props
+    //     const updatedBoard = { ...activeBoard }
+    //     updatedBoard.name = boardName
+    //     this.props.updateBoard(updatedBoard)
+    //     this.props.updateBoards(updatedBoard, boards)
+    // }
+
     render() {
         const { boards, onRemove, getBoradsForDisplay } = this.props
         return (
