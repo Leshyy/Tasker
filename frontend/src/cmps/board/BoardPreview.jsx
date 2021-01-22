@@ -21,7 +21,7 @@ export class BoardPreview extends Component {
     }
 
     onCloseModalDelete = () => {
-        const { isModalDeleteShown, isModalShown } = this.state
+        // const { isModalDeleteShown, isModalShown } = this.state
         this.setState({ isModalDeleteShown: false, isModalShown: false })
     }
 
@@ -32,7 +32,11 @@ export class BoardPreview extends Component {
                 <Link to={`/board/${board._id}`}>
                     {board.name}
                 </Link>
-                <MoreHorizIcon onClick={this.toggleModal} />
+
+                <MoreHorizIcon
+                    className="more-icon"
+                    onClick={this.toggleModal} />
+
                 {this.state.isModalShown &&
                     <BoardSideNavModal
                         board={board}
@@ -57,15 +61,6 @@ export class BoardPreview extends Component {
                         className="dark-screen-nover "
                     />}
             </section >
-            // <div className="modal-delete flex col">
-            //             <div className="top">
-            //                 <p>You want to delete Board? "{board.name}"</p>
-            //             </div>
-            //             <div className="bottom flex align-center">
-            //                 <button className="btn-delete" onClick={() => onRemove(board._id)}>Delete</button>
-            //                 <button className="btn-go-back" onClick={this.onCloseModalDelete}>Go Back</button>
-            //             </div>
-            //         </div>
         )
 
     }

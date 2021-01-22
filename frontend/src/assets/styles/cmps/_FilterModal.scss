@@ -1,7 +1,7 @@
 .filter-modal {
     position: absolute;
     top: 155px;
-    right: 73px;
+    right: 110px;
     z-index: 5;
     background-color: #ffffff;
     border-radius: 2px;
@@ -9,42 +9,48 @@
     box-shadow: 0px 3px 6px 0px #484444;
     padding: 5px;
     max-height: 300px;
-    .col-modal {
-        // border: 1px solid black;
-        width: 130px;
-        padding: 5px;
-        .filter-list {
-            max-height: 80%;
+    overflow: hidden;
+    .column {
+        width: 140px;
+        padding: 5px 10px;
+        ul {
+            height: 150px;
             overflow-y: scroll;
-            padding-right: 7px;
-
-            div {
-                width: 90%;
+            li {
+                width: 120px;
                 border: none;
-                background-color: #f5f6f8;
-                margin: 3px 4px;
-                padding: 5px 2px;
+                background-color: #e6e9ef;
+                margin: 3px auto;
+                padding: 10px 2px;
                 border-radius: 2px;
                 font-size: 12px;
                 &:hover {
-                    background-color: #e6e9ef;
+                    opacity: 0.8;
+                }
+            }
+            .status,
+            .priority {
+                color: white;
+            }
+            .member-tab {
+                padding: 0 2px;
+                height: 35px;
+                .MuiAvatar-img {
+                    width: 30px;
+                    height: 30px;
+                    font-size: 14px;
+                    margin: 5px;
+                    border: 2px solid white;
+                    border-radius: 50%;
                 }
             }
         }
-        .status {
-            color: #ffffff;
-            opacity: 0.9;
-            &:hover {
-                opacity: 1;
-            }
-        }
         ::-webkit-scrollbar {
-           display: none;
+            display: none;
         }
     }
     h1 {
-        z-index: 6;
         padding: 2px;
-        margin-block-start: 0.3em;
+        margin-inline-start: 0.3em;
     }
 }
