@@ -60,17 +60,26 @@ export class _BoardDetails extends Component {
         const updatedBoard = groupService.add(groupName, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
+    onUpdateGroup = (group) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.update(group, activeBoard)
+        this.props.updateBoard(updatedBoard)
+    }
+    onSortGroup = (group, sortBy) => {
+        const { activeBoard } = this.props
+        const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+        console.log('groupIdx is', groupIdx, 'sortingBy', sortBy);
+        // let currGroup = [...activeBoard.groups[groupIdx]]
+        // currGroup.filter(newGroup => newGroup.status==='Completed')
+        // let sortedGroup = [...currGroup]
+    }
     onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
-    onUpdateGroup = (group) => {
-        const { activeBoard } = this.props
-        const updatedBoard = groupService.update(group, activeBoard)
-        this.props.updateBoard(updatedBoard)
-    }
+
     onUpdateBoardName = (boardName) => {
         const { activeBoard, boards } = this.props
         const updatedBoard = { ...activeBoard }
@@ -244,6 +253,7 @@ export class _BoardDetails extends Component {
                 <GroupList
                     groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                     onRemoveTask={this.onRemoveTask}
+                    onSortGroup={this.onSortGroup}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
                     onUpdateGroup={this.onUpdateGroup}

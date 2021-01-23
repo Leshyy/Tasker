@@ -23,7 +23,7 @@ export class GroupPreview extends Component {
     }
 
     render() {
-        const { group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup, handleDragEnd, provided, activeBoard }
+        const { group, onAddTask, onRemoveTask, onUpdateTask, onRemoveGroup, onUpdateGroup, handleDragEnd, provided, activeBoard, onSortGroup }
             = this.props;
         const { showModal } = this.state;
         return (
@@ -62,11 +62,11 @@ export class GroupPreview extends Component {
                         </span>
                     </div>
                     <div className="group-header-right flex">
-                        <h5>Members</h5>
-                        <h5>Status</h5>
-                        <h5>TimeLine</h5>
-                        <h5>Priority</h5>
-                        <h5>Notes</h5>
+                        <h5 onClick={() => onSortGroup(group, 'members')}>Members</h5>
+                        <h5 onClick={() => onSortGroup(group, 'status')}>Status</h5>
+                        <h5 onClick={() => onSortGroup(group, 'timeline')}>TimeLine</h5>
+                        <h5 onClick={() => onSortGroup(group, 'priority')}>Priority</h5>
+                        <h5 onClick={() => onSortGroup(group, 'notes')}>Notes</h5>
                     </div>
                 </div>
                 <TaskList
