@@ -22,7 +22,7 @@ class _Home extends Component {
         setTimeout(async () => {
             this.setState({ isLoading: false })
             await this.props.loadBoards()
-        }, 3000);
+        }, 4000);
     }
 
     componentWillUnmount() {
@@ -32,7 +32,9 @@ class _Home extends Component {
     render() {
         if (this.state.isLoading) return (
             <div className="loader-container flex center align-center">
-                <img src="loader.gif" alt="" />
+                <video width="700" height="700" autoPlay loop preload="true">
+                    <source src="loader.mp4" type="video/mp4"></source>
+                </video>
             </div>
         )
         return (

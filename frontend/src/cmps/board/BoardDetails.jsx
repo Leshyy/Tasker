@@ -139,13 +139,17 @@ export class _BoardDetails extends Component {
         this.setState({ isFilterShow })
     }
     getGroupsForDisplay = (filterBy) => {
-        const { activeBoard } = this.props
+        const { groups } = this.props.activeBoard;
         var { groupsForDisplay } = this.state
+
+        var updateGroups = JSON.parse(JSON.stringify(groups));
         groupsForDisplay = []
+
         if (!filterBy) return this.setState({ groupsForDisplay: null })
+            
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
-            activeBoard.groups.forEach(group => {
+            updateGroups.forEach(group => {
                 if ((regex.test(group.name))) groupsForDisplay.push(group)
                 else {
                     const tasks = group.tasks.filter(task => (regex.test(task.name)))
@@ -157,7 +161,41 @@ export class _BoardDetails extends Component {
                 }
             })
         }
+
+        if (filterBy.groupName) {
+            groupsForDisplay = updateGroups.filter(currGroup => currGroup.name === filterBy.groupName);
+        }
+
+        if (filterBy.member) {
+            groupsForDisplay = updateGroups.filter(currGroup => {
+                const tasks = []
+                currGroup.tasks.forEach(task => {
+                    if (task.members.some(member => member.fullname === filterBy.member)) tasks.push(task)
+                })
+                if (tasks.length) {
+                    currGroup.tasks = tasks;
+                    return currGroup;
+                }
+            })
+        }
+
+        if (filterBy.status) {
+            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'status', filterBy))
+        }
+
+        if (filterBy.priority) {
+            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'priority', filterBy))
+        }
+        console.log('updated groups', groupsForDisplay);
         this.setState({ groupsForDisplay })
+    }
+
+    _filterByType = (group, type, filterBy) => {
+        const tasks = group.tasks.filter(task => task[type] === filterBy[type])
+        if (tasks.length) {
+            group.tasks = tasks
+            return group;
+        }
     }
 
     render() {

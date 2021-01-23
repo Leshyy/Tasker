@@ -16,21 +16,21 @@ class _BoardApp extends Component {
     async componentDidMount() {
         this.setState({ isLoading: true })
         setTimeout(async () => {
-            await this.loadBoards()
-            const { boards, activeBoard } = this.props
+        await this.loadBoards()
+        const { boards, activeBoard } = this.props
 
-            if (activeBoard) {
-                this.setState({ isLoading: false })
-                this.props.history.push(`/board/${activeBoard._id}`);
-                return
-            }
-            if (!boards || !boards.length) {
-                return
-            }
+        if (activeBoard) {
             this.setState({ isLoading: false })
-            this.props.history.push(`/board/${boards[0]._id}`);
+            this.props.history.push(`/board/${activeBoard._id}`);
+            return
+        }
+        if (!boards || !boards.length) {
+            return
+        }
+        this.setState({ isLoading: false })
+        this.props.history.push(`/board/${boards[0]._id}`);
 
-        }, 3000);
+        }, 4000);
     }
 
     loadBoards = async () => {
@@ -59,7 +59,9 @@ class _BoardApp extends Component {
         const { boardsForDisplay } = this.state
         if (this.state.isLoading) return (
             <div className="loader-container flex center align-center">
-                <img src="loader.gif" alt="" />
+                <video width="700" height="700" autoPlay loop preload="true">
+                    <source src="loader.mp4" type="video/mp4"></source>
+                </video>
             </div>
         )
         if (!boards) return <div>Loading no boards...</div>
