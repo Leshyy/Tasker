@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
+import { updateUser, loginUser } from '../../store/actions/userAction'
 
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
@@ -21,6 +22,9 @@ export class _BoardDetails extends Component {
     componentDidMount() {
         this.loadActiveBoard()
         this.setUpListeners()
+
+        socketService.emit('chat topic', this.props.match.params)
+
     }
     setUpListeners = () => {
         socketService.on('update board', () => {
@@ -33,6 +37,8 @@ export class _BoardDetails extends Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
+            socketService.emit('chat topic', this.props.match.params)
+            this.setUpListeners()
             this.loadActiveBoard()
         }
     }
@@ -60,17 +66,26 @@ export class _BoardDetails extends Component {
         const updatedBoard = groupService.add(groupName, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
+    onUpdateGroup = (group) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.update(group, activeBoard)
+        this.props.updateBoard(updatedBoard)
+    }
+    onSortGroup = (group, sortBy) => {
+        const { activeBoard } = this.props
+        const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+        console.log('groupIdx is', groupIdx, 'sortingBy', sortBy);
+        // let currGroup = [...activeBoard.groups[groupIdx]]
+        // currGroup.filter(newGroup => newGroup.status==='Completed')
+        // let sortedGroup = [...currGroup]
+    }
     onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
-    onUpdateGroup = (group) => {
-        const { activeBoard } = this.props
-        const updatedBoard = groupService.update(group, activeBoard)
-        this.props.updateBoard(updatedBoard)
-    }
+
     onUpdateBoardName = (boardName) => {
         const { activeBoard, boards } = this.props
         const updatedBoard = { ...activeBoard }
@@ -84,6 +99,7 @@ export class _BoardDetails extends Component {
         updatedBoard.desc = description
         this.props.updateBoard(updatedBoard)
     }
+
     handleDragEnd = async (res) => {
         const { source, destination, type } = res;
         const { activeBoard } = this.props;
@@ -130,13 +146,17 @@ export class _BoardDetails extends Component {
         this.setState({ isFilterShow })
     }
     getGroupsForDisplay = (filterBy) => {
-        const { activeBoard } = this.props
+        const { groups } = this.props.activeBoard;
         var { groupsForDisplay } = this.state
+
+        var updateGroups = JSON.parse(JSON.stringify(groups));
         groupsForDisplay = []
+
         if (!filterBy) return this.setState({ groupsForDisplay: null })
+            
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
-            activeBoard.groups.forEach(group => {
+            updateGroups.forEach(group => {
                 if ((regex.test(group.name))) groupsForDisplay.push(group)
                 else {
                     const tasks = group.tasks.filter(task => (regex.test(task.name)))
@@ -148,11 +168,45 @@ export class _BoardDetails extends Component {
                 }
             })
         }
+
+        if (filterBy.groupName) {
+            groupsForDisplay = updateGroups.filter(currGroup => currGroup.name === filterBy.groupName);
+        }
+
+        if (filterBy.member) {
+            groupsForDisplay = updateGroups.filter(currGroup => {
+                const tasks = []
+                currGroup.tasks.forEach(task => {
+                    if (task.members.some(member => member.fullname === filterBy.member)) tasks.push(task)
+                })
+                if (tasks.length) {
+                    currGroup.tasks = tasks;
+                    return currGroup;
+                }
+            })
+        }
+
+        if (filterBy.status) {
+            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'status', filterBy))
+        }
+
+        if (filterBy.priority) {
+            groupsForDisplay = updateGroups.filter(currGroup => this._filterByType(currGroup, 'priority', filterBy))
+        }
+        console.log('updated groups', groupsForDisplay);
         this.setState({ groupsForDisplay })
     }
 
+    _filterByType = (group, type, filterBy) => {
+        const tasks = group.tasks.filter(task => task[type] === filterBy[type])
+        if (tasks.length) {
+            group.tasks = tasks
+            return group;
+        }
+    }
+
     render() {
-        const { activeBoard } = this.props
+        const { activeBoard, loggedInUser } = this.props
         const { groupsForDisplay } = this.state
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
@@ -244,12 +298,14 @@ export class _BoardDetails extends Component {
                 <GroupList
                     groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                     onRemoveTask={this.onRemoveTask}
+                    onSortGroup={this.onSortGroup}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.handleDragEnd}
                     activeBoard={activeBoard}
+                    loggedInUser={loggedInUser}
                 />
             </section>
         )
@@ -258,14 +314,17 @@ export class _BoardDetails extends Component {
 const mapGlobalStateToProps = (state) => {
     return {
         activeBoard: state.boardReducer.activeBoard,
-        boards: state.boardReducer.boards
+        boards: state.boardReducer.boards,
+        loggedInUser: state.userReducer.loggedInUser
     };
 };
 const mapDispatchToProps = {
     loadBoard,
     loadBoards,
     updateBoard,
-    updateBoards
+    updateBoards,
+    updateUser,
+    loginUser
 }
 export const BoardDetails = connect(
     mapGlobalStateToProps,

@@ -12,7 +12,6 @@ import { userService } from '../services/userService'
 
 export class _MyWeek extends Component {
     state = {
-        loggedInUser: '',
         boardsForDisplay: null,
         isTaskShown: true,
         filterBy: {
@@ -20,8 +19,6 @@ export class _MyWeek extends Component {
         }
     }
     componentDidMount() {
-        const loggedInUser = userService.getLoggedinUser()
-        this.setState({ loggedInUser }, () => console.log('this.state.logg is:', this.state.loggedInUser))
         this.loadBoards()
         const { boards } = this.props
         if (!boards || !boards.length) {
@@ -30,7 +27,6 @@ export class _MyWeek extends Component {
     }
 
     loadBoards = () => {
-
         this.props.loadBoards()
     }
 
@@ -57,15 +53,15 @@ export class _MyWeek extends Component {
     }
 
     render() {
-        const { boards } = this.props
-        const { isTaskShown, loggedInUser } = this.state
+        const { boards, loggedInUser } = this.props
+        const { isTaskShown } = this.state
         return (
             <React.Fragment>
                 <AppHeader />
                 <section className="my-week">
                     <div className="top flex space-around align-center">
                         <img src={Calendar} alt="" />
-                        <h2>Hey { } ,You have 4 assignments this week</h2>
+                        <h2>Hey {loggedInUser.username} ,You have 4 assignments this week</h2>
                     </div>
                     <Input
                         type="text"
@@ -89,8 +85,8 @@ export class _MyWeek extends Component {
 }
 const mapGlobalStateToProps = (state) => {
     return {
-        boards: state.boardReducer.boards,
-        activeBoard: state.boardReducer.activeBoard
+        loggedInUser: state.userReducer.loggedInUser,
+        boards: state.boardReducer.boards
     };
 };
 const mapDispatchToProps = {

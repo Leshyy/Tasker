@@ -14,38 +14,51 @@ export class FilterModal extends Component {
     }
 
     filterGroup = (ev, field, value) => {
-        var { groups } = this.props;
-        var newGroups = [...groups];
         ev.stopPropagation();
+
+        // const { groups } = this.props;
+        // var updateGroups = JSON.parse(JSON.stringify(groups));
+
         var filterBy = { ...this.state.filterBy };
         filterBy[field] = value;
-        this.setState({ filterBy }, () => {
-            if (filterBy.groupName) newGroups = newGroups.filter(newGroup => newGroup.name === filterBy.groupName);
-            if (filterBy.member) {
-                newGroups = newGroups.filter(newGroup => newGroup.members.some(member => member.fullname === filterBy.member));
-            }
-            if (filterBy.status) {
-                newGroups = newGroups.forEach(newGroup => {
-                    const tasks = newGroup.tasks.filter(task => task.status === filterBy.status)
-                    if (tasks.length) {
-                        newGroup.tasks = tasks
-                        // groupsForDisplay.push(newGroup) //NEED TO FIX
-                    }
-                })
-            }
-            if (filterBy.priority) {
-                newGroups = newGroups.forEach(newGroup => {
-                    const tasks = newGroup.tasks.filter(task => task.priority === filterBy.priority)
-                    if (tasks.length) {
-                        newGroup.tasks = tasks
-                        // groupsForDisplay.push(newGroup) //NEED TO FIX
-                    }
-                })
-            }
 
+        this.setState({ filterBy }, () => {
+            this.props.getGroupsForDisplay(filterBy)
+            // if (filterBy.groupName) {
+            //     updateGroups = groups.filter(group => group.name === filterBy.groupName);
+            // }
+            // if (filterBy.member) {
+            //     console.log('filterBy.memeber,', filterBy.member, 'newGroups', updateGroups);
+            //     updateGroups = updateGroups.filter(currGroup => {
+            //         const tasks = []
+            //         currGroup.tasks.forEach(task => {
+            //             if (task.members.some(member => member.fullname === filterBy.member)) tasks.push(task)
+            //         })
+            //         if (tasks.length) {
+            //             currGroup.tasks = tasks;
+            //             return currGroup;
+            //         }
+            //     })
+            // }
+            // if (filterBy.status) {
+            //     updateGroups = updateGroups.filter(group => this._filterByType(group, 'status'))
+            // }
+            // if (filterBy.priority) {
+            //     updateGroups = updateGroups.filter(group => this._filterByType(group, 'priority'))
+            // }
+
+            // console.log('filtering by', filterBy);
+            // console.log('filtered groups', updateGroups);
         })
-        console.log('filtered groups', newGroups);
     }
+
+    // _filterByType = (group, type) => {
+    //     const tasks = group.tasks.filter(task => task[type] === this.state.filterBy[type])
+    //     if (tasks.length) {
+    //         group.tasks = tasks
+    //         return group;
+    //     }
+    // }
 
     // getDateRange = () => {
     //     const { groups } = this.props.activeBoard

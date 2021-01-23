@@ -13,7 +13,8 @@ export const userService = {
     remove,
     update,
     getLoggedinUser,
-    increaseScore
+    increaseScore,
+    addNotification
 }
 
 function getUsers() {
@@ -64,4 +65,11 @@ function _saveLocalUser(user) {
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem('loggedinUser'))
 }
+
+async function addNotification(userId, notification) {
+    const user = await getById(userId)
+    user.notifications.push(notification)
+    return user
+}
+
 

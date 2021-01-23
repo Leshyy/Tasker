@@ -35,10 +35,11 @@ function connectSockets(http, session) {
             }
             console.log('topic', topic);
             socket.join(topic)
-            // logger.debug('Session ID is', socket.handshake.sessionID)
             socket.myTopic = topic
         })
         socket.on('board update', msg => {
+            console.log('socket topic', socket.myTopic);
+            // socket.to(socket.myTopic).emit('update board', 'update from server')
             socket.broadcast.emit('update board', 'update from server')
         })
         socket.on('boards update', msg => {
@@ -47,6 +48,11 @@ function connectSockets(http, session) {
         socket.on('chat msg', msg => {
             console.log('got msg ', socket.myTopic, msg);
             socket.to(socket.myTopic).emit('chat update', msg)
+        })
+        socket.on('task add member', (notification) => {
+            console.log('tak');
+            // socket.to(socket.myTopic).emit('board add notification', notification)
+            socket.broadcast.emit('board add notification', notification)
         })
 
 

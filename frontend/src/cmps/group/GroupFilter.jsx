@@ -22,7 +22,7 @@ export class GroupFilter extends Component {
         this.setState({ isSearching: !this.state.isSearching })
     }
     render() {
-        const { activeBoard, toggleFilter, isFilterShow, groups } = this.props;
+        const { activeBoard, toggleFilter, isFilterShow, groups, getGroupsForDisplay } = this.props;
         const { isSearching } = this.state;
         return (
             <div className="filter flex align-center">
@@ -47,7 +47,7 @@ export class GroupFilter extends Component {
                 </div>
                 <button className="btn-filter flex center align-center" onClick={toggleFilter}>
                     {<FilterListIcon />} Filter
-                            {isFilterShow && <FilterModal activeBoard={activeBoard} groups={groups} />}
+                            {isFilterShow && <FilterModal activeBoard={activeBoard} groups={groups} getGroupsForDisplay={getGroupsForDisplay} />}
                 </button>
             </div>
         )

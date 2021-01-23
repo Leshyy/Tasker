@@ -8,10 +8,35 @@ import { Link } from 'react-router-dom'
 class _Home extends Component {
 
     state = {
-        boards: null
+        boards: null,
+        isLoading: false
+    }
+
+    componentDidMount() {
+        this.setLoader();
+        // this.props.history.push(`/board/${this.props.boards[0]._id}`)
+    }
+
+    setLoader = async () => {
+        this.setState({ isLoading: true })
+        setTimeout(async () => {
+            this.setState({ isLoading: false })
+            await this.props.loadBoards()
+        }, 4000);
+    }
+
+    componentWillUnmount() {
+        this.setState({ isLoading: false })
     }
 
     render() {
+        if (this.state.isLoading) return (
+            <div className="loader-container flex center align-center">
+                <video width="700" height="700" autoPlay loop preload="true">
+                    <source src="loader.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+        )
         return (
             <section className="home flex col" >
                 <div className="home-header flex start align-center">
@@ -32,7 +57,7 @@ class _Home extends Component {
                         <br />
                         Half the hassle, twice the fun.
                     </p>
-                        <Link to="/board" title="Demo"><button>Run Demo</button></Link>
+                        <Link to="/board" title="Demo" onClick={this.setLoader}><button>Run Demo</button></Link>
 
                     </div>
                     <div className="second-panel">

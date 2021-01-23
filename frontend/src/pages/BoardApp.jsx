@@ -9,24 +9,28 @@ import { AppHeader } from '../cmps/AppHeader'
 
 class _BoardApp extends Component {
     state = {
-        boardsForDisplay: null
+        boardsForDisplay: null,
+        isLoading: false
     }
 
     async componentDidMount() {
+        this.setState({ isLoading: true })
+        setTimeout(async () => {
         await this.loadBoards()
         const { boards, activeBoard } = this.props
 
         if (activeBoard) {
+            this.setState({ isLoading: false })
             this.props.history.push(`/board/${activeBoard._id}`);
             return
         }
         if (!boards || !boards.length) {
             return
         }
+        this.setState({ isLoading: false })
         this.props.history.push(`/board/${boards[0]._id}`);
 
-        // this.setUpListeners()
-
+        }, 4000);
     }
 
     loadBoards = async () => {
@@ -53,6 +57,13 @@ class _BoardApp extends Component {
     render() {
         const { boards } = this.props
         const { boardsForDisplay } = this.state
+        if (this.state.isLoading) return (
+            <div className="loader-container flex center align-center">
+                <video width="700" height="700" autoPlay loop preload="true">
+                    <source src="loader.mp4" type="video/mp4"></source>
+                </video>
+            </div>
+        )
         if (!boards) return <div>Loading no boards...</div>
         return (
             <section className="board-app flex">
