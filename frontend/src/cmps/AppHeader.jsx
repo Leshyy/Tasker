@@ -16,16 +16,22 @@ import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 
 export class AppHeader extends Component {
     state = {
-        isNotificationModalShown: false
+        isNotificationModalShown: false,
+        isHamburgerOpen: false
     }
 
     toggleShowModal = () => {
         this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown })
     }
 
+    openHamburger = () => {
+        var { isHamburgerOpen } = this.state
+        this.setState({ isHamburgerOpen: !isHamburgerOpen })
+    }
+
 
     render() {
-        const { isNotificationModalShown } = this.state
+        const { isNotificationModalShown, isHamburgerOpen } = this.state
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -42,10 +48,11 @@ export class AppHeader extends Component {
                                 <NotificationModal />}
                         </span>
                     </div>
-                    <div className="header-left-bottom flex col end">
-                        <span><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
-                        <span><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
-                        <span><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
+                    <div
+                        className={`header-left-bottom flex col space-around ${isHamburgerOpen && 'open'}`}>
+                        <span className="event-note flex"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
+                        <span className="person flex"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
+                        <span className="exit-to-app flex"><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
                     </div>
                 </div>
                 <div className="header-right-panel flex col">
@@ -56,7 +63,7 @@ export class AppHeader extends Component {
                     </div>
                     <div className="header-right-bottom"></div>
                 </div>
-                <button className="hamburger"><MenuOutlinedIcon className="hamburger" /></button>
+                <button className="hamburger" onClick={this.openHamburger}><MenuOutlinedIcon className="hamburger" /></button>
             </div>
         )
     }
