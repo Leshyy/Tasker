@@ -6,6 +6,7 @@ import { updateUser, loginUser } from '../../store/actions/userAction'
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import LibraryBooksOutlinedIcon from '@material-ui/icons/LibraryBooksOutlined';
 
 import { GroupList } from '../group/GroupList'
 import { taskService } from '../../services/taskService'
@@ -65,17 +66,26 @@ export class _BoardDetails extends Component {
         const updatedBoard = groupService.add(groupName, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
+    onUpdateGroup = (group) => {
+        const { activeBoard } = this.props
+        const updatedBoard = groupService.update(group, activeBoard)
+        this.props.updateBoard(updatedBoard)
+    }
+    onSortGroup = (group, sortBy) => {
+        const { activeBoard } = this.props
+        const groupIdx = activeBoard.groups.findIndex(currGroup => currGroup.id === group.id)
+        console.log('groupIdx is', groupIdx, 'sortingBy', sortBy);
+        // let currGroup = [...activeBoard.groups[groupIdx]]
+        // currGroup.filter(newGroup => newGroup.status==='Completed')
+        // let sortedGroup = [...currGroup]
+    }
     onRemoveGroup = (ev, groupId) => {
         ev.stopPropagation();
         const { activeBoard } = this.props
         const updatedBoard = groupService.remove(groupId, activeBoard)
         this.props.updateBoard(updatedBoard)
     }
-    onUpdateGroup = (group) => {
-        const { activeBoard } = this.props
-        const updatedBoard = groupService.update(group, activeBoard)
-        this.props.updateBoard(updatedBoard)
-    }
+
     onUpdateBoardName = (boardName) => {
         const { activeBoard, boards } = this.props
         const updatedBoard = { ...activeBoard }
@@ -88,10 +98,6 @@ export class _BoardDetails extends Component {
         const updatedBoard = { ...activeBoard }
         updatedBoard.desc = description
         this.props.updateBoard(updatedBoard)
-    }
-
-    onUpdateUser = async (user) => {
-        await this.props.updateUser(user)
     }
 
     handleDragEnd = async (res) => {
@@ -200,6 +206,7 @@ export class _BoardDetails extends Component {
                                 </AvatarGroup>
                             </span>
                             <span className="activities">Activities/ 17</span>
+                            <LibraryBooksOutlinedIcon className="libary-icon" />
                             <MoreHorizIcon />
                         </div>
                     </div>
@@ -236,6 +243,7 @@ export class _BoardDetails extends Component {
                                 New Group
                             </button>
                             <GroupFilter
+                                getGroupsForDisplay={this.getGroupsForDisplay}
                                 groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                                 activeBoard={activeBoard}
                                 toggleFilter={this.toggleFilter}
@@ -252,12 +260,12 @@ export class _BoardDetails extends Component {
                 <GroupList
                     groups={(!groupsForDisplay || !groupsForDisplay.length) ? activeBoard.groups : groupsForDisplay}
                     onRemoveTask={this.onRemoveTask}
+                    onSortGroup={this.onSortGroup}
                     onAddTask={this.onAddTask}
                     onUpdateTask={this.onUpdateTask}
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.handleDragEnd}
-                    onUpdateUser={this.onUpdateUser}
                     activeBoard={activeBoard}
                     loggedInUser={loggedInUser}
                 />

@@ -1,0 +1,149 @@
+@media screen and (max-width: 750px) {
+    .board-app {
+        height: 100vh;
+        flex-direction: column;
+        .header-main {
+            height: 70px;
+            width: 100vw;
+            z-index: 10;
+            flex-direction: row;
+            justify-content: space-between;
+            .header-left-panel {
+                height: 70px;
+                .header-left-top {
+                    .col {
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                    display: none;
+                }
+                .header-left-bottom {
+                    background-color: #e2e2e2;
+                    width: 100vw;
+                    a {
+                        text-decoration: none;
+                        text-align: left;
+                        color: #717277;
+                    }
+                    & span {
+                        width: 100vw;
+                        border-bottom: 1px solid white;
+                        margin: 0;
+                        .MuiSvgIcon-root {
+                            font-size: x-larger;
+                            align-self: center;
+                            color: #717277;
+                            // padding-top: 7px;
+                        }
+                    }
+                    .event-note ::after {
+                        content: "All my event";
+                    }
+                    .person ::after {
+                        content: "To my profile";
+                    }
+                    .exit-to-app ::after {
+                        content: "Exit";
+                        text-decoration: none;
+                    }
+                }
+            }
+            .header-right-panel {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .open {
+                transform: translate(0px, -218px);
+            }
+        }
+        .board-side-nav {
+            position: absolute;
+            z-index: 10;
+            box-shadow: 0px 3px 6px 0px #484444;
+        }
+        .btn-toggle-sidenav {
+            top: -10px;
+            left: 180px;
+            z-index: 12;
+        }
+        .board-side-nav-close {
+            .btn-toggle-sidenav {
+                top: 60px;
+                left: -7px;
+                z-index: 12;
+            }
+        }
+        .board-main {
+            overflow-x: hidden;
+            width: 100vw;
+        }
+        .board-details {
+            .board-header-top-container {
+                .board-name {
+                    font-size: 20px;
+                }
+                .board-header-top-right {
+                    padding-inline-end: 0;
+                    padding: 3px;
+                    .activities {
+                        padding: 4px;
+                        display: none;
+                    }
+                    .libary-icon {
+                        display: flex;
+                        font-size: x-large;
+                        padding: 0;
+                    }
+                }
+                .board-header-bottom-container {
+                    .board-creator {
+                        font-size: 14px;
+                    }
+                    padding-inline-end: 0;
+                    .filter {
+                        div.btn-search {
+                            transition: 0.7s;
+                            &.searching {
+                                width: 160px;
+                                transform: translate(98px, 52px);
+                                z-index: 12;
+                                &:focus {
+                                    background-color: royalblue;
+                                }
+                            }
+                        }
+                        button.btn-filter {
+                            width: 55px;
+                        }
+                        .filter-modal {
+                            left: 0;
+                            width: 100vw;
+                            padding: em(5px);
+                            overflow-x: scroll;
+                            & .column {
+                                h1 {
+                                    width: rem(100px);
+                                    margin-block-start: 0.47em;
+                                    margin-block-end: 0.47em;
+                                }
+                                li {
+                                    width: rem(100px);
+                                }
+                            }
+                        }
+                    }
+                    .btn-add-group {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+.group-list {
+    & .group-preview {
+        width: auto;
+    }
+}

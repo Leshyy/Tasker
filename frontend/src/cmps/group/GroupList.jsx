@@ -1,6 +1,6 @@
 import { GroupPreview } from './GroupPreview'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup, handleDragEnd, onUpdateTask, onUpdateGroup, activeBoard, loggedInUser, onUpdateUser }) {
+export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup, handleDragEnd, onUpdateTask, onUpdateGroup, activeBoard, onSortGroup, loggedInUser }) {
 
 
     return (
@@ -15,6 +15,7 @@ export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup, hand
                                         {(provided) => (
                                             <div {...provided.draggableProps} ref={provided.innerRef}>
                                                 <GroupPreview
+                                                    onSortGroup={onSortGroup}
                                                     onRemoveTask={onRemoveTask}
                                                     onAddTask={onAddTask}
                                                     group={group}
@@ -25,7 +26,6 @@ export function GroupList({ groups, onAddTask, onRemoveTask, onRemoveGroup, hand
                                                     provided={provided}
                                                     activeBoard={activeBoard}
                                                     loggedInUser={loggedInUser}
-                                                    onUpdateUser={onUpdateUser}
                                                 />
                                             </div>
                                         )}

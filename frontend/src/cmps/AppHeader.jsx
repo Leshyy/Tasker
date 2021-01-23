@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import {
     NotificationsNone,
@@ -10,18 +9,18 @@ import {
     GitHub,
     LinkedIn
 } from '@material-ui/icons';
-
-import logo from '../assets/styles/logo/logo.png'
 import { NotificationModal } from './notification/NotificationModal';
+import logo from "../assets/styles/logo/logo.png";
+import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import { socketService } from '../services/socketService';
-
 
 
 export class AppHeader extends Component {
     state = {
         isNotificationModalShown: false,
         notifications: [],
-        isNewNotification: false
+        isNewNotification: false,
+        isHamburgerOpen: false
     }
 
     async componentDidMount() {
@@ -36,9 +35,14 @@ export class AppHeader extends Component {
         this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown, isNewNotification: false })
     }
 
+    openHamburger = () => {
+        var { isHamburgerOpen } = this.state
+        this.setState({ isHamburgerOpen: !isHamburgerOpen })
+    }
+
 
     render() {
-        const { isNotificationModalShown, notifications, isNewNotification } = this.state
+        const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -57,10 +61,11 @@ export class AppHeader extends Component {
                                 <NotificationModal notifications={notifications} />}
                         </span>
                     </div>
-                    <div className="header-left-bottom flex col space-around">
-                        <Link className="header-item" to="/myweek" title="My week"><EventNoteOutlined /></Link>
-                        <Link className="header-item" to="/profile" title="My profile"><PersonOutline /></Link>
-                        <Link className="header-item" to="" title="Logout"><ExitToAppOutlined /></Link>
+                    <div
+                        className={`header-left-bottom flex col end ${isHamburgerOpen && 'open'}`}>
+                        <span className="event-note flex"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
+                        <span className="person flex"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
+                        <span className="exit-to-app flex"><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
                     </div>
                 </div>
                 <div className="header-right-panel flex col">
@@ -71,6 +76,7 @@ export class AppHeader extends Component {
                     </div>
                     <div className="header-right-bottom"></div>
                 </div>
+                <button className="hamburger" onClick={this.openHamburger}><MenuOutlinedIcon className="hamburger" /></button>
             </div>
         )
     }

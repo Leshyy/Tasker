@@ -11,8 +11,8 @@
     max-height: 300px;
     overflow: hidden;
     .column {
-        width: 140px;
-        padding: 5px 10px;
+        width: rem(140px);
+        padding: rem(5px) rem(10px);
         ul {
             height: 150px;
             overflow-y: scroll;
@@ -23,7 +23,7 @@
                 margin: 3px auto;
                 padding: 10px 2px;
                 border-radius: 2px;
-                font-size: 12px;
+                font-size: rem(12px);
                 &:hover {
                     opacity: 0.8;
                 }
