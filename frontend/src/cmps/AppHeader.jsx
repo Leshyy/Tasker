@@ -1,5 +1,5 @@
+import { Component } from 'react';
 import { Link } from 'react-router-dom'
-import logo from '../assets/styles/logo/logo.png'
 import {
     NotificationsNone,
     AppsOutlined,
@@ -9,19 +9,30 @@ import {
     GitHub,
     LinkedIn
 } from '@material-ui/icons';
-import { Component } from 'react';
-import { NotificationModal } from './NotificationModal';
+import { NotificationModal } from './notification/NotificationModal';
+import logo from "../assets/styles/logo/logo.png";
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import { socketService } from '../services/socketService';
 
 
 export class AppHeader extends Component {
     state = {
         isNotificationModalShown: false,
+        notifications: [],
+        isNewNotification: false,
         isHamburgerOpen: false
     }
 
+    async componentDidMount() {
+        socketService.on('board add notification', (notification) => {
+            const copyNotifications = [...this.state.notifications, notification]
+            this.setState({ notifications: copyNotifications, isNewNotification: true })
+        })
+    }
+
+
     toggleShowModal = () => {
-        this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown })
+        this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown, isNewNotification: false })
     }
 
     openHamburger = () => {
@@ -31,7 +42,7 @@ export class AppHeader extends Component {
 
 
     render() {
-        const { isNotificationModalShown, isHamburgerOpen } = this.state
+        const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -41,11 +52,13 @@ export class AppHeader extends Component {
                         </Link>
                     </div>
                     <div className="header-left-top flex col">
-                        <span><Link to="/board" title="My Boards"><AppsOutlined /></Link></span>
-                        <span title="Notifications" className="notifications" onClick={this.toggleShowModal}>
+                        <Link className="header-item" to="/board" title="My Boards"><AppsOutlined /></Link>
+                        <span title="Notifications" className="notifications header-item" onClick={this.toggleShowModal}>
                             <NotificationsNone />
+                            {isNewNotification && <div className="new-notification"></div>}
+
                             {isNotificationModalShown &&
-                                <NotificationModal />}
+                                <NotificationModal notifications={notifications} />}
                         </span>
                     </div>
                     <div
@@ -58,8 +71,8 @@ export class AppHeader extends Component {
                 <div className="header-right-panel flex col">
                     <div className="header-right-top"></div>
                     <div className="header-right-middle flex col">
-                        <span><GitHub /></span>
-                        <span><LinkedIn /></span>
+                        <GitHub className="header-item" />
+                        <LinkedIn className="header-item" />
                     </div>
                     <div className="header-right-bottom"></div>
                 </div>
