@@ -24,7 +24,7 @@ export class AppHeader extends Component {
         this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown })
     }
 
-    openHamburger = () => {
+    toggleHamburger = () => {
         var { isHamburgerOpen } = this.state
         this.setState({ isHamburgerOpen: !isHamburgerOpen })
     }
@@ -49,7 +49,7 @@ export class AppHeader extends Component {
                         </span>
                     </div>
                     <div
-                        className={`header-left-bottom flex col space-around ${isHamburgerOpen && 'open'}`}>
+                        className={`header-left-bottom flex col space-around ${!isHamburgerOpen && 'open'}`}>
                         <span className="event-note flex"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
                         <span className="person flex"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
                         <span className="exit-to-app flex"><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
@@ -63,7 +63,9 @@ export class AppHeader extends Component {
                     </div>
                     <div className="header-right-bottom"></div>
                 </div>
-                <button className="hamburger" onClick={this.openHamburger}><MenuOutlinedIcon className="hamburger" /></button>
+                <button className="hamburger" onClick={this.toggleHamburger}><MenuOutlinedIcon className="hamburger" /></button>
+                {isHamburgerOpen &&
+                    <div className="dark-screen-nover" onClick={this.toggleHamburger}></div>}
             </div>
         )
     }

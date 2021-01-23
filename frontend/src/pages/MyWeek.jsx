@@ -8,9 +8,11 @@ import { loadBoards } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
 import { ListMyWeek } from '../cmps/ListMyWeek'
 import Calendar from '../assets/icons/calendar.png'
+import { userService } from '../services/userService'
 
 export class _MyWeek extends Component {
     state = {
+        loggedInUser: '',
         boardsForDisplay: null,
         isTaskShown: true,
         filterBy: {
@@ -18,6 +20,8 @@ export class _MyWeek extends Component {
         }
     }
     componentDidMount() {
+        const loggedInUser = userService.getLoggedinUser()
+        this.setState({ loggedInUser }, () => console.log('this.state.logg is:', this.state.loggedInUser))
         this.loadBoards()
         const { boards } = this.props
         if (!boards || !boards.length) {
@@ -26,6 +30,7 @@ export class _MyWeek extends Component {
     }
 
     loadBoards = () => {
+
         this.props.loadBoards()
     }
 
@@ -53,14 +58,14 @@ export class _MyWeek extends Component {
 
     render() {
         const { boards } = this.props
-        const { isTaskShown } = this.state
+        const { isTaskShown, loggedInUser } = this.state
         return (
             <React.Fragment>
                 <AppHeader />
                 <section className="my-week">
                     <div className="top flex space-around align-center">
                         <img src={Calendar} alt="" />
-                        <h2>Hey Amit ,You have 4 assignments this week</h2>
+                        <h2>Hey { } ,You have 4 assignments this week</h2>
                     </div>
                     <Input
                         type="text"
@@ -75,7 +80,7 @@ export class _MyWeek extends Component {
                             <p>Tasks For You:</p>
                             <Button onClick={this.toggleTasksMode}>{(isTaskShown) ? 'Close tasks' : 'Open tasks'}</Button>
                         </div>
-                        {isTaskShown && <ListMyWeek boards={boards} username={'2h3j5b'} />}
+                        {isTaskShown && <ListMyWeek boards={boards} username={loggedInUser._id} />}
                     </div>
                 </section>
             </React.Fragment >

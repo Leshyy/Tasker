@@ -1,24 +1,67 @@
-import { httpService } from "./httpService"
+// import { storageService } from './asyncStorageService'
+import { httpService } from './httpService'
+const SCORE_FOR_REVIEW = 10
+const BASE_URL = 'api'
 
-const BASE_URL = 'api/user'
 
 export const userService = {
+    login,
+    logout,
+    signup,
     getUsers,
     getById,
-    // update,
-    // remove,
-    // increaseScore,
-    // getLoggedinUser,
-    // _saveLocalUser
+    remove,
+    update,
+    getLoggedinUser,
+    increaseScore
 }
 
-async function getUsers() {
-    const users = await httpService.get(BASE_URL)
-    console.log('users', users);
-    return users
-
+function getUsers() {
+    return httpService.get(`${BASE_URL}/user`)
 }
 
-async function getById(userId) {
-    return await httpService.get(BASE_URL + '/' + userId)
+function getById(userId) {
+    return httpService.get(`${BASE_URL}/user/${userId}`)
 }
+
+function remove(userId) {
+    return httpService.delete(`${BASE_URL}/user/${userId}`)
+}
+
+async function update(user) {
+    user = await httpService.put(`${BASE_URL}/user/${user._id}`, user)
+    if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
+}
+
+async function increaseScore(by = SCORE_FOR_REVIEW) {
+    const user = getLoggedinUser()
+    user.score = user.score + by || by
+    await update(user)
+    return user.score
+}
+
+async function login(userCred) {
+    const user = await httpService.post(`${BASE_URL}/auth/login`, userCred)
+    console.log('user in front is:', user);
+    if (user) return _saveLocalUser(user)
+}
+
+async function signup(userCred) {
+    const user = await httpService.post(`${BASE_URL}/auth/signup`, userCred)
+    return _saveLocalUser(user)
+}
+
+async function logout() {
+    sessionStorage.clear()
+    return await httpService.post(`${BASE_URL}/auth/logout`)
+}
+
+function _saveLocalUser(user) {
+    sessionStorage.setItem('loggedinUser', JSON.stringify(user))
+    return user
+}
+
+function getLoggedinUser() {
+    return JSON.parse(sessionStorage.getItem('loggedinUser'))
+}
+

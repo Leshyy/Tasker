@@ -1,7 +1,7 @@
 import { Component } from "react"
+import { connect } from "react-redux"
 import Input from '@material-ui/core/Input'
-// import { connect } from "socket.io-client"
-// import { loginUser, logoutUser } from "../store/actions/userAction"
+import { login, signup, logout } from "../store/actions/userAction"
 import { userService } from "../services/userService"
 import { Button } from '@material-ui/core'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
@@ -9,11 +9,14 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import { Link } from 'react-router-dom'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 
-export class Login extends Component {
+
+
+class _Login extends Component {
     state = {
         isNewUser: false,
         msg: '',
         loggedinUser: userService.getLoggedinUser(),
+        // loggedinUser: '2uk35b',
         loginCred: {
             username: '',
             password: ''
@@ -32,7 +35,7 @@ export class Login extends Component {
 
     loginHandleChange = (ev) => {
         const { name, value } = ev.target
-        console.log('name,value is:', name, value);
+        // console.log('name,value is:', name, value);
         this.setState(prevState => ({
             loginCred: {
                 ...prevState.loginCred,
@@ -40,29 +43,59 @@ export class Login extends Component {
             }
         }))
     }
+
+    signupHandleChange = ev => {
+        const { name, value } = ev.target
+        this.setState(prevState => ({
+            signupCred: {
+                ...prevState.signupCred,
+                [name]: value
+            }
+        }))
+    }
+
     doLogin = async ev => {
         ev.preventDefault()
         const { username, password } = this.state.loginCred
-        console.log('username,password is:', username, password);
         if (!username || !password) {
             return this.setState({ msg: 'Please enter user/password' })
         }
-        const userCreds = { username, password }
         try {
-            const user = await userService.login(userCreds)
-            this.props.loginUser(user)
-            this.props.history.push('/toy')
-        }
-        catch (err) {
-            console.log('ERR', err)
-            this.setState({ msg: 'Try again' })
+            const userCreds = { username, password }
+            const user = await this.props.login(userCreds)
+            if (user) {
+                this.setState({ loginCred: { username: '', password: '' } })
+                this.props.history.push('/board')
+
+            }
+        } catch (err) {
+            this.setState({ msg: 'Login failed, try again.' })
         }
     }
+
+    doSignup = async ev => {
+        ev.preventDefault()
+        const { username, password, fullname } = this.state.signupCred
+        if (!username || !password || !fullname) {
+            return this.setState({ msg: 'All inputs are required' })
+        }
+        const signupCreds = { username, password, fullname }
+        try {
+            this.props.signup(signupCreds)
+            this.setState({ signupCred: { username: '', password: '', fullname: '' } })
+            this.props.history.push('/board')
+        } catch {
+            this.setState({ msg: 'signup failed, try again.' })
+
+        }
+    }
+
     newUser = (ev) => {
         ev.preventDefault()
         const lastAns = this.state.isNewUser
         this.setState({ isNewUser: !lastAns })
     }
+
     render() {
         // const loggedInUser = userService.getLoggedinUser()
 
@@ -86,7 +119,7 @@ export class Login extends Component {
                     onChange={this.loginHandleChange}
                     placeholder="Password"
                 />
-                <Button variant="contained" color="primary">Login</Button>
+                <button variant="contained" color="primary">Login</button>
                 <a href="\login" onClick={this.newUser}>Dont have a user? signup</a>
                 <Button color="primary"><FacebookIcon className="face-icon" />Login with Facebook</Button>
 
@@ -123,7 +156,7 @@ export class Login extends Component {
                     onChange={this.signupHandleChange}
                     placeholder="Email*"
                 />
-                <Button variant="contained">Signup</Button>
+                <button variant="contained">Signup</button>
                 <a href="" onClick={this.newUser}> have a user? login</a>
 
             </form>
@@ -135,17 +168,17 @@ export class Login extends Component {
                 <section className="login-container">
                     <AccountCircleIcon />
                     <p>{this.state.msg}</p>
-                    {!loggedinUser && (
+                    {loggedinUser && (
                         <div>
                             <h3>
                                 Are you sure you want to exit? {loggedinUser}
-                                <button onClick={this.doLogout}>Logout</button>
+                                <button onClick={this.props.logout}>Logout</button>
                             </h3>
                         </div>
                     )}
 
-                    {loggedinUser && !isNewUser && loginSection}
-                    {loggedinUser && isNewUser && signupSection}
+                    {!loggedinUser && !isNewUser && loginSection}
+                    {!loggedinUser && isNewUser && signupSection}
 
 
                 </section>
@@ -153,17 +186,15 @@ export class Login extends Component {
         )
     }
 }
-// const mapGlobalStateToProps = (state) => {
-//     return {
-//         // loggedinUser: state.userReducer.loggedInUser
-//     }
-// }
-// const mapDispatchToProps = {
-//     // loginUser,
-//     // logoutUser,
-//     // getLoggedinUser
-// }
+const mapGlobalStateToProps = (state) => {
+    return {
+        loggedinUser: state.userReducer.loggedInUser
+    }
+}
+const mapDispatchToProps = {
+    login,
+    signup,
+    logout
+}
 
-// export const Login = connect(
-//     mapGlobalStateToProps,
-//     mapDispatchToProps)(_Login)
+export const Login = connect(mapGlobalStateToProps, mapDispatchToProps)(_Login)

@@ -5,6 +5,7 @@ async function login(req, res) {
     const { username, password } = req.body
     try {
         const user = await authService.login(username, password)
+        console.log('user in auth con is:', user);
         req.session.user = user
         res.json(user)
     } catch (err) {
@@ -16,6 +17,7 @@ async function login(req, res) {
 async function signup(req, res) {
     try {
         const { username, password, fullname } = req.body
+        console.log('req.body is:', req.body);
         const account = await authService.signup(username, password, fullname)
         logger.debug(`auth.route - new account created: ` + JSON.stringify(account))
         const user = await authService.login(username, password)
