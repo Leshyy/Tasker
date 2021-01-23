@@ -1,4 +1,6 @@
+
 // let localLoggedinUser = null
+
 let localLoggedinUser = {
     _id: "600877404b50bc8b342c1734",
     isAdmin: true,
@@ -24,6 +26,7 @@ let localLoggedinUser = {
     createdAt: 1601297334426.0,
     imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221822/Tamir_zzn3m4.jpg"
 }
+
 // if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
 
 const initialState = {
@@ -36,6 +39,8 @@ export function userReducer(state = initialState, action = {}) {
         case 'SET_USERS':
             return { ...state, users: action.users }
         case 'LOGIN_USER':
+            return { ...state, loggedInUser: action.user }
+        case 'SET_USER':
             return { ...state, loggedInUser: action.user }
         case 'LOGOUT_USER':
             return { ...state, loggedInUser: null };

@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadBoard, loadBoards, updateBoard, updateBoards } from '../../store/actions/boardAction'
+import { updateUser, loginUser } from '../../store/actions/userAction'
 
 import { AvatarGroup } from '@material-ui/lab';
 import { Avatar } from '@material-ui/core';
@@ -20,6 +21,9 @@ export class _BoardDetails extends Component {
     componentDidMount() {
         this.loadActiveBoard()
         this.setUpListeners()
+
+        socketService.emit('chat topic', this.props.match.params)
+
     }
     setUpListeners = () => {
         socketService.on('update board', () => {
@@ -32,6 +36,8 @@ export class _BoardDetails extends Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
+            socketService.emit('chat topic', this.props.match.params)
+            this.setUpListeners()
             this.loadActiveBoard()
         }
     }
@@ -83,6 +89,11 @@ export class _BoardDetails extends Component {
         updatedBoard.desc = description
         this.props.updateBoard(updatedBoard)
     }
+
+    onUpdateUser = async (user) => {
+        await this.props.updateUser(user)
+    }
+
     handleDragEnd = async (res) => {
         const { source, destination, type } = res;
         const { activeBoard } = this.props;
@@ -151,7 +162,7 @@ export class _BoardDetails extends Component {
     }
 
     render() {
-        const { activeBoard } = this.props
+        const { activeBoard, loggedInUser } = this.props
         const { groupsForDisplay } = this.state
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
@@ -246,7 +257,9 @@ export class _BoardDetails extends Component {
                     onUpdateGroup={this.onUpdateGroup}
                     onRemoveGroup={this.onRemoveGroup}
                     handleDragEnd={this.handleDragEnd}
+                    onUpdateUser={this.onUpdateUser}
                     activeBoard={activeBoard}
+                    loggedInUser={loggedInUser}
                 />
             </section>
         )
@@ -255,14 +268,17 @@ export class _BoardDetails extends Component {
 const mapGlobalStateToProps = (state) => {
     return {
         activeBoard: state.boardReducer.activeBoard,
-        boards: state.boardReducer.boards
+        boards: state.boardReducer.boards,
+        loggedInUser: state.userReducer.loggedInUser
     };
 };
 const mapDispatchToProps = {
     loadBoard,
     loadBoards,
     updateBoard,
-    updateBoards
+    updateBoards,
+    updateUser,
+    loginUser
 }
 export const BoardDetails = connect(
     mapGlobalStateToProps,

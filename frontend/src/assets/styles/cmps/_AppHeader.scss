@@ -5,6 +5,14 @@
     z-index: 2;
     .notifications {
         position: relative;
+        .new-notification {
+            height: 10px;
+            width: 10px;
+            position: absolute;
+            background-color: red;
+            border-radius: 50%;
+            right: 7px;
+        }
     }
     .header-item {
         display: flex;

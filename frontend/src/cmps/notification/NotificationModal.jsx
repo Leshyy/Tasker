@@ -1,10 +1,16 @@
+import { Component } from "react";
 import { NotificationList } from "./NotificationList";
 
-export function NotificationModal({ notifications }) {
-    return (
-        <section className="noti-modal">
-            <span>notifications:</span>
-            <NotificationList notifications={notifications} />
-        </section>
-    )
+export class NotificationModal extends Component {
+
+
+    render() {
+        const { notifications } = this.props
+        return (
+            <section className="noti-modal">
+                <span>notifications:</span>
+                <NotificationList notifications={notifications} />
+            </section>
+        )
+    }
 }

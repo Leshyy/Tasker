@@ -13,22 +13,32 @@ import {
 
 import logo from '../assets/styles/logo/logo.png'
 import { NotificationModal } from './notification/NotificationModal';
+import { socketService } from '../services/socketService';
 
 
-export class _AppHeader extends Component {
+
+export class AppHeader extends Component {
     state = {
-        isNotificationModalShown: false
+        isNotificationModalShown: false,
+        notifications: [],
+        isNewNotification: false
     }
 
+    async componentDidMount() {
+        socketService.on('board add notification', (notification) => {
+            const copyNotifications = [...this.state.notifications, notification]
+            this.setState({ notifications: copyNotifications, isNewNotification: true })
+        })
+    }
+
+
     toggleShowModal = () => {
-        this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown })
+        this.setState({ isNotificationModalShown: !this.state.isNotificationModalShown, isNewNotification: false })
     }
 
 
     render() {
-        const { isNotificationModalShown } = this.state
-        const { loggedInUser } = this.props
-        console.log('user', loggedInUser);
+        const { isNotificationModalShown, notifications, isNewNotification } = this.state
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -41,9 +51,10 @@ export class _AppHeader extends Component {
                         <Link className="header-item" to="/board" title="My Boards"><AppsOutlined /></Link>
                         <span title="Notifications" className="notifications header-item" onClick={this.toggleShowModal}>
                             <NotificationsNone />
+                            {isNewNotification && <div className="new-notification"></div>}
 
                             {isNotificationModalShown &&
-                                <NotificationModal notifications={loggedInUser.notifications} />}
+                                <NotificationModal notifications={notifications} />}
                         </span>
                     </div>
                     <div className="header-left-bottom flex col space-around">
@@ -64,16 +75,3 @@ export class _AppHeader extends Component {
         )
     }
 }
-
-const mapGlobalStateToProps = (state) => {
-    return {
-        loggedInUser: state.userReducer.loggedInUser,
-    };
-};
-const mapDispatchToProps = {
-}
-
-export const AppHeader = connect(
-    mapGlobalStateToProps,
-    mapDispatchToProps
-)(_AppHeader);

@@ -11,6 +11,8 @@ import { TaskMembers } from './columns/TaskMembers';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
 import { DeleteModalTask } from '../DeleteModalTask';
+import { userService } from '../../services/userService';
+import { socketService } from '../../services/socketService';
 
 export class TaskPreview extends Component {
     state = {
@@ -146,10 +148,23 @@ export class TaskPreview extends Component {
         onUpdateTask(updatedTask, group.id)
     }
 
-    onAddMember = (member) => {
-        const { group, task, onUpdateTask } = this.props;
+    onAddMember = async (member) => {
+        const { group, task, onUpdateTask, loggedInUser, onUpdateUser } = this.props;
         const updatedTask = taskService.addMember(task, member)
         onUpdateTask(updatedTask, group.id)
+        const notification = {
+            byUser: {
+                _id: loggedInUser._id,
+                fullname: loggedInUser.fullname,
+                imgUrl: loggedInUser.imgUrl
+            },
+            content: `added ${member.fullname} to task ${task.name}`
+        }
+        socketService.emit('task add member', notification)
+        // const user = await userService.addNotification(member, notification)
+        // await userService.addNotification(member, notification)
+        // await onUpdateUser(user)
+        // const user = {log}
     }
 
     render() {
