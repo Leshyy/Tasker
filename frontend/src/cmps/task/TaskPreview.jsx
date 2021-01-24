@@ -57,7 +57,7 @@ export class TaskPreview extends Component {
     handleChange = (ev) => {
         const { value } = ev.target
         const field = ev.target.name
-        const copy = { ...this.state.task }
+        const copy = { ...this.props.task }
         copy[field] = value
         this.setState({ task: copy })
 
