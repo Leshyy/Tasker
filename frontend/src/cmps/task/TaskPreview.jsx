@@ -78,7 +78,8 @@ export class TaskPreview extends Component {
     }
 
     handleModalChange = (txt, type) => {
-        const copy = { ...this.state.task }
+        const copy = { ...this.props.task }
+        console.log('copy', copy);
         copy[type] = txt
         this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
 
@@ -143,13 +144,17 @@ export class TaskPreview extends Component {
     }
 
     onRemoveMember = (memberId) => {
+
         const { group, task, onUpdateTask } = this.props;
         const updatedTask = taskService.removeMember(task, memberId)
         onUpdateTask(updatedTask, group.id)
     }
 
     onAddMember = async (member) => {
-        const { group, task, onUpdateTask, loggedInUser, onUpdateUser } = this.props;
+        // const copy = { ...this.state.task };
+        // copy.members = [...members, member];
+        // this.setState({ task: copy });
+        const { group, task, onUpdateTask, loggedInUser } = this.props;
         const updatedTask = taskService.addMember(task, member)
         onUpdateTask(updatedTask, group.id)
         const notification = {
@@ -280,9 +285,12 @@ export class TaskPreview extends Component {
                 {isShownDetails && <div className="dark-screen" onClick={this.closeModal}></div>}
                 {isShownDetails &&
                     <TaskDetails
+                        groupId={group.id}
                         task={task}
                         onAddComment={this.onAddComment}
-                        closeModal={this.closeModal} />}
+                        closeModal={this.closeModal}
+                        onUpdateTask={onUpdateTask}
+                    />}
             </div >
         )
     }

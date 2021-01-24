@@ -57,6 +57,7 @@ export class _BoardDetails extends Component {
         this.props.updateBoard(updatedBoard)
     }
     onUpdateTask = (task, groupId) => {
+        console.log('updating', task);
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
@@ -153,7 +154,7 @@ export class _BoardDetails extends Component {
         groupsForDisplay = []
 
         if (!filterBy) return this.setState({ groupsForDisplay: null })
-            
+
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
             updateGroups.forEach(group => {

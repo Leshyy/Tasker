@@ -3,6 +3,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import { Component } from 'react'
 import { CommentList } from './comment/CommentList'
+import { socketService } from '../../services/socketService'
 
 
 export class TaskDetails extends Component {
@@ -18,6 +19,8 @@ export class TaskDetails extends Component {
         }
     }
     componentDidMount() {
+        const { onUpdateTask, task, groupId } = this.props;
+        socketService.on('chat update', () => onUpdateTask(task, groupId))
     }
 
 
