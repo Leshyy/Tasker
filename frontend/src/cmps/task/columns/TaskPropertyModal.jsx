@@ -52,7 +52,8 @@ export class TaskPropertyModal extends Component {
                                 style={(findLabel(option.txt, type) ? { cursor: "no-drop" } : {})}
                                 onClick={(ev) => {
                                     onRemoveLabel(ev, option.txt, type)
-                                }}>X</Delete>
+                                }}
+                            />
                         </div>
                     )
                 })
@@ -75,7 +76,8 @@ export class TaskPropertyModal extends Component {
                     <ColorCmp
                         className="color-pallete"
                         changeColor={this.onColorChange}
-                        togglePallete={this.pass} />
+                        togglePallete={this.pass}
+                    />
                 </form>
             </div >
         )
