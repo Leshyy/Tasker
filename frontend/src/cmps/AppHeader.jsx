@@ -63,9 +63,9 @@ export class AppHeader extends Component {
                     </div>
                     <div
                         className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>
-                        <Link className="event-note header-item flex" to="/myweek" title="My week"><EventNoteOutlined /></Link>
-                        <Link className="person header-item flex" to="/profile" title="My profile"><PersonOutline /></Link>
-                        <Link className="exit-to-app header-item flex" to="" title="Logout"><ExitToAppOutlined /></Link>
+                        <span className="event-note header-item flex align-center"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
+                        <span className="person header-item flex align-center"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
+                        <span className="exit-to-app header-item flex align-center"><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
                     </div>
                 </div>
                 <div className="header-right-panel flex col">

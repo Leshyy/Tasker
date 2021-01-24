@@ -26,7 +26,8 @@
                         text-align: left;
                         color: #717277;
                     }
-                    & span {
+
+                    .header-item {
                         width: 100vw;
                         border-bottom: 1px solid white;
                         margin: 0;
@@ -37,13 +38,13 @@
                             // padding-top: 7px;
                         }
                     }
-                    .event-note ::after {
+                    .event-note::after {
                         content: "All my event";
                     }
-                    .person ::after {
+                    .person::after {
                         content: "To my profile";
                     }
-                    .exit-to-app ::after {
+                    .exit-to-app::after {
                         content: "Exit";
                         text-decoration: none;
                     }
