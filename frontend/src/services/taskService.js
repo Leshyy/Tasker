@@ -47,7 +47,7 @@ function getById(task, group) {
 function addComment(comment, task) {
     const updatedTask = { ...task }
     comment.createdAt = Date.now()
-    updatedTask.comments.push(comment)
+    updatedTask.comments.unshift(comment)
     return updatedTask
 
 }
