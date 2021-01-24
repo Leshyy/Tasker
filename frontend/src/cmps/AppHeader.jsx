@@ -1,5 +1,8 @@
-import { Component } from 'react';
+import { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from '../store/actions/userAction'
+
 import {
     NotificationsNone,
     AppsOutlined,
@@ -15,7 +18,7 @@ import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import { socketService } from '../services/socketService';
 
 
-export class AppHeader extends Component {
+export class _AppHeader extends Component {
     state = {
         isNotificationModalShown: false,
         notifications: [],
@@ -43,6 +46,7 @@ export class AppHeader extends Component {
 
     render() {
         const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
+        const { logout } = this.props
         return (
             <div className="header-main flex">
                 <div className="header-left-panel flex col">
@@ -66,7 +70,7 @@ export class AppHeader extends Component {
                         className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>
                         <span className="event-note header-item flex align-center"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
                         <span className="person header-item flex align-center"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
-                        <span className="exit-to-app header-item flex align-center"><Link to="" title="Logout"><ExitToAppOutlined /></Link></span>
+                        <span className="exit-to-app header-item flex align-center"><Link to="" onClick={logout} title="Logout"><ExitToAppOutlined /></Link></span>
                     </div>
                 </div>
                 <div className="header-right-panel flex col">
@@ -84,3 +88,17 @@ export class AppHeader extends Component {
         )
     }
 }
+const mapGlobalStateToProps = (state) => {
+    return {
+        loggedInUser: state.userReducer.loggedInUser
+    };
+};
+const mapDispatchToProps = {
+    logout,
+
+}
+
+export const AppHeader = connect(
+    mapGlobalStateToProps,
+    mapDispatchToProps
+)(_AppHeader);
