@@ -11,7 +11,6 @@ import { TaskMembers } from './columns/TaskMembers';
 import { TaskDetails } from './TaskDetails';
 import { taskService } from '../../services/taskService';
 import { DeleteModalTask } from '../DeleteModalTask';
-import { userService } from '../../services/userService';
 import { socketService } from '../../services/socketService';
 
 export class TaskPreview extends Component {
@@ -56,10 +55,12 @@ export class TaskPreview extends Component {
 
     handleChange = (ev) => {
         const { value } = ev.target
+        const { task } = this.props
+
         const field = ev.target.name
-        const copy = { ...this.props.task }
-        copy[field] = value
-        this.setState({ task: copy })
+        const taskCopy = { ...this.state.task }
+        taskCopy[field] = value
+        this.setState({ task: taskCopy })
 
     }
 
@@ -78,10 +79,14 @@ export class TaskPreview extends Component {
     }
 
     handleModalChange = (txt, type) => {
-        const copy = { ...this.props.task }
-        console.log('copy', copy);
-        copy[type] = txt
-        this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
+        // const copy = { ...this.state.task }
+        const taskCopy = { ...this.props.task }
+        taskCopy[type] = txt
+        this.props.onUpdateTask(taskCopy, this.props.group.id)
+        // this.setState({ task: taskCopy }, () => {
+        //     console.log('state', this.state.task);
+        //     // this.props.onUpdateTask(this.state.task, this.props.group.id)
+        // })
 
     }
 
@@ -162,7 +167,6 @@ export class TaskPreview extends Component {
             },
             content: `added ${member.fullname} to task ${task.name}`
         }
-        console.log('notification', notification);
         socketService.emit('task add member', notification)
     }
 
@@ -171,6 +175,7 @@ export class TaskPreview extends Component {
         const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
         const { name } = this.state.task
         if (!activeBoard) return <div>Loading...</div>
+
         return (
             <div
                 style={{ borderLeft: `8px solid ${group.color} ` }}
@@ -207,16 +212,18 @@ export class TaskPreview extends Component {
                                     }}
                                     autoComplete="off"
                                     autoFocus={true}
-                                    onChange={(ev) => {
-                                        this.handleChange(ev)
-                                    }}
+                                    onChange={(ev) => this.handleChange(ev)}
                                 />
                                 <button type="submit" hidden></button>
                             </form>
                         }
 
                         {!editMode &&
-                            <p className="task-name">{task.name}</p>}
+                            <p className="task-name" onChange={(ev) => {
+                                console.log('task name p', ev.target.value);
+                            }}>
+                                {task.name}
+                            </p>}
                         {!editMode &&
                             <EditIcon
                                 className="edit-icon"

@@ -23,7 +23,7 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
         this.setUpListeners()
 
-        socketService.emit('chat topic', this.props.match.params)
+        // socketService.emit('chat topic', this.props.match.params)
 
     }
     setUpListeners = () => {
@@ -37,8 +37,8 @@ export class _BoardDetails extends Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
-            socketService.emit('chat topic', this.props.match.params)
-            this.setUpListeners()
+            // socketService.emit('chat topic', this.props.match.params)
+            // this.setUpListeners()
             this.loadActiveBoard()
         }
     }
@@ -57,7 +57,6 @@ export class _BoardDetails extends Component {
         this.props.updateBoard(updatedBoard)
     }
     onUpdateTask = (task, groupId) => {
-        console.log('updating', task);
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
