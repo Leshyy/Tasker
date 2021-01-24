@@ -47,7 +47,7 @@ function connectSockets(http, session) {
         })
         socket.on('chat msg', msg => {
             console.log('got msg ', socket.myTopic, msg);
-            socket.to(socket.myTopic).emit('chat update', msg)
+            socket.broadcast.emit('chat update', msg)
         })
         socket.on('task add member', (notification) => {
             console.log('tak');
