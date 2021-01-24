@@ -143,9 +143,14 @@
             }
         }
     }
-}
-.group-list {
-    & .group-preview {
-        width: auto;
+    .group-list {
+        .group-preview {
+            min-width: 1000px;
+            .task-preview {
+                .task-left {
+                    max-width: 35ch;
+                }
+            }
+        }
     }
 }

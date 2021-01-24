@@ -161,10 +161,6 @@ export class TaskPreview extends Component {
             content: `added ${member.fullname} to task ${task.name}`
         }
         socketService.emit('task add member', notification)
-        // const user = await userService.addNotification(member, notification)
-        // await userService.addNotification(member, notification)
-        // await onUpdateUser(user)
-        // const user = {log}
     }
 
     render() {
@@ -177,7 +173,7 @@ export class TaskPreview extends Component {
                 style={{ borderLeft: `8px solid ${group.color} ` }}
                 className="task-preview flex space-between">
                 <div className="task-left flex space-between align-center" {...provided.dragHandleProps}>
-                    <div className="task-left-content flex align-center">
+                    <div className="task-left-content flex align-center text-no-overflow">
                         <Delete
                             className="trash"
                             onClick={this.onToggleDelete}
