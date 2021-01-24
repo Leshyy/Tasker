@@ -169,7 +169,7 @@ export class TaskPreview extends Component {
     }
 
     render() {
-        const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard, loggedInUser } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
         const { name } = this.state.task
         if (!activeBoard) return <div>Loading...</div>
@@ -290,6 +290,7 @@ export class TaskPreview extends Component {
                         onAddComment={this.onAddComment}
                         closeModal={this.closeModal}
                         onUpdateTask={onUpdateTask}
+                        loggedInUser={loggedInUser}
                     />}
             </div >
         )

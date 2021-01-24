@@ -12,15 +12,23 @@ export class TaskDetails extends Component {
         comment: {
             text: '',
             by: {
-                _id: 'a600877404b50bc8b342c1732',
-                fullname: 'Tair Bitan',
-                imgUrl: 'https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg'
+                // _id: 'a600877404b50bc8b342c1732',
+                // fullname: 'Tair Bitan',
+                // imgUrl: 'https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg'
             }
         }
     }
     componentDidMount() {
-        const { onUpdateTask, task, groupId } = this.props;
+        const { onUpdateTask, task, groupId, loggedInUser } = this.props;
         socketService.on('chat update', () => onUpdateTask(task, groupId))
+        const by = {
+            _id: loggedInUser._id,
+            fullname: loggedInUser.fullname,
+            imgUrl: loggedInUser.imgUrl
+        }
+        const commentCopy = { ...this.state.comment }
+        commentCopy.by = by
+        this.setState({ comment: commentCopy })
     }
 
 
@@ -31,6 +39,7 @@ export class TaskDetails extends Component {
     onSubmitComment = (ev) => {
         ev.preventDefault()
         this.toggleShowTextArea()
+        console.log('comment', this.state.comment.by);
         this.props.onAddComment(this.state.comment)
         const commentCopy = { ...this.state.comment }
         commentCopy.text = ''
