@@ -1,4 +1,30 @@
 @media screen and (max-width: 750px) {
+    .home {
+        flex-direction: column;
+        overflow: overlay;
+        .home-header {
+            padding: 0;
+        }
+        .home-main {
+            width: 100vw;
+            flex-direction: column-reverse;
+            .align-start {
+                align-items: center;
+            }
+            .first-panel {
+                padding: 10px 30px;
+                margin-bottom: 20px;
+                p {
+                    text-align: left;
+                    padding-left: 30px;
+                }
+            }
+        }
+        div img {
+            padding-top: 0px;
+            width: 400px;
+        }
+    }
     .board-app {
         height: 100vh;
         flex-direction: column;
@@ -11,16 +37,42 @@
             .header-left-panel {
                 height: 70px;
                 .header-left-top {
-                    .col {
-                        flex-direction: row;
-                        justify-content: space-between;
+                    // display: none;
+                    z-index: 5;
+                    bottom: 0;
+                    right: 0;
+                    position: fixed;
+                    & span {
+                        border-radius: 50%;
+                        & svg {
+                            color: black;
+                            font-size: 2rem;
+                            padding: 3px;
+                            background-color: white;
+                            border: 1px solid #292f4c;
+                            border-radius: 50%;
+                        }
                     }
-                    display: none;
+                    & a {
+                        display: none;
+                    }
+                    & :hover {
+                        background-color: white;
+                    }
+                    .noti-modal {
+                        width: 350px;
+                        left: -330px;
+                        top: -250px;
+                    }
                 }
                 .header-left-bottom {
                     background-color: #e2e2e2;
                     width: 100vw;
                     z-index: 11;
+                    .col {
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
                     a {
                         text-decoration: none;
                         text-align: left;
@@ -148,9 +200,47 @@
             min-width: 1000px;
             .task-preview {
                 .task-left {
-                    max-width: 35ch;
+                    max-width: 40%;
+                }
+                .task-details {
+                    height: 100vh;
+                    width: 100vw;
+                    z-index: 13;
                 }
             }
+        }
+    }
+}
+@media screen and (max-width: 1500px) {
+    .group-preview {
+        min-width: 1290px;
+    }
+    .task-preview {
+        .task-left {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .home {
+        .home-main {
+            flex-direction: row-reverse;
+            .home-header {
+                padding-inline-start: rem(90px);
+            }
+            .first-panel {
+                padding: 50px 150px 50px 50px;
+                text-align: start;
+            }
+        }
+    }
+    .group-preview {
+        min-width: 1740px;
+    }
+    .task-preview {
+        .task-left {
+            width: 56%;
         }
     }
 }
