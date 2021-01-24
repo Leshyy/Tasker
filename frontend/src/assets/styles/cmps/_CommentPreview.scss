@@ -2,13 +2,38 @@
     border: 1px solid #e6e9ef;
     border-radius: 5px;
     padding: 10px 12px;
-    height: 200px;
     .comment-author {
         font-size: 22px;
         font-weight: bold;
         padding-bottom: 5px;
+        margin-bottom: 9px;
         .author-img {
             margin-right: 7px;
+        }
+    }
+    h4 {
+        margin-block-start: 0.33rem;
+        margin-block-end: 0.33rem;
+    }
+    span {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .btn-comment-bottom {
+        width: 100%;
+        button {
+            width: 50%;
+            padding: 8px;
+            background-color: #ffffff;
+            border: 1px solid #e6e9ef;
+            .MuiSvgIcon-root {
+                font-size: 1rem;
+                margin-right: 4px;
+            }
+            &:hover {
+                background-color: #e6e9ef;
+                cursor: pointer;
+            }
         }
     }
     .comment-time {

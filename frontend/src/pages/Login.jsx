@@ -16,7 +16,6 @@ class _Login extends Component {
         isNewUser: false,
         msg: '',
         loggedinUser: userService.getLoggedinUser(),
-        // loggedinUser: '2uk35b',
         loginCred: {
             username: '',
             password: ''
@@ -34,7 +33,6 @@ class _Login extends Component {
 
     loginHandleChange = (ev) => {
         const { name, value } = ev.target
-        // console.log('name,value is:', name, value);
         this.setState(prevState => ({
             loginCred: {
                 ...prevState.loginCred,

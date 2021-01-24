@@ -9,7 +9,7 @@ class _Home extends Component {
 
     state = {
         boards: null,
-        isLoading: false
+        isLoading: false,
     }
 
     componentDidMount() {
@@ -27,7 +27,19 @@ class _Home extends Component {
     componentWillUnmount() {
         this.setState({ isLoading: false })
     }
+    runDemo = () => {
+        let loggedinUser = {
+            isAdmin: false,
+            fullname: "Guest Guestis",
+            username: "Guest",
+            email: "Guest@gmail.com",
+            phoneNumber: "0524735510",
+            birthday: "20/02/2000",
+            company: "Mister Bit.",
+        }
+        sessionStorage.setItem('loggedinUser', JSON.stringify(loggedinUser))
 
+    }
     render() {
         if (this.state.isLoading) return (
             <div className="loader-container flex center align-center">
@@ -39,8 +51,6 @@ class _Home extends Component {
         return (
             <section className="home flex col" >
                 <div className="home-header flex start align-center">
-                    {/* <Link to={`/board/${boards[0]._id}`} title="My Boards">Boards</Link> */}
-                    {/* <Link to="/board" title="My Boards">Boards</Link> */}
                     <Link to="/login" title="Login">Login</Link>
                     <Link to="/" title="Sign-Up">Sign-Up</Link>
                 </div>
@@ -56,7 +66,7 @@ class _Home extends Component {
                         <br />
                         Half the hassle, twice the fun.
                     </p>
-                        <Link to="/board" title="Demo" onClick={this.setLoader}><button>Run Demo</button></Link>
+                        <Link to="/board" title="Demo" onClick={this.runDemo}><button>Run Demo</button></Link>
 
                     </div>
                     <div className="second-panel">

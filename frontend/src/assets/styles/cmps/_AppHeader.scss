@@ -48,12 +48,23 @@
         }
         .header-left-bottom {
             flex-grow: 4;
+            a {
+                text-decoration: none;
+            }
+            .avatar {
+                transform: scale(0.9);
+                border: 2px solid #ffffff;
+            }
+            .exit-to-app {
+                transform: rotateY(180deg);
+            }
         }
     }
     .header-right-panel {
         height: 100%;
         width: rem(50px);
         border-inline-start: 1px solid rgba(255, 255, 255, 0.2);
+        align-items: center;
         .header-right-top {
             height: 70px;
         }
