@@ -75,7 +75,7 @@ class _AppHeader extends Component {
                 </div>
                 <div className="header-right-panel flex col">
                     <div className="header-right-top"></div>
-                    <div className="header-right-middle flex col">
+                    <div className="header-right-middle flex col align-center">
                         <GitHub className="header-item" />
                         <LinkedIn className="header-item" />
                     </div>
