@@ -36,6 +36,13 @@
                 padding: 10px;
                 margin-inline-end: 10px;
             }
+            .MuiAvatarGroup-root {
+                & > * {
+                    font-size: 1rem;
+                    height: 35px;
+                    width: 35px;
+                }
+            }
             .avatar {
                 width: 35px;
                 height: 35px;
