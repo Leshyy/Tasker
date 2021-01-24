@@ -1,0 +1,15 @@
+.noti-preview {
+    border: 1px solid #e6e9ef;
+    border-radius: 5px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    .noti-author {
+        color: inherit;
+        opacity: 0.8;
+    }
+    .noti-content {
+        &::before {
+            content: " ";
+        }
+    }
+}

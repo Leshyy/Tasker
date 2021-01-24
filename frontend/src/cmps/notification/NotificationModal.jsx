@@ -8,7 +8,7 @@ export class NotificationModal extends Component {
         const { notifications } = this.props
         return (
             <section className="noti-modal">
-                <span>notifications:</span>
+                <span className="noti-header">notifications:</span>
                 <NotificationList notifications={notifications} />
             </section>
         )
