@@ -2,6 +2,7 @@ import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../store/actions/userAction'
+import { Avatar } from '@material-ui/core';
 
 import {
     NotificationsNone,
@@ -31,6 +32,7 @@ class _AppHeader extends Component {
             const copyNotifications = [...this.state.notifications, notification]
             this.setState({ notifications: copyNotifications, isNewNotification: true })
         })
+        console.log(' loggedInUseris:', this.props.loggedInUser);
     }
 
 
@@ -69,7 +71,15 @@ class _AppHeader extends Component {
                     <div
                         className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>
                         <span className="event-note header-item flex align-center"><Link to="/myweek" title="My week"><EventNoteOutlined /></Link></span>
-                        <span className="person header-item flex align-center"><Link to="/profile" title="My profile"><PersonOutline /></Link></span>
+                        <span className="person header-item flex align-center">
+                            <Link to="/profile" title="My profile">
+                                <Avatar
+                                    className="avatar"
+                                    alt={`${this.props.loggedInUser.fullname || 'G'} `}
+                                    src={this.props.loggedInUser.imgUrl || 'G'}
+                                />
+                            </Link>
+                        </span>
                         <span className="exit-to-app header-item flex align-center"><Link to="" onClick={logout} title="Logout"><ExitToAppOutlined /></Link></span>
                     </div>
                 </div>
@@ -95,6 +105,7 @@ const mapGlobalStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     logout,
+
 
 }
 

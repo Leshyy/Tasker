@@ -1,6 +1,12 @@
 
 let localLoggedinUser = {
-    fullname: 'Guest'
+    isAdmin: false,
+    fullname: "Guest Guestis",
+    username: "Guest",
+    email: "Guest@gmail.com",
+    phoneNumber: "0524735510",
+    birthday: "20/02/2000",
+    company: "Mister Bit.",
 }
 
 // let localLoggedinUser = {

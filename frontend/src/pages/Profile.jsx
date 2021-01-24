@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Person, Mail, Phone, Cake, Work } from '@material-ui/icons';
 
-import Amit from '../assets/styles/img/Amit.jpeg'
+import { Avatar } from '@material-ui/core';
 import { AppHeader } from '../cmps/AppHeader'
 import { userService } from '../services/userService';
 
@@ -66,7 +66,11 @@ export class Profile extends Component {
                         </div>
 
                         <div className="third-panel">
-                            <img src={user.imgUrl || Amit} alt="avatar" />
+                            <Avatar
+                                className="avatar"
+                                alt={`${user.fullname || 'G'} `}
+                                src={user.imgUrl || 'G'}
+                            />
                             <ul className="clean-list">
                                 <li><Person /><span>username:</span>{user.fullname}</li>
                                 <li><Mail /><span>email:</span>{user.email}</li>
