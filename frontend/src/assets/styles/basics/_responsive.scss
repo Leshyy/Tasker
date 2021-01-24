@@ -1,4 +1,30 @@
 @media screen and (max-width: 750px) {
+    .home {
+        flex-direction: column;
+        overflow: overlay;
+        .home-header {
+            padding: 0;
+        }
+        .home-main {
+            width: 100vw;
+            flex-direction: column-reverse;
+            .align-start {
+                align-items: center;
+            }
+            .first-panel {
+                padding: 10px 30px;
+                margin-bottom: 20px;
+                p {
+                    text-align: left;
+                    padding-left: 30px;
+                }
+            }
+        }
+        div img {
+            padding-top: 0px;
+            width: 400px;
+        }
+    }
     .board-app {
         height: 100vh;
         flex-direction: column;
@@ -12,7 +38,7 @@
                 height: 70px;
                 .header-left-top {
                     // display: none;
-                    z-index: 14;
+                    z-index: 5;
                     bottom: 0;
                     right: 0;
                     position: fixed;
@@ -174,7 +200,7 @@
             min-width: 1000px;
             .task-preview {
                 .task-left {
-                    max-width: 35ch;
+                    max-width: 40%;
                 }
                 .task-details {
                     height: 100vh;
@@ -182,6 +208,39 @@
                     z-index: 13;
                 }
             }
+        }
+    }
+}
+@media screen and (max-width: 1500px) {
+    .group-preview {
+        min-width: 1290px;
+    }
+    .task-preview {
+        .task-left {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .home {
+        .home-main {
+            flex-direction: row-reverse;
+            .home-header {
+                padding-inline-start: rem(90px);
+            }
+            .first-panel {
+                padding: 50px 150px 50px 50px;
+                text-align: start;
+            }
+        }
+    }
+    .group-preview {
+        min-width: 1740px;
+    }
+    .task-preview {
+        .task-left {
+            width: 56%;
         }
     }
 }
