@@ -15,9 +15,9 @@ export class DateRange extends Component {
     }
 
     componentDidMount() {
-        const { dateRange  } = this.props.task;
+        const { dateRange } = this.props.task;
         const { group } = this.props;
-        this.setState({ dateRange , barColor:group.color }, () => {
+        this.setState({ dateRange, barColor: group.color }, () => {
             this.showTimeline();
             this.calcBarWidth(dateRange);
         })

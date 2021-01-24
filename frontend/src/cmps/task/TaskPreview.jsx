@@ -59,20 +59,20 @@ export class TaskPreview extends Component {
         const field = ev.target.name
         const copy = { ...this.props.task }
         copy[field] = value
-        this.setState({ task: copy })
+        this.setState({ task: copy }, () => console.log('task is', this.state.task))
 
     }
 
     onChangeDate = (date) => {
-        const { task } = this.state;
-        const { group } = this.props;
+        // const { task } = this.state;
+        const { group, task } = this.props;
         task.dateRange = date;
         this.props.onUpdateTask(task, group.id);
     }
 
     handleNoteChange = (note) => {
-        const { task } = this.state;
-        const { group } = this.props;
+        // const { task } = this.state;
+        const { group, task } = this.props;
         task.note = note;
         this.props.onUpdateTask(task, group.id);
     }
@@ -82,6 +82,7 @@ export class TaskPreview extends Component {
         console.log('copy', copy);
         copy[type] = txt
         this.setState({ task: copy }, () => { this.props.onUpdateTask(this.state.task, this.props.group.id) })
+        // this.setState({ task: copy }, () => { this.props.onUpdateTask(this.props.task, this.props.group.id) })
 
     }
 
@@ -106,8 +107,7 @@ export class TaskPreview extends Component {
     onAddLabel = (ev, label, type) => {
         ev.preventDefault()
         this.props.activeBoard[type].push(label)
-        const { task } = this.state;
-        const { group } = this.props;
+        const { group, task } = this.props;
         this.props.onUpdateTask(task, group.id);
     }
     onRemoveLabel = (ev, txt, type) => {
@@ -116,8 +116,8 @@ export class TaskPreview extends Component {
             return
         }
         this.props.activeBoard[type] = this.props.activeBoard[type].filter(option => option.txt !== txt)
-        const { task } = this.state;
-        const { group } = this.props;
+        // const { task } = this.state;
+        const { group, task } = this.props;
         this.props.onUpdateTask(task, group.id);
     }
 
@@ -197,13 +197,18 @@ export class TaskPreview extends Component {
                                 ev.preventDefault()
                                 this.toggleEditMode()
                                 onUpdateTask(this.state.task, group.id)
+                                // onUpdateTask(this.props.task, group.id)
                             }}>
                                 <input
                                     name="name"
                                     value={name}
                                     onBlur={() => {
                                         this.toggleEditMode()
-                                        onUpdateTask(this.state.task, group.id)
+                                        const updatedTask = { ...task }
+                                        updatedTask.name = name
+                                        onUpdateTask(updatedTask, group.id)
+                                        // onUpdateTask(this.state.task, group.id)
+                                        // onUpdateTask(this.props.task, group.id)
                                     }}
                                     autoComplete="off"
                                     autoFocus={true}

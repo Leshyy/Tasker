@@ -20,7 +20,7 @@ export class TaskDetails extends Component {
     }
     componentDidMount() {
         const { onUpdateTask, task, groupId, loggedInUser } = this.props;
-        socketService.on('chat update', () => onUpdateTask(task, groupId))
+        // socketService.on('chat update', () => onUpdateTask(task, groupId))
         const by = {
             _id: loggedInUser._id,
             fullname: loggedInUser.fullname,
