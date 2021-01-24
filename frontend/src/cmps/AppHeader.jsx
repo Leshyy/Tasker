@@ -60,6 +60,7 @@ export class AppHeader extends Component {
                             {isNotificationModalShown &&
                                 <NotificationModal notifications={notifications} />}
                         </span>
+                        {isNotificationModalShown && <div onClick={this.toggleShowModal} className="screen"></div>}
                     </div>
                     <div
                         className={`header-left-bottom flex col end ${!isHamburgerOpen && 'open'}`}>

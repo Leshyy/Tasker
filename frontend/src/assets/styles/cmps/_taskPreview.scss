@@ -14,7 +14,6 @@
         background-color: #e6e9ef;
     }
     .task-left {
-        width: 40%;
         .task-left-content {
             text-align: start;
             flex-grow: 1;
@@ -102,9 +101,6 @@
             align-self: stretch;
             color: #ffffff;
             cursor: pointer;
-            // &:hover {
-            //     opacity: 0.85;
-            // }
         }
         .priority {
             align-self: stretch;

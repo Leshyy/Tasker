@@ -51,7 +51,7 @@ class _Home extends Component {
                         <p>
                             The next step in multi-planning and productivity!
                          <br />
-                            <span>Tasker</span> will help you keep track of hundreds of tasks.
+                            <span>Sheny</span> will help you keep track of hundreds of tasks.
                         <br />
                         An efficient way to manage your co-workers / employees.
                         <br />
