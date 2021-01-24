@@ -80,7 +80,7 @@ export class TaskDetails extends Component {
                             className="update-btn"
                             type="submit"
                             variant="contained">
-                            update
+                            send
                         </Button>
                     </form>}
                 <CommentList comments={task.comments} />
