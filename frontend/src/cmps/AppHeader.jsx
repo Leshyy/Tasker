@@ -18,7 +18,7 @@ import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
 import { socketService } from '../services/socketService';
 
 
-export class _AppHeader extends Component {
+class _AppHeader extends Component {
     state = {
         isNotificationModalShown: false,
         notifications: [],

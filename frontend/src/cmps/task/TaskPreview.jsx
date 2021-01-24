@@ -151,9 +151,6 @@ export class TaskPreview extends Component {
     }
 
     onAddMember = async (member) => {
-        // const copy = { ...this.state.task };
-        // copy.members = [...members, member];
-        // this.setState({ task: copy });
         const { group, task, onUpdateTask, loggedInUser } = this.props;
         const updatedTask = taskService.addMember(task, member)
         onUpdateTask(updatedTask, group.id)
@@ -165,11 +162,12 @@ export class TaskPreview extends Component {
             },
             content: `added ${member.fullname} to task ${task.name}`
         }
+        console.log('notification', notification);
         socketService.emit('task add member', notification)
     }
 
     render() {
-        const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard } = this.props
+        const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard, loggedInUser } = this.props
         const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
         const { name } = this.state.task
         if (!activeBoard) return <div>Loading...</div>
@@ -290,6 +288,7 @@ export class TaskPreview extends Component {
                         onAddComment={this.onAddComment}
                         closeModal={this.closeModal}
                         onUpdateTask={onUpdateTask}
+                        loggedInUser={loggedInUser}
                     />}
             </div >
         )

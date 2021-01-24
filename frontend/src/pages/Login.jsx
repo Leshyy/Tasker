@@ -30,7 +30,6 @@ class _Login extends Component {
 
 
     componentDidMount() {
-        console.log('this.state is:', this.state.loggedinUser)
     }
 
     loginHandleChange = (ev) => {
