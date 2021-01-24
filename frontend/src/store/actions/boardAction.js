@@ -25,13 +25,12 @@ export function loadBoard(boardId) {
     }
 }
 
-export function addBoard(boardName) {
+export function updateBoard(board) {
     return async dispatch => {
         try {
-            const board = await boardService.add(boardName)
-            dispatch({ type: 'ADD_BOARD', board })
             dispatch({ type: 'SET_BOARD', board })
-            socketService.emit('boards update', 'added board')
+            socketService.emit('board update')
+            await boardService.update(board)
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {
@@ -39,12 +38,13 @@ export function addBoard(boardName) {
     }
 }
 
-export function updateBoard(board) {
+export function addBoard(boardName) {
     return async dispatch => {
         try {
+            const board = await boardService.add(boardName)
+            dispatch({ type: 'ADD_BOARD', board })
             dispatch({ type: 'SET_BOARD', board })
-            await boardService.update(board)
-            socketService.emit('board update')
+            socketService.emit('boards update', 'added board')
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {

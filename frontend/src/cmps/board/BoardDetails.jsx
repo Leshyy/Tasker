@@ -30,6 +30,9 @@ export class _BoardDetails extends Component {
         socketService.on('update board', () => {
             this.loadActiveBoard()
         })
+
+        socketService.on('chat update', () => this.loadActiveBoard())
+
         socketService.on('update boards', () => {
             this.props.loadBoards()
             this.loadActiveBoard()
@@ -57,7 +60,6 @@ export class _BoardDetails extends Component {
         this.props.updateBoard(updatedBoard)
     }
     onUpdateTask = (task, groupId) => {
-        console.log('updating', task);
         const { activeBoard } = this.props
         const updatedBoard = taskService.update(task, activeBoard, groupId)
         this.props.updateBoard(updatedBoard)
@@ -212,7 +214,7 @@ export class _BoardDetails extends Component {
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
             <section className="board-details flex col">
-                <div className="board-header-top-container flex col">
+                <div className="board-header-top-container flex col space-between">
                     <div className="board-header-top-left flex">
                         <div
                             className="board-name editable"
