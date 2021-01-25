@@ -168,7 +168,7 @@ class _Login extends Component {
                     {loggedinUser && (
                         <div>
                             <h3>
-                                Are you sure you want to exit? {loggedinUser}
+                                Are you sure you want to exit? {loggedinUser.fullname}
                                 <button onClick={this.props.logout}>Logout</button>
                             </h3>
                         </div>

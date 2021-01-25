@@ -82,7 +82,9 @@ export class TaskPreview extends Component {
         // const copy = { ...this.state.task }
         const taskCopy = { ...this.props.task }
         taskCopy[type] = txt
-        this.props.onUpdateTask(taskCopy, this.props.group.id)
+        this.setState({ task: taskCopy }, () => {
+            this.props.onUpdateTask(taskCopy, this.props.group.id)
+        })
         // this.setState({ task: taskCopy }, () => {
         //     console.log('state', this.state.task);
         //     // this.props.onUpdateTask(this.state.task, this.props.group.id)
@@ -148,7 +150,6 @@ export class TaskPreview extends Component {
     }
 
     onRemoveMember = (memberId) => {
-
         const { group, task, onUpdateTask } = this.props;
         const updatedTask = taskService.removeMember(task, memberId)
         onUpdateTask(updatedTask, group.id)
@@ -269,7 +270,12 @@ export class TaskPreview extends Component {
                             findLabel={this.findLabel}
                         />}
                     </div>
-                    <DateRange className="column-date" task={task} group={group} onUpdateTask={onUpdateTask} />
+                    <DateRange
+                        className="column-date"
+                        task={task}
+                        group={group}
+                        onUpdateTask={onUpdateTask}
+                    />
                     <div
                         className={`priority relative flex align-center center`}
                         style={{ backgroundColor: this.getPropColor(task.priority, 'priority') }}
