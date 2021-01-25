@@ -30,7 +30,7 @@ export function updateBoard(board) {
         try {
             dispatch({ type: 'SET_BOARD', board })
             socketService.emit('board update')
-            await boardService.update(board)
+            boardService.update(board)
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {

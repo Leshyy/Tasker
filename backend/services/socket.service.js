@@ -38,7 +38,6 @@ function connectSockets(http, session) {
             socket.myTopic = topic
         })
         socket.on('board update', msg => {
-            console.log('socket topic', socket.myTopic);
             // socket.to(socket.myTopic).emit('update board', 'update from server')
             socket.broadcast.emit('update board', 'update from server')
         })
@@ -46,7 +45,6 @@ function connectSockets(http, session) {
             socket.broadcast.emit('update boards', 'update from server')
         })
         socket.on('chat msg', msg => {
-            console.log('got msg ', socket.myTopic, msg);
             socket.broadcast.emit('chat update', msg)
         })
         socket.on('task add member', (notification) => {

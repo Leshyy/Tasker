@@ -32,8 +32,6 @@ export function updateUser(user) {
         try {
             const loggedInUser = await userService.getById('600877404b50bc8b342c1734')
             dispatch({ type: 'SET_USER', user: loggedInUser })
-            // await userService.update(user)
-            // socketService.emit('user update')
         } catch (err) {
             console.log('user Actions: err in loadUsers', err)
         } finally {

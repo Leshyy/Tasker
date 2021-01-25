@@ -79,16 +79,11 @@ export class TaskPreview extends Component {
     }
 
     handleModalChange = (txt, type) => {
-        // const copy = { ...this.state.task }
         const taskCopy = { ...this.props.task }
         taskCopy[type] = txt
         this.setState({ task: taskCopy }, () => {
             this.props.onUpdateTask(taskCopy, this.props.group.id)
         })
-        // this.setState({ task: taskCopy }, () => {
-        //     console.log('state', this.state.task);
-        //     // this.props.onUpdateTask(this.state.task, this.props.group.id)
-        // })
 
     }
 
