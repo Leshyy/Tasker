@@ -3,7 +3,6 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import { Component } from 'react'
 import { CommentList } from './comment/CommentList'
-// import { socketService } from '../../services/socketService'
 import { cloudinaryService } from '../../services/cloudinaryService'
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 

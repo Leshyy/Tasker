@@ -21,7 +21,6 @@ export class BoardPreview extends Component {
     }
 
     onCloseModalDelete = () => {
-        // const { isModalDeleteShown, isModalShown } = this.state
         this.setState({ isModalDeleteShown: false, isModalShown: false })
     }
 

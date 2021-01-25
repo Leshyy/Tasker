@@ -71,14 +71,12 @@ export class TaskPreview extends Component {
     }
 
     onChangeDate = (date) => {
-        // const { task } = this.state;
         const { group, task } = this.props;
         task.dateRange = date;
         this.props.onUpdateTask(task, group.id);
     }
 
     handleNoteChange = (note) => {
-        // const { task } = this.state;
         const { group, task } = this.props;
         task.note = note;
         this.props.onUpdateTask(task, group.id);
@@ -122,7 +120,6 @@ export class TaskPreview extends Component {
             return
         }
         this.props.activeBoard[type] = this.props.activeBoard[type].filter(option => option.txt !== txt)
-        // const { task } = this.state;
         const { group, task } = this.props;
         this.props.onUpdateTask(task, group.id);
     }
@@ -202,7 +199,6 @@ export class TaskPreview extends Component {
                                 ev.preventDefault()
                                 this.toggleEditMode()
                                 onUpdateTask(this.state.task, group.id)
-                                // onUpdateTask(this.props.task, group.id)
                             }}>
                                 <input
                                     name="name"
@@ -212,8 +208,6 @@ export class TaskPreview extends Component {
                                         const updatedTask = { ...task }
                                         updatedTask.name = name
                                         onUpdateTask(updatedTask, group.id)
-                                        // onUpdateTask(this.state.task, group.id)
-                                        // onUpdateTask(this.props.task, group.id)
                                     }}
                                     autoComplete="off"
                                     autoFocus={true}

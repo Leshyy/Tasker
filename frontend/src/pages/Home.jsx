@@ -18,10 +18,8 @@ class _Home extends Component {
 
     setLoader = async () => {
         this.setState({ isLoading: true })
-        // setTimeout(async () => {
             this.setState({ isLoading: false })
             await this.props.loadBoards()
-        // }, 4000);
     }
 
     componentWillUnmount() {

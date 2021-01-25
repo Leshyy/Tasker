@@ -94,7 +94,6 @@ class _Login extends Component {
     }
 
     render() {
-        // const loggedInUser = userService.getLoggedinUser()
         let loginSection = (
             <form className="login flex col" onSubmit={this.doLogin}>
                 <h2>Login</h2>

@@ -1,4 +1,3 @@
-// import { storageService } from './asyncStorageService'
 import { httpService } from './httpService'
 const SCORE_FOR_REVIEW = 10
 const BASE_URL = 'api'

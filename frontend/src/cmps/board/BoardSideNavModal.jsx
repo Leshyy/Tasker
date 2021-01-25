@@ -4,10 +4,7 @@ import StarBorderTwoToneIcon from '@material-ui/icons/StarBorderTwoTone';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 
 export function BoardSideNavModal({ board, onOpenModalDelete }) {
-    // yossi = () => {
-
-    // }
-
+   
     return (
         <div className="modal-side-nave flex col">
             <span className="btn-in-modal flex align-center">

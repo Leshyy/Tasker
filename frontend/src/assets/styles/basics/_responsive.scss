@@ -93,7 +93,6 @@
                             font-size: x-larger;
                             align-self: center;
                             color: #717277;
-                            // padding-top: 7px;
                         }
                     }
                     .event-note::after {
@@ -208,7 +207,6 @@
                 .task-left {
                     flex: 1;
                     width: 25ch;
-                    // max-width: 40%;
                 }
                 .task-details {
                     height: 100vh;
@@ -258,18 +256,6 @@
 }
 
 @media screen and (min-width: 1500px) {
-    // .home {
-    //     .home-main {
-    //         flex-direction: row-reverse;
-    //         .home-header {
-    //             padding-inline-start: rem(90px);
-    //         }
-    //         .first-panel {
-    //             padding: 50px 150px 50px 50px;
-    //             text-align: start;
-    //         }
-    //     }
-    // }
     .group-preview {
         min-width: 1740px;
     }

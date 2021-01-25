@@ -15,10 +15,8 @@ class _BoardApp extends Component {
 
     async componentDidMount() {
         this.setState({ isLoading: true })
-        // setTimeout(async () => {
         await this.loadBoards()
         const { boards } = this.props
-
         if (boards) {
             this.setState({ isLoading: false })
             this.props.history.push(`/board/${boards[0]._id}`)
@@ -28,8 +26,6 @@ class _BoardApp extends Component {
             return
         }
         this.setState({ isLoading: false })
-
-        // }, 4000);
     }
 
     loadBoards = async () => {

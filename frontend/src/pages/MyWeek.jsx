@@ -39,15 +39,8 @@ export class _MyWeek extends Component {
         this.getBoardsForDisplay()
     }
     getBoardsForDisplay = () => {
-        // const { boards } = this.props
         const { filterBy } = this.state
         if (!filterBy) return this.setState({ boardForDisplay: null })
-        // const regex = new RegExp(filterBy.txt, 'i')
-        // boards = boards.groups.filter(group => {
-        //     group.tasks.filter(task => (regex.test(task.name)))
-        //     return group
-        // })
-        // return boards
     }
 
     render() {
@@ -67,7 +60,6 @@ export class _MyWeek extends Component {
                         autoComplete="off"
                         placeholder="Search"
                         onChange={this.handleChange}
-                    // value={filterBy.txt} 
                     />
                     <div className="bottom">
                         <div className="flex space-between">

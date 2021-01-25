@@ -31,8 +31,6 @@ export class GroupEdit extends Component {
         copyGroup.color = chosenColor;
         onUpdateGroup(copyGroup);
         toggleModal();
-        // this.setState({ group: copyGroup }, () => {
-        // })
     }
 
     onOpenModalDelete = () => {
