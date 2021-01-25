@@ -29,8 +29,8 @@ export function updateBoard(board) {
     return async dispatch => {
         try {
             dispatch({ type: 'SET_BOARD', board })
+            await boardService.update(board)
             socketService.emit('board update')
-            boardService.update(board)
         } catch (err) {
             console.log('Board Actions: err in loadUsers', err)
         } finally {

@@ -32,8 +32,12 @@ class _AppHeader extends Component {
             const copyNotifications = [...this.state.notifications, notification]
             this.setState({ notifications: copyNotifications, isNewNotification: true })
         })
-        console.log(' loggedInUseris:', this.props.loggedInUser);
     }
+
+    componentWillUnmount() {
+        socketService.off('board add notification')
+    }
+
 
 
     toggleShowModal = () => {
@@ -48,7 +52,7 @@ class _AppHeader extends Component {
 
     render() {
         const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
-        const { logout , loggedInUser } = this.props
+        const { logout, loggedInUser } = this.props
         return (
             <div className="header-main flex">
                 <div className="tab-name">Hi,{loggedInUser.fullname || 'Guest'}</div>

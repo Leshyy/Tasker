@@ -19,8 +19,9 @@ class _BoardApp extends Component {
         await this.loadBoards()
         const { boards, activeBoard } = this.props
 
-        if (activeBoard) {
+        if (boards) {
             this.setState({ isLoading: false })
+            this.props.history.push(`/board/${boards[0]._id}`)
             return
         }
         if (!boards || !boards.length) {

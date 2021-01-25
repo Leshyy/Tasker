@@ -23,6 +23,7 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
         this.setUpListeners()
     }
+
     setUpListeners = () => {
         socketService.on('update board', () => {
             this.loadActiveBoard()
@@ -32,11 +33,18 @@ export class _BoardDetails extends Component {
             this.loadActiveBoard()
         })
     }
+
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
             this.loadActiveBoard()
         }
     }
+
+    componentWillUnmount() {
+        socketService.off('update board')
+        socketService.off('update boards')
+    }
+
     loadActiveBoard = () => {
         const { boardId } = this.props.match.params
         this.props.loadBoard(boardId)

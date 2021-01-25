@@ -262,8 +262,9 @@ export class TaskPreview extends Component {
                         onClick={() => {
                             this.toggleShowModal('status')
                         }}>
-                        <span className="text-no-overflow"
-                        >{task.status}</span>
+                        <span className="text-no-overflow">
+                            {task.status}
+                        </span>
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
                             handleModalChange={this.handleModalChange}
