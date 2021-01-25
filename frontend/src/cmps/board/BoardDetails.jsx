@@ -23,16 +23,13 @@ export class _BoardDetails extends Component {
         this.loadActiveBoard()
         this.setUpListeners()
 
-        socketService.emit('chat topic', this.props.match.params)
+        // socketService.emit('chat topic', this.props.match.params)
 
     }
     setUpListeners = () => {
         socketService.on('update board', () => {
             this.loadActiveBoard()
         })
-
-        socketService.on('chat update', () => this.loadActiveBoard())
-
         socketService.on('update boards', () => {
             this.props.loadBoards()
             this.loadActiveBoard()
@@ -40,8 +37,8 @@ export class _BoardDetails extends Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
-            socketService.emit('chat topic', this.props.match.params)
-            this.setUpListeners()
+            // socketService.emit('chat topic', this.props.match.params)
+            // this.setUpListeners()
             this.loadActiveBoard()
         }
     }
@@ -214,7 +211,7 @@ export class _BoardDetails extends Component {
         if (!activeBoard) return <div>Looks Like This Board Does Not Exist...</div>
         return (
             <section className="board-details flex col">
-                <div className="board-header-top-container flex col space-between">
+                <div className="board-header-top-container flex col">
                     <div className="board-header-top-left flex">
                         <div
                             className="board-name editable"

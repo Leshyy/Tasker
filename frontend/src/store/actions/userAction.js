@@ -80,10 +80,11 @@ export function signup(userCreds) {
 }
 
 export function logout() {
+    console.log('beklilut');
     return async dispatch => {
         try {
-            await userService.logout()
             dispatch({ type: 'SET_USER', user: null })
+            await userService.logout()
         } catch (err) {
             console.log('UserActions: err in logout', err)
         }

@@ -14,15 +14,14 @@ class _Home extends Component {
 
     componentDidMount() {
         this.setLoader();
-        // this.props.history.push(`/board/${this.props.boards[0]._id}`)
     }
 
     setLoader = async () => {
         this.setState({ isLoading: true })
-        setTimeout(async () => {
+        // setTimeout(async () => {
             this.setState({ isLoading: false })
             await this.props.loadBoards()
-        }, 4000);
+        // }, 4000);
     }
 
     componentWillUnmount() {

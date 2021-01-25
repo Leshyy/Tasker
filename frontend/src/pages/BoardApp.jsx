@@ -15,22 +15,20 @@ class _BoardApp extends Component {
 
     async componentDidMount() {
         this.setState({ isLoading: true })
-        setTimeout(async () => {
-        await this.loadBoards()
-        const { boards, activeBoard } = this.props
+        // setTimeout(async () => {
+            await this.loadBoards()
+            const { boards, activeBoard } = this.props
 
-        if (activeBoard) {
+            if (activeBoard) {
+                this.setState({ isLoading: false })
+                return
+            }
+            if (!boards || !boards.length) {
+                return
+            }
             this.setState({ isLoading: false })
-            this.props.history.push(`/board/${activeBoard._id}`);
-            return
-        }
-        if (!boards || !boards.length) {
-            return
-        }
-        this.setState({ isLoading: false })
-        this.props.history.push(`/board/${boards[0]._id}`);
 
-        }, 4000);
+        // }, 4000);
     }
 
     loadBoards = async () => {
@@ -38,13 +36,10 @@ class _BoardApp extends Component {
     }
 
     onRemove = async (boardId) => {
-        const { boards } = this.props
         await this.props.removeBoard(boardId)
-        this.props.history.push(`/board/${boards[0]._id}`);
     }
     onAdd = async (board) => {
         await this.props.addBoard(board)
-        this.props.history.push(`/board/${this.props.activeBoard._id}`);
     }
 
     getBoradsForDisplay = async (filterBy) => {

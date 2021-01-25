@@ -95,7 +95,6 @@ class _Login extends Component {
 
     render() {
         // const loggedInUser = userService.getLoggedinUser()
-
         let loginSection = (
             <form className="login flex col" onSubmit={this.doLogin}>
                 <h2>Login</h2>
@@ -158,7 +157,8 @@ class _Login extends Component {
 
             </form>
         )
-        const { loggedinUser, isNewUser } = this.state
+        const { isNewUser } = this.state
+        const { logout, loggedinUser } = this.props;
         return (
             <div className="login-page">
                 <Link className="arrow-left" data-title={'Back to Home'} to="/"><ArrowBackIcon /></Link>
@@ -168,8 +168,8 @@ class _Login extends Component {
                     {loggedinUser && (
                         <div>
                             <h3>
-                                Are you sure you want to exit? {loggedinUser}
-                                <button onClick={this.props.logout}>Logout</button>
+                                Are you sure you want to exit? {loggedinUser.fullname}
+                                <button onClick={logout}>Logout</button>
                             </h3>
                         </div>
                     )}
