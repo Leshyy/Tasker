@@ -262,6 +262,7 @@ export class TaskPreview extends Component {
                             onRemoveLabel={this.onRemoveLabel}
                             findLabel={this.findLabel}
                         />}
+                        <div className="small-div"></div>
                     </div>
                     <DateRange className="column-date" task={task} group={group} onUpdateTask={onUpdateTask} />
                     <div
