@@ -3,19 +3,18 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import { Component } from 'react'
 import { CommentList } from './comment/CommentList'
-import { socketService } from '../../services/socketService'
+// import { socketService } from '../../services/socketService'
+import { cloudinaryService } from '../../services/cloudinaryService'
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 
 export class TaskDetails extends Component {
     state = {
         clickedInput: false,
         comment: {
+            by: {},
             text: '',
-            by: {
-                // _id: 'a600877404b50bc8b342c1732',
-                // fullname: 'Tair Bitan',
-                // imgUrl: 'https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg'
-            }
+            imgUrl: ''
         }
     }
     componentDidMount() {
@@ -31,6 +30,19 @@ export class TaskDetails extends Component {
         this.setState({ comment: commentCopy })
     }
 
+    onUpload = async (ev) => {
+        ev.preventDefault()
+        const img = await cloudinaryService.uploadImg(ev)
+        console.log('imgUrl', img.url);
+        this.setState(prevState => {
+            return {
+                comment: {
+                    ...prevState.comment,
+                    imgUrl: img.url
+                }
+            }
+        })
+    }
 
     toggleShowTextArea = () => {
         this.setState({ clickedInput: !this.state.clickedInput })
@@ -39,7 +51,7 @@ export class TaskDetails extends Component {
     onSubmitComment = (ev) => {
         ev.preventDefault()
         this.toggleShowTextArea()
-        console.log('comment', this.state.comment.by);
+        console.log('comment', this.state.comment.by)
         this.props.onAddComment(this.state.comment)
         const commentCopy = { ...this.state.comment }
         commentCopy.text = ''
@@ -63,7 +75,7 @@ export class TaskDetails extends Component {
                     <span>{task.name}</span>
                 </div>
                 {!clickedInput &&
-                    <input type="text" onFocus={this.toggleShowTextArea} placeholder="write something..." />}
+                    <input type="text" onFocus={this.toggleShowTextArea} placeholder="Write an update ..." />}
                 {clickedInput &&
                     <form
                         className="comment-wrapper flex col"
@@ -76,6 +88,12 @@ export class TaskDetails extends Component {
                             onChange={(ev) => this.handleChange(ev)}
                             required
                         />
+                        <div className="upload-img flex col">
+                            <label><span className="flex align-center"><AttachFileIcon /> Add File</span>
+                                <input type="file" onChange={(ev) => this.onUpload(ev)} name="" />
+                            </label>
+                            {comment.imgUrl && <img src={comment.imgUrl} alt="" />}
+                        </div>
                         <Button
                             className="update-btn"
                             type="submit"

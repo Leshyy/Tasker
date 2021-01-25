@@ -20,11 +20,13 @@
         }
     }
     .task-name-container {
-        font-size: 26px;
+        font-size: 20px;
+        font-weight: bolder;
         padding: 15px 0;
     }
     input {
         width: 100%;
+        font-size: 16px;
         padding: 10px 20px;
         border-radius: 5px;
         border: 1px solid #0085ff;
@@ -37,6 +39,28 @@
             align-self: flex-end;
             background-color: #0085ff;
             color: #ffffff;
+        }
+        .upload-img {
+            padding: 10px;
+            label {
+                font-size: 14px;
+                color: #0085ff;
+                width: 100px;
+                height: 20px;
+                cursor: pointer;
+                svg {
+                    font-size: 14px;
+                    color: #0085ff;
+                    transform: rotate(35deg);
+                    margin-inline-end: 5px;
+                }
+            }
+            input {
+                visibility: hidden;
+            }
+            img {
+                width: 100px;
+            }
         }
     }
     textarea {
