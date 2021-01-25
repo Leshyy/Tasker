@@ -14,7 +14,6 @@ class _Home extends Component {
 
     componentDidMount() {
         this.setLoader();
-        // this.props.history.push(`/board/${this.props.boards[0]._id}`)
     }
 
     setLoader = async () => {
