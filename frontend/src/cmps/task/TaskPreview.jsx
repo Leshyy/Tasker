@@ -23,7 +23,8 @@ export class TaskPreview extends Component {
         isModalShown: false,
         isStatusClicked: false,
         isPriorityClicked: false,
-        isModalDeleteShown: false
+        isModalDeleteShown: false,
+        isOver: false
     }
 
     componentDidMount() {
@@ -39,6 +40,12 @@ export class TaskPreview extends Component {
         this.setState({
             isShownDetails: !this.state.isShownDetails,
         })
+    }
+    toggleHoverMouse = () => {
+        this.setState({ isOver: true })
+    }
+    toggleUnHoverMouse = () => {
+        this.setState({ isOver: false })
     }
 
     toggleShowModal = (option) => {
@@ -168,7 +175,7 @@ export class TaskPreview extends Component {
 
     render() {
         const { onRemoveTask, task, group, onUpdateTask, provided, activeBoard, loggedInUser } = this.props
-        const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown } = this.state
+        const { editMode, isStatusClicked, isPriorityClicked, isShownDetails, isModalShown, isOver } = this.state
         const { name } = this.state.task
         if (!activeBoard) return <div>Loading...</div>
         return (
@@ -250,10 +257,12 @@ export class TaskPreview extends Component {
                     <div
                         className={`status relative flex center align-center `}
                         style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
+                        onMouseEnter={this.toggleHoverMouse} onMouseOut={this.toggleUnHoverMouse}
                         onClick={() => {
                             this.toggleShowModal('status')
                         }}>
-                        <span className="text-no-overflow">{task.status}</span>
+                        <span className="text-no-overflow"
+                        >{task.status}</span>
                         {isStatusClicked && <TaskPropertyModal
                             type="status"
                             handleModalChange={this.handleModalChange}
@@ -262,7 +271,9 @@ export class TaskPreview extends Component {
                             onRemoveLabel={this.onRemoveLabel}
                             findLabel={this.findLabel}
                         />}
-                        <div className="small-div"></div>
+                        <div className={`${(isOver) ? 'small-div' : 'small-div-close'}`}
+                            style={{ backgroundColor: this.getPropColor(task.status, 'status') }}
+                        ></div>
                     </div>
                     <DateRange className="column-date" task={task} group={group} onUpdateTask={onUpdateTask} />
                     <div
