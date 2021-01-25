@@ -225,7 +225,7 @@ export class _BoardDetails extends Component {
                         </div>
                         <div className="board-header-top-right flex">
                             <span>
-                                <AvatarGroup>
+                                <AvatarGroup max={3}>
                                     {activeBoard.members.map((member) => {
                                         return (
                                             <Avatar
