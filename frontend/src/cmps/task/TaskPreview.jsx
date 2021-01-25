@@ -85,11 +85,6 @@ export class TaskPreview extends Component {
         this.setState({ task: taskCopy }, () => {
             this.props.onUpdateTask(taskCopy, this.props.group.id)
         })
-        // this.setState({ task: taskCopy }, () => {
-        //     console.log('state', this.state.task);
-        //     // this.props.onUpdateTask(this.state.task, this.props.group.id)
-        // })
-
     }
 
     closeModal = () => {

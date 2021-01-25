@@ -15,7 +15,7 @@ class _BoardApp extends Component {
 
     async componentDidMount() {
         this.setState({ isLoading: true })
-        setTimeout(async () => {
+        // setTimeout(async () => {
             await this.loadBoards()
             const { boards, activeBoard } = this.props
 
@@ -28,7 +28,7 @@ class _BoardApp extends Component {
             }
             this.setState({ isLoading: false })
 
-        }, 4000);
+        // }, 4000);
     }
 
     loadBoards = async () => {

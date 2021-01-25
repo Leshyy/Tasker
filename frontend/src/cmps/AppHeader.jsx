@@ -51,7 +51,7 @@ class _AppHeader extends Component {
         const { logout , loggedInUser } = this.props
         return (
             <div className="header-main flex">
-                <div className="tab-name">Hi,{loggedInUser.fullname}</div>
+                <div className="tab-name">Hi,{loggedInUser.fullname || 'Guest'}</div>
                 <div className="header-left-panel flex col">
                     <div className="header-left-logo">
                         <Link to="/">
