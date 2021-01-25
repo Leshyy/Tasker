@@ -35,18 +35,9 @@ export class BoardSideNav extends Component {
         ev.preventDefault()
         const { onAdd } = this.props
         const { nameNewBoard } = this.state
-        console.log('nameNewBoard is:', nameNewBoard);
         onAdd(nameNewBoard)
         this.toggleInput()
     }
-
-    // onUpdateBoardName = (boardName) => {
-    //     const { activeBoard, boards } = this.props
-    //     const updatedBoard = { ...activeBoard }
-    //     updatedBoard.name = boardName
-    //     this.props.updateBoard(updatedBoard)
-    //     this.props.updateBoards(updatedBoard, boards)
-    // }
 
     render() {
         const { boards, onRemove, getBoradsForDisplay } = this.props

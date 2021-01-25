@@ -44,7 +44,6 @@ export class GroupPreview extends Component {
                             style={{ color: `${group.color}`, fontWeight: 'normal' }}
                             contentEditable="true"
                             onBlur={(ev) => {
-                                console.log(ev.target.innerText);
                                 const updatedGroup = { ...group }
                                 updatedGroup.name = ev.target.innerText
                                 onUpdateGroup(updatedGroup)
@@ -67,11 +66,6 @@ export class GroupPreview extends Component {
                         <h5>TimeLine</h5>
                         <h5>Priority</h5>
                         <h5>Notes</h5>
-                        {/* <h5 onClick={() => onSortGroup(group, 'members')}>Members</h5>
-                        <h5 onClick={() => onSortGroup(group, 'status')}>Status</h5>
-                        <h5 onClick={() => onSortGroup(group, 'timeline')}>TimeLine</h5>
-                        <h5 onClick={() => onSortGroup(group, 'priority')}>Priority</h5>
-                        <h5 onClick={() => onSortGroup(group, 'notes')}>Notes</h5> */}
                     </div>
                 </div>
                 <TaskList

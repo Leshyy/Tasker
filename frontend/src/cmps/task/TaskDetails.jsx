@@ -18,8 +18,7 @@ export class TaskDetails extends Component {
         }
     }
     componentDidMount() {
-        const { onUpdateTask, task, groupId, loggedInUser } = this.props;
-        // socketService.on('chat update', () => onUpdateTask(task, groupId))
+        const { loggedInUser } = this.props;
         const by = {
             _id: loggedInUser._id,
             fullname: loggedInUser.fullname,
@@ -33,7 +32,6 @@ export class TaskDetails extends Component {
     onUpload = async (ev) => {
         ev.preventDefault()
         const img = await cloudinaryService.uploadImg(ev)
-        console.log('imgUrl', img.url);
         this.setState(prevState => {
             return {
                 comment: {
@@ -51,7 +49,6 @@ export class TaskDetails extends Component {
     onSubmitComment = (ev) => {
         ev.preventDefault()
         this.toggleShowTextArea()
-        console.log('comment', this.state.comment.by)
         this.props.onAddComment(this.state.comment)
         const commentCopy = { ...this.state.comment }
         commentCopy.text = ''

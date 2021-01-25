@@ -78,7 +78,6 @@ export function signup(userCreds) {
 }
 
 export function logout() {
-    console.log('beklilut');
     return async dispatch => {
         try {
             dispatch({ type: 'SET_USER', user: null })

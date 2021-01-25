@@ -43,7 +43,6 @@ async function increaseScore(by = SCORE_FOR_REVIEW) {
 
 async function login(userCred) {
     const user = await httpService.post(`${BASE_URL}/auth/login`, userCred)
-    console.log('user in front is:', user);
     if (user) return _saveLocalUser(user)
 }
 

@@ -8,7 +8,6 @@ import { loadBoards } from '../store/actions/boardAction'
 import { AppHeader } from '../cmps/AppHeader'
 import { ListMyWeek } from '../cmps/ListMyWeek'
 import Calendar from '../assets/icons/calendar.png'
-import { userService } from '../services/userService'
 
 export class _MyWeek extends Component {
     state = {
@@ -34,7 +33,6 @@ export class _MyWeek extends Component {
         this.setState({ isTaskShown: !this.state.isTaskShown })
     }
     handleChange = (ev) => {
-        console.log('aa is:');
         var filterBy = { ...this.state.filterBy }
         filterBy.txt = ev.target.value
         this.setState({ filterBy })

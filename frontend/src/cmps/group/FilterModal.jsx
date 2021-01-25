@@ -16,64 +16,13 @@ export class FilterModal extends Component {
     filterGroup = (ev, field, value) => {
         ev.stopPropagation();
 
-        // const { groups } = this.props;
-        // var updateGroups = JSON.parse(JSON.stringify(groups));
-
         var filterBy = { ...this.state.filterBy };
         filterBy[field] = value;
 
         this.setState({ filterBy }, () => {
             this.props.getGroupsForDisplay(filterBy)
-            // if (filterBy.groupName) {
-            //     updateGroups = groups.filter(group => group.name === filterBy.groupName);
-            // }
-            // if (filterBy.member) {
-            //     console.log('filterBy.memeber,', filterBy.member, 'newGroups', updateGroups);
-            //     updateGroups = updateGroups.filter(currGroup => {
-            //         const tasks = []
-            //         currGroup.tasks.forEach(task => {
-            //             if (task.members.some(member => member.fullname === filterBy.member)) tasks.push(task)
-            //         })
-            //         if (tasks.length) {
-            //             currGroup.tasks = tasks;
-            //             return currGroup;
-            //         }
-            //     })
-            // }
-            // if (filterBy.status) {
-            //     updateGroups = updateGroups.filter(group => this._filterByType(group, 'status'))
-            // }
-            // if (filterBy.priority) {
-            //     updateGroups = updateGroups.filter(group => this._filterByType(group, 'priority'))
-            // }
-
-            // console.log('filtering by', filterBy);
-            // console.log('filtered groups', updateGroups);
         })
     }
-
-    // _filterByType = (group, type) => {
-    //     const tasks = group.tasks.filter(task => task[type] === this.state.filterBy[type])
-    //     if (tasks.length) {
-    //         group.tasks = tasks
-    //         return group;
-    //     }
-    // }
-
-    // getDateRange = () => {
-    //     const { groups } = this.props.activeBoard
-    //     // console.log('groups is:', groups);
-    //     const dateRange = []
-    //     groups.map(group => {
-    //         const groupsTask = group.tasks.map(task => {
-    //             let start = task.dateRange.startDate
-    //             let end = task.dateRange.endDate
-    //             if (start === end) return start
-    //             else return end
-    //         })
-    //         return dateRange.push(...groupsTask)
-    //     })
-    // }
 
     render() {
         const { activeBoard } = this.props

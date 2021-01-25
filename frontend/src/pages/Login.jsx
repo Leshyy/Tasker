@@ -153,7 +153,7 @@ class _Login extends Component {
                     placeholder="Email*"
                 />
                 <button variant="contained">Signup</button>
-                <a href="" onClick={this.newUser}> have a user? login</a>
+                <a href="/" onClick={this.newUser}> have a user? login</a>
 
             </form>
         )

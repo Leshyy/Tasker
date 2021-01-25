@@ -18,12 +18,8 @@ export class Profile extends Component {
     }
 
     loadUser = async () => {
-        const { userId } = this.props.match.params
-        console.log('userId is:', userId);
-        // const user = await userService.getById('2uk35b')
         const user = await userService.getLoggedinUser()
         const initials = this.getInitials(user.fullname)
-        console.log('initials is:', initials);
         this.setState({ user, initials })
     }
 

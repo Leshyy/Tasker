@@ -7,7 +7,6 @@ import { Avatar } from '@material-ui/core';
 import {
     NotificationsNone,
     AppsOutlined,
-    PersonOutline,
     ExitToAppOutlined,
     EventNoteOutlined,
     GitHub,

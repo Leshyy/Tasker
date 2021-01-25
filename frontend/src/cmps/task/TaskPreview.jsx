@@ -62,7 +62,6 @@ export class TaskPreview extends Component {
 
     handleChange = (ev) => {
         const { value } = ev.target
-        const { task } = this.props
 
         const field = ev.target.name
         const taskCopy = { ...this.state.task }
@@ -226,7 +225,6 @@ export class TaskPreview extends Component {
 
                         {!editMode &&
                             <p className="task-name" onChange={(ev) => {
-                                console.log('task name p', ev.target.value);
                             }}>
                                 {task.name}
                             </p>}

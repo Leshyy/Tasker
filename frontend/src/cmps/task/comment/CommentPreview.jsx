@@ -1,7 +1,6 @@
 import { Avatar } from '@material-ui/core';
 import ReplyIcon from '@material-ui/icons/Reply';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
-import ReplyOutlinedIcon from '@material-ui/icons/ReplyOutlined';
 
 export function CommentPreview({ comment }) {
     return (
