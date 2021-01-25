@@ -7,7 +7,7 @@
         background-color: #ffffff;
         border-radius: 3px;
         margin: 20vh auto;
-        width: 40vw;
+        // width: 40vw;
         padding: 30px;
         .MuiSvgIcon-root {
             font-size: 5rem !important;
@@ -16,6 +16,13 @@
         input {
             width: 300px;
             margin: 8px;
+        }
+        .btn-login {
+            border: 1px solid;
+            border-radius: 4px;
+            color: #ffffff;
+            padding: 5px;
+            background-color: #7c7c7c;
         }
         button {
             margin: 10px;

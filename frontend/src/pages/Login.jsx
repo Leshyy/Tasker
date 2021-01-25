@@ -114,7 +114,7 @@ class _Login extends Component {
                     onChange={this.loginHandleChange}
                     placeholder="Password"
                 />
-                <button variant="contained" color="primary">Login</button>
+                <button className="btn-login">Login</button>
                 <a href="\login" onClick={this.newUser}>Dont have a user? signup</a>
                 <Button color="primary"><FacebookIcon className="face-icon" />Login with Facebook</Button>
 
@@ -151,7 +151,7 @@ class _Login extends Component {
                     onChange={this.signupHandleChange}
                     placeholder="Email*"
                 />
-                <button variant="contained">Signup</button>
+                <button className="btn-login">Signup</button>
                 <a href="/" onClick={this.newUser}> have a user? login</a>
 
             </form>
@@ -168,7 +168,7 @@ class _Login extends Component {
                         <div>
                             <h3>
                                 Are you sure you want to exit? {loggedinUser.fullname}
-                                <button onClick={logout}>Logout</button>
+                                <button className="btn-login" onClick={logout}>Logout</button>
                             </h3>
                         </div>
                     )}

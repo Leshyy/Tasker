@@ -1,4 +1,7 @@
 @media screen and (max-width: 750px) {
+    .login-page .login-container {
+        width: 95vw;
+    }
     .home {
         flex-direction: column;
         overflow: overlay;
@@ -38,7 +41,7 @@
             z-index: 12;
             flex-direction: row;
             justify-content: space-between;
-            .tab-name{
+            .tab-name {
                 display: none;
             }
             .header-left-panel {
@@ -223,6 +226,9 @@
     }
 }
 @media screen and (min-width: 750px) {
+    .login-page .login-container {
+        width: 40vw;
+    }
     .home {
         .home-header {
             padding: 10px 50px;
@@ -256,6 +262,9 @@
 }
 
 @media screen and (min-width: 1500px) {
+    .login-page .login-container {
+        width: 40vw;
+    }
     .group-preview {
         min-width: 1740px;
     }
