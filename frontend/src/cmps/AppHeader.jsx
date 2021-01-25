@@ -48,9 +48,10 @@ class _AppHeader extends Component {
 
     render() {
         const { isNotificationModalShown, notifications, isNewNotification, isHamburgerOpen } = this.state
-        const { logout } = this.props
+        const { logout , loggedInUser } = this.props
         return (
             <div className="header-main flex">
+                <div className="tab-name">Hi,{loggedInUser.fullname}</div>
                 <div className="header-left-panel flex col">
                     <div className="header-left-logo">
                         <Link to="/">
@@ -75,8 +76,8 @@ class _AppHeader extends Component {
                             <Link to="/profile" title="My profile">
                                 <Avatar
                                     className="avatar"
-                                    alt={`${this.props.loggedInUser.fullname || 'G'} `}
-                                    src={this.props.loggedInUser.imgUrl || 'G'}
+                                    alt={`${loggedInUser.fullname || 'G'} `}
+                                    src={loggedInUser.imgUrl || 'G'}
                                 />
                             </Link>
                         </span>
