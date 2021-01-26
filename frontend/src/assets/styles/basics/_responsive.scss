@@ -33,8 +33,6 @@
         }
     }
     .board-app {
-        height: 100vh;
-        flex-direction: column;
         .header-main {
             height: 70px;
             width: 100vw;
@@ -120,6 +118,8 @@
                 transform: translate(0px, -150%);
             }
         }
+        height: 100vh;
+        flex-direction: column;
         .board-side-nav {
             position: absolute;
             z-index: 13;
@@ -239,14 +239,28 @@
                 padding-inline-start: rem(90px);
             }
             .first-panel {
-                padding: 50px 150px 50px 50px;
+                padding: rem(45px) rem(45px) rem(45px) 0;
                 text-align: start;
+                // background-color: blue;
+
+                h1 {
+                    margin: 0;
+                }
+                p {
+                    font-size: (18px);
+                    line-height: 1.5;
+                }
+                a {
+                    & button {
+                        font-size: rem(15px);
+                    }
+                }
             }
-            h1 {
-                margin: 0;
-            }
-            p {
-                line-height: 2;
+            .second-panel {
+                img {
+                    padding-top: 0;
+                    width: rem(430px);
+                }
             }
         }
     }
@@ -264,6 +278,23 @@
 @media screen and (min-width: 1500px) {
     .login-page .login-container {
         width: 40vw;
+    }
+    .home {
+        .home-main {
+            .first-panel {
+                a {
+                    & button {
+                        font-size: rem(20px);
+                    }
+                }
+            }
+            .second-panel {
+                img {
+                    padding-top: 0;
+                    width: rem(600px);
+                }
+            }
+        }
     }
     .group-preview {
         min-width: 1740px;

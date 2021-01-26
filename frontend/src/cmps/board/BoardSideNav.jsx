@@ -4,7 +4,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
-
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 export class BoardSideNav extends Component {
     state = {
@@ -56,6 +56,11 @@ export class BoardSideNav extends Component {
                         {/* onClick={() => onAdd('new board')}> */}
                         <AddCircleOutlineRounded />
                         Add
+                    </button>
+                    <button
+                        className="btn-filter flex align-center">
+                        <FilterListIcon />
+                        Filter
                     </button>
                 </div>
                 <div className="board-side-nav-bottom flex col">
