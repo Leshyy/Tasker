@@ -7,7 +7,7 @@ export function loadBoards() {
             const boards = await boardService.query()
             dispatch({ type: 'SET_BOARDS', boards })
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in loadBoards', err)
         } finally {
         }
     }
@@ -19,7 +19,7 @@ export function loadBoard(boardId) {
             const board = await boardService.getById(boardId)
             dispatch({ type: 'SET_BOARD', board });
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in loadBoard', err)
         } finally {
         }
     }
@@ -32,7 +32,7 @@ export function updateBoard(board) {
             await boardService.update(board)
             socketService.emit('board update')
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in updateBoard', err)
         } finally {
         }
     }
@@ -46,7 +46,7 @@ export function addBoard(boardName) {
             dispatch({ type: 'SET_BOARD', board })
             socketService.emit('boards update', 'added board')
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in addBoard', err)
         } finally {
         }
     }
@@ -58,7 +58,7 @@ export function updateBoards(board, boards) {
             const updatedBoards = boardService.updateBoards(board, boards)
             dispatch({ type: 'SET_BOARDS', boards: updatedBoards })
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in updateBoards', err)
         } finally {
         }
     }
@@ -71,7 +71,7 @@ export function removeBoard(boardId) {
             await boardService.remove(boardId)
             socketService.emit('boards update', 'removed board')
         } catch (err) {
-            console.log('Board Actions: err in loadUsers', err)
+            console.log('Board Actions: err in removeBoard', err)
         } finally {
         }
     }

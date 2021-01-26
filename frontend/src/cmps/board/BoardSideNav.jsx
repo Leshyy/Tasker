@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { AddCircleOutlineRounded } from "@material-ui/icons";
+import FilterListIcon from '@material-ui/icons/FilterList';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { BoardFilter } from "./BoardFilter";
@@ -56,6 +57,12 @@ export class BoardSideNav extends Component {
                         {/* onClick={() => onAdd('new board')}> */}
                         <AddCircleOutlineRounded />
                         Add
+                    </button>
+                    <button
+                        className="btn-filter flex align-center"
+                    >
+                        <FilterListIcon />
+                        Filter
                     </button>
                 </div>
                 <div className="board-side-nav-bottom flex col">

@@ -18,8 +18,10 @@ class _Home extends Component {
 
     setLoader = async () => {
         this.setState({ isLoading: true })
+        setTimeout( async () => {
             this.setState({ isLoading: false })
             await this.props.loadBoards()
+        }, 4000);
     }
 
     componentWillUnmount() {
@@ -64,7 +66,7 @@ class _Home extends Component {
                         <br />
                         Half the hassle, twice the fun.
                     </p>
-                        <Link to="/board" title="Demo" onClick={this.runDemo}><button>Run Demo</button></Link>
+                        <Link to="/board" title="Demo" onClick={this.runDemo}><button>Start Here!</button></Link>
 
                     </div>
                     <div className="second-panel">
