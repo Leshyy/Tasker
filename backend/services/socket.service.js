@@ -41,8 +41,8 @@ function connectSockets(http, session) {
             // socket.broadcast.emit('update board', 'update from server')
         })
         socket.on('boards update', msg => {
-            socket.to(socket.myTopic).emit('update boards', 'update from server')
-            // socket.broadcast.emit('update boards', 'update from server')
+            // socket.to(socket.myTopic).emit('update boards', 'update from server')
+            socket.broadcast.emit('update boards', 'update from server')
         })
         socket.on('task add member', (notification) => {
             // socket.to(socket.myTopic).emit('board add notification', notification)

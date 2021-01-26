@@ -20,7 +20,9 @@ app.use(bodyParser.json())
 app.use(session)
 app.use(express.static('public'));
 
-if (process.env.NODE_ENV !== 'development') {
+// if (process.env.NODE_ENV !== 'development') {
+//     app.use(express.static(path.resolve(__dirname, 'public')))
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
     const corsOptions = {

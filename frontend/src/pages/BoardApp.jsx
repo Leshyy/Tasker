@@ -20,7 +20,7 @@ class _BoardApp extends Component {
             const { boards } = this.props
             if (boards) {
                 this.setState({ isLoading: false })
-                this.props.history.push(`/board/${boards[0]._id}`)
+                this.props.history.push(`/board/${boards[1]._id}`)
                 return
             }
             if (!boards || !boards.length) {
@@ -35,6 +35,8 @@ class _BoardApp extends Component {
     }
 
     onRemove = async (boardId) => {
+        const { boards } = this.props
+        this.props.history.push(`/board/${boards[1]._id}`)
         await this.props.removeBoard(boardId)
     }
     onAdd = async (board) => {
