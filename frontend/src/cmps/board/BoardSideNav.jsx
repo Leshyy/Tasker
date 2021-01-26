@@ -6,7 +6,6 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
 
-
 export class BoardSideNav extends Component {
     state = {
         isBarShown: false,
@@ -59,8 +58,7 @@ export class BoardSideNav extends Component {
                         Add
                     </button>
                     <button
-                        className="btn-filter flex align-center"
-                    >
+                        className="btn-filter flex align-center">
                         <FilterListIcon />
                         Filter
                     </button>

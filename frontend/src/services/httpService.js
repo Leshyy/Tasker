@@ -1,8 +1,9 @@
 import Axios from 'axios'
 
-const BASE_URL = process.env.NODE_ENV !== 'development'
-    ? '/'
-    : '//localhost:3030/'
+// const BASE_URL = process.env.NODE_ENV === 'development'
+//     ? '/'
+//     : '//localhost:3030/'
+const BASE_URL = '//localhost:3030/'
 
 
 var axios = Axios.create({
