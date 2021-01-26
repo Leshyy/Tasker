@@ -8,14 +8,15 @@
         top: 50%;
         color: white;
         font-size: 15px;
+        font-weight: 600;
         background-color: #00ca72;
         border-radius: 0px 0px 16px 16px;
-        transform: rotate(-90deg) translateY(-60px);
+        transform: rotate(-90deg) translateY(-40px);
         padding: 20px 10px 10px 10px;
         cursor: pointer;
         transition: 0.3s;
         &:hover {
-            transform: rotate(-90deg) translateY(-50px);
+            transform: rotate(-90deg) translateY(-30px);
             background-color: #00b164;
         }
     }

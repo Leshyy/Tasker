@@ -18,8 +18,9 @@ const session = expressSession({
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(session)
+app.use(express.static('public'));
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV !== 'development') {
     app.use(express.static(path.resolve(__dirname, 'public')))
 } else {
     const corsOptions = {

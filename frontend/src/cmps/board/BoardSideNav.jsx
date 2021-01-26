@@ -1,10 +1,10 @@
 import { Component } from "react";
 import { AddCircleOutlineRounded } from "@material-ui/icons";
+import FilterListIcon from '@material-ui/icons/FilterList';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { BoardFilter } from "./BoardFilter";
 import { BoardList } from "./BoardList";
-import FilterListIcon from '@material-ui/icons/FilterList';
 
 export class BoardSideNav extends Component {
     state = {

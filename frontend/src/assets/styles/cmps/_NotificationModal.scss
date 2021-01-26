@@ -1,18 +1,36 @@
 .noti-modal {
     position: absolute;
+    top: 0;
+    left: 60px;
+    z-index: 5;
     width: 450px;
     height: 250px;
-    left: 60px;
-    top: 0;
-    border-radius: 3px;
+    padding: 5px 10px;
     background-color: rgb(243, 243, 243);
     box-shadow: -1px 10px 44px -20px rgba(0, 0, 0, 0.94);
-    padding: 5px 10px;
+    border-radius: 3px;
     text-align: left;
+    overflow: auto;
     .noti-header {
         font-weight: bold;
         font-size: 24px;
         text-transform: capitalize;
         padding-bottom: 7px;
+    }
+    //   SIDE-BAR
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 }
