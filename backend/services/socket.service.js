@@ -21,7 +21,6 @@ function connectSockets(http, session) {
     }));
     gIo.on('connection', socket => {
         console.log('connection');
-        // console.log('socket.handshake', socket.handshake)
         gSocketBySessionIdMap[socket.handshake.sessionID] = socket
         socket.on('disconnect', socket => {
             console.log('Someone disconnected')
@@ -38,17 +37,14 @@ function connectSockets(http, session) {
             socket.myTopic = topic
         })
         socket.on('board update', msg => {
-            // socket.to(socket.myTopic).emit('update board', 'update from server')
-            socket.broadcast.emit('update board', 'update from server')
+            socket.to(socket.myTopic).emit('update board', 'update from server')
+            // socket.broadcast.emit('update board', 'update from server')
         })
         socket.on('boards update', msg => {
-            socket.broadcast.emit('update boards', 'update from server')
-        })
-        socket.on('chat msg', msg => {
-            socket.broadcast.emit('chat update', msg)
+            socket.to(socket.myTopic).emit('update boards', 'update from server')
+            // socket.broadcast.emit('update boards', 'update from server')
         })
         socket.on('task add member', (notification) => {
-            console.log('tak');
             // socket.to(socket.myTopic).emit('board add notification', notification)
             socket.broadcast.emit('board add notification', notification)
         })

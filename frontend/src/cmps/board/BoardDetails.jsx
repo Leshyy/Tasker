@@ -23,6 +23,7 @@ export class _BoardDetails extends Component {
     componentDidMount() {
         this.loadActiveBoard()
         this.setUpListeners()
+        socketService.emit('chat topic', this.props.match.params.boardId)
     }
 
     setUpListeners = () => {
@@ -37,6 +38,7 @@ export class _BoardDetails extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
+            socketService.emit('chat topic', this.props.match.params.boardId)
             this.loadActiveBoard()
         }
     }

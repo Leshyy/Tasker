@@ -79,7 +79,7 @@ class _BoardApp extends Component {
 const mapGlobalStateToProps = (state) => {
     return {
         boards: state.boardReducer.boards,
-        activeBoard: state.boardReducer.activeBoard
+        activeBoard: state.boardReducer.activeBoard,
     };
 };
 const mapDispatchToProps = {

@@ -85,7 +85,7 @@ function _createBoard(boardName) {
         creator: {
             _id: "600877404b50bc8b342c1732",
             fullname: "Tair Bitan",
-            imgUrl: ""
+            imgUrl: "https://res.cloudinary.com/tair/image/upload/v1611221821/Tair_xdnngm.jpg"
         },
         groups: [
             groupService.createGroup('group1'),

@@ -38,7 +38,7 @@
             z-index: 12;
             flex-direction: row;
             justify-content: space-between;
-            .tab-name{
+            .tab-name {
                 display: none;
             }
             .header-left-panel {
@@ -123,15 +123,25 @@
             box-shadow: 0px 3px 6px 0px #484444;
         }
         .btn-toggle-sidenav {
+            width: 33px;
+            height: 33px;
             top: -10px;
-            left: 180px;
+            left: 167px;
             z-index: 13;
+            .MuiSvgIcon-root {
+                font-size: 1.2rem;
+            }
         }
         .board-side-nav-close {
             .btn-toggle-sidenav {
-                top: 60px;
+                width: 33px;
+                height: 33px;
+                top: 56px;
                 left: -7px;
                 z-index: 13;
+                .MuiSvgIcon-root {
+                    font-size: 1.2rem;
+                }
             }
         }
         .board-main {
