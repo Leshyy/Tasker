@@ -17,4 +17,20 @@
         text-transform: capitalize;
         padding-bottom: 7px;
     }
+    //   SIDE-BAR
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
