@@ -33,7 +33,7 @@ export function updateUser(user) {
             const loggedInUser = await userService.getById('600877404b50bc8b342c1734')
             dispatch({ type: 'SET_USER', user: loggedInUser })
         } catch (err) {
-            console.log('user Actions: err in loadUsers', err)
+            console.log('user Actions: err in updateUser', err)
         } finally {
         }
     }
@@ -44,7 +44,7 @@ export function loginUser(user) {
         try {
             dispatch({ type: 'LOGIN_USER', user })
         } catch (err) {
-            console.log('user Actions: err in loadUsers', err)
+            console.log('user Actions: err in loginUser', err)
         } finally {
         }
     }
